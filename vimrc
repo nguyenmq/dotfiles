@@ -8,7 +8,7 @@ if has( "gui_running" )
     set guioptions-=m
     set guioptions+=P
     set guicursor+=a:blinkon0
-    set lines=80 columns=150
+    set lines=70 columns=180
     colorscheme summerfruit
 else
     colorscheme noctu
@@ -45,13 +45,20 @@ noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
+" map ctrl+[hjkl] to switch to other buffers
+noremap <C-J>     <C-W>j
+noremap <C-K>     <C-W>k
+noremap <C-H>     <C-W>h
+noremap <C-L>     <C-W>l
+
+" configure numbers plugin
+nnoremap <C-N>          :NumbersToggle<CR>
+let g:numbers_exclude = ['tagbar', 'minibufexpl']
+
 " minibufexpl settings
-let g:miniBufExplMapWindowNavVim = 1 
-let g:miniBufExplMapWindowNavArrows = 1 
-let g:miniBufExplMapCTabSwitchBufs = 1 
-let g:miniBufExplModSelTarget = 1
 if has( "gui_running" )    
     let g:miniBufExplorerMoreThanOne = 1
+    let g:miniBufExplVSplit = 23
 else
     let g:miniBufExplorerMoreThanOne = 2
 endif
@@ -59,7 +66,7 @@ endif
 " tagbar settings
 nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>
 nnoremap <silent> <F2> :TagbarToggle<CR>
-let g:tagbar_width=23
+let g:tagbar_width = 25
 let g:tagbar_type_c = {
     \ 'kinds' : [
         \ 'd:macros:1:0',
@@ -73,14 +80,6 @@ let g:tagbar_type_c = {
         \ 'p:prototypes:0:0',
         \ 'f:functions',
     \ ],
-\ }
-let g:tagbar_type_prslog = {
-    \ 'ctagstype' : 'prslog',
-    \ 'kinds' : [
-        \ 'd:Date',
-        \ 's:Reminders'
-    \ ],
-    \ 'sort'      : 0
 \ }
 let g:tagbar_type_cpp = {
     \ 'kinds' : [
