@@ -1,18 +1,7 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-if has( "gui_running" )    
-    "set guifont=Consolas\ 10
-    set guifont=Oxygen\ Mono\ 9
-	set guioptions-=T
-    set guioptions-=m
-    set guioptions+=P
-    set guicursor+=a:blinkon0
-    set lines=70 columns=180
-    colorscheme summerfruit
-else
-    colorscheme noctu
-endif
+colorscheme noctu
 
 syntax on
 set number
@@ -36,9 +25,12 @@ abbr mnu set guioptions+=m
 abbr tw0 set tw=0
 abbr tw60 set tw=60
 abbr tw70 set tw=70
-abbr tw72 set tw=72
 abbr tw80 set tw=80
 abbr tnew tabnew
+
+" define commands for setting height and width
+command -nargs=1 Width vertical resize <args>
+command -nargs=1 Height resize <args>
 
 " use ctrl+s for saving
 noremap <silent> <C-S>          :update<CR>
@@ -56,12 +48,7 @@ nnoremap <C-N>          :NumbersToggle<CR>
 let g:numbers_exclude = ['tagbar', 'minibufexpl']
 
 " minibufexpl settings
-if has( "gui_running" )    
-    let g:miniBufExplorerMoreThanOne = 1
-    let g:miniBufExplVSplit = 23
-else
-    let g:miniBufExplorerMoreThanOne = 2
-endif
+let g:miniBufExplorerMoreThanOne = 2
 
 " tagbar settings
 nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>
@@ -97,14 +84,4 @@ let g:tagbar_type_cpp = {
         \ 'f:functions',
     \ ],
 \ }
-
-" some final things to set up in the gui
-if has( "gui_running" )    
-    highlight ColorColumn guibg=AliceBlue
-    set colorcolumn+=25
-    set colorcolumn+=37
-    set colorcolumn+=60
-    set colorcolumn+=70
-    execute "set colorcolumn+=" . join(range(81,335), ',')
-endif
 
