@@ -7,11 +7,11 @@ if has( "gui_running" )
 	set guioptions-=T
     set guioptions-=m
     set guioptions+=P
-    colors summerfruit256
     set guicursor+=a:blinkon0
-    set lines=80 columns=110
+    set lines=80 columns=150
+    colorscheme summerfruit
 else
-    colors ron
+    colorscheme noctu
 endif
 
 syntax on
@@ -26,6 +26,7 @@ set wildmenu
 set expandtab
 set backspace=2
 set incsearch
+set cursorline
 
 "abbreviations
 abbr fbol FALSE
