@@ -1,3 +1,6 @@
+runtime bundle/pathogen/autoload/pathogen.vim
+execute pathogen#infect()
+
 if has( "gui_running" )    
 	"set guifont=Consolas\ 10
     set guifont=Oxygen\ Mono\ 9
