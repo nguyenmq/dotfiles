@@ -5,8 +5,9 @@ colorscheme noctu
 
 syntax on
 set number
-set ts=4
-set sw=4
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set ai
 set nowrap
 set hlsearch
@@ -15,7 +16,10 @@ set wildmenu
 set expandtab
 set backspace=2
 set incsearch
-set cursorline
+set ignorecase
+
+" set up macros
+let @p='24|r*'
 
 "abbreviations
 abbr fbol FALSE
@@ -27,6 +31,19 @@ abbr tw60 set tw=60
 abbr tw70 set tw=70
 abbr tw80 set tw=80
 abbr tnew tabnew
+
+if has( "autocmd" )
+    filetype on
+    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+    autocmd FileType gitcommit setlocal tw=72
+endif
+
+" highlight the current line in the current buffer window
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
 
 " define commands for setting height and width
 command -nargs=1 Width vertical resize <args>
@@ -47,7 +64,7 @@ noremap <C-L>     <C-W>l
 
 " configure numbers plugin
 noremap <silent> <C-N>          :NumbersToggle<CR>
-let g:enable_numbers = 0
+" let g:enable_numbers = 0
 
 " minibufexpl settings
 if has( "gui_running" )
