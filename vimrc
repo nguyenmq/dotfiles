@@ -32,6 +32,8 @@ abbr tnew tabnew
 command -nargs=1 Width vertical resize <args>
 command -nargs=1 Height resize <args>
 
+inoremap jk <Esc>
+
 " use ctrl+s for saving
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
@@ -44,8 +46,8 @@ noremap <C-H>     <C-W>h
 noremap <C-L>     <C-W>l
 
 " configure numbers plugin
-nnoremap <C-N>          :NumbersToggle<CR>
-let g:numbers_exclude = ['tagbar', 'minibufexpl']
+noremap <silent> <C-N>          :NumbersToggle<CR>
+let g:enable_numbers = 0
 
 " minibufexpl settings
 if has( "gui_running" )
