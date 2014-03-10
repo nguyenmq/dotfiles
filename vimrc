@@ -48,7 +48,11 @@ nnoremap <C-N>          :NumbersToggle<CR>
 let g:numbers_exclude = ['tagbar', 'minibufexpl']
 
 " minibufexpl settings
-let g:miniBufExplorerMoreThanOne = 2
+if has( "gui_running" )
+    let g:miniBufExplorerMoreThanOne = 1
+else
+    let g:miniBufExplorerMoreThanOne = 2
+endif
 
 " tagbar settings
 nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>

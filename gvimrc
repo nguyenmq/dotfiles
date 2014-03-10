@@ -7,8 +7,7 @@ set lines=70 columns=180
 colorscheme summerfruit
 
 " gvim minibufexp settings
-let g:miniBufExplorerMoreThanOne = 1
-let g:miniBufExplVSplit = 23
+let g:miniBufExplVSplit=23
 
 " some final things to set up in the gui
 highlight ColorColumn guibg=AliceBlue
