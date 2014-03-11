@@ -48,6 +48,9 @@ augroup END
 " define commands for setting height and width
 command -nargs=1 Width vertical resize <args>
 command -nargs=1 Height resize <args>
+command -nargs=1 Csg :cs find g <args>
+command -nargs=1 Csf :cs find f <args>
+command -nargs=1 Css :cs find s <args>
 
 inoremap jk <Esc>
 
@@ -64,7 +67,7 @@ noremap <C-L>     <C-W>l
 
 " configure numbers plugin
 noremap <silent> <C-N>          :NumbersToggle<CR>
-" let g:enable_numbers = 0
+let g:numbers_exclude = ['tagbar', 'minibufexpl', 'help', '' ]
 
 " minibufexpl settings
 if has( "gui_running" )
