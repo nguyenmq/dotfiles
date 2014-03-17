@@ -17,6 +17,7 @@ set expandtab
 set backspace=2
 set incsearch
 set ignorecase
+set background=dark
 
 " set up macros
 let @p='24|r*'
@@ -67,7 +68,7 @@ noremap <C-L>     <C-W>l
 
 " configure numbers plugin
 noremap <silent> <C-N>          :NumbersToggle<CR>
-let g:numbers_exclude = ['tagbar', 'minibufexpl', 'help', '' ]
+let g:numbers_exclude = ['tagbar', 'minibufexpl', 'help' ]
 
 " minibufexpl settings
 if has( "gui_running" )
