@@ -21,6 +21,9 @@ set background=dark
 
 " set up macros
 let @p='24|r*'
+let @c='O/60a*61|Do*59a*60|C/k^'
+let @g='O#60a*61|Do#60a*61|DO# '
+let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/59a*ok59a*a/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa o`akkO	1Description:	descb'
 
 "abbreviations
 abbr fbol FALSE
@@ -37,6 +40,7 @@ if has( "autocmd" )
     filetype on
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType gitcommit setlocal tw=72
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 endif
 
 " highlight the current line in the current buffer window

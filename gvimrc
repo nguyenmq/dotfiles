@@ -1,13 +1,13 @@
 if has( "win32" )
     set guifont=Consolas:h10
 else
-    set guifont=Oxygen\ Mono\ 9
+    set guifont=Monospace\ 9
 endif
 set guioptions-=T
 set guioptions-=m
 set guioptions+=P
 set guicursor+=a:blinkon0
-set lines=70 columns=180
+set lines=70 columns=135
 colorscheme summerfruit
 
 " gvim minibufexp settings
