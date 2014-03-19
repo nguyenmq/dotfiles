@@ -18,6 +18,7 @@ set backspace=2
 set incsearch
 set ignorecase
 set background=dark
+set formatoptions=tcq
 
 " set up macros
 let @p='24|r*'
@@ -40,7 +41,6 @@ if has( "autocmd" )
     filetype on
     autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
     autocmd FileType gitcommit setlocal tw=72
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 endif
 
 " highlight the current line in the current buffer window
