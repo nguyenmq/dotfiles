@@ -1,4 +1,8 @@
-set guifont=Oxygen\ Mono\ 9
+if has( "win32" )
+    set guifont=Consolas:h10
+else
+    set guifont=Oxygen\ Mono\ 9
+endif
 set guioptions-=T
 set guioptions-=m
 set guioptions+=P
