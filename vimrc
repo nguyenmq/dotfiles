@@ -8,7 +8,7 @@ set number
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set ai
+set autoindent
 set nowrap
 set hlsearch
 set wildmode=longest,list,full
@@ -18,7 +18,6 @@ set backspace=2
 set incsearch
 set ignorecase
 set background=dark
-set formatoptions=tcq
 
 " set up macros
 let @p='24|r*'
@@ -36,12 +35,6 @@ abbr tw60 set tw=60
 abbr tw70 set tw=70
 abbr tw80 set tw=80
 abbr tnew tabnew
-
-if has( "autocmd" )
-    filetype on
-    autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
-    autocmd FileType gitcommit setlocal tw=72
-endif
 
 " highlight the current line in the current buffer window
 augroup CursorLine
