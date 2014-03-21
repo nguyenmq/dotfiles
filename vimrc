@@ -18,6 +18,7 @@ set backspace=2
 set incsearch
 set ignorecase
 set background=dark
+filetype plugin on
 
 " set up macros
 let @p='24|r*'
@@ -62,6 +63,8 @@ noremap <C-J>     <C-W>j
 noremap <C-K>     <C-W>k
 noremap <C-H>     <C-W>h
 noremap <C-L>     <C-W>l
+
+noremap <Leader>w :%s/\s\+$//g<cr>
 
 " configure numbers plugin
 noremap <silent> <C-N>          :NumbersToggle<CR>
