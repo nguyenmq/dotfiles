@@ -17,54 +17,68 @@ set expandtab
 set backspace=2
 set incsearch
 set ignorecase
-set background=dark
+set background=light
 filetype plugin on
 
-" set up macros
-let @p='24|r*'
-let @c='O/*59a-61|Do-58a-59|C*/k^'
-let @g='O#60a-61|Do#60a-61|DO# '
-let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/59a*ok59a*a/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa o`akkO*	PROCEDURE NAME:*		1**	DESCRIPTION:*		desc*kw'
+"---------------------------------------------------------
+" Set up macros
+"---------------------------------------------------------
+let @p='24|r*'                                              " change variable to a pointer
+let @c='O/*59a-61|Do-58a-59|C*/k^'                " insert C block comment
+let @g='O#60a-61|Do#60a-61|DO# '                    " insert script block comment
+let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/59a*ok59a*a/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa o`akkO**	PROCEDURE NAME:*		1**	DESCRIPTION:*		desc*kw'
+                                                            " insert C function block
 
-"abbreviations
-abbr fbol FALSE
-abbr tbol TRUE
-abbr nll NULL
-abbr mnu set guioptions+=m
+"-----------------------------------------------------------
+" Abbreviations
+"----------------------------------------------------------- abbr nll NULL
 abbr tw0 set tw=0
 abbr tw60 set tw=60
 abbr tw70 set tw=70
 abbr tw80 set tw=80
 abbr tnew tabnew
 
-" highlight the current line in the current buffer window
+"-----------------------------------------------------------
+" Highlight the current line in the current buffer window
+"-----------------------------------------------------------
 augroup CursorLine
     au!
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
 
-" define commands for setting height and width
-command -nargs=1 Width vertical resize <args>
-command -nargs=1 Height resize <args>
-command -nargs=1 Csg :cs find g <args>
-command -nargs=1 Csf :cs find f <args>
-command -nargs=1 Css :cs find s <args>
+"-----------------------------------------------------------
+" Define new commands
+"-----------------------------------------------------------
+command -nargs=1 Width vertical resize <args>               " set width of window
+command -nargs=1 Height resize <args>                       " set height of window
+command -nargs=1 Csg :cs find g <args>                      " cscope find definition
+command -nargs=1 Csf :cs find f <args>                      " cscope find file name
+command -nargs=1 Css :cs find s <args>                      " cscope find all uses
 
+"-----------------------------------------------------------
+" New mappings
+"-----------------------------------------------------------
 inoremap jk <Esc>
-
-" use ctrl+s for saving
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
-
-" map ctrl+[hjkl] to switch to other buffers
+                                                            " map jk to escape
+noremap  <silent> <C-S> :update<CR>
+                                                            " ctrl+s to save
+vnoremap <silent> <C-S> <C-C>:update<CR>
+                                                            " ctrl+s to save
+inoremap <silent> <C-S> <C-O>:update<CR>
+                                                            " ctrl+s to save
 noremap <C-J>     <C-W>j
+                                                            " move to window below
 noremap <C-K>     <C-W>k
+                                                            " move to window above
 noremap <C-H>     <C-W>h
+                                                            " move to left window
 noremap <C-L>     <C-W>l
-
+                                                            " move to right window
 noremap <Leader>w :%s/\s\+$//g<cr>
+                                                            " delete trailing whitespace
+noremap <Leader>n :noh
+                                                            " turn off highlighting
 
 " configure numbers plugin
 noremap <silent> <C-N>          :NumbersToggle<CR>
