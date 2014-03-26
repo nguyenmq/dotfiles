@@ -6,6 +6,7 @@ endif
 set guioptions-=T
 set guioptions-=m
 set guioptions+=P
+set guioptions+=c
 set guicursor+=a:blinkon0
 set lines=70 columns=135
 colorscheme summerfruit
