@@ -1,8 +1,9 @@
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-colorscheme noctu
-
+"-----------------------------------------------------------
+" General settings
+"-----------------------------------------------------------
 syntax on
 set number
 set tabstop=4
@@ -14,24 +15,31 @@ set hlsearch
 set wildmode=longest,list,full
 set wildmenu
 set expandtab
-set backspace=2
-set incsearch
-set ignorecase
-set background=light
-filetype plugin on
+set backspace=2                     " backspace over everything
+set incsearch                       " do search as user types
+set ignorecase                      " ignore case when searching
+set smartcase                       " match case when contains uppercase
+colorscheme noctu                   " set colorscheme in terminal
+set background=light                " set background to light for noctu
+filetype plugin on                  " turn on filetype
+set noequalalways                   " keep windows from automatically resizing
 
 "---------------------------------------------------------
 " Set up macros
 "---------------------------------------------------------
-let @p='24|r*'                                              " change variable to a pointer
-let @c='O/*59a-61|Do-58a-59|C*/k^'                " insert C block comment
-let @g='O#60a-61|Do#60a-61|DO# '                    " insert script block comment
-let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/59a*ok59a*a/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa o`akkO**	PROCEDURE NAME:*		1**	DESCRIPTION:*		desc*kw'
-                                                            " insert C function block
+let @p='24|r*'
+                                    " change variable to a pointer
+let @c='O/*59a-61|Do-58a-59|C*/k^'
+                                    " insert C block comment
+let @g='O#60a-61|Do#60a-61|DO# '
+                                    " insert script block comment
+let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa o`akkO**	PROCEDURE NAME:*		1**	DESCRIPTION:*		desc*kw'
+                                    " insert C function block
 
 "-----------------------------------------------------------
 " Abbreviations
-"----------------------------------------------------------- abbr nll NULL
+"-----------------------------------------------------------
+abbr nll NULL
 abbr tw0 set tw=0
 abbr tw60 set tw=60
 abbr tw70 set tw=70
@@ -50,51 +58,76 @@ augroup END
 "-----------------------------------------------------------
 " Define new commands
 "-----------------------------------------------------------
-command -nargs=1 Width vertical resize <args>               " set width of window
-command -nargs=1 Height resize <args>                       " set height of window
-command -nargs=1 Csg :cs find g <args>                      " cscope find definition
-command -nargs=1 Csf :cs find f <args>                      " cscope find file name
-command -nargs=1 Css :cs find s <args>                      " cscope find all uses
+command -nargs=1 Width vertical resize <args>
+                                    " set width of window
+command -nargs=1 Height resize <args>
+                                    " set height of window
+command -nargs=1 Csg :cs find g <args>
+                                    " cscope find definition
+command -nargs=1 Csf :cs find f <args>
+                                    " cscope find file name
+command -nargs=1 Css :cs find s <args>
+                                    " cscope find all uses
 
 "-----------------------------------------------------------
 " New mappings
 "-----------------------------------------------------------
+let mapleader = "\<space>"
+                                    " map leader key to space
 inoremap jk <Esc>
-                                                            " map jk to escape
+                                    " map jk to escape
 noremap  <silent> <C-S> :update<CR>
-                                                            " ctrl+s to save
+                                    " ctrl+s to save
 vnoremap <silent> <C-S> <C-C>:update<CR>
-                                                            " ctrl+s to save
+                                    " ctrl+s to save
 inoremap <silent> <C-S> <C-O>:update<CR>
-                                                            " ctrl+s to save
+                                    " ctrl+s to save
 noremap <C-J>     <C-W>j
-                                                            " move to window below
+                                    " move to window below
 noremap <C-K>     <C-W>k
-                                                            " move to window above
+                                    " move to window above
 noremap <C-H>     <C-W>h
-                                                            " move to left window
+                                    " move to left window
 noremap <C-L>     <C-W>l
-                                                            " move to right window
-noremap <Leader>w :%s/\s\+$//g<cr>
-                                                            " delete trailing whitespace
-noremap <Leader>n :noh
-                                                            " turn off highlighting
+                                    " move to right window
+noremap <Leader>w :%s/\s\+$//g<CR>
+                                    " delete trailing whitespace
+noremap <Leader>n :noh<CR>
+                                    " turn off highlighting
 
-" configure numbers plugin
-noremap <silent> <C-N>          :NumbersToggle<CR>
-let g:numbers_exclude = ['tagbar', 'minibufexpl', 'help' ]
+"-----------------------------------------------------------
+" Configure FuzzyFinder
+"-----------------------------------------------------------
+noremap <silent> <Leader>b :FufBuffer<cr>
+                                    " search open buffers
+noremap <silent> <Leader>t :FufBufferTag<cr>
+                                    " search tags in current buffer
+noremap <silent> <Leader>f :FufCoverageFile<cr>
+                                    " search file recursively
+noremap <silent> <Leader>g :FufFile<cr>
+                                    " search files
+noremap <silent> <Leader>l :FufLine<cr>
+                                    " search lines in current buffer
 
-" minibufexpl settings
-if has( "gui_running" )
-    let g:miniBufExplorerMoreThanOne = 1
-else
-    let g:miniBufExplorerMoreThanOne = 2
-endif
+"-----------------------------------------------------------
+" Configure numbers plugin
+"-----------------------------------------------------------
+noremap <silent> <C-N> :NumbersToggle<CR>
+                                    " toggle numbers on/off
+let g:numbers_exclude = [ 'help' ]
+                                    " excluded filetypes
 
-" tagbar settings
+"-----------------------------------------------------------
+" Configure tagbar
+"-----------------------------------------------------------
 nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>
+                                    " jump to tagbar window
 nnoremap <silent> <F2> :TagbarToggle<CR>
-let g:tagbar_width = 25
+                                    " open/close tagbar window
+let g:tagbar_show_linenumbers = -1
+                                    " show line numbers in tagbar
+let g:tagbar_width = 30
+                                    " set width of tagbar window
 let g:tagbar_type_c = {
     \ 'kinds' : [
         \ 'd:macros:1:0',
@@ -108,7 +141,7 @@ let g:tagbar_type_c = {
         \ 'p:prototypes:0:0',
         \ 'f:functions',
     \ ],
-\ }
+\ }                                 " customize display of C tags
 let g:tagbar_type_cpp = {
     \ 'kinds' : [
         \ 'd:macros:1:0',
@@ -124,5 +157,5 @@ let g:tagbar_type_cpp = {
         \ 'p:prototypes:0:0',
         \ 'f:functions',
     \ ],
-\ }
+\ }                                 " customize display of header files
 
