@@ -96,17 +96,20 @@ noremap <Leader>n :noh<CR>
                                     " turn off highlighting
 
 "-----------------------------------------------------------
-" Configure FuzzyFinder
+" Configure CtrlP
 "-----------------------------------------------------------
-noremap <silent> <Leader>b :FufBuffer<cr>
+let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_custom_ignore = {
+    \ 'file': '\v\.(o|so|a)$',
+\ }
+noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
-noremap <silent> <Leader>t :FufBufferTag<cr>
+noremap <silent> <Leader>t :CtrlPBufTag<cr>
                                     " search tags in current buffer
-noremap <silent> <Leader>f :FufCoverageFile<cr>
+noremap <silent> <Leader>f :CtrlP<cr>
                                     " search file recursively
-noremap <silent> <Leader>g :FufFile<cr>
-                                    " search files
-noremap <silent> <Leader>l :FufLine<cr>
+noremap <silent> <Leader>l :CtrlPLine<cr>
                                     " search lines in current buffer
 
 "-----------------------------------------------------------
