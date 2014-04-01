@@ -90,16 +90,18 @@ noremap <C-H>     <C-W>h
                                     " move to left window
 noremap <C-L>     <C-W>l
                                     " move to right window
-noremap <Leader>w :%s/\s\+$//g<CR>
+noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
                                     " delete trailing whitespace
 noremap <Leader>n :noh<CR>
                                     " turn off highlighting
+noremap <Leader>c :TagbarClose<CR> :bo 7cope<CR> :TagbarToggle<CR>
+                                    " open the quick fix menu
 
 "-----------------------------------------------------------
 " Configure CtrlP
 "-----------------------------------------------------------
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(o|so|a)$',
 \ }
