@@ -23,6 +23,7 @@ colorscheme noctu                   " set colorscheme in terminal
 set background=light                " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
+set laststatus=2                    " always show status line
 
 "---------------------------------------------------------
 " Set up macros
@@ -96,6 +97,11 @@ noremap <Leader>n :noh<CR>
                                     " turn off highlighting
 noremap <Leader>c :TagbarClose<CR> :bo 7cope<CR> :TagbarToggle<CR>
                                     " open the quick fix menu
+
+"-----------------------------------------------------------
+" Configure airline
+"-----------------------------------------------------------
+let g:airline_theme = 'bubblegum'
 
 "-----------------------------------------------------------
 " Configure CtrlP
