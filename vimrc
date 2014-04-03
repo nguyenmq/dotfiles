@@ -101,7 +101,7 @@ noremap <Leader>c :TagbarClose<CR> :bo 7cope<CR> :TagbarToggle<CR>
 " Configure CtrlP
 "-----------------------------------------------------------
 let g:ctrlp_switch_buffer = 'Et'
-let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(o|so|a)$',
 \ }
