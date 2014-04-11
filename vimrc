@@ -24,6 +24,9 @@ set background=light                " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
+set numberwidth=5
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+                                    " open cscope results in quickfix
 
 "---------------------------------------------------------
 " Set up macros
@@ -106,7 +109,7 @@ let g:airline_theme = 'bubblegum'
 "-----------------------------------------------------------
 " Configure CtrlP
 "-----------------------------------------------------------
-let g:ctrlp_switch_buffer = 'Et'
+let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(o|so|a)$',
