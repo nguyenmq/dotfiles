@@ -24,7 +24,8 @@ set background=light                " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
-set numberwidth=5
+set numberwidth=5                   " set the width of the number line
+set switchbuf=useopen
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 
@@ -98,13 +99,13 @@ noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
                                     " delete trailing whitespace
 noremap <Leader>n :noh<CR>
                                     " turn off highlighting
-noremap <Leader>c :TagbarClose<CR> :bo 7cope<CR> :TagbarToggle<CR>
+noremap <Leader>c :TagbarClose<CR>:bo 7cope<CR>:TagbarOpen<CR>k
                                     " open the quick fix menu
 
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'lucius'
 
 "-----------------------------------------------------------
 " Configure CtrlP

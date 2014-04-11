@@ -8,7 +8,7 @@ set guioptions-=m
 set guioptions+=P
 set guioptions+=c
 set guicursor+=a:blinkon0
-set lines=70 columns=135
+set lines=50 columns=150
 colorscheme summerfruit256
 
 " some final things to set up in the gui
