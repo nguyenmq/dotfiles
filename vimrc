@@ -101,6 +101,10 @@ noremap <Leader>n :noh<CR>
                                     " turn off highlighting
 noremap <Leader>c :TagbarClose<CR>:bo 7cope<CR>:TagbarOpen<CR>k
                                     " open the quick fix menu
+noremap <silent> <Leader>e :cn<CR>
+                                    " go to next error in quickfix
+noremap <silent> <Leader>E :cN<CR>
+                                    " go to previous error in quickfix
 
 "-----------------------------------------------------------
 " Configure airline
