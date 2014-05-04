@@ -25,7 +25,8 @@ filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
 set numberwidth=5                   " set the width of the number line
-set switchbuf=useopen
+set switchbuf=useopen               " use current window if open when jumping from quickfix
+set noerrorbells visualbell t_vb=   " turn off bells
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 
@@ -50,6 +51,11 @@ abbr tw60 set tw=60
 abbr tw70 set tw=70
 abbr tw80 set tw=80
 abbr tnew tabnew
+
+"-----------------------------------------------------------
+" Auto commands
+"-----------------------------------------------------------
+autocmd GUIEnter * set visualbell t_vb=
 
 "-----------------------------------------------------------
 " Highlight the current line in the current buffer window
