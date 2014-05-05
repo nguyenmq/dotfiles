@@ -22,3 +22,5 @@ set colorcolumn+=81
 
 highlight Search guibg=limegreen
 highlight CursorLine guibg=gray95
+highlight DiffChange guibg=LavenderBlush2
+highlight DiffText guibg=plum guifg=NavyBlue

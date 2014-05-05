@@ -123,7 +123,7 @@ let g:airline_theme = 'lucius'
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a)$',
+    \ 'file': '\v\.(o|so|a|o32)$',
 \ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
