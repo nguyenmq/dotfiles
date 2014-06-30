@@ -31,3 +31,6 @@
 [submodule "bundle/summerfruit256"]
 	path = bundle/summerfruit256
 	url = https://github.com/vim-scripts/summerfruit256.vim.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = https://github.com/ervandew/supertab.git

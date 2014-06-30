@@ -20,6 +20,15 @@ set colorcolumn+=70
 set colorcolumn+=81
 " execute "set colorcolumn+=" . join(range(81,335), ',')
 
+"-----------------------------------------------------------
+" Highlight the current line in the current buffer window
+"-----------------------------------------------------------
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
 highlight Search guibg=limegreen
 highlight CursorLine guibg=gray95
 highlight DiffChange guibg=LavenderBlush2

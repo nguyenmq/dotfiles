@@ -19,8 +19,8 @@ set backspace=2                     " backspace over everything
 set incsearch                       " do search as user types
 set ignorecase                      " ignore case when searching
 set smartcase                       " match case when contains uppercase
-colorscheme noctu                   " set colorscheme in terminal
-set background=light                " set background to light for noctu
+colorscheme summerfruit256          " set colorscheme in terminal
+set background=dark                 " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
@@ -56,15 +56,6 @@ abbr tnew tabnew
 " Auto commands
 "-----------------------------------------------------------
 autocmd GUIEnter * set visualbell t_vb=
-
-"-----------------------------------------------------------
-" Highlight the current line in the current buffer window
-"-----------------------------------------------------------
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
 
 "-----------------------------------------------------------
 " Define new commands
@@ -151,7 +142,7 @@ nnoremap <silent> <F2> :TagbarToggle<CR>
                                     " open/close tagbar window
 let g:tagbar_show_linenumbers = -1
                                     " show line numbers in tagbar
-let g:tagbar_width = 30
+let g:tagbar_width = 35
                                     " set width of tagbar window
 let g:tagbar_type_c = {
     \ 'kinds' : [
