@@ -126,7 +126,7 @@ noremap <silent> <Leader>t :CtrlPBufTag<cr>
                                     " search tags in current buffer
 noremap <silent> <Leader>f :CtrlP<cr>
                                     " search file recursively
-noremap <silent> <Leader>l :CtrlPLine<cr>
+noremap <silent> <Leader>l :CtrlPLine %<cr>
                                     " search lines in current buffer
 
 "-----------------------------------------------------------
