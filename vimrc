@@ -102,6 +102,10 @@ noremap <silent> <Leader>e :cn<CR>
                                     " go to next error in quickfix
 noremap <silent> <Leader>E :cN<CR>
                                     " go to previous error in quickfix
+noremap <silent> <Leader>v :vs<CR>
+                                    " vertical split
+noremap <silent> <Leader>h :sp<CR>
+                                    " horizonal split
 
 "-----------------------------------------------------------
 " Configure airline
