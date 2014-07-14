@@ -38,7 +38,7 @@ let @c='O/*59a-61|Do-58a-59|C*/k^'
                                     " insert C block comment
 let @g='O#60a-61|Do#60a-61|DO# '
                                     " insert script block comment
-let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa() o`akkO**	PROCEDURE NAME:*		1**	DESCRIPTION:*		desc*kw'
+let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
                                     " insert C function block
 
 "-----------------------------------------------------------
