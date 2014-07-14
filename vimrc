@@ -19,7 +19,6 @@ set backspace=2                     " backspace over everything
 set incsearch                       " do search as user types
 set ignorecase                      " ignore case when searching
 set smartcase                       " match case when contains uppercase
-colorscheme summerfruit256          " set colorscheme in terminal
 set background=dark                 " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
@@ -110,7 +109,7 @@ noremap <silent> <Leader>h :sp<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme = 'lucius'
+let g:airline_theme = 'solarized'
 
 "-----------------------------------------------------------
 " Configure CtrlP

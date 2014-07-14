@@ -8,17 +8,8 @@ set guioptions-=m
 set guioptions+=P
 set guioptions+=c
 set guicursor+=a:blinkon0
-set lines=50 columns=150
-colorscheme summerfruit256
-
-" some final things to set up in the gui
-highlight ColorColumn guibg=MintCream
-set colorcolumn+=25
-set colorcolumn+=37
-set colorcolumn+=60
-set colorcolumn+=70
-set colorcolumn+=81
-" execute "set colorcolumn+=" . join(range(81,335), ',')
+"set lines=50 columns=150
+colorscheme lime
 
 "-----------------------------------------------------------
 " Highlight the current line in the current buffer window
@@ -29,7 +20,24 @@ augroup CursorLine
     au WinLeave * setlocal nocursorline
 augroup END
 
-highlight Search guibg=limegreen
-highlight CursorLine guibg=gray95
-highlight DiffChange guibg=LavenderBlush2
-highlight DiffText guibg=plum guifg=NavyBlue
+let s:color_column_enable=0
+function! ColorColumnToggle()
+    if( s:color_column_enable == 1 )
+        let s:color_column_enable=0
+        set colorcolumn=0
+    else
+        let s:color_column_enable=1
+        set colorcolumn=25
+        set colorcolumn+=37
+        set colorcolumn+=60
+        set colorcolumn+=70
+        set colorcolumn+=81
+    endif
+endfunc
+command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
+noremap <silent> <Leader>i :ColorColumnToggle<CR>
+call ColorColumnToggle()
+
+"highlight CursorLine guibg=gray95
+"highlight DiffChange guibg=LavenderBlush2
+"highlight DiffText guibg=plum guifg=NavyBlue
