@@ -109,7 +109,7 @@ noremap <silent> <Leader>h :sp<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme = 'solarized'
+let g:airline_theme = 'kolor'
 
 "-----------------------------------------------------------
 " Configure CtrlP

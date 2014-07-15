@@ -11,8 +11,8 @@ let s:gui05 = "c5c8c6"          " getting pretty close to white grey
 let s:gui06 = "e0e0e0"          " off white
 let s:gui07 = "ffffff"          " white duh
 let s:gui08 = "d22e2e"          " red
-let s:gui09 = "F96A38"          " orange
-let s:gui0A = "FBA922"          " yellow
+let s:gui09 = "ff7a4c"          " orange
+let s:gui0A = "efb758"          " yellow
 let s:gui0B = "32882D"          " green
 let s:gui0C = "3971ED"          " blue
 let s:gui0D = "3971ED"          " blue
@@ -137,7 +137,7 @@ call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui01, s:gui09, s:cterm01, s:cterm09, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "")
-call <sid>hi("MatchParen",    s:gui06, s:gui0B, s:cterm00, s:cterm03,  "")
+call <sid>hi("MatchParen",    s:gui05, s:gui0E, s:cterm00, s:cterm03,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
@@ -151,9 +151,9 @@ call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("Cursor",        s:gui00, s:gui04, s:cterm00, s:cterm05, "")
+call <sid>hi("Cursor",        s:gui05, s:gui10, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
-call <sid>hi("Normal",        s:gui04, s:gui00, s:cterm05, s:cterm00, "")
+call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")

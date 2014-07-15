@@ -1,7 +1,7 @@
 if has( "win32" )
     set guifont=Consolas:h10
 else
-    set guifont=Consolas\ 10
+    set guifont=Consolas\ 11
 endif
 set guioptions-=T
 set guioptions-=m
