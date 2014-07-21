@@ -19,7 +19,7 @@ let s:gui0D = "3971ED"          " blue
 let s:gui0E = "A36AC7"          " lavender
 let s:gui0F = "3971ED"          " blue
 let s:gui10 = "445b4b"          " greyish dark green
-let s:gui11 = "12181a"          " black
+let s:gui11 = "12181a"          " dark grey, but lighter than gui00
 
 " Terminal color definitions
 let s:cterm00 = "00"
@@ -141,7 +141,7 @@ call <sid>hi("MatchParen",    s:gui05, s:gui10, s:cterm00, s:cterm03,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Search",        s:gui08, s:gui0A, s:cterm03, s:cterm0A,  "")
+call <sid>hi("Search",        s:gui10, s:gui0A, s:cterm03, s:cterm0A,  "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
@@ -151,7 +151,7 @@ call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0D, "", s:cterm0D, "", "none")
 call <sid>hi("Conceal",       s:gui0D, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("Cursor",        s:gui00, s:gui0B, s:cterm00, s:cterm05, "")
+call <sid>hi("Cursor",        s:gui00, s:gui04, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui04, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
