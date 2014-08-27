@@ -137,6 +137,14 @@ let g:numbers_exclude = [ 'help' ]
                                     " excluded filetypes
 
 "-----------------------------------------------------------
+" Configure fugitive
+"-----------------------------------------------------------
+noremap <silent> <Leader>gb :Gblame<CR>
+                                    " run git blame
+noremap <silent> <Leader>gs :Gstatus<CR>
+                                    " run git status
+
+"-----------------------------------------------------------
 " Configure tagbar
 "-----------------------------------------------------------
 nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>
