@@ -12,8 +12,17 @@ if [ $? -eq 0 ]; then
 else
     # else create a new session
     tmux new-session -d -s $SESSION
-    tmux split-window -v -t $SESSION:0
-    tmux rename-window -t $SESSION:0 hsplit
+
+    # creates window with main horizontal pane and three
+    # smaller ones below
+    tmux select-window -t $SESSION:0
+    tmux split-window -h
+    tmux split-window -h
+    tmux split-window -h
+    tmux rename-window hsplit
+    tmux select-layout main-horizontal
+
+    # create a window with a single pane
     tmux new-window -t $SESSION -n fullscreen
     tmux attach -t $SESSION
 fi

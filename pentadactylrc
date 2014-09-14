@@ -2,6 +2,8 @@
 
 loadplugins '\.(js|penta)$'
 group user
-set passkeys=reddit.com:jkC,mail.google.com:jk#,newsblur.com:jkou,imgur.com:<Left><Right><Up><Down>
+set passkeys=reddit.com:jkCp,mail.google.com:jk#,newsblur.com:jkou,imgur.com:<Left><Right><Up><Down>
+
+js editor.defaultRegister="+"
 
 " vim: set ft=pentadactyl:
