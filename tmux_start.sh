@@ -18,7 +18,6 @@ else
     tmux select-window -t $SESSION:0
     tmux split-window -h
     tmux split-window -h
-    tmux split-window -h
     tmux rename-window hsplit
     tmux select-layout main-horizontal
 
