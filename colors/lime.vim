@@ -14,7 +14,7 @@ let s:gui08 = "d22e2e"          " red
 let s:gui09 = "dc5dd7"          " pink
 let s:gui0A = "97ac35"          " yellow
 let s:gui0B = "22a21f"          " green
-let s:gui0F = "0086d2"          " blue
+let s:gui0F = "0086d2"          " blue, does not get used
 let s:gui0D = "66d9ef"          " light blue
 let s:gui0C = "4372a7"          " dark blue
 let s:gui0E = "3971ED"          " blue
@@ -134,14 +134,14 @@ call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
 call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
-call <sid>hi("IncSearch",     s:gui07, s:gui0C, s:cterm01, s:cterm09, "none")
+call <sid>hi("IncSearch",     s:gui07, s:gui0E, s:cterm01, s:cterm09, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "")
 call <sid>hi("MatchParen",    s:gui05, s:gui10, s:cterm00, s:cterm03,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Search",        s:gui07, s:gui0C, s:cterm03, s:cterm0A,  "")
+call <sid>hi("Search",        s:gui07, s:gui0E, s:cterm03, s:cterm0A,  "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui08, "", s:cterm08, "", "")
@@ -186,7 +186,7 @@ call <sid>hi("Keyword",      s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("Label",        s:gui0A, "", s:cterm0A, "", "")
 call <sid>hi("Number",       s:gui0C, "", s:cterm09, "", "")
 call <sid>hi("Operator",     s:gui05, "", s:cterm05, "", "none")
-call <sid>hi("PreProc",      s:gui0A, "", s:cterm0A, "", "")
+call <sid>hi("PreProc",      s:gui08, "", s:cterm0A, "", "")
 call <sid>hi("Repeat",       s:gui0E, "", s:cterm0A, "", "")
 call <sid>hi("Special",      s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("SpecialChar",  s:gui0C, "", s:cterm0F, "", "")
