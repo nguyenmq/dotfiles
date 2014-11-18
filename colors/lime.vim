@@ -13,12 +13,12 @@ let s:gui07 = "ffffff"          " white duh
 let s:gui08 = "d22e2e"          " red
 let s:gui09 = "dc5dd7"          " pink
 let s:gui0A = "97ac35"          " yellow
-let s:gui0B = "22a21f"          " green
+let s:gui0B = "0dc10d"          " green
 let s:gui0F = "0086d2"          " blue
 let s:gui0D = "66d9ef"          " light blue
 let s:gui0C = "4372a7"          " dark blue
 let s:gui0E = "3971ED"          " blue
-let s:gui10 = "445b4b"          " greyish dark green
+let s:gui10 = "087208"          " greyish dark green
 let s:gui11 = "12181a"          " dark grey, but lighter than gui00
 
 " Terminal color definitions
