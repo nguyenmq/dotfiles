@@ -1,7 +1,7 @@
 if has( "win32" )
     set guifont=Consolas:h10
 else
-    set guifont=Consolas\ 11
+    set guifont=Consolas\ 10
 endif
 set guioptions-=T
 set guioptions-=m
@@ -35,7 +35,7 @@ function! ColorColumnToggle()
     endif
 endfunc
 command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
-noremap <silent> <Leader>i :ColorColumnToggle<CR>
+noremap <silent> <Leader>a :ColorColumnToggle<CR>
 call ColorColumnToggle()
 
 "highlight CursorLine guibg=gray95

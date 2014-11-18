@@ -29,16 +29,16 @@ set noerrorbells visualbell t_vb=   " turn off bells
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 
-"---------------------------------------------------------
+"-----------------------------------------------------------
 " Set up macros
-"---------------------------------------------------------
+"-----------------------------------------------------------
 let @p='24|r*'
                                     " change variable to a pointer
 let @c='O/*59a-61|Do-58a-59|C*/k^'
                                     " insert C block comment
-let @g='O#60a-61|Do#60a-61|DO# '
+let @g='O#60a-61|Do60a-61|DO '
                                     " insert script block comment
-let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A /* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
+let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
                                     " insert C function block
 
 "-----------------------------------------------------------
@@ -105,6 +105,7 @@ noremap <silent> <Leader>v :vs<CR>
                                     " vertical split
 noremap <silent> <Leader>h :sp<CR>
                                     " horizonal split
+noremap <silent> <Leader>i :!cscope -Rb<CR> :cs reset<CR>
 
 "-----------------------------------------------------------
 " Configure airline
