@@ -11,15 +11,15 @@ let s:gui05 = "c5c8c6"          " getting pretty close to white grey
 let s:gui06 = "e0e0e0"          " off white
 let s:gui07 = "ffffff"          " white duh
 let s:gui08 = "d22e2e"          " red
-let s:gui09 = "dc5dd7"          " pink
+let s:gui09 = "fae84e"          " pale yellow
 let s:gui0A = "97ac35"          " yellow
-let s:gui0B = "0dc10d"          " green
+let s:gui0B = "22a21f"          " lighter green
 let s:gui0F = "0086d2"          " blue
 let s:gui0F = "0086d2"          " blue, does not get used
 let s:gui0D = "66d9ef"          " light blue
 let s:gui0C = "4372a7"          " dark blue
 let s:gui0E = "3971ED"          " blue
-let s:gui10 = "087208"          " greyish dark green
+let s:gui10 = "106510"          " green
 let s:gui11 = "12181a"          " dark grey, but lighter than gui00
 
 " Terminal color definitions
@@ -134,7 +134,7 @@ call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
 call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
-call <sid>hi("Folded",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
+call <sid>hi("Folded",        s:gui03, s:gui11, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui07, s:gui0E, s:cterm01, s:cterm09, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui08, "", s:cterm08, "", "")
@@ -152,13 +152,13 @@ call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0C, "", s:cterm0D, "", "none")
 call <sid>hi("Conceal",       s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("Cursor",        s:gui00, s:gui0D, s:cterm00, s:cterm05, "")
+call <sid>hi("Cursor",        s:gui00, s:gui09, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
-call <sid>hi("Normal",        s:gui04, s:gui00, s:cterm05, s:cterm00, "")
+call <sid>hi("Normal",        s:gui05, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("LineNr",        s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
-call <sid>hi("StatusLine",    s:gui04, s:gui02, s:cterm04, s:cterm02, "none")
+call <sid>hi("StatusLine",    s:gui05, s:gui02, s:cterm04, s:cterm02, "none")
 call <sid>hi("StatusLineNC",  s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui02, s:cterm02, s:cterm02, "none")
 call <sid>hi("ColorColumn",   "", s:gui11, "", s:cterm01, "none")

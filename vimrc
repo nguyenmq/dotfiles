@@ -26,6 +26,7 @@ set laststatus=2                    " always show status line
 set numberwidth=5                   " set the width of the number line
 set switchbuf=useopen               " use current window if open when jumping from quickfix
 set noerrorbells visualbell t_vb=   " turn off bells
+set foldnestmax=1                   " set max fold level
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 
@@ -34,11 +35,11 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 "-----------------------------------------------------------
 let @p='24|r*'
                                     " change variable to a pointer
-let @c='O/*59a-61|Do-58a-59|C*/k^'
+let @c='O*/^60i-59|dt*O/*60a-61|D^'
                                     " insert C block comment
-let @g='O#60a-61|Do60a-61|DO '
+let @g='O#60a-61|Dyypko# '
                                     " insert script block comment
-let @f='O/69a*o69a*a/o"0p$bmaj%f;xa{O/*58a-ok58a-a*/OLocal Variableskk%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
+let @f='O69a*$a/O/69a*jo"0p$bmaj%f;xa{kO58a-a*/O/*58a-oLocal Variableskk%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
                                     " insert C function block
 
 "-----------------------------------------------------------
@@ -55,6 +56,7 @@ abbr tnew tabnew
 " Auto commands
 "-----------------------------------------------------------
 autocmd GUIEnter * set visualbell t_vb=
+autocmd GUIEnter * let c_no_comment_fold=1
 
 "-----------------------------------------------------------
 " Define new commands
@@ -106,11 +108,24 @@ noremap <silent> <Leader>v :vs<CR>
 noremap <silent> <Leader>h :sp<CR>
                                     " horizonal split
 noremap <silent> <Leader>i :!cscope -Rb<CR> :cs reset<CR>
+                                    " rescan cscope from cwd
+noremap <silent> <Leader>d za
+                                    " map toggle fold
+noremap <silent> <Leader>j zj za
+                                    " move to next fold and toggle it
 
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
 let g:airline_theme = 'kolor'
+let g:airline_inactive_collapse=0
+let g:airline#extensions#tagbar#enabled=0
+let g:airline#extensions#default#section_truncate_width = {
+  \ 'b': 120,
+  \ 'x': 60,
+  \ 'y': 88,
+  \ 'z': 45,
+  \ }
 
 "-----------------------------------------------------------
 " Configure CtrlP
@@ -154,7 +169,7 @@ nnoremap <silent> <F2> :TagbarToggle<CR>
                                     " open/close tagbar window
 let g:tagbar_show_linenumbers = -1
                                     " show line numbers in tagbar
-let g:tagbar_width = 35
+let g:tagbar_width = 34
                                     " set width of tagbar window
 let g:tagbar_type_c = {
     \ 'kinds' : [
