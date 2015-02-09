@@ -105,7 +105,7 @@ noremap <silent> <Leader>E :cN<CR>
                                     " go to previous error in quickfix
 noremap <silent> <Leader>v :vs<CR>
                                     " vertical split
-noremap <silent> <Leader>h :sp<CR>
+noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
                                     " horizonal split
 noremap <silent> <Leader>i :!cscope -Rb<CR> :cs reset<CR>
                                     " rescan cscope from cwd
@@ -117,7 +117,7 @@ noremap <silent> <Leader>j zj za
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme = 'kolor'
+let g:airline_theme = 'luna'
 let g:airline_inactive_collapse=0
 let g:airline#extensions#tagbar#enabled=0
 let g:airline#extensions#default#section_truncate_width = {
@@ -133,7 +133,7 @@ let g:airline#extensions#default#section_truncate_width = {
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a|o32)$',
+    \ 'file': '\v\.(o|so|a|o32|jam|obj)$',
 \ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
