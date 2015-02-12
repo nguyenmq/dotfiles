@@ -8,8 +8,9 @@ set guioptions-=m
 set guioptions+=P
 set guioptions+=c
 set guicursor+=a:blinkon0
-"set lines=50 columns=150
-colorscheme lime
+
+let g:airline_theme = 'monochrome'
+colorscheme olive
 
 "-----------------------------------------------------------
 " Highlight the current line in the current buffer window
@@ -37,7 +38,3 @@ endfunc
 command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
 noremap <silent> <Leader>a :ColorColumnToggle<CR>
 call ColorColumnToggle()
-
-"highlight CursorLine guibg=gray95
-"highlight DiffChange guibg=LavenderBlush2
-"highlight DiffText guibg=plum guifg=NavyBlue

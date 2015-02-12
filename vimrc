@@ -117,7 +117,6 @@ noremap <silent> <Leader>j zj za
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme = 'luna'
 let g:airline_inactive_collapse=0
 let g:airline#extensions#tagbar#enabled=0
 let g:airline#extensions#default#section_truncate_width = {
