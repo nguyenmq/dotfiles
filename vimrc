@@ -103,16 +103,18 @@ noremap <silent> <Leader>e :cn<CR>
                                     " go to next error in quickfix
 noremap <silent> <Leader>E :cN<CR>
                                     " go to previous error in quickfix
-noremap <silent> <Leader>v :vs<CR>
-                                    " vertical split
 noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-                                    " horizonal split
+                                    " highlight word
 noremap <silent> <Leader>i :!cscope -Rb<CR> :cs reset<CR>
                                     " rescan cscope from cwd
 noremap <silent> <Leader>d za
                                     " map toggle fold
 noremap <silent> <Leader>j zj za
                                     " move to next fold and toggle it
+noremap <Leader>y "+yiw:echo "Yanked: <C-R>+"<CR>
+                                    " yank current word to system clipboard
+noremap <Leader>p "+gP
+                                    " paste before cursor from system clipboard
 
 "-----------------------------------------------------------
 " Configure airline

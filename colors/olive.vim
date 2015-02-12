@@ -10,7 +10,7 @@ let s:gui07 = "0086d2"          " blue
 let s:gui08 = "d3d3d3"          " light grey
 let s:gui09 = "d22e2e"          " red
 let s:gui0A = "ff0086"          " pink
-let s:gui0B = "e6cf07"          " pale yellow
+let s:gui0B = "a19105"          " pale yellow
 let s:gui0C = "70796b"          " grey
 let s:gui0D = "d16cfb"          " lavender
 let s:gui0E = "dbf3cd"          " light olive green
@@ -127,29 +127,29 @@ endfun
 " Vim editor colors
 call <sid>hi("Bold",          "", "", "", "", "bold")
 call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
-call <sid>hi("ErrorMsg",      s:gui08, s:gui00, s:cterm08, s:cterm00, "")
-call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
+call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm08, s:cterm00, "")
+call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
 call <sid>hi("Folded",        s:gui03, s:gui11, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui09, s:gui04, s:cterm01, s:cterm09, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui09, "", s:cterm08, "", "")
-call <sid>hi("MatchParen",    "", s:gui0B, s:cterm00, s:cterm03,  "")
+call <sid>hi("MatchParen",    "", s:gui08, s:cterm00, s:cterm03,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm0B, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Search",        s:gui09, s:gui04, s:cterm03, s:cterm0A,  "")
+call <sid>hi("Search",        s:gui09, s:gui04, s:cterm03, s:cterm0A,  "bold")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
-call <sid>hi("TooLong",       s:gui08, "", s:cterm08, "", "")
+call <sid>hi("TooLong",       s:gui01, "", s:cterm08, "", "")
 call <sid>hi("Underlined",    s:gui07, "", s:cterm08, "", "")
 call <sid>hi("Visual",        "", s:gui08, "", s:cterm02, "")
-call <sid>hi("VisualNOS",     s:gui08, "", s:cterm08, "", "")
-call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
+call <sid>hi("VisualNOS",     s:gui01, "", s:cterm08, "", "")
+call <sid>hi("WarningMsg",    s:gui01, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui00, s:gui05, s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0C, "", s:cterm0D, "", "none")
 call <sid>hi("Conceal",       s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
 call <sid>hi("Cursor",        s:gui00, s:gui11, s:cterm00, s:cterm05, "")
-call <sid>hi("NonText",       "",      s:gui02, s:cterm03, "", "")
+call <sid>hi("NonText",       s:gui05, s:gui02, s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui01, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("LineNr",        s:gui05, s:gui0E, s:cterm03, s:cterm01, "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
@@ -196,7 +196,7 @@ call <sid>hi("StorageClass",    s:gui0C, "", s:cterm0A, "", "bold")
 call <sid>hi("String",          s:gui07, "", s:cterm0B, "", "")
 call <sid>hi("Structure",       s:gui0C, "", s:cterm0E, "", "bold")
 call <sid>hi("Tag",             s:gui0D, "", s:cterm0A, "", "")
-call <sid>hi("Todo",            s:gui09, s:gui0E, s:cterm0A, s:cterm01, "")
+call <sid>hi("Todo",            s:gui09, s:gui0E, s:cterm0A, s:cterm01, "bold")
 call <sid>hi("Type",            s:gui0C, "", s:cterm09, "", "bold")
 call <sid>hi("Typedef",         s:gui0C, "", s:cterm0A, "", "bold")
 
