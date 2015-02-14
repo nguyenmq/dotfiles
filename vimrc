@@ -29,6 +29,9 @@ set noerrorbells visualbell t_vb=   " turn off bells
 set foldnestmax=1                   " set max fold level
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
+if has( "win32" )
+set grepprg=grep\ -n                " define grep program
+endif
 
 "-----------------------------------------------------------
 " Set up macros
@@ -134,7 +137,7 @@ let g:airline#extensions#default#section_truncate_width = {
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a|o32|jam|obj)$',
+    \ 'file': '\v\.(o|so|a|o32|obj)$',
 \ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers

@@ -2,7 +2,7 @@
 let s:gui00 = "ffffff"          " white
 let s:gui01 = "000000"          " black
 let s:gui02 = "f2fff8"          " very light green
-let s:gui03 = "438ec3"          " sky blue
+let s:gui03 = "0064ff"          " sky blue
 let s:gui04 = "9bd4a9"          " olive green
 let s:gui05 = "43a064"          " dark olive green
 let s:gui06 = "22a21f"          " green
@@ -127,6 +127,7 @@ endfun
 " Vim editor colors
 call <sid>hi("Bold",          "", "", "", "", "bold")
 call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
+call <sid>hi("Error",         s:gui01, s:gui09, s:cterm08, s:cterm00, "")
 call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
@@ -161,8 +162,8 @@ call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm01, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm01, "none")
 call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm01, "none")
 call <sid>hi("CursorLineNr",  s:gui05, s:gui02, s:cterm03, s:cterm01, "")
-call <sid>hi("PMenu",         s:gui00, s:gui05, s:cterm04, s:cterm01, "none")
-call <sid>hi("PMenuSel",      s:gui00, s:gui05, s:cterm01, s:cterm04, "")
+call <sid>hi("PMenu",         s:gui02, s:gui0C, s:cterm04, s:cterm01, "none")
+call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm01, s:cterm04, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm03, s:cterm01, "none")
 call <sid>hi("TabLineSel",    s:gui09, s:gui01, s:cterm0B, s:cterm01, "none")
@@ -182,7 +183,7 @@ call <sid>hi("Function",        s:gui0A, "", s:cterm0D, "", "")
 call <sid>hi("Identifier",      s:gui0A, "", s:cterm08, "", "none")
 call <sid>hi("Include",         s:gui09, "", s:cterm0D, "", "")
 call <sid>hi("Keyword",         s:gui0B, "", s:cterm0E, "", "bold")
-call <sid>hi("Label",           s:gui0D, "", s:cterm0A, "", "")
+call <sid>hi("Label",           s:gui03, "", s:cterm0A, "", "")
 call <sid>hi("Number",          s:gui07, "", s:cterm09, "", "")
 call <sid>hi("Operator",        s:gui0B, "", s:cterm05, "", "bold")
 call <sid>hi("PreCondit",       s:gui09, "", s:cterm0A, "", "")
