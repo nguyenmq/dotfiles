@@ -14,9 +14,9 @@ let s:gui0B = "a19105"          " pale yellow
 let s:gui0C = "70796b"          " grey
 let s:gui0D = "d16cfb"          " lavender
 let s:gui0E = "dbf3cd"          " light olive green
+let s:gui0F = "d6f3ff"          " light blue
+let s:gui10 = "ffd2d2"          " light red
 
-let s:gui0F = "ffffff"          " white duh
-let s:gui10 = "106510"          " green
 let s:gui11 = "12181a"          " dark grey, but lighter than gui00
 
 " Terminal color definitions
@@ -130,8 +130,8 @@ call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
 call <sid>hi("Error",         s:gui01, s:gui09, s:cterm08, s:cterm00, "")
 call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm08, s:cterm00, "")
 call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
-call <sid>hi("FoldColumn",    "", s:gui01, "", s:cterm01, "")
-call <sid>hi("Folded",        s:gui03, s:gui11, s:cterm03, s:cterm01, "")
+call <sid>hi("FoldColumn",    "", s:gui04, "", s:cterm01, "")
+call <sid>hi("Folded",        s:gui05, s:gui0E, s:cterm03, s:cterm01, "")
 call <sid>hi("IncSearch",     s:gui09, s:gui04, s:cterm01, s:cterm09, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("Macro",         s:gui09, "", s:cterm08, "", "")
@@ -208,15 +208,16 @@ call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 
 " Additional diff highlighting
-call <sid>hi("DiffAdd",      s:gui0B, s:gui00, s:cterm0B, s:cterm00, "")
-call <sid>hi("DiffChange",   s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("DiffDelete",   s:gui08, s:gui00, s:cterm08, s:cterm00, "")
-call <sid>hi("DiffText",     s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("DiffAdded",    s:gui0B, s:gui00, s:cterm0B, s:cterm00, "")
-call <sid>hi("DiffFile",     s:gui08, s:gui00, s:cterm08, s:cterm00, "")
-call <sid>hi("DiffNewFile",  s:gui0B, s:gui00, s:cterm0B, s:cterm00, "")
-call <sid>hi("DiffLine",     s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
-call <sid>hi("DiffRemoved",  s:gui08, s:gui00, s:cterm08, s:cterm00, "")
+call <sid>hi("DiffAdd",      "", s:gui0F, s:cterm0B, s:cterm00, "")
+call <sid>hi("DiffChange",   "", s:gui0F, s:cterm0D, s:cterm00, "")
+call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm08, s:cterm00, "bold")
+call <sid>hi("DiffText",     "", s:gui0F, s:cterm0D, s:cterm00, "bold")
+call <sid>hi("DiffAdded",    "", s:gui0F, s:cterm0B, s:cterm00, "")
+call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm08, s:cterm00, "bold")
+call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm0B, s:cterm00, "bold")
+call <sid>hi("DiffLine",     s:gui01, s:gui0F, s:cterm0D, s:cterm00, "")
+call <sid>hi("DiffRemoved",  s:gui08, s:gui0F, s:cterm08, s:cterm00, "bold")
+
 
 " Ruby highlighting
 call <sid>hi("rubyAttribute",               s:gui0C, "", s:cterm0D, "", "")

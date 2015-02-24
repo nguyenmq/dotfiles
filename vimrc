@@ -118,12 +118,13 @@ noremap <Leader>y "+yiw:echo "Yanked: <C-R>+"<CR>
                                     " yank current word to system clipboard
 noremap <Leader>p "+gP
                                     " paste before cursor from system clipboard
+noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
 
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
 let g:airline_inactive_collapse=0
-let g:airline#extensions#tagbar#enabled=0
+let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#default#section_truncate_width = {
   \ 'b': 120,
   \ 'x': 60,
@@ -153,7 +154,7 @@ noremap <silent> <Leader>l :CtrlPLine %<cr>
 "-----------------------------------------------------------
 noremap <silent> <C-N> :NumbersToggle<CR>
                                     " toggle numbers on/off
-let g:numbers_exclude = [ 'help' ]
+let g:numbers_exclude = [ 'help', 'fugitiveblame' ]
                                     " excluded filetypes
 
 "-----------------------------------------------------------
