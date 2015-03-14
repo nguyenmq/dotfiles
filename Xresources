@@ -1,0 +1,58 @@
+! Create the window with the specified X window geometry [default 80x24]; option -geometry.
+URxvt*geometry: 170x55
+
+! Use the specified colour to display underlined characters when the foreground colour is the
+URxvt*colorUL: #77bee0
+
+! Select the fonts to be used. This is a comma separated list of font names that are checked in order
+URxvt*font: xft:DroidSansMono:size=9
+
+! Set window title string, the default title is the command-line specified after the -e option, if
+URxvt*title: urxvt
+
+! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
+URxvt*scrollBar: false
+
+URxvt*perl-ext-common: default,matcher
+URxvt.matcher.button: 1
+
+! Specifies the program to be started with a URL argument. Used by the "selection-popup" and
+URxvt*url-launcher: opera
+
+! special
+*.foreground:   #dddddd
+*.background:   #1C252C
+*.cursorColor:  #dddddd
+
+! black
+*.color0:       #666666
+*.color8:       #888888
+
+! red
+*.color1:       #ff8278
+*.color9:       #ff8278
+
+! green
+*.color2:       #9FE069
+*.color10:      #9FE069
+
+! yellow
+*.color3:       #eadc84
+*.color11:      #eadc84
+
+! blue
+*.color4:       #77bee0
+*.color12:      #77bee0
+
+! magenta
+*.color5:       #dd91f3
+*.color13:      #dd91f3
+
+! cyan
+*.color6:       #61DEB6
+*.color14:      #61DEB6
+
+! white
+*.color7:       #dddddd
+*.color15:      #cccccc
+
