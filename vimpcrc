@@ -1,0 +1,19 @@
+hi current greenfg
+hi id bluefg
+hi match bluefg
+hi progress bluefg
+hi song whitefg
+hi status greenfg
+hi tab whitefg
+
+set albumartist
+set playlistnumbers
+set hlsearch
+set windows library,playlist
+set window library
+set singlequit
+set ignorecase
+set incsearch
+set smartcase
+set sortignorethe
+set noshowpercent
