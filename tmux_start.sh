@@ -18,10 +18,10 @@ else
     tmux select-window -t $SESSION:0
     tmux split-window -h
     tmux split-window -h
-    tmux rename-window hsplit
+    tmux rename-window zero
     tmux select-layout main-horizontal
 
     # create a window with a single pane
-    tmux new-window -t $SESSION -n fullscreen
+    tmux new-window -t $SESSION -n one
     tmux attach -t $SESSION
 fi

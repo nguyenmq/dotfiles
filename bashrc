@@ -24,7 +24,19 @@ HISTFILESIZE=2000
 
 color_prompt=yes
 
-export PS1="\[\e[00;32m\][ \[\e[0m\]\[\e[01;32m\]\W\[\e[0m\]\[\e[00;32m\] ]\[\e[0m\] "
+# Exports
+export PS1="\[\e[00;36m\][ \u@\h:\[\e[01;32m\]\w\[\e[00;36m\] ]\n$ \[\e[0m\]"
+export EDITOR=vim
+
+# man pager color -- escapes for urxvt/xterm
+# see termcap manpage for definitions
+export GROFF_NO_SGR=1                       # output ANSI color escape sequences in raw form
+export LESS_TERMCAP_mb=$'\E[01;31m'         # blinking
+export LESS_TERMCAP_md=$'\E[01;32m'         # bold          headings            -> green
+export LESS_TERMCAP_so=$'\E[41m\E[1;37m'    # standout      statusbar/search    -> highlight red with white foreground
+export LESS_TERMCAP_me=$'\E[0m'             # end all modes like so, us, mb, md and mr
+export LESS_TERMCAP_se=$'\E[0m'             # end standout-mode
+export LESS_TERMCAP_ue=$'\E[0m'             # end underline
 
 # don't expand the tilde
 _expand()
@@ -41,6 +53,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vi="vim"
+alias vmp=vimpc
 
 # Override with any local settings not tracked
 if [ -f ~/.customrc ]; then
