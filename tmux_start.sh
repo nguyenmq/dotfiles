@@ -16,8 +16,6 @@ else
     # creates window with main horizontal pane and three
     # smaller ones below
     tmux select-window -t $SESSION:0
-    tmux split-window -h
-    tmux split-window -h
     tmux rename-window zero
     tmux select-layout main-horizontal
 
