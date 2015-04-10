@@ -1,0 +1,20 @@
+map <Leader>r reloadAllTabs
+map F createActiveTabbedHint
+unmap J
+unmap K
+set noautofocus
+site '*://*.reddit.com/*' {
+    unmap j
+    unmap k
+    unmap p
+}
+site '*://www.newsblur.com/*' {
+    unmap j
+    unmap k
+    unmap o
+    unmap u
+}
+site '*://mail.google.com/*' {
+    unmap j
+    unmap k
+}
