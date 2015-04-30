@@ -32,6 +32,7 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
 endif
+colo ron
 
 "-----------------------------------------------------------
 " Set up macros
@@ -131,6 +132,7 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'y': 88,
   \ 'z': 45,
   \ }
+let g:airline_theme = 'silver'
 
 "-----------------------------------------------------------
 " Configure CtrlP
