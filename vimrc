@@ -45,6 +45,8 @@ let @g='O#60a-61|Dyypko# '
                                     " insert script block comment
 let @f='O69a*$a/O/69a*jo"0p$bmaj%f;xa{kO58a-a*/O/*58a-oLocal Variableskk%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
                                     " insert C function block
+let @v='O70i 0Rtyp25|Rvar37|R/* v69|R*/0fv0R'
+                                    " insert a variable
 
 "-----------------------------------------------------------
 " Abbreviations
@@ -124,6 +126,7 @@ noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
+let g:airlinetheme='silver'
 let g:airline_inactive_collapse=0
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#default#section_truncate_width = {
@@ -132,7 +135,6 @@ let g:airline#extensions#default#section_truncate_width = {
   \ 'y': 88,
   \ 'z': 45,
   \ }
-let g:airline_theme = 'silver'
 
 "-----------------------------------------------------------
 " Configure CtrlP

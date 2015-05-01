@@ -6,6 +6,10 @@ else
 endif
 set guioptions-=T
 set guioptions-=m
+set guioptions-=r
+set guioptions-=R
+set guioptions-=l
+set guioptions-=L
 set guioptions+=P
 set guioptions+=c
 set guicursor+=a:blinkon0
