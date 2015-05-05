@@ -26,8 +26,8 @@ URxvt*url-launcher: opera
 *.cursorColor:  #dddddd
 
 ! black
-*.color0:       #666666
-*.color8:       #888888
+*.color0:       #39555A
+*.color8:       #243C45
 
 ! red
 *.color1:       #ff8278
@@ -42,16 +42,16 @@ URxvt*url-launcher: opera
 *.color11:      #eadc84
 
 ! blue
-*.color4:       #77bee0
-*.color12:      #77bee0
+*.color4:       #51C6FE
+*.color12:      #51C6FE
 
 ! magenta
-*.color5:       #aeb6f7
-*.color13:      #aeb6f7
+*.color5:       #74E8F3
+*.color13:      #74E8F3
 
 ! cyan
-*.color6:       #61DEB6
-*.color14:      #61DEB6
+*.color6:       #62FC77
+*.color14:      #62FC77
 
 ! white
 *.color7:       #dddddd
