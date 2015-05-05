@@ -126,7 +126,7 @@ noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airlinetheme='silver'
+let g:airline_theme='silver'
 let g:airline_inactive_collapse=0
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#default#section_truncate_width = {
