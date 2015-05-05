@@ -17,3 +17,5 @@ set incsearch
 set smartcase
 set sortignorethe
 set noshowpercent
+
+map <C-n> :noh<CR>
