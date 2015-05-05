@@ -25,7 +25,7 @@ HISTFILESIZE=2000
 color_prompt=yes
 
 # Exports
-export PS1="\[\e[00;36m\][ \u@\h:\[\e[01;32m\]\w\[\e[00;36m\] ]\n$ \[\e[0m\]"
+export PS1="\[\e[01;36m\][ \u@\h:\[\e[01;35m\]\w\[\e[00;36m\] ]\n$ \[\e[0m\]"
 export EDITOR=vim
 
 # man pager color -- escapes for urxvt/xterm
