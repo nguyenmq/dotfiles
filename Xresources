@@ -34,12 +34,12 @@ URxvt*url-launcher: opera
 *.color9:       #ff8278
 
 ! green
-*.color2:       #9FE069
-*.color10:      #9FE069
+*.color2:       #37A84C
+*.color10:      #37A84C
 
 ! yellow
-*.color3:       #eadc84
-*.color11:      #eadc84
+*.color3:       #ECFF59
+*.color11:      #ECFF59
 
 ! blue
 *.color4:       #51C6FE
