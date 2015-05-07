@@ -235,7 +235,7 @@ call <sid>hi("phpParent",          s:gui05, "", s:cterm05, "", "")
 
 " HTML highlighting
 call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("htmlItalic",  s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("htmlItalic",  s:gui06, "", s:cterm0E, "", "")
 call <sid>hi("htmlEndTag",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("htmlTag",     s:gui05, "", s:cterm05, "", "")
 
@@ -257,9 +257,42 @@ call <sid>hi("javaScriptBraces",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("javaScriptNumber",  s:gui09, "", s:cterm09, "", "")
 
 " Markdown highlighting
-call <sid>hi("markdownCode",              s:gui0B, "", s:cterm0B, "", "")
+call <sid>hi("markdownCode",              s:gui05, "", s:cterm0B, "", "")
 call <sid>hi("markdownCodeBlock",         s:gui0B, "", s:cterm0B, "", "")
-call <sid>hi("markdownHeadingDelimiter",  s:gui0C, "", s:cterm0D, "", "")
+call <sid>hi("markdownHeadingDelimiter",  s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH1",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH2",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH3",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH4",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH5",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownH6",                s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownItalic",            s:gui11, "", s:cterm0D, "", "")
+call <sid>hi("markdownBold",              s:gui11, "", s:cterm0D, "", "")
+call <sid>hi("markdownBoldItalic",        s:gui11, "", s:cterm0D, "", "")
+call <sid>hi("markdownUrl",               s:gui07, "", s:cterm0D, "", "")
+call <sid>hi("markdownUrlTitle",          s:gui07, "", s:cterm0D, "", "")
+call <sid>hi("markdownListMarker",        s:gui03, "", s:cterm0D, "", "")
+call <sid>hi("markdownError",             "", "", s:cterm0D, "", "")
+call <sid>hi("markdownCodeDelimiter",     s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownHighlight",         s:gui06, "", s:cterm0D, "", "")
+call <sid>hi("markdownCodeBlock",         s:gui03, "", s:cterm0D, "", "")
+call <sid>hi("markdownBlockquote",        s:gui03, "", s:cterm0D, "", "")
+call <sid>hi("markdownBlock",             s:gui03, "", s:cterm0D, "", "")
+call <sid>hi("markdownEscape",            "", "", s:cterm0D, "", "")
+
+"hi def link markdownCodeDelimiter         Delimiter
+"hi def link markdownCodeDelimiter         Delimiter
+"hi def link markdownUrlDelimiter          htmlTag
+"hi def link markdownUrlTitleDelimiter     Delimiter
+"hi def link markdownHeadingRule           markdownRule
+"hi def link markdownHeadingDelimiter      Delimiter
+"hi def link markdownOrderedListMarker     markdownListMarker
+"hi def link markdownRule                  PreProc
+"hi def link markdownLinkText              htmlLink
+"hi def link markdownIdDeclaration         Typedef
+"hi def link markdownId                    Type
+"hi def link markdownAutomaticLink         markdownUrl
+"hi def link markdownIdDelimiter           markdownLinkDelimiter
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  s:gui08, "", s:cterm08, "", "")
