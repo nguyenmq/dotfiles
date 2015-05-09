@@ -24,8 +24,12 @@ HISTFILESIZE=2000
 
 color_prompt=yes
 
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+
 # Exports
-export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[01;35m\]\w\[\e[00;32m\] ]\n$ \[\e[0m\]"
+export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[01;35m\]\w\[\e[00;33m\]\$(parse_git_branch)\[\e[00;32m\] ]\n$ \[\e[0m\]"
 export EDITOR=vim
 
 # man pager color -- escapes for urxvt/xterm
