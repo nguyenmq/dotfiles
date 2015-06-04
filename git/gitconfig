@@ -1,15 +1,26 @@
 [user]
-	name = Minh Quan Nguyen
-	email = minhquanng08@gmail.com
+    name = "Minh Quan Nguyen"
+    email = minhquanng08@gmail.com
+[core]
+    editor = vim
+    pager = less -S
+[merge]
+    tool = vimdiff
+    guitool = gvimdiff
+[diff]
+    tool = vimdiff
+    guitool = gvimdiff
+[color]
+    ui = true
 [alias]
     lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
-[core]
-	editor = vim
-[color]
-	ui = true
+    lb = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    dt = difftool -g
+[credential]
+    helper = cache
 [color "diff"]
-    meta = cyan bold
+    meta = blue bold
     frag = magenta bold
     old = red
     new = green
@@ -18,3 +29,8 @@
     added = blue bold
     untracked = magenta
     deleted = red bold
+[difftool]
+    prompt = false
+    tool = gvimdiff
+[grep]
+    lineNumber = true

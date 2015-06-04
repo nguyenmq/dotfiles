@@ -139,10 +139,12 @@ let g:airline#extensions#default#section_truncate_width = {
 "-----------------------------------------------------------
 " Configure CtrlP
 "-----------------------------------------------------------
+let g:ctrlp_max_depth = 40
+let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a|o32|obj)$',
+    \ 'file': '\v\.(o|so|a|o32|obj|out)$',
 \ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
