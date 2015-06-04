@@ -17,5 +17,6 @@ set incsearch
 set smartcase
 set sortignorethe
 set noshowpercent
+set noprogressbar
 
 map <C-n> :noh<CR>

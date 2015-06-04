@@ -5,7 +5,7 @@ URxvt*geometry: 170x55
 URxvt*colorUL: #77bee0
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order
-URxvt*font: xft:FantasqueSansMono:size=10
+URxvt*font: xft:UbuntuMono:size=10
 
 ! Set window title string, the default title is the command-line specified after the -e option, if
 URxvt*title: urxvt
@@ -22,7 +22,7 @@ URxvt*url-launcher: opera
 
 ! special
 *.foreground:   #dddddd
-*.background:   #1C252C
+*.background:   #032117
 *.cursorColor:  #dddddd
 
 ! black
