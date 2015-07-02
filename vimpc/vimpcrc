@@ -9,7 +9,7 @@ hi tab whitefg
 set albumartist
 set playlistnumbers
 set hlsearch
-set windows library,playlist
+set windows library,playlist,lists
 set window library
 set singlequit
 set ignorecase
@@ -17,6 +17,5 @@ set incsearch
 set smartcase
 set sortignorethe
 set noshowpercent
-set noprogressbar
 
 map <C-n> :noh<CR>

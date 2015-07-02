@@ -1,3 +1,5 @@
+Xft.lcdfilter: lcddefault
+
 ! Create the window with the specified X window geometry [default 80x24]; option -geometry.
 URxvt*geometry: 170x55
 
@@ -13,9 +15,14 @@ URxvt*title: urxvt
 ! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
 URxvt*scrollBar: false
 
-URxvt*perl-ext-common: default,matcher,fullscreen
+! Set the urxvt icon
+URxvt*iconFile: /home/mqn/.icons/Vibrancy-Colors/apps/256/terminal.png
+
+URxvt*perl-ext-common: default,matcher,fullscreen,clipboard
 URxvt.matcher.button: 1
 URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.iso14755: False
 
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and
 URxvt*url-launcher: opera
@@ -26,8 +33,8 @@ URxvt*url-launcher: opera
 *.cursorColor:  #dddddd
 
 ! black
-*.color0:       #39555A
-*.color8:       #243C45
+*.color0:       #54686C
+*.color8:       #54686C
 
 ! red
 *.color1:       #ff8278
