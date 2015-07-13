@@ -19,7 +19,7 @@ set backspace=2                     " backspace over everything
 set incsearch                       " do search as user types
 set ignorecase                      " ignore case when searching
 set smartcase                       " match case when contains uppercase
-set background=dark                 " set background to light for noctu
+set background=light                " set background to light for noctu
 filetype plugin on                  " turn on filetype
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
@@ -32,7 +32,7 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
 endif
-colo ron
+colo olive
 
 "-----------------------------------------------------------
 " Set up macros
@@ -126,7 +126,7 @@ noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme='silver'
+let g:airline_theme='monochrome'
 let g:airline_inactive_collapse=0
 let g:airline#extensions#branch#enabled = 0
 let g:airline#extensions#default#section_truncate_width = {
@@ -213,3 +213,23 @@ let g:tagbar_type_cpp = {
     \ ],
 \ }                                 " customize display of header files
 
+
+"-----------------------------------------------------------
+" Functions
+"-----------------------------------------------------------
+let s:color_column_enable=0
+function! ColorColumnToggle()
+    if( s:color_column_enable == 1 )
+        let s:color_column_enable=0
+        set colorcolumn=0
+    else
+        let s:color_column_enable=1
+        set colorcolumn=25
+        set colorcolumn+=37
+        set colorcolumn+=60
+        set colorcolumn+=70
+        set colorcolumn+=81
+    endif
+endfunc
+command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
+noremap <silent> <Leader>a :ColorColumnToggle<CR>

@@ -1,66 +1,69 @@
 Xft.lcdfilter: lcddefault
 
 ! Create the window with the specified X window geometry [default 80x24]; option -geometry.
-URxvt*geometry: 170x55
+URxvt.geometry: 170x55
 
 ! Use the specified colour to display underlined characters when the foreground colour is the
-URxvt*colorUL: #77bee0
+URxvt.colorUL: #0086d2
 
 ! Select the fonts to be used. This is a comma separated list of font names that are checked in order
-URxvt*font: xft:UbuntuMono:size=10
+URxvt.font: xft:UbuntuMono:size=10
 
 ! Set window title string, the default title is the command-line specified after the -e option, if
-URxvt*title: urxvt
+URxvt.title: urxvt
 
 ! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
-URxvt*scrollBar: false
+URxvt.scrollBar: false
 
 ! Set the urxvt icon
-URxvt*iconFile: /home/mqn/.icons/Vibrancy-Colors/apps/256/terminal.png
+URxvt.iconFile: /home/mqn/.icons/Vibrancy-Colors/apps/256/terminal.png
 
-URxvt*perl-ext-common: default,matcher,fullscreen,clipboard
-URxvt.matcher.button: 1
+URxvt.perl-ext-common: default,matcher,fullscreen,clipboard
 URxvt.keysym.F11: perl:fullscreen:switch
-URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.matcher.button: 1
 URxvt.iso14755: False
+
+URxvt.clipboard.copycmd:  xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
+URxvt.keysym.Shift-Control-V: perl:clipboard:paste
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 
 ! Specifies the program to be started with a URL argument. Used by the "selection-popup" and
 URxvt*url-launcher: opera
 
 ! special
-*.foreground:   #dddddd
-*.background:   #032117
-*.cursorColor:  #dddddd
+*.foreground:   #000000
+*.background:   #ffffff
+*.cursorColor:  #000000
 
 ! black
-*.color0:       #54686C
-*.color8:       #54686C
+*.color0:       #12181a
+*.color8:       #12181a
 
 ! red
-*.color1:       #ff8278
-*.color9:       #ff8278
+*.color1:       #d22e2e
+*.color9:       #d22e2e
 
 ! green
-*.color2:       #37A84C
-*.color10:      #37A84C
+*.color2:       #22a21f
+*.color10:      #22a21f
 
 ! yellow
-*.color3:       #ECFF59
-*.color11:      #ECFF59
+*.color3:       #d99a16
+*.color11:      #d99a16
 
 ! blue
-*.color4:       #51C6FE
-*.color12:      #51C6FE
+*.color4:       #0064ff
+*.color12:      #0064ff
 
 ! magenta
-*.color5:       #74E8F3
-*.color13:      #74E8F3
+*.color5:       #43a064
+*.color13:      #43a064
 
 ! cyan
-*.color6:       #62FC77
-*.color14:      #62FC77
+*.color6:       #0086d2
+*.color14:      #0086d2
 
 ! white
-*.color7:       #dddddd
-*.color15:      #cccccc
-
+*.color7:       #959595
+*.color15:      #959595

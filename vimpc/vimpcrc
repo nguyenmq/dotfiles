@@ -1,10 +1,9 @@
 hi current greenfg
 hi id bluefg
 hi match bluefg
-hi progress bluefg
-hi song whitefg
+hi progress redfg
 hi status greenfg
-hi tab whitefg
+hi tab greenfg
 
 set albumartist
 set playlistnumbers
