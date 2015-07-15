@@ -1,1 +1,3 @@
 *.swp
+vim/.netrwhist
+xconfig/urxvt_ext/clipboard

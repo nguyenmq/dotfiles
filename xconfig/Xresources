@@ -1,35 +1,36 @@
 Xft.lcdfilter: lcddefault
 
-! Create the window with the specified X window geometry [default 80x24]; option -geometry.
+! Initial window size
 URxvt.geometry: 170x55
 
-! Use the specified colour to display underlined characters when the foreground colour is the
+! Color for links
 URxvt.colorUL: #0086d2
 
-! Select the fonts to be used. This is a comma separated list of font names that are checked in order
+! Browser to use when launching links
+URxvt.url-launcher: opera
+
+! Select the fonts to be used
 URxvt.font: xft:UbuntuMono:size=10
 
-! Set window title string, the default title is the command-line specified after the -e option, if
+! Set window title string
 URxvt.title: urxvt
 
-! True: enable the scrollbar [default]; option -sb. False: disable the scrollbar; option +sb.
+! Disable the scrollbar
 URxvt.scrollBar: false
 
 ! Set the urxvt icon
 URxvt.iconFile: /home/mqn/.icons/Vibrancy-Colors/apps/256/terminal.png
 
+! Extension settings
 URxvt.perl-ext-common: default,matcher,fullscreen,clipboard
 URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.matcher.button: 1
 URxvt.iso14755: False
-
 URxvt.clipboard.copycmd:  xsel -ib
 URxvt.clipboard.pastecmd: xsel -ob
+URxvt.clipboard.autocopy: True
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
-
-! Specifies the program to be started with a URL argument. Used by the "selection-popup" and
-URxvt*url-launcher: opera
 
 ! special
 *.foreground:   #000000
