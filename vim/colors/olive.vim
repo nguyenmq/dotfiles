@@ -22,11 +22,11 @@ let s:gui11 = "12181a"          " dark grey
 let s:cterm00 = "00"            " black
 let s:cterm01 = "01"            " red
 let s:cterm02 = "02"            " green
-let s:cterm03 = "03"            " yellow
+let s:cterm03 = "03"            " yellow, closer to orange
 let s:cterm04 = "04"            " blue
-let s:cterm05 = "05"            " magenta
-let s:cterm06 = "06"            " cyan
-let s:cterm07 = "07"            " white
+let s:cterm05 = "05"            " magenta, but actually another green
+let s:cterm06 = "06"            " cyan, but actually another blue
+let s:cterm07 = "07"            " white, but is indeed grey
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "195"           " light blue
 let s:cterm0A = "041"           " light green
@@ -73,7 +73,7 @@ endfun
 " Vim editor colors
 call <sid>hi("Bold",          "", "", "", "", "bold")
 call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
-call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm08, s:cterm00, "")
+call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm0E, s:cterm0D, "")
 call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui04, "", s:cterm06, "")
 call <sid>hi("Folded",        s:gui05, s:gui0E, s:cterm03, s:cterm01, "")
@@ -101,7 +101,7 @@ call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("StatusLine",    s:gui0E, s:gui05, s:cterm05, s:cterm0F, "none")
 call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm05, s:cterm0F, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui04, s:cterm05, s:cterm05, "none")
-call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm0B, "none")
+call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm09, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm0E, "none")
 call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm0E, "none")
 call <sid>hi("CursorLineNr",  s:gui05, s:gui02, s:cterm02, "", "")
@@ -154,15 +154,15 @@ call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 
 " Additional diff highlighting
-call <sid>hi("DiffAdd",      "", s:gui0F, s:cterm0B, s:cterm00, "")
-call <sid>hi("DiffChange",   "", s:gui0F, s:cterm0D, s:cterm00, "")
-call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm08, s:cterm00, "bold")
-call <sid>hi("DiffText",     "", s:gui0F, s:cterm0D, s:cterm00, "bold")
-call <sid>hi("DiffAdded",    "", s:gui0F, s:cterm0B, s:cterm00, "")
-call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm08, s:cterm00, "bold")
-call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm0B, s:cterm00, "bold")
-call <sid>hi("DiffLine",     s:gui01, s:gui0F, s:cterm0D, s:cterm00, "")
-call <sid>hi("DiffRemoved",  s:gui08, s:gui0F, s:cterm08, s:cterm00, "bold")
+call <sid>hi("DiffAdd",      "", s:gui0F, s:cterm02, "", "")
+call <sid>hi("DiffChange",   "", s:gui0F, s:cterm02, "", "")
+call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, "", "")
+call <sid>hi("DiffText",     "", s:gui0F, s:cterm02, "", "")
+call <sid>hi("DiffAdded",    "", s:gui0F, s:cterm02, "", "")
+call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "", "")
+call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "", "")
+call <sid>hi("DiffLine",     s:gui01, s:gui0F, s:cterm01, "", "")
+call <sid>hi("DiffRemoved",  s:gui08, s:gui0F, s:cterm01, "", "")
 
 
 " Ruby highlighting
@@ -225,20 +225,6 @@ call <sid>hi("markdownCodeBlock",         s:gui03, "", s:cterm06, "", "")
 call <sid>hi("markdownBlockquote",        s:gui03, "", s:cterm06, "", "")
 call <sid>hi("markdownBlock",             s:gui03, "", s:cterm06, "", "")
 call <sid>hi("markdownEscape",            "", "", s:cterm0D, "", "")
-
-"hi def link markdownCodeDelimiter         Delimiter
-"hi def link markdownCodeDelimiter         Delimiter
-"hi def link markdownUrlDelimiter          htmlTag
-"hi def link markdownUrlTitleDelimiter     Delimiter
-"hi def link markdownHeadingRule           markdownRule
-"hi def link markdownHeadingDelimiter      Delimiter
-"hi def link markdownOrderedListMarker     markdownListMarker
-"hi def link markdownRule                  PreProc
-"hi def link markdownLinkText              htmlLink
-"hi def link markdownIdDeclaration         Typedef
-"hi def link markdownId                    Type
-"hi def link markdownAutomaticLink         markdownUrl
-"hi def link markdownIdDelimiter           markdownLinkDelimiter
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  s:gui08, "", s:cterm01, "", "")
