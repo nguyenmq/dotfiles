@@ -59,6 +59,17 @@ alias egrep='egrep --color=auto'
 alias vi="vim"
 alias vmp=vimpc
 
+# functions
+cl() {
+	local dir="$1"
+	local dir="${dir:=$HOME}"
+	if [[ -d "$dir" ]]; then
+		cd "$dir" >/dev/null; ls
+	else
+		echo "bash: cl: $dir: Directory not found"
+	fi
+}
+
 # Override with any local settings not tracked
 if [ -f ~/.customrc ]; then
     source ~/.customrc

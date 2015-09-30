@@ -29,6 +29,7 @@ set noerrorbells visualbell t_vb=   " turn off bells
 set foldnestmax=1                   " set max fold level
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
+set completeopt=menuone,longest     " set the autocomplete options
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
 endif
@@ -57,6 +58,7 @@ abbr tw60 set tw=60
 abbr tw70 set tw=70
 abbr tw80 set tw=80
 abbr tnew tabnew
+abbr udpate update
 
 "-----------------------------------------------------------
 " Auto commands
@@ -67,15 +69,15 @@ autocmd GUIEnter * let c_no_comment_fold=1
 "-----------------------------------------------------------
 " Define new commands
 "-----------------------------------------------------------
-command -nargs=1 Width vertical resize <args>
+command! -nargs=1 Width vertical resize <args>
                                     " set width of window
-command -nargs=1 Height resize <args>
+command! -nargs=1 Height resize <args>
                                     " set height of window
-command -nargs=1 Csg :cs find g <args>
+command! -nargs=1 Csg :cs find g <args>
                                     " cscope find definition
-command -nargs=1 Csf :cs find f <args>
+command! -nargs=1 Csf :cs find f <args>
                                     " cscope find file name
-command -nargs=1 Css :cs find s <args>
+command! -nargs=1 Css :cs find s <args>
                                     " cscope find all uses
 
 "-----------------------------------------------------------
@@ -105,9 +107,9 @@ noremap <Leader>n :noh<CR>
                                     " turn off highlighting
 noremap <Leader>c :TagbarClose<CR>:bo 7cope<CR>:TagbarOpen<CR>k
                                     " open the quick fix menu
-noremap <silent> <Leader>e :cn<CR>
+noremap <silent> <Leader>e :cn<CR> zz
                                     " go to next error in quickfix
-noremap <silent> <Leader>E :cN<CR>
+noremap <silent> <Leader>E :cN<CR> zz
                                     " go to previous error in quickfix
 noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
                                     " highlight word
@@ -122,6 +124,10 @@ noremap <Leader>y "+yiw:echo "Yanked: <C-R>+"<CR>
 noremap <Leader>p "+gP
                                     " paste before cursor from system clipboard
 noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
+                                    " find the definition for the word under
+                                    " cursor and go to the window on the left
+noremap <Leader>x :q<CR>
+                                    " quit the current window
 
 "-----------------------------------------------------------
 " Configure airline
@@ -154,6 +160,10 @@ noremap <silent> <Leader>f :CtrlP<cr>
                                     " search file recursively
 noremap <silent> <Leader>l :CtrlPLine %<cr>
                                     " search lines in current buffer
+"-----------------------------------------------------------
+" Configure Supertab
+"-----------------------------------------------------------
+let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "-----------------------------------------------------------
 " Configure numbers plugin
@@ -233,3 +243,7 @@ function! ColorColumnToggle()
 endfunc
 command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
 noremap <silent> <Leader>a :ColorColumnToggle<CR>
+
+command! -nargs=* Lf call functions#Lookfor( <f-args> )
+command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
+command! -nargs=* Ldef call functions#Lookfor( '^#define' )
