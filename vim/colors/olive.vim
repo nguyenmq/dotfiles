@@ -148,7 +148,7 @@ call <sid>hi("Typedef",         s:gui0C, "", s:cterm08, "", "bold")
 call <sid>hi("Underlined",      s:gui07, "", s:cterm06, "", "")
 
 " Spelling highlighting
-call <sid>hi("SpellBad",     "", s:gui00, "", s:cterm00, "undercurl")
+call <sid>hi("SpellBad",     "", s:gui00, s:cterm01, "", "undercurl")
 call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
