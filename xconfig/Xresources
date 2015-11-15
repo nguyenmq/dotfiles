@@ -33,7 +33,6 @@ URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 
 ! special
-!*.foreground:   #004455
 *.foreground:   #11404C
 *.background:   #ffffff
 *.cursorColor:  #000000
@@ -51,12 +50,12 @@ URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 *.color10:      #22a21f
 
 ! yellow
-*.color3:       #d99a16
-*.color11:      #d99a16
+*.color3:       #c4a856
+*.color11:      #c4a856
 
 ! blue
-*.color4:       #0064ff
-*.color12:      #0064ff
+*.color4:       #0072c6
+*.color12:      #0072c6
 
 ! magenta
 *.color5:       #43a064
