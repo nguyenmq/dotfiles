@@ -134,13 +134,28 @@ noremap <Leader>x :q<CR>
 "-----------------------------------------------------------
 let g:airline_theme='monochrome'
 let g:airline_inactive_collapse=0
+let g:airline_extensions = ['branch', 'tagbar', 'ctrlp']
 let g:airline#extensions#branch#enabled = 0
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#default#section_truncate_width = {
-  \ 'b': 120,
+  \ 'a': 60,
+  \ 'c': 79,
   \ 'x': 60,
   \ 'y': 88,
   \ 'z': 45,
   \ }
+let g:airline#extensions#default#layout = [
+  \ [ 'a', 'b', 'c' ],
+  \ [ 'x', 'y', 'z', 'warning' ]
+  \ ]
+function! AirlineInit()
+    let g:airline_section_a = airline#section#create(['%2v'])
+    let g:airline_section_b = airline#section#create(['file'])
+    let g:airline_section_c = airline#section#create(['branch'])
+    let g:airline_section_z = airline#section#create(['%3p%%'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 "-----------------------------------------------------------
 " Configure CtrlP
@@ -247,3 +262,4 @@ noremap <silent> <Leader>a :ColorColumnToggle<CR>
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
 command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
 command! -nargs=* Ldef call functions#Lookfor( '^#define' )
+
