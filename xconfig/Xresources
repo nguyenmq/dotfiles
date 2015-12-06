@@ -1,7 +1,7 @@
 Xft.lcdfilter: lcddefault
 
 ! Initial window size
-URxvt.geometry: 170x55
+URxvt.geometry: 170x65
 
 ! Color for links
 URxvt.colorUL: #0086d2
@@ -17,9 +17,6 @@ URxvt.title: urxvt
 
 ! Disable the scrollbar
 URxvt.scrollBar: false
-
-! Set the urxvt icon
-URxvt.iconFile: /home/mqn/.icons/Vibrancy-Colors/apps/256/terminal.png
 
 ! Extension settings
 URxvt.perl-ext-common: default,matcher,fullscreen,clipboard
