@@ -11,15 +11,12 @@ if [ $? -eq 0 ]; then
     exec tmux attach -t $SESSION
 else
     # else create a new session
-    tmux new-session -d -s $SESSION
+    tmux new-session -d -s $SESSION -n one
 
-    # creates window with main horizontal pane and three
-    # smaller ones below
-    tmux select-window -t $SESSION:0
-    tmux rename-window zero
-    tmux select-layout main-horizontal
+    # add a second window
+    tmux new-window -t $SESSION -n two
+    tmux select-window -t $SESSION:2
 
-    # create a window with a single pane
-    tmux new-window -t $SESSION -n one
+    # attach to the session
     exec tmux attach -t $SESSION
 fi
