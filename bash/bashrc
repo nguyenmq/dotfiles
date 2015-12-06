@@ -52,12 +52,13 @@ _expand()
 alias gits="git status"
 alias c="clear"
 alias ls="ls --color=auto"
-alias ll="ls -al"
+alias ll="ls -alh --color=auto --group-directories-first"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vi="vim"
-alias vmp=vimpc
+alias svi="sudo -E vim"
+alias xo="xdg-open"
 
 # functions
 cl() {
@@ -71,7 +72,7 @@ cl() {
 }
 
 # Override with any local settings not tracked
-if [ -f ~/.customrc ]; then
-    source ~/.customrc
+if [ -f ~/.bashrc.local ]; then
+    source ~/.bashrc.local
 fi
 

@@ -17,6 +17,7 @@
     lb = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset) %C(dim black)- %an%C(reset)'
     dt = difftool -g
     su = submodule update --init
+    ls = status --no-short --untracked-files=normal
 [credential]
     helper = cache
 [color "diff"]
@@ -29,6 +30,7 @@
     added = blue bold
     untracked = magenta
     deleted = red bold
+    header = cyan
 [difftool]
     prompt = false
     tool = gvimdiff
@@ -36,5 +38,10 @@
     lineNumber = true
 [fetch]
     prune = true
+[status]
+    branch = true
+    short = true
+    showUntrackedFiles = no
+    submoduleSummary = true
 [include]
     path = ~/.gitconfig.local
