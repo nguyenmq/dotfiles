@@ -30,8 +30,13 @@ set foldnestmax=1                   " set max fold level
 set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 set completeopt=menuone,longest     " set the autocomplete options
+set swapfile                        " enable swapfile
+
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
+set dir=c:\\temp                    " set the swap directory
+else
+set dir=/tmp                        " set the swap directory
 endif
 colo olive
 
@@ -165,7 +170,7 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a|o32|obj|out)$',
+    \ 'file': '\v\.(o|so|a|o32|obj|out|zip)$',
 \ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
@@ -239,6 +244,24 @@ let g:tagbar_type_cpp = {
 \ }                                 " customize display of header files
 
 
+let g:pymode_lint_on_write = 0
+let g:pymode_lint_unmodified = 0
+let g:pymode_lint_on_fly = 0
+let g:pymode_indent = 0
+let g:pymode_folding = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
+let g:pymode_rope_goto_definition_cmd = 'e'
+let g:pymode_rope_goto_definition_bind = '<leader>jg'
+let g:pymode_breakpoint_bind = '<leader>jb'
+let g:pymode_rope_regenerate_on_write = 0
+let g:pymode_trim_whitespaces = 0
+let g:pymode_syntax_indent_errors = 0
+let g:pymode_syntax_space_errors = 0
+let g:pymode_options = 0
+let g:pymode_options_colorcolumn = 0
+let g:pymode_lint_checkers = [ 'pyflakes' ]
+
 "-----------------------------------------------------------
 " Functions
 "-----------------------------------------------------------
@@ -258,6 +281,7 @@ function! ColorColumnToggle()
 endfunc
 command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
 noremap <silent> <Leader>a :ColorColumnToggle<CR>
+call ColorColumnToggle()
 
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
 command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
