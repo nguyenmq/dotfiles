@@ -134,10 +134,11 @@ noremap <Leader>x :q<CR>
 "-----------------------------------------------------------
 let g:airline_theme='monochrome'
 let g:airline_inactive_collapse=0
-let g:airline_extensions = ['branch', 'tagbar', 'ctrlp']
-let g:airline#extensions#branch#enabled = 0
+let g:airline_extensions = ['branch', 'tagbar', 'ctrlp', 'whitespace']
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
+let g:airline#extensions#branch#format = 1
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {
   \ 'a': 60,
   \ 'c': 79,
@@ -154,6 +155,7 @@ function! AirlineInit()
     let g:airline_section_b = airline#section#create(['file'])
     let g:airline_section_c = airline#section#create(['branch'])
     let g:airline_section_z = airline#section#create(['%3p%%'])
+    let g:airline_section_warning = airline#section#create(['whitespace'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
