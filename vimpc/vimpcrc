@@ -4,7 +4,6 @@ hi match bluefg
 hi progress redfg
 hi status greenfg
 hi tab greenfg
-hi song whitefg
 
 set albumartist
 set playlistnumbers

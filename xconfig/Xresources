@@ -47,21 +47,21 @@ URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 *.color10:      #22a21f
 
 ! yellow
-*.color3:       #c4a856
-*.color11:      #c4a856
+*.color3:       #b0bf30
+*.color11:      #b0bf30
 
 ! blue
 *.color4:       #0072c6
 *.color12:      #0072c6
 
 ! magenta
-*.color5:       #43a064
-*.color13:      #43a064
+*.color5:       #0f9437
+*.color13:      #0f9437
 
 ! cyan
 *.color6:       #0086d2
 *.color14:      #0086d2
 
 ! white
-*.color7:       #7a7a7a
-*.color15:      #7a7a7a
+*.color7:       #c7c7c7
+*.color15:      #c7c7c7
