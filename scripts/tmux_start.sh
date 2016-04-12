@@ -15,7 +15,7 @@ else
 
     # add a second window
     tmux new-window -t $SESSION -n two
-    tmux select-window -t $SESSION:2
+    tmux select-window -t $SESSION:1
 
     # attach to the session
     exec tmux attach -t $SESSION
