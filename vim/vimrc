@@ -14,6 +14,7 @@ set nowrap
 set hlsearch
 set wildmode=longest,list,full
 set wildmenu
+set wildignore=*.o,*.so,*.a,*.o32,*.obj,*.out,*.zip,*.exe,*.lib,*.gca
 set expandtab
 set backspace=2                     " backspace over everything
 set incsearch                       " do search as user types
@@ -98,6 +99,8 @@ vnoremap <silent> <C-S> <C-C>:update<CR>
                                     " ctrl+s to save
 inoremap <silent> <C-S> <C-O>:update<CR>
                                     " ctrl+s to save
+inoremap <C-J> <C-X><C-N>
+inoremap <C-K> <C-X><C-P>
 noremap <C-J>     <C-W>j
                                     " move to window below
 noremap <C-K>     <C-W>k
@@ -110,7 +113,7 @@ noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
                                     " delete trailing whitespace
 noremap <Leader>n :noh<CR>
                                     " turn off highlighting
-noremap <Leader>c :TagbarClose<CR>:bo 7cope<CR>:TagbarOpen<CR>k
+noremap <Leader>c :120vs<CR>:botright 7cope<CR><C-W>k<C-W>l
                                     " open the quick fix menu
 noremap <silent> <Leader>e :cn<CR> zz
                                     " go to next error in quickfix
@@ -118,14 +121,15 @@ noremap <silent> <Leader>E :cN<CR> zz
                                     " go to previous error in quickfix
 noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
                                     " highlight word
-noremap <silent> <Leader>i :!cscope -Rb<CR> :cs reset<CR>
-                                    " rescan cscope from cwd
+noremap <silent> <Leader>H y:let @/='<C-R>0'<CR>:set hls<CR>
+                                    " highlight selection
 noremap <silent> <Leader>d za
                                     " map toggle fold
 noremap <silent> <Leader>j zj za
                                     " move to next fold and toggle it
 noremap <Leader>y "+yiw:echo "Yanked: <C-R>+"<CR>
                                     " yank current word to system clipboard
+noremap <Leader>Y v$h"+y:echo "Yanked: <C-R>+"<CR>
 noremap <Leader>p "+gP
                                     " paste before cursor from system clipboard
 noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
@@ -133,6 +137,8 @@ noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
                                     " cursor and go to the window on the left
 noremap <Leader>x :q<CR>
                                     " quit the current window
+noremap <Leader>z :tab split<CR>
+                                    " open the current window in a new tab
 
 "-----------------------------------------------------------
 " Configure airline
@@ -171,9 +177,10 @@ let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
-let g:ctrlp_custom_ignore = {
-    \ 'file': '\v\.(o|so|a|o32|obj|out|zip)$',
-\ }
+let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl)"'
+"let g:ctrlp_custom_ignore = {
+"    \ 'file': '\v\.(o|so|a|o32|obj|out|zip)$',
+"\ }
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
 noremap <silent> <Leader>t :CtrlPBufTag<cr>
@@ -185,7 +192,7 @@ noremap <silent> <Leader>l :CtrlPLine %<cr>
 "-----------------------------------------------------------
 " Configure Supertab
 "-----------------------------------------------------------
-let g:SuperTabDefaultCompletionType = "<c-n>"
+let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 
 "-----------------------------------------------------------
 " Configure numbers plugin
@@ -285,7 +292,23 @@ command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
 noremap <silent> <Leader>a :ColorColumnToggle<CR>
 call ColorColumnToggle()
 
+" LookFor a general regex
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
+" LookFor a function header
 command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
+" Lookfor #define's
 command! -nargs=* Ldef call functions#Lookfor( '^#define' )
-
+" Lookfor failures in test
+command! -nargs=* Lr call functions#Lookfor( 'result="fail"' )
+" Align general block of text
+command! -nargs=+ A call functions#Align( <f-args> )
+" Align single line of text to given text width
+command! -nargs=1 Al call functions#Align( 0, <f-args> )
+" Align comments
+command! -nargs=1 Ac call functions#Align( <f-args>, 60 )
+" Align function header comments
+command! -nargs=1 Af call functions#Align( <f-args>, 70 )
+" Copy the filename of the active file into the system clipboard register
+command! -nargs=0 Bn call functions#Basename()
+" Change and #define line into an #undef line
+command! -nargs=0 Undef :s/.*\s\([A-Z_]\+\)\s.*/#undef \1/g
