@@ -28,8 +28,15 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
+show_bg_jobs() {
+    count=$(jobs | wc -l)
+    if [ $count -gt 0 ]; then
+        echo $count | sed 's/\(.*\)/ (\1)/'
+    fi
+}
+
 # Exports
-export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
+export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
 export EDITOR=vim
 
 # man pager color -- escapes for urxvt/xterm

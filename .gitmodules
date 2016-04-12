@@ -4,9 +4,6 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/cscope_maps"]
 	path = vim/bundle/cscope_maps
 	url = https://github.com/chazy/cscope_maps.git

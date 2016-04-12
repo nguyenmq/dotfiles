@@ -32,6 +32,7 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 set completeopt=menuone,longest     " set the autocomplete options
 set swapfile                        " enable swapfile
+set lazyredraw
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
@@ -145,7 +146,7 @@ noremap <Leader>z :tab split<CR>
 "-----------------------------------------------------------
 let g:airline_theme='monochrome'
 let g:airline_inactive_collapse=0
-let g:airline_extensions = ['branch', 'tagbar', 'ctrlp', 'whitespace']
+let g:airline_extensions = ['branch', 'ctrlp', 'whitespace']
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#format = 1
@@ -177,7 +178,9 @@ let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
-let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl)"'
+let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune
+    \ -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -path "*env/*" -prune
+    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt)"'
 "let g:ctrlp_custom_ignore = {
 "    \ 'file': '\v\.(o|so|a|o32|obj|out|zip)$',
 "\ }
@@ -202,56 +205,13 @@ noremap <silent> <C-N> :NumbersToggle<CR>
 let g:numbers_exclude = [ 'help', 'fugitiveblame' ]
                                     " excluded filetypes
 
+let g:loaded_logipat = 1
+
 "-----------------------------------------------------------
 " Configure fugitive
 "-----------------------------------------------------------
 noremap <silent> <Leader>gb :Gblame<CR>
                                     " run git blame
-noremap <silent> <Leader>gs :Gstatus<CR>
-                                    " run git status
-
-"-----------------------------------------------------------
-" Configure tagbar
-"-----------------------------------------------------------
-nnoremap <silent> <F1> :TagbarOpenAutoClose<CR>
-                                    " jump to tagbar window
-nnoremap <silent> <F2> :TagbarToggle<CR>
-                                    " open/close tagbar window
-let g:tagbar_show_linenumbers = -1
-                                    " show line numbers in tagbar
-let g:tagbar_width = 34
-                                    " set width of tagbar window
-let g:tagbar_type_c = {
-    \ 'kinds' : [
-        \ 'd:macros:1:0',
-        \ 'g:enums',
-        \ 'e:enumerators:0:0',
-        \ 't:typedefs:0:0',
-        \ 's:structs:1:0',
-        \ 'u:unions',
-        \ 'm:members:0:0',
-        \ 'v:variables:0:0',
-        \ 'p:prototypes:0:0',
-        \ 'f:functions',
-    \ ],
-\ }                                 " customize display of C tags
-let g:tagbar_type_cpp = {
-    \ 'kinds' : [
-        \ 'd:macros:1:0',
-        \ 'g:enums:1:1',
-        \ 'e:enumerators:1:1',
-        \ 't:typedefs:0:0',
-        \ 'n:namespaces',
-        \ 'c:classes',
-        \ 's:structs',
-        \ 'u:unions',
-        \ 'm:members:0:0',
-        \ 'v:variables:0:0',
-        \ 'p:prototypes:0:0',
-        \ 'f:functions',
-    \ ],
-\ }                                 " customize display of header files
-
 
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_unmodified = 0

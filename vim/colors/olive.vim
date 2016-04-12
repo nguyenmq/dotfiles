@@ -187,7 +187,7 @@ call <sid>hi("htmlTag",     s:gui05, "", s:cterm05, "", "")
 
 " CSS highlighting
 call <sid>hi("cssBraces",      s:gui05, "", s:cterm05, "", "")
-call <sid>hi("cssClassName",   s:gui0E, "", s:cterm0E, "", "")
+call <sid>hi("cssClassName",   s:gui0E, "", s:cterm06, "", "")
 call <sid>hi("cssColor",       s:gui0C, "", s:cterm0C, "", "")
 
 " SASS highlighting
@@ -200,7 +200,7 @@ call <sid>hi("sassMixinName",  s:gui0C, "", s:cterm0D, "", "")
 " JavaScript highlighting
 call <sid>hi("javaScript",        s:gui05, "", s:cterm05, "", "")
 call <sid>hi("javaScriptBraces",  s:gui05, "", s:cterm05, "", "")
-call <sid>hi("javaScriptNumber",  s:gui09, "", s:cterm09, "", "")
+call <sid>hi("javaScriptNumber",  s:gui08, "", s:cterm08, "", "")
 
 " Markdown highlighting
 call <sid>hi("markdownCode",              s:gui05, "", s:cterm06, "", "")
