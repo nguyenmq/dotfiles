@@ -180,10 +180,8 @@ let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune
     \ -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -path "*env/*" -prune
-    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt)"'
-"let g:ctrlp_custom_ignore = {
-"    \ 'file': '\v\.(o|so|a|o32|obj|out|zip)$',
-"\ }
+    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt|cfg|sh)"'
+
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
 noremap <silent> <Leader>t :CtrlPBufTag<cr>
