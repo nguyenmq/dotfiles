@@ -100,8 +100,10 @@ vnoremap <silent> <C-S> <C-C>:update<CR>
                                     " ctrl+s to save
 inoremap <silent> <C-S> <C-O>:update<CR>
                                     " ctrl+s to save
-inoremap <C-J> <C-X><C-N>
-inoremap <C-K> <C-X><C-P>
+inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><C-n>"))
+                                    " use ctrl+j for local completion and cycling
+inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><C-p>"))
+                                    " use ctrl+k for local completion and cycling
 noremap <C-J>     <C-W>j
                                     " move to window below
 noremap <C-K>     <C-W>k
@@ -178,6 +180,7 @@ let g:ctrlp_max_depth = 40
 let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
+let g:ctrlp_show_hidden = 0
 let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune
     \ -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -path "*env/*" -prune
     \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt|cfg|sh)"'
@@ -210,6 +213,10 @@ let g:loaded_logipat = 1
 "-----------------------------------------------------------
 noremap <silent> <Leader>gb :Gblame<CR>
                                     " run git blame
+noremap <silent> <Leader>gd :tab split<CR>:Gvdiff<CR>
+                                    " run git diff
+noremap <silent> <Leader>gx :tabc<CR>
+                                    " close tabs
 
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_unmodified = 0
