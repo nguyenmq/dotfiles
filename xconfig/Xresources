@@ -11,6 +11,7 @@ URxvt.url-launcher: opera
 
 ! Select the fonts to be used
 URxvt.font: xft:UbuntuMono:size=10
+URxvt.lineSpace: 4
 
 ! Set window title string
 URxvt.title: urxvt
@@ -25,7 +26,7 @@ URxvt.matcher.button: 1
 URxvt.iso14755: False
 
 ! special
-*.foreground:   #11404C
+*.foreground:   #000000
 *.background:   #ffffff
 *.cursorColor:  #000000
 
@@ -59,4 +60,4 @@ URxvt.iso14755: False
 
 ! white
 *.color7:       #c7c7c7
-*.color15:      #c7c7c7
+*.color15:      #eeeeee
