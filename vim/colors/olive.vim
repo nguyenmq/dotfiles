@@ -29,7 +29,7 @@ let s:cterm06 = "06"            " cyan, but actually another blue
 let s:cterm07 = "07"            " white, but is indeed grey
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "195"           " light blue
-let s:cterm0A = "078"           " light green
+let s:cterm0A = "224"           " light green
 let s:cterm0B = "229"           " light yellow
 let s:cterm0C = "141"           " lavender
 let s:cterm0D = "197"           " pink
@@ -60,6 +60,10 @@ fun <sid>hi(group, guifg, guibg, ctermfg, ctermbg, attr)
   endif
 endfun
 
+fun! <sid>link_group(fromgroup, togroup)
+    exec "hi! link " . a:fromgroup . " " . a:togroup
+endfun
+
 " Return GUI color for light/dark variants
 fun s:gui(color)
 return a:color
@@ -77,13 +81,11 @@ call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm0E, s:cterm0D, "")
 call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui04, s:cterm0B, s:cterm05, "")
 call <sid>hi("Folded",        s:gui05, s:gui0E, s:cterm04, s:cterm0E, "")
-call <sid>hi("IncSearch",     s:gui09, s:gui04, s:cterm00, s:cterm0A, "none")
 call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("MatchParen",    "", s:gui08, s:cterm0D, s:cterm07,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm03, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm03, "", "")
 call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm0A,  "none")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui01, "", s:cterm08, "", "")
 call <sid>hi("Visual",        "", s:gui08, "", s:cterm0F, "")
@@ -97,7 +99,6 @@ call <sid>hi("NonText",       s:gui05, s:gui02, s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui01, s:gui00, "", "", "none")
 call <sid>hi("LineNr",        s:gui05, s:gui0E, s:cterm02, s:cterm0F, "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
-call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("StatusLine",    s:gui0E, s:gui05, s:cterm05, s:cterm0E, "none")
 call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm05, s:cterm0F, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui04, s:cterm05, s:cterm05, "none")
@@ -110,6 +111,9 @@ call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm0F, s:cterm02, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm0E, s:cterm05, "none")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm02, s:cterm05, "none")
 call <sid>hi("TabLineSel",    s:gui09, s:gui01, s:cterm05, s:cterm0F, "none")
+call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm0B,  "none")
+call <sid>link_group("IncSearch", "Search")
+call <sid>hi("CtrlPMatch",    "",      "",      s:cterm05, s:cterm0F, "")
 
 " Standard syntax highlighting
 call <sid>hi("Boolean",         s:gui07, "", s:cterm06, "", "")
@@ -216,7 +220,6 @@ call <sid>hi("gitCommitOverflow",  s:gui08, "", s:cterm01, "", "")
 call <sid>hi("gitCommitSummary",   s:gui0B, "", s:cterm03, "", "")
 
 " CtrlP highlighting
-call <sid>hi("CtrlPMatch",        "", "", s:cterm00, s:cterm0A, "")
 call <sid>hi("CtrlPBufferNr",     "", "", s:cterm06, "", "")
 call <sid>hi("CtrlPBufferInd",    "", "", "", "", "")
 call <sid>hi("CtrlPBufferHid",    "", "", s:cterm00, "", "")

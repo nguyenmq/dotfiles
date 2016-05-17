@@ -51,7 +51,7 @@ let @c='O*/^60i-59|dt*O/*60a-61|D^'
                                     " insert C block comment
 let @g='O#60a-61|Dyypko# '
                                     " insert script block comment
-let @f='O69a*$a/O/69a*jo"0p$bmaj%f;xa{kO58a-a*/O/*58a-oLocal Variableskk%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
+let @f='O69a*A/O/69a*jo"0p$bmaj%f;s{}kO58a-a*/O/*58a-oLocal Variables2k%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
                                     " insert C function block
 let @v='O70i 0Rtyp25|Rvar37|R/* v69|R*/0fv0R'
                                     " insert a variable
@@ -183,7 +183,7 @@ let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune
     \ -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -path "*env/*" -prune
-    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt|cfg|sh)"'
+    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt|cfg|sh|cs)"'
 
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
                                     " search open buffers
