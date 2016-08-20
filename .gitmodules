@@ -31,3 +31,9 @@
 [submodule "vim/bundle/python-mode"]
 	path = vim/bundle/python-mode
 	url = https://github.com/klen/python-mode.git
+[submodule "vim/bundle/tagbar"]
+	path = vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule "vim/bundle/airlines_themes"]
+	path = vim/bundle/airlines_themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
