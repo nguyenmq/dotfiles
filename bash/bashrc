@@ -4,7 +4,7 @@ set -o vi
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 # enable programmable completion features
@@ -19,7 +19,7 @@ export PROMPT_COMMAND="history -a"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
-HISTFILESIZE=2000
+HISTFILESIZE=5000
 HISTCONTROL=ignoreboth
 
 color_prompt=yes
@@ -50,8 +50,7 @@ export LESS_TERMCAP_se=$'\E[0m'             # end standout-mode
 export LESS_TERMCAP_ue=$'\E[0m'             # end underline
 
 # don't expand the tilde
-_expand()
-{
+_expand() {
     return 0;
 }
 
@@ -65,18 +64,8 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vi="vim"
 alias svi="sudo -E vim"
-alias xo="xdg-open"
 
 # functions
-cl() {
-	local dir="$1"
-	local dir="${dir:=$HOME}"
-	if [[ -d "$dir" ]]; then
-		cd "$dir" >/dev/null; ls
-	else
-		echo "bash: cl: $dir: Directory not found"
-	fi
-}
 
 # Override with any local settings not tracked
 if [ -f ~/.bashrc.local ]; then
