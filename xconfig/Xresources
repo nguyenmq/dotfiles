@@ -1,7 +1,5 @@
-Xft.lcdfilter: lcddefault
-
 ! Initial window size
-URxvt.geometry: 170x65
+URxvt.geometry: 190x50
 
 ! Color for links
 URxvt.colorUL: #0086d2
@@ -9,9 +7,16 @@ URxvt.colorUL: #0086d2
 ! Browser to use when launching links
 URxvt.url-launcher: opera
 
-! Select the fonts to be used
+! Font settings
 URxvt.font: xft:UbuntuMono:size=10
 URxvt.lineSpace: 4
+URxvt.letterSpace: -1
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintsnone
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.rgba: rgb
 
 ! Set window title string
 URxvt.title: urxvt
