@@ -37,3 +37,11 @@ function! functions#Basename()
     execute "let @+ = fnamemodify('" . @% . "',':t')"
     echo 'Yanked: ' . @+
 endfun
+
+"-----------------------------------------------------------
+" Undefines the #define located at the cursor position
+"-----------------------------------------------------------
+function! functions#Undefine()
+    execute "s/.*\\s\\([A-Z_]\\+\\)\\s.*/#undef \\1/"
+    execute "noh"
+endfun

@@ -61,11 +61,9 @@ let @v='O70i 0Rtyp25|Rvar37|R/* v69|R*/0fv0R'
 "-----------------------------------------------------------
 abbr nll NULL
 abbr tw0 set tw=0
-abbr tw60 set tw=60
-abbr tw70 set tw=70
-abbr tw80 set tw=80
 abbr tnew tabnew
 abbr udpate update
+
 
 "-----------------------------------------------------------
 " Auto commands
@@ -130,9 +128,9 @@ noremap <silent> <Leader>d za
                                     " map toggle fold
 noremap <silent> <Leader>j zj za
                                     " move to next fold and toggle it
-noremap <Leader>y "+yiw:echo "Yanked: <C-R>+"<CR>
+noremap <Leader>y "+yiw:echo 'Yanked: <C-R>+'<CR>
                                     " yank current word to system clipboard
-noremap <Leader>Y v$h"+y:echo "Yanked: <C-R>+"<CR>
+noremap <Leader>Y v$h"+y:echo "Yanked!"<CR>
 noremap <Leader>p "+gP
                                     " paste before cursor from system clipboard
 noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
@@ -225,6 +223,7 @@ let g:pymode_lint_checkers = [ 'pyflakes', 'pep8' ]
 let g:pymode_lint_signs = 0
 let g:pymode_lint_cwindow = 1
 let g:pymode_indent = 0
+let g:pymode_lint_sort = ['E', 'C', 'I']
 let g:pymode_folding = 0
 let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
@@ -286,4 +285,4 @@ command! -nargs=1 Af call functions#Align( <f-args>, 70 )
 " Copy the filename of the active file into the system clipboard register
 command! -nargs=0 Bn call functions#Basename()
 " Change and #define line into an #undef line
-command! -nargs=0 Undef :s/.*\s\([A-Z_]\+\)\s.*/#undef \1/g
+command! -nargs=0 Und call functions#Undefine()
