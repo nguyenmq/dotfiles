@@ -28,13 +28,14 @@ let s:cterm05 = "05"            " magenta, but actually another green
 let s:cterm06 = "06"            " cyan, but actually another blue
 let s:cterm07 = "07"            " white, but is indeed grey
 let s:cterm08 = "243"           " dark grey
-let s:cterm09 = "195"           " light blue
+let s:cterm09 = "123"           " light blue
 let s:cterm0A = "224"           " light green
 let s:cterm0B = "229"           " light yellow
-let s:cterm0C = "141"           " lavender
+let s:cterm0C = "139"           " lavender
 let s:cterm0D = "197"           " pink
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
+let s:cterm10 = "217"           " light red
 
 " Theme setup
 hi clear
@@ -158,10 +159,10 @@ call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 
 " Additional diff highlighting
-call <sid>hi("DiffAdd",      "",      s:gui0F, s:cterm05, s:cterm0F, "")
+call <sid>hi("DiffAdd",      "",      s:gui0F, "", s:cterm09, "")
 call <sid>hi("DiffChange",   "",      s:gui0F, s:cterm00, s:cterm0F, "")
-call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm0F, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm04, s:cterm0F, "bold")
+call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0C, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")

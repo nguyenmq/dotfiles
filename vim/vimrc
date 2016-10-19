@@ -4,18 +4,19 @@ execute pathogen#infect()
 "-----------------------------------------------------------
 " General settings
 "-----------------------------------------------------------
-syntax on
-set number
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set autoindent
-set nowrap
-set hlsearch
-set wildmode=longest,list,full
-set wildmenu
+syntax on                           " enable syntax highlighting
+set number                          " enable line nubmers
+set tabstop=4                       " width of a tab
+set shiftwidth=4                    " number of spaces for step of indentation
+set softtabstop=4                   " number of spaces to insert for a tab in insert mode
+set autoindent                      " indent new lines
+set nowrap                          " turn off line wrapping
+set hlsearch                        " highlight pattern when searching
+set wildmode=longest,list,full      " autocompletion strategy
+set wildmenu                        " commandline complete
 set wildignore=*.o,*.so,*.a,*.o32,*.obj,*.out,*.zip,*.exe,*.lib,*.gca
-set expandtab
+                                    " file types to ignore
+set expandtab                       " use spaces instead of tabs
 set backspace=2                     " backspace over everything
 set incsearch                       " do search as user types
 set ignorecase                      " ignore case when searching
@@ -32,7 +33,10 @@ set cscopequickfix=s-,c-,d-,i-,t-,e-
                                     " open cscope results in quickfix
 set completeopt=menuone,longest     " set the autocomplete options
 set swapfile                        " enable swapfile
-set lazyredraw
+set lazyredraw                      " don't redraw screen when executing macros
+set nostartofline                   " keep cursor in column if possible when scrolling
+set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
+                                    " what to save in a session file
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
@@ -40,21 +44,21 @@ set dir=c:\\temp                    " set the swap directory
 else
 set dir=/tmp                        " set the swap directory
 endif
-colo olive
+colorscheme olive                   " set the color scheme
 
 "-----------------------------------------------------------
 " Set up macros
 "-----------------------------------------------------------
+" change variable to a pointer
 let @p='24|r*'
-                                    " change variable to a pointer
+" insert C block comment
 let @c='O*/^60i-59|dt*O/*60a-61|D^'
-                                    " insert C block comment
+" insert script block comment
 let @g='O#60a-61|Dyypko# '
-                                    " insert script block comment
+" insert C function block
 let @f='O69a*A/O/69a*jo"0p$bmaj%f;s{}kO58a-a*/O/*58a-oLocal Variables2k%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
-                                    " insert C function block
+" insert a variable
 let @v='O70i 0Rtyp25|Rvar37|R/* v69|R*/0fv0R'
-                                    " insert a variable
 
 "-----------------------------------------------------------
 " Abbreviations
@@ -63,7 +67,6 @@ abbr nll NULL
 abbr tw0 set tw=0
 abbr tnew tabnew
 abbr udpate update
-
 
 "-----------------------------------------------------------
 " Auto commands
@@ -74,72 +77,64 @@ autocmd GUIEnter * let c_no_comment_fold=1
 "-----------------------------------------------------------
 " Define new commands
 "-----------------------------------------------------------
+" set width of window
 command! -nargs=1 Width vertical resize <args>
-                                    " set width of window
+" set height of window
 command! -nargs=1 Height resize <args>
-                                    " set height of window
+" cscope find definition
 command! -nargs=1 Csg :cs find g <args>
-                                    " cscope find definition
+" cscope find file name
 command! -nargs=1 Csf :cs find f <args>
-                                    " cscope find file name
+" cscope find all uses
 command! -nargs=1 Css :cs find s <args>
-                                    " cscope find all uses
 
 "-----------------------------------------------------------
 " New mappings
 "-----------------------------------------------------------
+" map leader key to space
 let mapleader = "\<space>"
-                                    " map leader key to space
-inoremap jk <Esc>
-                                    " map jk to escape
+" map jk to escape
+inoremap jk <Esc>:update<CR>
+" ctrl+s to save
 noremap  <silent> <C-S> :update<CR>
-                                    " ctrl+s to save
-vnoremap <silent> <C-S> <C-C>:update<CR>
-                                    " ctrl+s to save
-inoremap <silent> <C-S> <C-O>:update<CR>
-                                    " ctrl+s to save
+" use ctrl+j for local completion and cycling
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><C-n>"))
-                                    " use ctrl+j for local completion and cycling
+" use ctrl+k for local completion and cycling
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><C-p>"))
-                                    " use ctrl+k for local completion and cycling
+" move to window below
 noremap <C-J>     <C-W>j
-                                    " move to window below
+" move to window above
 noremap <C-K>     <C-W>k
-                                    " move to window above
+" move to left window
 noremap <C-H>     <C-W>h
-                                    " move to left window
+" move to right window
 noremap <C-L>     <C-W>l
-                                    " move to right window
+" delete trailing whitespace
 noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
-                                    " delete trailing whitespace
+" turn off highlighting
 noremap <Leader>n :noh<CR>
-                                    " turn off highlighting
+" open the quick fix menu
 noremap <Leader>c :120vs<CR>:botright 7cope<CR><C-W>k<C-W>l
-                                    " open the quick fix menu
+" go to next error in quickfix
 noremap <silent> <Leader>e :cn<CR> zz
-                                    " go to next error in quickfix
+" go to previous error in quickfix
 noremap <silent> <Leader>E :cN<CR> zz
-                                    " go to previous error in quickfix
+" highlight word
 noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
-                                    " highlight word
+" highlight selection
 noremap <silent> <Leader>H y:let @/='<C-R>0'<CR>:set hls<CR>
-                                    " highlight selection
-noremap <silent> <Leader>d za
-                                    " map toggle fold
-noremap <silent> <Leader>j zj za
-                                    " move to next fold and toggle it
+" yank current word to system clipboard
 noremap <Leader>y "+yiw:echo 'Yanked: <C-R>+'<CR>
-                                    " yank current word to system clipboard
+" yank from the cursor position till the end of the line
 noremap <Leader>Y v$h"+y:echo "Yanked!"<CR>
+" paste before cursor from system clipboard
 noremap <Leader>p "+gP
-                                    " paste before cursor from system clipboard
+" find the definition for the word under cursor and go to the window on the left
 noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
-                                    " find the definition for the word under
-                                    " cursor and go to the window on the left
+" quit the current window
 noremap <Leader>x :q<CR>
-                                    " quit the current window
+" open the current window in a new tab
 noremap <Leader>z :tab split<CR>
-                                    " open the current window in a new tab
 
 "-----------------------------------------------------------
 " Configure airline
@@ -185,12 +180,12 @@ let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*"
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
 
+" search open buffers
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
-                                    " search open buffers
+" search tags in current buffer
 noremap <silent> <Leader>t :CtrlPBufTag<cr>
-                                    " search tags in current buffer
+" search file recursively
 noremap <silent> <Leader>f :CtrlP<cr>
-                                    " search file recursively
 
 "-----------------------------------------------------------
 " Configure Supertab
@@ -200,23 +195,25 @@ let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 "-----------------------------------------------------------
 " Configure numbers plugin
 "-----------------------------------------------------------
+" toggle numbers on/off
 noremap <silent> <C-N> :NumbersToggle<CR>
-                                    " toggle numbers on/off
+" excluded filetypes
 let g:numbers_exclude = [ 'help', 'fugitiveblame' ]
-                                    " excluded filetypes
-
 let g:loaded_logipat = 1
 
 "-----------------------------------------------------------
 " Configure fugitive
 "-----------------------------------------------------------
+" run git blame
 noremap <silent> <Leader>gb :Gblame<CR>
-                                    " run git blame
+" run git diff
 noremap <silent> <Leader>gd :tab split<CR>:Gvdiff<CR>
-                                    " run git diff
+" close tabs
 noremap <silent> <Leader>gx :tabc<CR>
-                                    " close tabs
 
+"-----------------------------------------------------------
+" Configure pymode
+"-----------------------------------------------------------
 let g:pymode_lint_on_write = 0
 let g:pymode_lint_unmodified = 0
 let g:pymode_lint_on_fly = 0
@@ -237,6 +234,8 @@ let g:pymode_syntax_indent_errors = 0
 let g:pymode_syntax_space_errors = 0
 let g:pymode_options = 0
 let g:pymode_options_colorcolumn = 0
+let g:pymode_lint_ignore = "E265,E501"
+noremap <Leader>jl :PymodeLint<CR>
 
 "-----------------------------------------------------------
 " Configure go whitespace highlighting
@@ -271,10 +270,8 @@ noremap <silent> <Leader>a :ColorColumnToggle<CR>
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
 " LookFor a function header
 command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
-" Lookfor #define's
-command! -nargs=* Ldef call functions#Lookfor( '^#define' )
-" Lookfor failures in test
-command! -nargs=* Lr call functions#Lookfor( 'result="fail"' )
+" Lookfor python functions
+command! -nargs=* Ldef call functions#Lookfor( '^\s*\<def\>' )
 " Align general block of text
 command! -nargs=+ A call functions#Align( <f-args> )
 " Align single line of text to given text width
