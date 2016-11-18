@@ -16,10 +16,12 @@
     lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold cyan)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' --all
     lb = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold cyan)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)'
-    dt = difftool -g
+    dt = difftool
     su = submodule update --init --recursive
     log = log --color=always
     ls = status --no-short --untracked-files=normal
+    rem = rebase origin/master
+    cm = checkout master
 [credential]
     helper = cache
 [color "diff"]

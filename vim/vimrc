@@ -37,6 +37,7 @@ set lazyredraw                      " don't redraw screen when executing macros
 set nostartofline                   " keep cursor in column if possible when scrolling
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
                                     " what to save in a session file
+set modeline                        " apply embedded local options
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
@@ -49,24 +50,11 @@ colorscheme olive                   " set the color scheme
 "-----------------------------------------------------------
 " Set up macros
 "-----------------------------------------------------------
-" change variable to a pointer
-let @p='24|r*'
-" insert C block comment
-let @c='O*/^60i-59|dt*O/*60a-61|D^'
-" insert script block comment
-let @g='O#60a-61|Dyypko# '
-" insert C function block
-let @f='O69a*A/O/69a*jo"0p$bmaj%f;s{}kO58a-a*/O/*58a-oLocal Variables2k%A 	/* */bmb`a"1yiw`b"1Pa() o`akkO** 	PROCEDURE NAME:* 	 	1** 	DESCRIPTION:* 	 	desc*kw'
-" insert a variable
-let @v='O70i 0Rtyp25|Rvar37|R/* v69|R*/0fv0R'
 
 "-----------------------------------------------------------
 " Abbreviations
 "-----------------------------------------------------------
 abbr nll NULL
-abbr tw0 set tw=0
-abbr tnew tabnew
-abbr udpate update
 
 "-----------------------------------------------------------
 " Auto commands
@@ -113,8 +101,6 @@ noremap <C-L>     <C-W>l
 noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
 " turn off highlighting
 noremap <Leader>n :noh<CR>
-" open the quick fix menu
-noremap <Leader>c :120vs<CR>:botright 7cope<CR><C-W>k<C-W>l
 " go to next error in quickfix
 noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
@@ -135,6 +121,13 @@ noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
 noremap <Leader>x :q<CR>
 " open the current window in a new tab
 noremap <Leader>z :tab split<CR>
+" move to the previous activated window (similar to tmux binding)
+noremap <C-W>p <C-W>;
+" cscope mappings
+noremap <Leader>cg :cs find g <C-R><C-W><CR>
+noremap <Leader>cs :cs find s <C-R><C-W><CR>
+noremap <Leader>cf :cs find f <C-R><C-W><CR>
+noremap <Leader>ce :cs find e <C-R><C-W><CR>
 
 "-----------------------------------------------------------
 " Configure airline
@@ -249,29 +242,10 @@ let g:go_highlight_trailing_whitespace_error = 0
 "-----------------------------------------------------------
 " Functions
 "-----------------------------------------------------------
-let s:color_column_enable=0
-function! ColorColumnToggle()
-    if( s:color_column_enable == 1 )
-        let s:color_column_enable=0
-        set colorcolumn=0
-    else
-        let s:color_column_enable=1
-        set colorcolumn=25
-        set colorcolumn+=37
-        set colorcolumn+=60
-        set colorcolumn+=70
-        set colorcolumn+=80
-    endif
-endfunc
-command! -nargs=0 ColorColumnToggle call ColorColumnToggle()
-noremap <silent> <Leader>a :ColorColumnToggle<CR>
-
 " LookFor a general regex
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
-" LookFor a function header
-command! -nargs=0 Lfun call functions#Lookfor( '^\*\s*PROCEDURE NAME:\n^\*\s*\zs\(\w*\)' )
 " Lookfor python functions
-command! -nargs=* Ldef call functions#Lookfor( '^\s*\<def\>' )
+command! -nargs=0 Ldef call functions#Lookfor( '^\s*\<def\>' )
 " Align general block of text
 command! -nargs=+ A call functions#Align( <f-args> )
 " Align single line of text to given text width
