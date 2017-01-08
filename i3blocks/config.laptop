@@ -8,7 +8,7 @@ color=#2b2b2b
 
 [mediaplayer]
 command=${HOME}/.dotfiles/i3blocks/scripts/mediaplayer.sh
-interval=5
+interval=once
 signal=11
 color=#eeeeee
 
@@ -18,7 +18,7 @@ color=#eeeeee
 [battery]
 command=${HOME}/.dotfiles/i3blocks/scripts/battery.pl
 instance=0
-interval=30
+interval=60
 
 [separator]
 
@@ -46,13 +46,13 @@ color=#eeeeee
 [ssid]
 command=${HOME}/.dotfiles/i3blocks/scripts/ssid.sh
 instance=wlp1s0
-interval=10
+interval=30
 color=#eeeeee
 
 [wifi]
 command=${HOME}/.dotfiles/i3blocks/scripts/wifi.sh
 instance=wlp1s0
-interval=10
+interval=30
 color=#eeeeee
 
 [separator]
@@ -61,5 +61,5 @@ color=#eeeeee
 [time]
 label=
 command=date '+%a %B %d, %I:%M %p'
-interval=5
+interval=60
 color=#eeeeee

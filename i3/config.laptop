@@ -54,8 +54,8 @@ bindsym $mod+Shift+o exec opera --private
 bindsym $mod+i exec spotify --force-device-scale-factor=2
 
 # control mpd
-bindsym $mod+backslash exec mpc toggle && pkill -RTMIN+11 i3blocks
-bindsym $mod+bracketright exec mpc next && pkill -RTMIN+11 i3blocks
+bindsym $mod+backslash exec mpc toggle
+bindsym $mod+bracketright exec mpc next
 bindsym $mod+Shift+backslash exec playerctl -p spotify play-pause && pkill -RTMIN+11 i3blocks
 bindsym $mod+Shift+bracketright exec playerctl -p spotify next && pkill -RTMIN+11 i3blocks
 
@@ -232,3 +232,5 @@ bar {
         binding_mode #ff0086 #ff0086 #eeeeee
     }
 }
+
+exec "${HOME}/.dotfiles/i3blocks/scripts/monitor_mpd.sh"

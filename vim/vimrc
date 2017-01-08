@@ -110,9 +110,9 @@ noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls
 " highlight selection
 noremap <silent> <Leader>H y:let @/='<C-R>0'<CR>:set hls<CR>
 " yank current word to system clipboard
-noremap <Leader>y "+yiw:echo 'Yanked: <C-R>+'<CR>
+noremap <Leader>y "+yiw:let @*=@+<CR>:echo 'Yanked: <C-R>+'<CR>
 " yank from the cursor position till the end of the line
-noremap <Leader>Y v$h"+y:echo "Yanked!"<CR>
+noremap <Leader>Y "+y$:let @*=@+<CR>:echo "Yanked!"<CR>
 " paste before cursor from system clipboard
 noremap <Leader>p "+gP
 " find the definition for the word under cursor and go to the window on the left

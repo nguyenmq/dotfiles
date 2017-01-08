@@ -26,9 +26,10 @@ URxvt.title: urxvt
 
 ! Disable the scrollbar
 URxvt.scrollBar: false
+URxvt.saveLines: 0
 
 ! Extension settings
-URxvt.perl-ext-common: default,matcher,fullscreen,clipboard
+URxvt.perl-ext-common: default,matcher,fullscreen
 URxvt.keysym.F11: perl:fullscreen:switch
 URxvt.matcher.button: 1
 URxvt.iso14755: False
