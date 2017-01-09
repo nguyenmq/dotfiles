@@ -8,13 +8,12 @@ color=#2b2b2b
 
 [mediaplayer]
 command=${HOME}/.dotfiles/i3blocks/scripts/mediaplayer.sh
-interval=5
+interval=once
 signal=11
 color=#eeeeee
 
 [separator]
 
-# Volume indicator
 [volume]
 command=/usr/lib/i3blocks/$BLOCK_NAME
 label=
@@ -25,14 +24,13 @@ color=#eeeeee
 
 [separator]
 
-# Network interface monitoring
 [ssid]
 command=${HOME}/.dotfiles/i3blocks/scripts/ssid.sh
 instance=wlp5s0
-interval=10
+interval=60
 color=#eeeeee
 
-[wifi]
+[wifi_quality]
 command=${HOME}/.dotfiles/i3blocks/scripts/wifi.sh
 instance=wlp5s0
 interval=10
@@ -40,9 +38,8 @@ color=#eeeeee
 
 [separator]
 
-# Date Time
 [time]
 label=
 command=date '+%a %B %d, %I:%M %p'
-interval=5
+interval=60
 color=#eeeeee

@@ -20,13 +20,13 @@ workspace $WS1 output "DVI-D-0"
 workspace $WS2 output "DVI-I-1"
 
 # Set default workspace layout
-workspace_layout tabbed
+workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
+assign [class="Chromium"] $WS9
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
+# Font for window titles
 font pango:Ubuntu 10
 
 # Window colors
@@ -50,21 +50,22 @@ bindsym $mod+Shift+Return exec urxvt
 # toggle mousepad
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
 
-# open opera
+# open browser
 bindsym $mod+o exec opera
 bindsym $mod+Shift+o exec opera --private
+bindsym $mod+y exec chromium
 
 # open spotify
 bindsym $mod+i exec spotify
 
-# control mpd
-bindsym $mod+backslash exec mpc toggle && pkill -RTMIN+11 i3blocks
-bindsym $mod+bracketright exec mpc next && pkill -RTMIN+11 i3blocks
-bindsym $mod+Shift+backslash exec playerctl -p spotify play-pause && pkill -RTMIN+11 i3blocks
-bindsym $mod+Shift+bracketright exec playerctl -p spotify next && pkill -RTMIN+11 i3blocks
+# control mediaplayers
+bindsym $mod+backslash exec mpc toggle
+bindsym $mod+bracketright exec mpc next
+bindsym $mod+Shift+backslash exec playerctl -p spotify play-pause
+bindsym $mod+Shift+bracketright exec playerctl -p spotify next
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q kill; exec "sleep 3; pkill -RTMIN+11 i3blocks"
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
@@ -166,21 +167,10 @@ bindsym $mod+b border toggle
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-
-    # Pressing left will shrink the window’s width.
-    # Pressing right will grow the window’s width.
-    # Pressing up will shrink the window’s height.
-    # Pressing down will grow the window’s height.
     bindsym h resize shrink width 5 px or 5 ppt
     bindsym j resize shrink height 5 px or 5 ppt
     bindsym k resize grow height 5 px or 5 ppt
     bindsym l resize grow width 5 px or 5 ppt
-
-    # same bindings, but for the arrow keys
-    bindsym Left resize shrink width 5 px or 5 ppt
-    bindsym Down resize grow height 5 px or 5 ppt
-    bindsym Up resize shrink height 5 px or 5 ppt
-    bindsym Right resize grow width 5 px or 5 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -236,3 +226,5 @@ bar {
         binding_mode #ff0086 #ff0086 #eeeeee
     }
 }
+
+exec "${HOME}/.dotfiles/i3blocks/scripts/monitor_mediaplayer.sh"

@@ -4,13 +4,24 @@ utf8_to_xml_encoding() {
     echo "$1" | recode utf8..xml
 }
 
-if [ $(playerctl -p mpd status) == "Playing" ]; then
+PID_MPD=$(pidof mpd)
+PID_SPT=$(pidof spotify)
+
+if [ ! -z "$PID_MPD" ]; then
+    STS_MPD=$(playerctl -p mpd status)
+fi
+
+if [ ! -z "$PID_SPT" ]; then
+    STS_SPT=$(playerctl -p spotify status)
+fi
+
+if [ ! -z "$PID_MPD" ] && [ "$STS_MPD" == "Playing" ]; then
     echo "<span foreground='#e3e2f3'>  </span>  $(utf8_to_xml_encoding "$(mpc current)")"
-elif [ $(playerctl -p spotify status) == "Playing" ]; then
+elif [ ! -z "$PID_SPT" ] && [ "$STS_SPT" == "Playing" ]; then
     echo "<span foreground='#e3e2f3'>  </span>  $(utf8_to_xml_encoding "$(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)")"
-elif [ $(playerctl -p mpd status) == "Paused" ]; then
+elif [ ! -z "$PID_MPD" ] && [ "$STS_MPD" == "Paused" ]; then
     echo "<span foreground='#e3e2f3'>  </span>  $(utf8_to_xml_encoding "$(mpc current)")"
-elif [ $(playerctl -p spotify status) == "Paused" ]; then
+elif [ ! -z "$PID_SPT" ] && [ "$STS_SPT" == "Paused" ]; then
     echo "<span foreground='#e3e2f3'>  </span>  $(utf8_to_xml_encoding "$(playerctl -p spotify metadata artist) - $(playerctl -p spotify metadata title)")"
 else
     echo "  stopped"
