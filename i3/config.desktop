@@ -222,8 +222,8 @@ bar {
         focused_workspace #eeeeee #eeeeee #22a21f
         active_workspace #0f9437 #0f9437 #eeeeee
         inactive_workspace #0f9437 #0f9437 #eeeeee
-        urgent_workspace #ff0086 #ff0086 #eeeeee
-        binding_mode #ff0086 #ff0086 #eeeeee
+        urgent_workspace #875faf #875faf #eeeeee
+        binding_mode #875faf #875faf #eeeeee
     }
 }
 

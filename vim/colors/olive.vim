@@ -29,9 +29,9 @@ let s:cterm06 = "06"            " cyan, but actually another blue
 let s:cterm07 = "07"            " white, but is indeed grey
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "123"           " light blue
-let s:cterm0A = "224"           " light green
+let s:cterm0A = "41"            " light green
 let s:cterm0B = "229"           " light yellow
-let s:cterm0C = "139"           " lavender
+let s:cterm0C = "97"            " lavender
 let s:cterm0D = "197"           " pink
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
@@ -86,7 +86,7 @@ call <sid>hi("Italic",        "", "", "", "", "none")
 call <sid>hi("MatchParen",    "", s:gui08, s:cterm0D, s:cterm07,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm03, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm03, "", "")
-call <sid>hi("Question",      s:gui0A, "", s:cterm0A, "", "")
+call <sid>hi("Question",      s:gui0A, "", s:cterm0D, "", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui01, "", s:cterm08, "", "")
 call <sid>hi("Visual",        "", s:gui08, "", s:cterm0F, "")
@@ -162,7 +162,7 @@ call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("DiffAdd",      "",      s:gui0F, "", s:cterm09, "")
 call <sid>hi("DiffChange",   "",      s:gui0F, s:cterm00, s:cterm0F, "")
 call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0C, "none")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0A, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")

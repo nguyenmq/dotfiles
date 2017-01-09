@@ -68,6 +68,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vi="vim"
 alias svi="sudo -E vim"
+alias rg="echo -e '\a'"
 
 # functions
 
