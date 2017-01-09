@@ -13,14 +13,18 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
+export SYSTEMD_PAGER="vim -R -"
 
-export PROMPT_COMMAND="history -a"
+shopt -s histappend
+shopt -s histverify
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=5000
-HISTCONTROL=ignoreboth
+HISTCONTROL=ignorespace
+
+# Immediately append to history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 color_prompt=yes
 
@@ -71,4 +75,3 @@ alias svi="sudo -E vim"
 if [ -f ~/.bashrc.local ]; then
     source ~/.bashrc.local
 fi
-
