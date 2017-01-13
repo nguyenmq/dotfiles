@@ -47,9 +47,16 @@ set dir=/tmp                        " set the swap directory
 endif
 colorscheme olive                   " set the color scheme
 
-"-----------------------------------------------------------
-" Set up macros
-"-----------------------------------------------------------
+if executable( 'ag' )
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --follow
+
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor --follow -g ""'
+
+    " ag is fast enough that CtrlP doesn't need to cache
+    let g:ctrlp_use_caching = 0
+endif
 
 "-----------------------------------------------------------
 " Abbreviations
@@ -167,9 +174,6 @@ let g:ctrlp_max_files = 0
 let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 0
-let g:ctrlp_user_command = 'find -L %s -path "*/gen/*" -prune -o -path "*/bin/*" -prune
-    \ -o -path ".git" -prune -o -path "*/bbin/*" -prune -o -path "*env/*" -prune
-    \ -o -regextype posix-egrep -regex ".*\.(c|h|tmpl|inc|xml|py|jam|pl|css|html|js|md|txt|cfg|sh|cs|go)"'
 let g:ctrlp_extensions = ['tag', 'buffertag']
 let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
 

@@ -19,14 +19,14 @@ let s:gui10 = "ffd2d2"          " light red
 let s:gui11 = "12181a"          " dark grey
 
 " Terminal color definitions
-let s:cterm00 = "00"            " black
-let s:cterm01 = "01"            " red
-let s:cterm02 = "02"            " green
-let s:cterm03 = "03"            " yellow, closer to orange
-let s:cterm04 = "04"            " blue
-let s:cterm05 = "05"            " magenta, but actually another green
-let s:cterm06 = "06"            " cyan, but actually another blue
-let s:cterm07 = "07"            " white, but is indeed grey
+let s:cterm00 = "00"            " terminal black
+let s:cterm01 = "01"            " terminal red
+let s:cterm02 = "02"            " terminal green
+let s:cterm03 = "03"            " terminal yellow
+let s:cterm04 = "04"            " terminal blue
+let s:cterm05 = "05"            " terminal magenta
+let s:cterm06 = "06"            " terminal cyan
+let s:cterm07 = "07"            " terminal white
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "123"           " light blue
 let s:cterm0A = "41"            " light green
@@ -36,6 +36,7 @@ let s:cterm0D = "197"           " pink
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
 let s:cterm10 = "217"           " light red
+let s:cterm11 = "183"           " light lavender
 
 " Theme setup
 hi clear
@@ -162,7 +163,7 @@ call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("DiffAdd",      "",      s:gui0F, "", s:cterm09, "")
 call <sid>hi("DiffChange",   "",      s:gui0F, s:cterm00, s:cterm0F, "")
 call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0A, "none")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm11, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")
@@ -239,4 +240,4 @@ delf <sid>cterm
 
 " Remove color variables
 unlet s:gui00 s:gui01 s:gui02 s:gui03  s:gui04  s:gui05  s:gui06  s:gui07  s:gui08  s:gui09 s:gui0A  s:gui0B  s:gui0C  s:gui0D  s:gui0E  s:gui0F s:gui10 s:gui11
-unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F
+unlet s:cterm00 s:cterm01 s:cterm02 s:cterm03 s:cterm04 s:cterm05 s:cterm06 s:cterm07 s:cterm08 s:cterm09 s:cterm0A s:cterm0B s:cterm0C s:cterm0D s:cterm0E s:cterm0F s:cterm10 s:cterm11

@@ -19,4 +19,4 @@ echo "$BASHPID" > "$PID_FILE"
 while read line
 do
     pkill -RTMIN+11 i3blocks
-done < <(dbus-monitor --session "path=/org/mpris/MediaPlayer2,member=PropertiesChanged" --monitor)
+done < <(dbus-monitor --session "path=/org/mpris/MediaPlayer2,member=PropertiesChanged" --profile)
