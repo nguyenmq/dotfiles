@@ -31,38 +31,38 @@ URxvt.matcher.button: 1
 URxvt.iso14755: False
 
 ! special
-*.foreground:   #000000
-*.background:   #ffffff
-*.cursorColor:  #000000
+*foreground:   #000000
+*background:   #ffffff
+*cursorColor:  #000000
 
 ! black
-*.color0:       #12181a
-*.color8:       #12181a
+*color0:       #12181a
+*color8:       #12181a
 
 ! red
-*.color1:       #d22e2e
-*.color9:       #d22e2e
+*color1:       #d22e2e
+*color9:       #d22e2e
 
 ! green
-*.color2:       #22a21f
-*.color10:      #22a21f
+*color2:       #22a21f
+*color10:      #22a21f
 
 ! yellow
-*.color3:       #b0bf30
-*.color11:      #b0bf30
+*color3:       #b0bf30
+*color11:      #b0bf30
 
 ! blue
-*.color4:       #0072c6
-*.color12:      #0072c6
+*color4:       #0086d2
+*color12:      #0086d2
 
 ! magenta
-*.color5:       #0f9437
-*.color13:      #0f9437
+*color5:       #ff3580
+*color13:      #ff3580
 
 ! cyan
-*.color6:       #0086d2
-*.color14:      #0086d2
+*color6:       #875faf
+*color14:      #875faf
 
 ! white
-*.color7:       #c7c7c7
-*.color15:      #eeeeee
+*color7:       #c7c7c7
+*color15:      #eeeeee

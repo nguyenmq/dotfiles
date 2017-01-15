@@ -4,9 +4,9 @@ rofi.bw: 3
 rofi.font: Ubuntu Mono 12
 rofi.color-enabled: true
 rofi.color-window: #ffffff, #875faf, #0f9437
-rofi.color-normal: #ffffff, #002b36, #eeeeee, #22a21f, #eeeeee
-rofi.color-active: #ffffff, #0086d2, #eeeeee, #0086d2, #eeeeee
-rofi.color-urgent: #ffffff, #875faf, #eeeeee, #875faf, #eeeeee
+rofi.color-normal: #ffffff, #002b36, #ffffff, #22a21f, #ffffff
+rofi.color-active: #ffffff, #0086d2, #ffffff, #0086d2, #ffffff
+rofi.color-urgent: #ffffff, #875faf, #ffffff, #875faf, #ffffff
 
 rofi.fake-transparency: true
 rofi.fake-background: background

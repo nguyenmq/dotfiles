@@ -30,9 +30,10 @@ assign [class="Chromium"] $WS9
 font pango:Ubuntu 10
 
 # Window colors
-client.focused          #e1ff44 #0f9437 #ffffff #e1ff44 #e1ff44
-client.focused_inactive #0f9437 #0f9437 #ffffff #0f9437 #0f9437
-client.unfocused        #0f9437 #0f9437 #aaaaaa #0f9437 #0f9437
+# colorclass            hdr bdr bg      text    indic   btm bdr
+client.focused          #22a21f #22a21f #ffffff #22a21f #22a21f
+client.focused_inactive #64c661 #64c661 #000000 #eeeeee #eeeeee
+client.unfocused        #64c661 #64c661 #ffffff #eeeeee #eeeeee
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -215,15 +216,16 @@ bar {
     font            pango:fontawesome, Ubuntu 10
 
     colors {
-        background #0f9437
+        background #22a21f
         statusline #eeeeee
         separator #2b2b2b
 
-        focused_workspace #eeeeee #eeeeee #22a21f
-        active_workspace #0f9437 #0f9437 #eeeeee
-        inactive_workspace #0f9437 #0f9437 #eeeeee
-        urgent_workspace #875faf #875faf #eeeeee
-        binding_mode #875faf #875faf #eeeeee
+        # colorclass        border  bg      text
+        focused_workspace   #eeeeee #eeeeee #22a21f
+        active_workspace    #22a21f #22a21f #ffffff
+        inactive_workspace  #22a21f #22a21f #ffffff
+        urgent_workspace    #875faf #875faf #ffffff
+        binding_mode        #875faf #875faf #ffffff
     }
 }
 

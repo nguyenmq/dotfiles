@@ -10,7 +10,7 @@ color=#2b2b2b
 command=${HOME}/.dotfiles/i3blocks/scripts/mediaplayer.sh
 interval=once
 signal=11
-color=#eeeeee
+color=#ffffff
 
 [separator]
 
@@ -20,7 +20,7 @@ label=
 instance=Master
 interval=once
 signal=10
-color=#eeeeee
+color=#ffffff
 
 [separator]
 
@@ -28,13 +28,13 @@ color=#eeeeee
 command=${HOME}/.dotfiles/i3blocks/scripts/ssid.sh
 instance=wlp5s0
 interval=60
-color=#eeeeee
+color=#ffffff
 
 [wifi_quality]
 command=${HOME}/.dotfiles/i3blocks/scripts/wifi.sh
 instance=wlp5s0
 interval=10
-color=#eeeeee
+color=#ffffff
 
 [separator]
 
@@ -42,4 +42,4 @@ color=#eeeeee
 label=
 command=date '+%a %B %d, %I:%M %p'
 interval=60
-color=#eeeeee
+color=#ffffff
