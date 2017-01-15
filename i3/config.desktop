@@ -68,7 +68,7 @@ bindsym $mod+Shift+bracketright exec playerctl -p spotify next
 bindsym $mod+Shift+q kill; exec "sleep 3; pkill -RTMIN+11 i3blocks"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
 
 # change focus
 bindsym $mod+h focus left
