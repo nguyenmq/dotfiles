@@ -217,11 +217,11 @@ bar {
 
     colors {
         background #22a21f
-        statusline #eeeeee
-        separator #2b2b2b
+        statusline #ffffff
+        separator #ffffff
 
         # colorclass        border  bg      text
-        focused_workspace   #eeeeee #eeeeee #22a21f
+        focused_workspace   #ffffff #ffffff #22a21f
         active_workspace    #22a21f #22a21f #ffffff
         inactive_workspace  #22a21f #22a21f #ffffff
         urgent_workspace    #875faf #875faf #ffffff

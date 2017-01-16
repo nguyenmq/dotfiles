@@ -68,4 +68,4 @@ if [ -z "$NOW_PLAYING" ]; then
     NOW_PLAYING="  stopped"
 fi
 
-utf8_to_xml_encoding "$PLAYER_ICON  $STATUS_ICON  $NOW_PLAYING"
+utf8_to_xml_encoding "$PLAYER_ICON  $STATUS_ICON  ${NOW_PLAYING:0:90}"

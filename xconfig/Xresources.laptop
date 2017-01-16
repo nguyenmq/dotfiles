@@ -56,16 +56,16 @@ URxvt.iso14755: False
 *.color11:      #b0bf30
 
 ! blue
-*.color4:       #0072c6
-*.color12:      #0072c6
+*.color4:       #2090ea
+*.color12:      #2090ea
 
 ! magenta
-*.color5:       #0f9437
-*.color13:      #0f9437
+*.color5:       #ff3580
+*.color13:      #ff3580
 
 ! cyan
-*.color6:       #0086d2
-*.color14:      #0086d2
+*.color6:       #875faf
+*.color14:      #875faf
 
 ! white
 *.color7:       #c7c7c7
