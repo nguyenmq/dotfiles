@@ -30,10 +30,11 @@ assign [class="Chromium"] $WS9
 font pango:Ubuntu 10
 
 # Window colors
-# colorclass            hdr bdr bg      text    indic   btm bdr
+# colorclass            hdr_bdr bg      text    indic   btm_bdr
 client.focused          #22a21f #22a21f #ffffff #22a21f #22a21f
 client.focused_inactive #64c661 #64c661 #000000 #eeeeee #eeeeee
 client.unfocused        #64c661 #64c661 #ffffff #eeeeee #eeeeee
+client.urgent           #875faf #875faf #ffffff #eeeeee #eeeeee
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
