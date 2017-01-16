@@ -38,6 +38,8 @@ set nostartofline                   " keep cursor in column if possible when scr
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
                                     " what to save in a session file
 set modeline                        " apply embedded local options
+set tag=./.tags;$HOME               " define tag files locations
+set tagcase=match                   " match case when searching tags
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
@@ -49,9 +51,10 @@ colorscheme olive                   " set the color scheme
 
 if executable( 'ag' )
     " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor\ --follow
+    set grepprg=ag\ --nogroup\ --nocolor\ --follow\ --vimgrep\ $*
+    set grepformat=%f:%l:%c:%m
 
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    " Use ag in CtrlP for listing files
     let g:ctrlp_user_command = 'ag %s -l --nocolor --follow -g ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
@@ -242,6 +245,16 @@ let g:go_highlight_chan_whitespace_error = 0
 let g:go_highlight_extra_types = 0
 let g:go_highlight_space_tab_error = 0
 let g:go_highlight_trailing_whitespace_error = 0
+
+"-----------------------------------------------------------
+" Configure Tagbar
+"-----------------------------------------------------------
+let g:tagbar_vertical = 20
+let g:tagbar_autoclose = 1
+let g:tagbar_compact = 1
+let g:tagbar_show_linenumbers = 0
+let g:tagbar_previewwin_pos = "aboveleft"
+noremap <Leader>ct :TagbarToggle<CR>
 
 "-----------------------------------------------------------
 " Functions

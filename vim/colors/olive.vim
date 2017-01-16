@@ -172,7 +172,7 @@ call <sid>hi("DiffRemoved",  s:gui08, s:gui0F, s:cterm01, "",        "")
 
 " HTML highlighting
 call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("htmlItalic",  s:gui06, "", s:cterm0E, "", "")
+call <sid>hi("htmlItalic",  s:gui06, "", s:cterm02, "", "")
 call <sid>hi("htmlEndTag",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("htmlTag",     s:gui05, "", s:cterm05, "", "")
 
@@ -231,6 +231,9 @@ call <sid>hi("CtrlPBufferVisMod", "", "", s:cterm01, "", "bold")
 call <sid>hi("CtrlPBufferCur",    "", "", s:cterm00, "", "")
 call <sid>hi("CtrlPBufferCurMod", "", "", s:cterm01, "", "bold")
 call <sid>hi("CtrlPBufferPath",   "", "", s:cterm05, "", "")
+
+" Java Highlighting
+call <sid>hi("javaCommentTitle",   s:gui06, "", s:cterm02, "", "")
 
 " Remove functions
 delf <sid>hi
