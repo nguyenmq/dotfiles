@@ -143,8 +143,8 @@ noremap <Leader>ce :cs find e <C-R><C-W><CR>
 " Configure airline
 "-----------------------------------------------------------
 let g:airline_theme='olive'
-let g:airline_left_sep='|'
-let g:airline_right_sep='|'
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 let g:airline_skip_empty_sections = 1
 let g:airline_inactive_collapse=0
 let g:airline_extensions = ['branch', 'ctrlp', 'whitespace', 'tagbar']
@@ -165,9 +165,9 @@ let g:airline#extensions#default#layout = [
   \ [ 'y', 'z', 'warning' ]
   \ ]
 function! AirlineInit()
-    let g:airline_section_a = airline#section#create(['%2v'])
+    let g:airline_section_a = airline#section#create(['%3v'])
     let g:airline_section_b = airline#section#create(['branch'])
-    let g:airline_section_c = airline#section#create(['file'])
+    let g:airline_section_c = airline#section#create(['%t%m'])
     let g:airline_section_y = airline#section#create(['filetype'])
     let g:airline_section_z = airline#section#create(['%3p%%'])
     let g:airline_section_error = airline#section#create(['whitespace'])

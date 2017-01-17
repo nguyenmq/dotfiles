@@ -31,7 +31,7 @@ let s:cterm07 = "07"            " terminal white
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "123"           " light blue
 let s:cterm0A = "41"            " light green
-let s:cterm0B = "229"           " light yellow
+let s:cterm0B = "228"           " light yellow
 let s:cterm0C = "97"            " lavender
 let s:cterm0D = "197"           " pink
 let s:cterm0E = "231"           " white
@@ -128,7 +128,7 @@ call <sid>hi("Debug",           s:gui0D, "", s:cterm0C, "", "none")
 call <sid>hi("Define",          s:gui09, "", s:cterm01, "", "none")
 call <sid>hi("Delimiter",       s:gui0D, "", s:cterm0C, "", "")
 call <sid>hi("Error",           s:gui01, s:gui09, s:cterm0F, s:cterm01, "")
-call <sid>hi("Exception",       s:gui0B, "", s:cterm03, "", "bold")
+call <sid>hi("Exception",       s:gui0B, "", s:cterm06, "", "bold")
 call <sid>hi("Float",           s:gui07, "", s:cterm04, "", "")
 call <sid>hi("Function",        s:gui0A, "", s:cterm0D, "", "")
 call <sid>hi("Identifier",      s:gui0A, "", s:cterm0D, "", "none")
@@ -141,17 +141,17 @@ call <sid>hi("Operator",        s:gui0B, "", s:cterm03, "", "bold")
 call <sid>hi("PreCondit",       s:gui09, "", s:cterm01, "", "")
 call <sid>hi("PreProc",         s:gui09, "", s:cterm01, "", "")
 call <sid>hi("Repeat",          s:gui0B, "", s:cterm03, "", "bold")
-call <sid>hi("Special",         s:gui0D, "", s:cterm0C, "", "")
+call <sid>hi("Special",         s:gui0D, "", s:cterm06, "", "")
 call <sid>hi("SpecialChar",     s:gui0D, "", s:cterm0C, "", "")
 call <sid>hi("SpecialComment",  s:gui0D, "", s:cterm0C, "", "")
 call <sid>hi("Statement",       s:gui0B, "", s:cterm03, "", "bold")
-call <sid>hi("StorageClass",    s:gui0C, "", s:cterm08, "", "bold")
+call <sid>hi("StorageClass",    s:gui0C, "", s:cterm06, "", "bold")
 call <sid>hi("String",          s:gui07, "", s:cterm04, "", "")
-call <sid>hi("Structure",       s:gui0C, "", s:cterm08, "", "bold")
+call <sid>hi("Structure",       s:gui0C, "", s:cterm06, "", "bold")
 call <sid>hi("Tag",             s:gui0D, "", s:cterm0C, "", "")
 call <sid>hi("Todo",            s:gui09, s:gui0E, s:cterm01, s:cterm0F, "bold")
-call <sid>hi("Type",            s:gui0C, "", s:cterm08, "", "bold")
-call <sid>hi("Typedef",         s:gui0C, "", s:cterm08, "", "bold")
+call <sid>hi("Type",            s:gui0C, "", s:cterm06, "", "bold")
+call <sid>hi("Typedef",         s:gui0C, "", s:cterm06, "", "bold")
 call <sid>hi("Underlined",      s:gui07, "", s:cterm04, "", "")
 
 " Spelling highlighting

@@ -52,8 +52,8 @@ URxvt.iso14755: False
 *.color10:      #22a21f
 
 ! yellow
-*.color3:       #d77d00
-*.color11:      #d77d00
+*.color3:       #aaa80d
+*.color11:      #aaa80d
 
 ! blue
 *.color4:       #2090ea
