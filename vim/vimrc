@@ -40,6 +40,8 @@ set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
 set modeline                        " apply embedded local options
 set tag=./.tags;$HOME               " define tag files locations
 set tagcase=match                   " match case when searching tags
+set timeoutlen=1000                 " mapped key timeout
+set ttimeoutlen=10                  " key code timeout
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
@@ -79,12 +81,6 @@ autocmd GUIEnter * let c_no_comment_fold=1
 command! -nargs=1 Width vertical resize <args>
 " set height of window
 command! -nargs=1 Height resize <args>
-" cscope find definition
-command! -nargs=1 Csg :cs find g <args>
-" cscope find file name
-command! -nargs=1 Csf :cs find f <args>
-" cscope find all uses
-command! -nargs=1 Css :cs find s <args>
 
 "-----------------------------------------------------------
 " New mappings
@@ -126,18 +122,13 @@ noremap <Leader>Y "+y$:let @*=@+<CR>:echo "Yanked!"<CR>
 " paste before cursor from system clipboard
 noremap <Leader>p "+gP
 " find the definition for the word under cursor and go to the window on the left
-noremap <Leader>k yiw<C-W>h:cs find g <C-R>"<CR>
+noremap <Leader>k yiw<C-W>h:tselect <C-R>"<CR>
 " quit the current window
 noremap <Leader>x :q<CR>
 " open the current window in a new tab
 noremap <Leader>z :tab split<CR>
 " move to the previous activated window (similar to tmux binding)
 noremap <C-W>p <C-W>;
-" cscope mappings
-noremap <Leader>cg :cs find g <C-R><C-W><CR>
-noremap <Leader>cs :cs find s <C-R><C-W><CR>
-noremap <Leader>cf :cs find f <C-R><C-W><CR>
-noremap <Leader>ce :cs find e <C-R><C-W><CR>
 
 "-----------------------------------------------------------
 " Configure airline

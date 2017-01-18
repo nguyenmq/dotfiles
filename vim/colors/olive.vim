@@ -33,7 +33,7 @@ let s:cterm09 = "123"           " light blue
 let s:cterm0A = "41"            " light green
 let s:cterm0B = "228"           " light yellow
 let s:cterm0C = "97"            " lavender
-let s:cterm0D = "197"           " pink
+let s:cterm0D = "22"            " dark green
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
 let s:cterm10 = "217"           " light red
@@ -79,16 +79,16 @@ endfun
 
 " Vim editor colors
 call <sid>hi("Bold",          "", "", "", "", "bold")
-call <sid>hi("Directory",     s:gui0C, "", s:cterm0D, "", "")
-call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm0E, s:cterm0D, "")
+call <sid>hi("Directory",     s:gui0C, "", s:cterm05, "", "")
+call <sid>hi("ErrorMsg",      s:gui01, s:gui00, s:cterm0E, s:cterm05, "")
 call <sid>hi("Exception",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    "", s:gui04, s:cterm0E, s:cterm02, "")
 call <sid>hi("Folded",        s:gui05, s:gui0E, s:cterm04, s:cterm0E, "")
 call <sid>hi("Italic",        "", "", "", "", "none")
-call <sid>hi("MatchParen",    "", s:gui08, s:cterm0D, s:cterm07,  "")
+call <sid>hi("MatchParen",    "", s:gui08, s:cterm05, s:cterm07,  "")
 call <sid>hi("ModeMsg",       s:gui0B, "", s:cterm03, "", "")
 call <sid>hi("MoreMsg",       s:gui0B, "", s:cterm03, "", "")
-call <sid>hi("Question",      s:gui0A, "", s:cterm0D, "", "")
+call <sid>hi("Question",      s:gui0A, "", s:cterm05, "", "")
 call <sid>hi("SpecialKey",    s:gui03, "", s:cterm03, "", "")
 call <sid>hi("TooLong",       s:gui01, "", s:cterm08, "", "")
 call <sid>hi("Visual",        "", s:gui08, "", s:cterm0F, "")
@@ -96,7 +96,7 @@ call <sid>hi("VisualNOS",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("WarningMsg",    s:gui01, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui00, s:gui05, s:cterm08, "", "")
 call <sid>hi("Title",         s:gui0C, "", s:cterm06, "", "none")
-call <sid>hi("Conceal",       s:gui0C, s:gui00, s:cterm0D, s:cterm00, "")
+call <sid>hi("Conceal",       s:gui0C, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("Cursor",        s:gui00, s:gui11, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui05, s:gui02, s:cterm03, "", "")
 call <sid>hi("Normal",        s:gui01, s:gui00, "", "", "none")
@@ -130,8 +130,8 @@ call <sid>hi("Delimiter",       s:gui0D, "", s:cterm0C, "", "")
 call <sid>hi("Error",           s:gui01, s:gui09, s:cterm0F, s:cterm01, "")
 call <sid>hi("Exception",       s:gui0B, "", s:cterm06, "", "bold")
 call <sid>hi("Float",           s:gui07, "", s:cterm04, "", "")
-call <sid>hi("Function",        s:gui0A, "", s:cterm0D, "", "")
-call <sid>hi("Identifier",      s:gui0A, "", s:cterm0D, "", "none")
+call <sid>hi("Function",        s:gui0A, "", s:cterm05, "", "")
+call <sid>hi("Identifier",      s:gui0A, "", s:cterm05, "", "none")
 call <sid>hi("Include",         s:gui09, "", s:cterm01, "", "")
 call <sid>hi("Keyword",         s:gui0B, "", s:cterm03, "", "bold")
 call <sid>hi("Label",           s:gui03, "", s:cterm04, "", "")
@@ -187,7 +187,7 @@ call <sid>hi("sassidChar",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("sassClassChar",  s:gui09, "", s:cterm09, "", "")
 call <sid>hi("sassInclude",    s:gui0E, "", s:cterm0E, "", "")
 call <sid>hi("sassMixing",     s:gui0E, "", s:cterm0E, "", "")
-call <sid>hi("sassMixinName",  s:gui0C, "", s:cterm0D, "", "")
+call <sid>hi("sassMixinName",  s:gui0C, "", s:cterm05, "", "")
 
 " JavaScript highlighting
 call <sid>hi("javaScript",        s:gui05, "", s:cterm05, "", "")
@@ -210,13 +210,13 @@ call <sid>hi("markdownBoldItalic",        s:gui11, "", s:cterm08, "", "")
 call <sid>hi("markdownUrl",               s:gui07, "", s:cterm04, "", "")
 call <sid>hi("markdownUrlTitle",          s:gui07, "", s:cterm04, "", "")
 call <sid>hi("markdownListMarker",        s:gui03, "", s:cterm06, "", "")
-call <sid>hi("markdownError",             "", "", s:cterm0D, "", "")
+call <sid>hi("markdownError",             "", "", s:cterm05, "", "")
 call <sid>hi("markdownCodeDelimiter",     s:gui06, "", s:cterm02, "", "")
 call <sid>hi("markdownHighlight",         s:gui06, "", s:cterm02, "", "")
 call <sid>hi("markdownCodeBlock",         s:gui03, "", s:cterm00, "", "")
 call <sid>hi("markdownBlockquote",        s:gui03, "", s:cterm06, "", "")
 call <sid>hi("markdownBlock",             s:gui03, "", s:cterm06, "", "")
-call <sid>hi("markdownEscape",            "", "", s:cterm0D, "", "")
+call <sid>hi("markdownEscape",            "", "", s:cterm05, "", "")
 
 " Git highlighting
 call <sid>hi("gitCommitOverflow",  s:gui08, "", s:cterm01, "", "")
