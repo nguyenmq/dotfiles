@@ -145,20 +145,24 @@ let g:airline#extensions#branch#format = 1
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#show_message = 0
 let g:airline#extensions#whitespace#symbol = '!!'
+let g:airline#extensions#tagbar#enabled = 1
 let g:airline#extensions#default#section_truncate_width = {
-  \ 'a': 60,
-  \ 'b': 30,
-  \ 'y': 88,
-  \ 'z': 45,
+  \ 'a': 90,
+  \ 'b': 90,
+  \ 'c': 20,
+  \ 'x': 90,
+  \ 'y': 90,
+  \ 'z': 90,
   \ }
 let g:airline#extensions#default#layout = [
   \ [ 'a', 'b', 'c' ],
-  \ [ 'y', 'z', 'warning' ]
+  \ [ 'x', 'y', 'z', 'warning' ]
   \ ]
 function! AirlineInit()
     let g:airline_section_a = airline#section#create(['%3v'])
     let g:airline_section_b = airline#section#create(['branch'])
     let g:airline_section_c = airline#section#create(['%t%m'])
+    let g:airline_section_x = airline#section#create(['tagbar'])
     let g:airline_section_y = airline#section#create(['filetype'])
     let g:airline_section_z = airline#section#create(['%3p%%'])
     let g:airline_section_error = airline#section#create(['whitespace'])
