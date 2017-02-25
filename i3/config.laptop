@@ -165,10 +165,10 @@ bindsym $mod+b border toggle
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    bindsym h resize shrink width 5 px or 5 ppt
-    bindsym j resize shrink height 5 px or 5 ppt
-    bindsym k resize grow height 5 px or 5 ppt
-    bindsym l resize grow width 5 px or 5 ppt
+    bindsym h resize shrink width 1 px or 1 ppt
+    bindsym j resize shrink height 1 px or 1 ppt
+    bindsym k resize grow height 1 px or 1 ppt
+    bindsym l resize grow width 1 px or 1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -218,7 +218,7 @@ bar {
         separator #ffffff
 
         # colorclass        border  bg      text
-        focused_workspace   #ffffff #ffffff #22a21f
+        focused_workspace   #005f00 #005f00 #ffffff
         active_workspace    #22a21f #22a21f #ffffff
         inactive_workspace  #22a21f #22a21f #ffffff
         urgent_workspace    #875faf #875faf #ffffff

@@ -24,7 +24,7 @@ get_mpd_status() {
         fi
 
         if [ ! -z "$MPD_STATUS" ]; then
-            if [ $(mpc | grep 'random:' | awk '{print $5}') == "on" ]; then
+            if [ $(mpc | awk -F "random:" '{if(match($0, "random:") > 0) { split($2, tokens, " "); print tokens[1] }}') == "on" ]; then
                 local MPD_STATUS="${MPD_STATUS}  "
             fi
 
@@ -57,6 +57,7 @@ get_spotify_status() {
     fi
 }
 
+sleep "0.2"
 get_spotify_status
 
 if [ -z "$PLAYING" ]; then
