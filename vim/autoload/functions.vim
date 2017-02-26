@@ -45,3 +45,13 @@ function! functions#Undefine()
     execute "s/.*\\s\\([A-Z_]\\+\\)\\s.*/#undef \\1/"
     execute "noh"
 endfun
+
+"-----------------------------------------------------------
+" Cleanup trailing whitespace and tabs in the file
+"-----------------------------------------------------------
+function! functions#CleanWhitespace()
+    silent! execute "%s/\\s\\+$//g"
+    silent! execute "%s/\\t/    /g"
+    execute "noh"
+    execute "update"
+endfun

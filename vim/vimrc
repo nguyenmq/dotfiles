@@ -104,9 +104,9 @@ noremap <C-H>     <C-W>h
 " move to right window
 noremap <C-L>     <C-W>l
 " delete trailing whitespace
-noremap <silent> <Leader>w :%s/\s\+$//g<CR> :noh<CR>
+noremap <silent> <Leader>w :Cw<CR>
 " turn off highlighting
-noremap <Leader>n :noh<CR>
+noremap <silent> <Leader>n :noh<CR>
 " go to next error in quickfix
 noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
@@ -129,6 +129,8 @@ noremap <Leader>x :q<CR>
 noremap <Leader>z :tab split<CR>
 " move to the previous activated window (similar to tmux binding)
 noremap <C-W>p <C-W>;
+" echo the file name
+noremap <Leader>l :echo expand('%:p')<CR>
 
 "-----------------------------------------------------------
 " Configure airline
@@ -209,7 +211,7 @@ noremap <silent> <Leader>gb :Gblame<CR>
 " run git diff
 noremap <silent> <Leader>gd :tab split<CR>:Gvdiff<CR>
 " close tabs
-noremap <silent> <Leader>gx :tabc<CR>
+noremap <silent> <Leader>gx :tabclose<CR>gT
 
 "-----------------------------------------------------------
 " Configure pymode
@@ -275,3 +277,5 @@ command! -nargs=1 Af call functions#Align( <f-args>, 70 )
 command! -nargs=0 Bn call functions#Basename()
 " Change and #define line into an #undef line
 command! -nargs=0 Und call functions#Undefine()
+" Cleanup whitespace in file
+command! -nargs=0 Cw call functions#CleanWhitespace()
