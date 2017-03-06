@@ -12,6 +12,8 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+[ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
+
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 export SYSTEMD_PAGER="vim -R -"
 
