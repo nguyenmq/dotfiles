@@ -32,7 +32,7 @@ URxvt.matcher.button: 1
 URxvt.iso14755: False
 
 ! special
-*.foreground:   #000000
+*.foreground:   #2e3018
 *.background:   #ffffff
 *.cursorColor:  #000000
 

@@ -3,17 +3,17 @@
 # Set mod keys to ctrl+alt
 set $mod Mod1+Control
 
-# workspaces
-set $WS1 term
-set $WS2 web
-set $WS3 media
-set $WS4 four
-set $WS5 five
-set $WS6 six
-set $WS7 seven
-set $WS8 misc
-set $WS9 video
-set $WS10 music
+# workspace names; uses the mathematical sans-serif bold unicode digits
+set $WS1 " 𝟬𝟭 "
+set $WS2 " 𝟬𝟮 "
+set $WS3 " 𝟬𝟯 "
+set $WS4 " 𝟬𝟰 "
+set $WS5 " 𝟬𝟱 "
+set $WS6 " 𝟬𝟲 "
+set $WS7 " 𝟬𝟳 "
+set $WS8 " 𝟬𝟴 "
+set $WS9 " 𝟬𝟵 "
+set $WS10 " 𝟭𝟬 "
 
 # Assign workspaces to specfic outputs
 workspace $WS1 output "DVI-D-0"
@@ -24,7 +24,8 @@ workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
-assign [class="Chromium"] $WS9
+assign [class="Chromium"] $WS3
+assign [class="mpv"] $WS3
 
 # Font for window titles
 font pango:Ubuntu 10
