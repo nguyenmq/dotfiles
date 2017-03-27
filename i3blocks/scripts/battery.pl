@@ -45,6 +45,8 @@ if ($status eq 'Discharging') {
     }
 } elsif ($status eq 'Charging') {
     $full_text = "  " . "$percent%";
+} elsif ($status eq 'Full') {
+    $full_text = "  " . "$percent%";
 }
 
 $full_text .= " $remain";

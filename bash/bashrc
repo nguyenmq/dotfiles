@@ -63,7 +63,7 @@ _expand() {
 # User specific aliases and functions
 alias gits="git status"
 alias c="clear"
-alias ls="ls --color=auto"
+alias ls="ls --color=auto --file-type -X"
 alias ll="ls -alh --color=auto --group-directories-first"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
