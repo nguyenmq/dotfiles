@@ -236,6 +236,12 @@ call <sid>hi("CtrlPBufferPath",   "", "", s:cterm05, "", "")
 " Java Highlighting
 call <sid>hi("javaCommentTitle",   s:gui06, "", s:cterm02, "", "")
 
+" xml Highlighting
+call <sid>hi("xmlTagName", "", "", s:cterm06, "", "")
+call <sid>hi("xmlTag",     "", "", s:cterm06, "", "")
+call <sid>hi("xmlEndTag",  "", "", s:cterm06, "", "")
+call <sid>hi("xmlAttrib",  "", "", s:cterm01, "", "")
+
 " Remove functions
 delf <sid>hi
 delf <sid>gui
