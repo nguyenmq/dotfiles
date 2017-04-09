@@ -3,6 +3,10 @@
 # Set mod keys to ctrl+alt
 set $mod Mod1+Control
 
+# Define monitor outputs
+set $monitor_left "DVI-D-0"
+set $monitor_right "DVI-I-1"
+
 # workspace names; uses the mathematical sans-serif bold unicode digits
 set $WS1 " 𝟬𝟭 "
 set $WS2 " 𝟬𝟮 "
@@ -15,16 +19,25 @@ set $WS8 " 𝟬𝟴 "
 set $WS9 " 𝟬𝟵 "
 set $WS10 " 𝟭𝟬 "
 
-# Assign workspaces to specfic outputs
-workspace $WS1 output "DVI-D-0"
-workspace $WS2 output "DVI-I-1"
+# bind workspaces to specific monitors: odd on the left, even on the right
+workspace $WS1 output $monitor_left
+workspace $WS3 output $monitor_left
+workspace $WS5 output $monitor_left
+workspace $WS7 output $monitor_left
+workspace $WS9 output $monitor_left
+
+workspace $WS2 output $monitor_right
+workspace $WS4 output $monitor_right
+workspace $WS6 output $monitor_right
+workspace $WS8 output $monitor_right
+workspace $WS10 output $monitor_right
 
 # Set default workspace layout
 workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
-assign [class="Chromium"] $WS3
+assign [class="Chromium"] $WS4
 assign [class="mpv"] $WS3
 
 # Font for window titles
@@ -131,8 +144,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# don't change focus with mouse
+# disable mouse warping
 focus_follows_mouse no
+mouse_warping none
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -232,3 +246,4 @@ bar {
 }
 
 exec "${HOME}/.dotfiles/i3blocks/scripts/monitor_mediaplayer.sh"
+exec "unclutter -b --timeout 3"

@@ -20,7 +20,7 @@ workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
-assign [class="Chromium"] $WS3
+assign [class="Chromium"] $WS4
 assign [class="mpv"] $WS3
 
 # Font for window titles
@@ -127,8 +127,9 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# don't change focus with mouse
+# disable mouse warping
 focus_follows_mouse no
+mouse_warping none
 
 # switch to workspace
 bindsym $mod+1 workspace $WS1
@@ -228,3 +229,4 @@ bar {
 }
 
 exec "${HOME}/.dotfiles/i3blocks/scripts/monitor_mediaplayer.sh"
+exec "unclutter -b --timeout 3"
