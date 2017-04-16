@@ -42,6 +42,7 @@ set tag=./.tags;$HOME               " define tag files locations
 set tagcase=match                   " match case when searching tags
 set timeoutlen=1000                 " mapped key timeout
 set ttimeoutlen=10                  " key code timeout
+set showcmd                         " show keystroke commands in status
 
 if has( "win32" )
 set grepprg=grep\ -n                " define grep program
