@@ -4,8 +4,8 @@
 set $mod Mod1+Control
 
 # Define monitor outputs
-set $monitor_left "DVI-D-0"
-set $monitor_right "DVI-I-1"
+set $monitor_left "DVI-I-1"
+set $monitor_right "DVI-D-0"
 
 # workspace names; uses the mathematical sans-serif bold unicode digits
 set $WS1 " 𝟬𝟭 "
