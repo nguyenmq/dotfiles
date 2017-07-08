@@ -42,8 +42,16 @@ show_bg_jobs() {
 }
 
 # Exports
-export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
 export EDITOR=vim
+if [ -z ${SSH_CLIENT+x} ]; then
+    # If the ssh client variable isn't set, then this is a local terminal and
+    # use the regular prompt color
+    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
+else
+    # Else this is an ssh session. Change the prompt colors so it's more
+    # obvious this isn't a local machine
+    export PS1="\[\e[00;36m\][ \[\e[01;36m\]\u@\h:\[\e[00;33m\]\w\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
+fi
 
 # man pager color -- escapes for urxvt/xterm
 # see termcap manpage for definitions
