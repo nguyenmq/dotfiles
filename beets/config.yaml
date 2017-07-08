@@ -1,0 +1,35 @@
+directory: /opt/music/
+library: /opt/music/library.db
+asciify_paths: yes
+art_filename: folder
+max_filename_length: 150
+threaded: yes
+ui:
+    color: yes
+paths:
+   default: '%lower{${albumartist}/${album}/${track}__${artist}__${title}}'
+replace:
+    '[\s]': _
+    '[+$#<>:"\?!\*\|\(\),\.\\''-]':
+    '[&]': 'and'
+    "[[]]":
+plugins: fetchart embedart scrub edit
+fetchart:
+    auto: yes
+    cautious: yes
+    minwidth: 900
+    maxwidth: 900
+    enforce_ratio: yes
+    cover_names: folder
+    sources: filesystem
+embedart:
+    auto: yes
+scrub:
+    auto: yes
+import:
+    timid: yes
+    default_action: apply
+    detail: yes
+    write: yes
+format_item:
+    '$albumartist | $artist | $artist_sort | $album | $year | $genre | $comments | $mb_trackid | $track | $title'
