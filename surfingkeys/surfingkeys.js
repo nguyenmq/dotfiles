@@ -26,6 +26,8 @@ unmap('k', /(reddit|feedly|mail\.google)\.com/);
 unmap('j', /(reddit|feedly|mail\.google)\.com/);
 unmap('v', /feedly\.com/);
 unmap('p', /reddit\.com/);
+unmap('m', /reddit\.com/);
+unmap('M', /reddit\.com/);
 
 // alias current mappings
 map('F', 'af');
