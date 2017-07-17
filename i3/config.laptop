@@ -67,7 +67,7 @@ bindsym $mod+Shift+bracketright exec playerctl -p spotify next
 bindsym $mod+Shift+q kill; exec "sleep 3; pkill -RTMIN+11 i3blocks"
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
 
 # change focus
 bindsym $mod+h focus left
@@ -116,10 +116,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+d focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
