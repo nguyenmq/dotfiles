@@ -12,7 +12,7 @@ create_sessions() {
     if [ -e "$WINDOW_NAMES" ]; then
         tmux new-session -d -s "$SESSION" -n "$(head -n 1 "$WINDOW_NAMES")"
 
-        while read name; do
+        while read -r name; do
             tmux new-window -t "$SESSION" -n "$name"
         done < <(tail -n +2 "$WINDOW_NAMES")
     else
@@ -28,8 +28,8 @@ create_sessions() {
     exec tmux attach -t "$SESSION"
 }
 
-tmux has-session -t "$SESSION" > /dev/null
-if [ $? -eq 0 ]; then
+
+if tmux has-session -t "$SESSION" > /dev/null; then
     # if session already exists, then attach to it
     exec tmux attach -t "$SESSION"
 else
