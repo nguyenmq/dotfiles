@@ -29,7 +29,7 @@ let s:cterm06 = "06"            " terminal cyan
 let s:cterm07 = "07"            " terminal white
 
 let s:cterm08 = "243"           " dark grey
-let s:cterm09 = "123"           " light blue
+let s:cterm09 = "159"           " light blue
 let s:cterm0A = "41"            " light green
 let s:cterm0B = "228"           " light yellow
 let s:cterm0C = "97"            " lavender
@@ -105,7 +105,7 @@ call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("StatusLine",    s:gui0E, s:gui05, s:cterm02, s:cterm02, "none")
 call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm02, s:cterm02, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui04, s:cterm02, s:cterm02, "none")
-call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm09, "none")
+call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm0F, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm0E, "none")
 call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm0E, "none")
 call <sid>hi("CursorLineNr",  s:gui05, s:gui02, s:cterm02, "", "")
@@ -164,7 +164,7 @@ call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("DiffAdd",      "",      s:gui0F, "", s:cterm09, "")
 call <sid>hi("DiffChange",   "",      s:gui0F, s:cterm00, s:cterm0F, "")
 call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm11, "none")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0A, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")
