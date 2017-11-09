@@ -21,15 +21,10 @@ signal=10
 
 [separator]
 
-[ssid]
-command=${HOME}/.dotfiles/i3blocks/scripts/ssid.sh
-instance=wlp5s0
+[ethernet]
+command=${HOME}/.dotfiles/i3blocks/scripts/ethernet.sh
+instance=enp3s0
 interval=60
-
-[wifi_quality]
-command=${HOME}/.dotfiles/i3blocks/scripts/wifi.sh
-instance=wlp5s0
-interval=10
 
 [separator]
 
