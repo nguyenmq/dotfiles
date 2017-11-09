@@ -139,6 +139,9 @@ noremap <Leader>l :echo expand('%:p')<CR>
 let g:airline_theme='olive'
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_symbols = {
+  \ 'branch' : '',
+  \ }
 let g:airline_skip_empty_sections = 1
 let g:airline_inactive_collapse=0
 let g:airline_extensions = ['branch', 'ctrlp', 'whitespace', 'tagbar']
@@ -258,6 +261,11 @@ let g:tagbar_compact = 1
 let g:tagbar_show_linenumbers = 0
 let g:tagbar_previewwin_pos = "aboveleft"
 noremap <Leader>ct :TagbarToggle<CR>
+
+"-----------------------------------------------------------
+" Configure tmux navigator
+"-----------------------------------------------------------
+let g:tmux_navigator_disable_when_zoomed = 1
 
 "-----------------------------------------------------------
 " Functions
