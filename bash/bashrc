@@ -15,7 +15,7 @@ fi
 [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
-export SYSTEMD_PAGER="vim -R -"
+export SYSTEMD_PAGER="less"
 
 shopt -s histappend
 shopt -s histverify
@@ -74,13 +74,15 @@ alias c="clear"
 alias ls="ls --color=auto --file-type -X"
 alias ll="ls -alh --color=auto --group-directories-first"
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias vi="vim"
-alias svi="sudo -E vim"
-alias rg="echo -e '\a'"
+alias vp="vim -R -"
+alias ring="echo -e '\a'"
+alias pc="pass show -c"
 
-# functions
+# Load optional functions file
+if [ -f ~/.bashrc.func ]; then
+    source ~/.bashrc.func
+fi
 
 # Override with any local settings not tracked
 if [ -f ~/.bashrc.local ]; then

@@ -1,0 +1,36 @@
+# Optional functions for bashrc
+
+# Shuffle all songs under the "rock" genre
+function rando {
+    mpc clear > /dev/null
+    mpc find genre Rock | mpc add
+    mpc random on > /dev/null
+    mpc play
+}
+
+# Load and play the random playlist
+function ldr {
+    mpc clear > /dev/null
+    mpc load rand > /dev/null
+    mpc random on > /dev/null
+    mpc play
+}
+
+# Stop mpd and save the random playlist
+function ldrs {
+    mpc stop > /dev/null
+    rm ~/.config/mpd/playlists/rand.m3u
+    mpc save rand && mpc clear > /dev/null
+}
+
+# Set the current volume level
+function vol {
+    if [ -z $1 ]; then
+        local vol=50
+    else
+        local vol=$1
+    fi
+
+    amixer set Master ${vol}% > /dev/null
+    pkill -RTMIN+10 i3blocks
+}
