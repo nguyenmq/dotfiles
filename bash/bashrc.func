@@ -19,6 +19,7 @@ function ldr {
 # Stop mpd and save the random playlist
 function ldrs {
     mpc stop > /dev/null
+    mpc random off > /dev/null
     rm ~/.config/mpd/playlists/rand.m3u
     mpc save rand && mpc clear > /dev/null
 }
