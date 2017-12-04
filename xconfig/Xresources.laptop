@@ -10,7 +10,7 @@ URxvt.url-launcher: opera
 ! Font settings
 URxvt.font: xft:UbuntuMono:size=9
 URxvt.lineSpace: 4
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintsnone
