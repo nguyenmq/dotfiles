@@ -38,7 +38,7 @@ set nostartofline                   " keep cursor in column if possible when scr
 set sessionoptions=blank,buffers,curdir,folds,help,tabpages,winsize
                                     " what to save in a session file
 set modeline                        " apply embedded local options
-set tag=./.tags;$HOME               " define tag files locations
+set tag=.tags;$HOME                 " define tag files locations
 set tagcase=match                   " match case when searching tags
 set timeoutlen=1000                 " mapped key timeout
 set ttimeoutlen=10                  " key code timeout
@@ -113,9 +113,9 @@ noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
 noremap <silent> <Leader>E :cN<CR> zz
 " highlight word
-noremap <silent> <Leader>h :let @/='\<<C-R>=expand("<cword>")<CR>\>'<CR>:set hls<CR>
+noremap <silent> <Leader>h *``
 " highlight selection
-noremap <silent> <Leader>H y:let @/='<C-R>0'<CR>:set hls<CR>
+noremap <silent> <Leader>H y/<C-R>0<CR>``zz:set hls<CR>
 " yank current word to system clipboard
 noremap <Leader>y "+yiw:let @*=@+<CR>:echo 'Yanked: <C-R>+'<CR>
 " yank from the cursor position till the end of the line
@@ -184,7 +184,10 @@ let g:ctrlp_switch_buffer = '0'
 let g:ctrlp_working_path_mode = '0'
 let g:ctrlp_show_hidden = 0
 let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_buftag_types = { 'go' : '--language-force=go --go-types=d' }
+let g:ctrlp_buftag_types = {
+    \ 'go' : '--language-force=go --go-types=d',
+    \ 'java' : '--extras=F --fields=* --*-kinds=*'
+\ }
 
 " search open buffers
 noremap <silent> <Leader>b :CtrlPBuffer<cr>
