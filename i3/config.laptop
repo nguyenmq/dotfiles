@@ -181,6 +181,7 @@ bindsym $mod+r mode "resize"
 
 set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 
+# Prompts to power off/reboot/suspend system
 set $mode_system <span font='Ubuntu 10'>(l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown</span>
 mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -194,8 +195,21 @@ mode --pango_markup "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+BackSpace mode "$mode_system"
+
+# Set the laptop output
+set $monitor_output <span font='Ubuntu 10'>(i) internal, (e) external, (f) 4k external, (b) both</span>
+mode --pango_markup "$monitor_output" {
+    bindsym i exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -i", mode "default"
+    bindsym e exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -e", mode "default"
+    bindsym f exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -f", mode "default"
+    bindsym b exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -b", mode "default"
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+x mode "$monitor_output"
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ && pkill -RTMIN+10 i3blocks
