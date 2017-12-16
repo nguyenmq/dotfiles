@@ -3,35 +3,44 @@
 # Set mod keys to shift+alt
 set $mod Mod1+Shift
 
-# workspace names; uses the mathematical sans-serif bold unicode digits
-set $WS1 " 𝟬𝟭 "
-set $WS2 " 𝟬𝟮 "
-set $WS3 " 𝟬𝟯 "
-set $WS4 " 𝟬𝟰 "
-set $WS5 " 𝟬𝟱 "
-set $WS6 " 𝟬𝟲 "
-set $WS7 " 𝟬𝟳 "
-set $WS8 " 𝟬𝟴 "
-set $WS9 " 𝟬𝟵 "
-set $WS10 " 𝟭𝟬 "
+# workspace names
+set $WS1  1:term
+set $WS2  2:web
+set $WS3  3:03
+set $WS4  4:04
+set $WS5  5:05
+set $WS6  6:06
+set $WS7  7:07
+set $WS8  8:08
+set $WS9  9:09
+set $WS10 10:10
+
+# set the lock program
+set $Locker i3lock -i "${HOME}/.xlock/lock.png"
+
+# colors
+set $green    #22a21f
+set $white    #ffffff
+set $grey     #eeeeee
+set $lt_green #3fa53b
+set $purple   #875faf
+set $black    #000000
 
 # Set default workspace layout
 workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
-assign [class="Chromium"] $WS4
-assign [class="mpv"] $WS3
 
 # Font for window titles
 font pango:Ubuntu 10
 
 # Window colors
-# colorclass            hdr_bdr bg      text    indic   btm_bdr
-client.focused          #22a21f #22a21f #ffffff #22a21f #22a21f
-client.focused_inactive #64c661 #64c661 #000000 #eeeeee #eeeeee
-client.unfocused        #64c661 #64c661 #ffffff #eeeeee #eeeeee
-client.urgent           #875faf #875faf #ffffff #eeeeee #eeeeee
+# colorclass            hdr_bdr   bg        text    indic   btm_bdr
+client.focused          $green    $green    $white  $green  $green
+client.focused_inactive $lt_green $lt_green $black  $grey   $grey
+client.unfocused        $lt_green $lt_green $white  $grey   $grey
+client.urgent           $purple   $purple   $white  $grey   $grey
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -52,19 +61,13 @@ bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
 # open browser
 bindsym $mod+o exec opera
 bindsym $mod+Control+o exec opera --private
-bindsym $mod+y exec chromium
-
-# open spotify
-bindsym $mod+i exec spotify --force-device-scale-factor=2
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
 bindsym $mod+bracketright exec mpc next
-bindsym $mod+Control+backslash exec playerctl -p spotify play-pause
-bindsym $mod+Control+bracketright exec playerctl -p spotify next
 
 # kill focused window
-bindsym $mod+Control+q kill; exec "sleep 3; pkill -RTMIN+11 i3blocks"
+bindsym $mod+Control+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
@@ -124,36 +127,33 @@ bindsym $mod+d focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
-# focus the child container
-#bindsym $mod+d focus child
-
 # disable mouse warping
 focus_follows_mouse no
 mouse_warping none
 
 # switch to workspace
-bindsym $mod+1 workspace $WS1
-bindsym $mod+2 workspace $WS2
-bindsym $mod+3 workspace $WS3
-bindsym $mod+4 workspace $WS4
-bindsym $mod+5 workspace $WS5
-bindsym $mod+6 workspace $WS6
-bindsym $mod+7 workspace $WS7
-bindsym $mod+8 workspace $WS8
-bindsym $mod+9 workspace $WS9
-bindsym $mod+0 workspace $WS10
+bindsym $mod+1 workspace number $WS1
+bindsym $mod+2 workspace number $WS2
+bindsym $mod+3 workspace number $WS3
+bindsym $mod+4 workspace number $WS4
+bindsym $mod+5 workspace number $WS5
+bindsym $mod+6 workspace number $WS6
+bindsym $mod+7 workspace number $WS7
+bindsym $mod+8 workspace number $WS8
+bindsym $mod+9 workspace number $WS9
+bindsym $mod+0 workspace number $WS10
 
 # move focused container to workspace
-bindsym $mod+Control+1 move container to workspace $WS1
-bindsym $mod+Control+2 move container to workspace $WS2
-bindsym $mod+Control+3 move container to workspace $WS3
-bindsym $mod+Control+4 move container to workspace $WS4
-bindsym $mod+Control+5 move container to workspace $WS5
-bindsym $mod+Control+6 move container to workspace $WS6
-bindsym $mod+Control+7 move container to workspace $WS7
-bindsym $mod+Control+8 move container to workspace $WS8
-bindsym $mod+Control+9 move container to workspace $WS9
-bindsym $mod+Control+0 move container to workspace $WS10
+bindsym $mod+Control+1 move container to workspace number $WS1
+bindsym $mod+Control+2 move container to workspace number $WS2
+bindsym $mod+Control+3 move container to workspace number $WS3
+bindsym $mod+Control+4 move container to workspace number $WS4
+bindsym $mod+Control+5 move container to workspace number $WS5
+bindsym $mod+Control+6 move container to workspace number $WS6
+bindsym $mod+Control+7 move container to workspace number $WS7
+bindsym $mod+Control+8 move container to workspace number $WS8
+bindsym $mod+Control+9 move container to workspace number $WS9
+bindsym $mod+Control+0 move container to workspace number $WS10
 
 # reload the configuration file
 bindsym $mod+Control+c reload
@@ -162,7 +162,8 @@ bindsym $mod+Control+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Control+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym $mod+b border toggle
+# open a dialog to rename the current workspace
+bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,13 +177,11 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 
 # Prompts to power off/reboot/suspend system
-set $mode_system <span font='Ubuntu 10'>(l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown</span>
+set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
@@ -198,7 +197,7 @@ mode --pango_markup "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # Set the laptop output
-set $monitor_output <span font='Ubuntu 10'>(i) internal, (e) external, (f) 4k external, (b) both</span>
+set $monitor_output (i) internal, (e) external, (f) 4k external, (b) both
 mode --pango_markup "$monitor_output" {
     bindsym i exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -i", mode "default"
     bindsym e exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -e", mode "default"
@@ -212,35 +211,13 @@ mode --pango_markup "$monitor_output" {
 bindsym $mod+x mode "$monitor_output"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+ && pkill -RTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%- && pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
 bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2 && pkill -RTMIN+12 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2 && pkill -RTMIN+12 i3blocks
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-    status_command  i3blocks
-    position        top
-    tray_output     primary
-    font            pango:fontawesome, Ubuntu 10
-
-    colors {
-        background #22a21f
-        statusline #ffffff
-        separator #ffffff
-
-        # colorclass        border  bg      text
-        focused_workspace   #005f00 #005f00 #ffffff
-        active_workspace    #22a21f #22a21f #ffffff
-        inactive_workspace  #22a21f #22a21f #ffffff
-        urgent_workspace    #875faf #875faf #ffffff
-        binding_mode        #875faf #875faf #ffffff
-    }
-}
-
-exec "${HOME}/.dotfiles/i3blocks/scripts/monitor_mediaplayer.sh"
+exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh laptop"
 exec "unclutter -b --timeout 3"
