@@ -31,6 +31,7 @@ workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="Opera"] $WS2
+assign [class="mpv"] $WS10
 
 # Font for window titles
 font pango:Ubuntu 10
@@ -219,5 +220,5 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
-exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh laptop"
+exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh honeydew"
 exec "unclutter -b --timeout 3"
