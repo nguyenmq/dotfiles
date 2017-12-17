@@ -220,5 +220,5 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
-exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh honeydew"
+exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh honeydew wlp1s0"
 exec "unclutter -b --timeout 3"

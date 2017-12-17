@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if [[ $# -lt 1 ]]; then
-    echo "Need to specify an polybar config"
+if [[ $# -lt 2 ]]; then
+    echo "Need to specify a polybar config and network device"
     exit 1
 fi
 
@@ -13,5 +13,5 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # launch polybar on each output
 for m in $(xrandr --query | awk '/\<connected\>/ {print $1}'); do
-    MONITOR=$m polybar "$1" &
+    MONITOR=$m NETWORK="$2" polybar "$1" &
 done

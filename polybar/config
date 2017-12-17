@@ -5,6 +5,7 @@ white = #ffffff
 black = #000000
 grey = #d3d3d3
 purple = #875faf
+dk_grey = #aaaaaa
 
 [bar/base]
 monitor = ${env:MONITOR:}
@@ -33,7 +34,7 @@ height = 2%
 inherit = bar/base
 line-size = 4
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 modules-right = mpd battery volume xbacklight wlan
 padding-left = 1
 padding-right = 2
@@ -94,6 +95,8 @@ type = internal/mpd
 format-online = <label-song>  <icon-random> <toggle>
 format-online-underline = ${colors.grey}
 label-song =   %artist% - %title%
+format-online-background = ${colors.dk_green}
+format-online-padding = 1
 
 icon-previous = 
 icon-stop = 
@@ -106,34 +109,36 @@ label-song-maxlen = 50
 label-song-ellipsis = true
 
 toggle-on-foreground = ${colors.white}
-toggle-off-foreground = #aaa
+toggle-off-foreground = ${colors.dk_grey}
 
 [module/xbacklight]
 type = internal/xbacklight
 format = <label>
 label =  %percentage%%
 format-underline = ${colors.grey}
+label-foreground = ${colors.white}
 
 [module/wlan]
 type = internal/network
-interface = wlp4s0
+interface = ${env:NETWORK:}
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.grey}
 label-connected = "%essid% (%signal%%)"
+label-connected-foreground = ${colors.white}
 
 format-disconnected = <label-disconnected>
 format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = " disconnected"
-label-disconnected-foreground = ${colors.white}
+label-disconnected-foreground = ${self.label-connected-foreground}
 
 ; 0-3: weakess to strong signal. 4: disconnected
 ramp-signal-0 = 
 ramp-signal-1 = 
 ramp-signal-2 = 
 ramp-signal-3 = 
-ramp-signal-foreground = ${colors.white}
+ramp-signal-foreground = ${self.label-connected-foreground}
 
 [module/date]
 type = internal/date
