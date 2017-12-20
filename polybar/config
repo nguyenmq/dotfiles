@@ -26,7 +26,7 @@ width = 100%
 
 [bar/honeydew]
 border-top-size = 0
-font-0 = "Ubuntu Mono:weight=bold:size=18;3"
+font-0 = "Ubuntu Mono:weight=regular:size=18;3"
 font-1 = "DejaVu Sans Mono:size=18;3"
 font-2 = "material\-wifi:size=16;4"
 font-3 = "MaterialIcons-Regular:size=16;4"
@@ -35,9 +35,9 @@ inherit = bar/base
 line-size = 4
 module-margin-left = 1
 module-margin-right = 1
-modules-right = mpd battery volume xbacklight wlan
+modules-right = mpd battery pavolume xbacklight wlan
 padding-left = 1
-padding-right = 2
+padding-right = 1
 
 [bar/lime]
 border-top-size = 0
@@ -50,7 +50,7 @@ inherit = bar/base
 line-size = 2
 module-margin-left = 1
 module-margin-right = 2
-modules-right = mpd volume wlan
+modules-right = mpd pavolume wlan
 padding-left = 1
 padding-right = 1
 
@@ -150,18 +150,16 @@ time-alt = %H:%M
 label = "%date%  |  %time%"
 format-foreground = ${colors.grey}
 
-[module/volume]
-type = internal/volume
-
-format-volume = <label-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${colors.white}
-format-volume-underline = ${colors.grey}
-
-format-muted-prefix = " "
-format-muted-foreground = ${colors.white}
-format-muted-underline = ${colors.grey}
-label-muted = mute
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+label-underline = ${colors.grey}
+exec = ~/.config/polybar/pavolume.sh --listen
+click-right = exec pavucontrol
+click-left = ~/.config/polybar/pavolume.sh --togmute
+scroll-up = ~/.config/polybar/pavolume.sh --up
+scroll-down = ~/.config/polybar/pavolume.sh --down
 
 [module/battery]
 type = internal/battery
