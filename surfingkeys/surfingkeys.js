@@ -6,15 +6,23 @@ settings.showModeStatus = false;
 settings.richHintsForKeystroke = false;
 settings.modeAfterYank = 'Normal';
 
+aceVimMap('C', '"lC', 'insert');
+aceVimMap('D', '"lD', 'insert');
+
 // new mappings
 mapkey('p', 'Switch frames', 'Normal.rotateFrame()');
+mapkey('s', '#2Scroll down', 'Normal.scroll("down")', {repeatIgnore: true});
+mapkey('w', '#2Scroll up', 'Normal.scroll("up")', {repeatIgnore: true});
 mapkey('gu', '#4Edit current URL with vim editor', function() {
+    Front.showEditor(window.location.href, function(data) {
+        RUNTIME("openLink", { tab: { tabbed: false }, url: data } );
+    }, 'url');
+});
+mapkey('gU', '#4Edit current URL with vim editor', function() {
     Front.showEditor(window.location.href, function(data) {
         tabOpenLink(data);
     }, 'url');
 });
-mapkey('s', '#2Scroll down', 'Normal.scroll("down")', {repeatIgnore: true});
-mapkey('w', '#2Scroll up', 'Normal.scroll("up")', {repeatIgnore: true});
 
 // alias current mappings
 map('F', 'af');
@@ -62,3 +70,4 @@ settings.theme = `
     background: #22a21f !important;
 };
 `
+
