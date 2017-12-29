@@ -4,8 +4,8 @@
 set $mod Mod1+Shift
 
 # Define monitor outputs
-set $monitor_left "DVI-I-1"
-set $monitor_right "DVI-D-0"
+set $monitor_left "HDMI-0"
+set $monitor_right "DP-1"
 
 # workspace names
 set $WS1  1:term
