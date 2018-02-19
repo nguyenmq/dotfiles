@@ -13,41 +13,45 @@ function print_help() {
     echo "-i    Internal monitor only"
     echo "-h    Print script usage"
     echo "-m    Mirror displays"
+    echo "-r    Rotate the internal display 180 degrees"
 }
 
-while getopts "befmih" opt; do
-    case "$1" in
-        -b)
+function toggle_rotation() {
+    if [[ "$(grep "$INTERNAL_DISPLAY" <(xrandr -q) | awk '{print $5}')" = "inverted" ]]; then
+        xrandr --output "$INTERNAL_DISPLAY" --rotate normal
+    else
+        xrandr --output "$INTERNAL_DISPLAY" --rotate inverted
+    fi
+}
+
+if [[ $# -eq 0 ]]; then
+    print_help
+    exit 0
+fi
+
+while getopts "befmihr" opt; do
+    case $opt in
+        b)
             xrandr --output "$EXTERNAL_DISPLAY" --auto --output "$INTERNAL_DISPLAY" --auto
-            shift
-            break
             ;;
-        -e)
+        e)
             xrandr --output "$INTERNAL_DISPLAY" --off --output "$EXTERNAL_DISPLAY" --auto --scale-from 1920x1080
-            shift
-            break
             ;;
-        -f)
+        f)
             xrandr --output "$INTERNAL_DISPLAY" --off --output "$EXTERNAL_DISPLAY" --auto --scale-from 3840x2160
-            shift
-            break
             ;;
-        -i)
+        i)
             xrandr --output "$EXTERNAL_DISPLAY" --off --output "$INTERNAL_DISPLAY" --auto
-            shift
-            break
             ;;
-        -h)
-            print_help;
-            shift
-            break
+        r)
+            toggle_rotation
             ;;
-        --)
-            shift;
-            break
+        h | *)
+            print_help
+            exit 0
             ;;
     esac
 done
 
 # reset the background
-${HOME}/.fehbg
+"${HOME}/.fehbg"

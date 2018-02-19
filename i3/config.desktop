@@ -47,7 +47,6 @@ workspace $WS10 output $monitor_right
 workspace_layout default
 
 # Assign applications to specfic workspaces
-assign [class="Opera"] $WS6
 assign [class="mpv"] $WS10
 
 # Font for window titles
@@ -67,7 +66,7 @@ floating_modifier $mod
 for_window [class="^.*"] border pixel 3
 
 # gaps configuration
-gaps inner 20
+#gaps inner 20
 
 # Start a terminal
 bindsym $mod+Return exec urxvt -e "${HOME}/.dotfiles/scripts/tmux_start.sh"

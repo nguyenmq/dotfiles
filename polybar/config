@@ -10,12 +10,12 @@ dk_grey = #aaaaaa
 [bar/base]
 monitor = ${env:MONITOR:}
 background = ${colors.green}
-border-color = ${colors.green}
+border-color = ${colors.grey}
 cursor-click = pointer
 cursor-scroll = ns-resize
 fixed-center = true
 foreground = ${colors.white}
-modules-center = date
+modules-center =
 modules-left = i3
 radius = 0.0
 scroll-down = i3wm-wsprev
@@ -35,7 +35,7 @@ inherit = bar/base
 line-size = 4
 module-margin-left = 1
 module-margin-right = 1
-modules-right = mpd battery pavolume xbacklight wlan
+modules-right = mpd battery pavolume xbacklight wlan date time
 padding-left = 1
 padding-right = 1
 
@@ -142,13 +142,21 @@ ramp-signal-foreground = ${self.label-connected-foreground}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 3600
 date = "%a, %b %d"
 date-alt = " %d-%m-%Y"
-time = "%I:%M %p   "
+label = " %date%"
+format-foreground = ${colors.white}
+label-underline = ${colors.grey}
+
+[module/time]
+type = internal/date
+interval = 60
+time = "%I:%M %p"
 time-alt = %H:%M
-label = "%date%  |  %time%"
-format-foreground = ${colors.grey}
+label = " %time%"
+format-foreground = ${colors.white}
+label-underline = ${colors.grey}
 
 [module/pavolume]
 type = custom/script

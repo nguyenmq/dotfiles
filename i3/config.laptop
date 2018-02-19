@@ -30,7 +30,6 @@ set $black    #000000
 workspace_layout default
 
 # Assign applications to specfic workspaces
-assign [class="Opera"] $WS2
 assign [class="mpv"] $WS10
 
 # Font for window titles
@@ -50,7 +49,7 @@ floating_modifier $mod
 for_window [class="^.*"] border pixel 3
 
 # gaps configuration
-gaps inner 30
+#gaps inner 30
 
 # Start a terminal
 bindsym $mod+Return exec urxvt -e "${HOME}/.dotfiles/scripts/tmux_start.sh"
@@ -198,12 +197,13 @@ mode --pango_markup "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # Set the laptop output
-set $monitor_output (i) internal, (e) external, (f) 4k external, (b) both
+set $monitor_output (i) internal, (e) external, (f) 4k external, (b) both, (r) rotate
 mode --pango_markup "$monitor_output" {
     bindsym i exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -i", mode "default"
     bindsym e exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -e", mode "default"
     bindsym f exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -f", mode "default"
     bindsym b exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -b", mode "default"
+    bindsym r exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -r", mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
