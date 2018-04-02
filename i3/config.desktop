@@ -25,10 +25,11 @@ set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 # colors
 set $green    #22a21f
 set $white    #ffffff
-set $grey     #eeeeee
+set $grey     #c7c7c7
 set $lt_green #3fa53b
 set $purple   #875faf
 set $black    #000000
+set $dk_green #005f00
 
 # bind workspaces to specific monitors: odd on the left, even on the right
 workspace $WS1 output $monitor_left
@@ -63,7 +64,8 @@ client.urgent           $purple   $purple   $white  $grey   $grey
 floating_modifier $mod
 
 # border configuration
-for_window [class="^.*"] border pixel 3
+default_border pixel 3
+hide_edge_borders smart
 
 # gaps configuration
 #gaps inner 20
