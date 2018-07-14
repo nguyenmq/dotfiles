@@ -114,7 +114,7 @@ call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm0E, s:cterm02, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm0E, s:cterm02, "none")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm0D, s:cterm02, "none")
 call <sid>hi("TabLineSel",    s:gui09, s:gui01, s:cterm0E, s:cterm0D, "none")
-call <sid>hi("Search",        s:gui09, s:gui04, s:cterm0E, s:cterm03,  "none")
+call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm03,  "none")
 call <sid>link_group("IncSearch", "Search")
 call <sid>hi("CtrlPMatch",    "",      "",      s:cterm06, s:cterm0F, "")
 

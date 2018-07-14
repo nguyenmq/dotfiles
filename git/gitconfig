@@ -49,8 +49,8 @@
 [fetch]
     prune = true
 [pager]
-    show = "vim -R -"
-    diff = "vim -R -c 'set filetype=diff' -c 'normal gg' -"
+    show = "vim -R -c PAGER -c 'set filetype=git' -c 'normal gg' -"
+    diff = "vim -R -c PAGER -c 'set filetype=git' -c 'normal gg' -"
 [status]
     branch = true
     short = true

@@ -4,9 +4,6 @@
 [submodule "vim/bundle/pathogen"]
 	path = vim/bundle/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
-[submodule "vim/bundle/cscope_maps"]
-	path = vim/bundle/cscope_maps
-	url = https://github.com/chazy/cscope_maps.git
 [submodule "vim/bundle/airline"]
 	path = vim/bundle/airline
 	url = https://github.com/bling/vim-airline.git
@@ -37,3 +34,9 @@
 [submodule "vim/bundle/tabline"]
 	path = vim/bundle/tabline
 	url = https://github.com/mkitt/tabline.vim.git
+[submodule "vim/bundle/pager"]
+	path = vim/bundle/pager
+	url = https://github.com/lambdalisue/vim-pager.git
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = https://github.com/godlygeek/tabular.git
