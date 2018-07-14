@@ -30,6 +30,8 @@ unmap('v', /feedly\.com/);
 unmap('p', /reddit\.com/);
 unmap('m', /reddit\.com/);
 unmap('M', /reddit\.com/);
+unmap('n', /reddit\.com/);
+iunmap(':');
 
 // alias current mappings
 map('F', 'af');
