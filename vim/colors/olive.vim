@@ -31,7 +31,7 @@ let s:cterm07 = "07"            " terminal white
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "159"           " light blue
 let s:cterm0A = "41"            " light green
-let s:cterm0B = "228"           " light yellow
+let s:cterm0B = "229"           " light yellow
 let s:cterm0C = "97"            " lavender
 let s:cterm0D = "22"            " dark green
 let s:cterm0E = "231"           " white
@@ -107,7 +107,7 @@ call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm02, s:cterm02, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui04, s:cterm02, s:cterm02, "none")
 call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm0F, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm0E, "none")
-call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm0E, "none")
+call <sid>hi("CursorLine",    "", s:gui02, "", s:cterm0B, "none")
 call <sid>hi("CursorLineNr",  s:gui05, s:gui02, s:cterm02, "", "")
 call <sid>hi("PMenu",         s:gui02, s:gui0C, s:cterm02, s:cterm0F, "none")
 call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm0E, s:cterm02, "")
@@ -157,7 +157,7 @@ call <sid>hi("Underlined",      s:gui07, "", s:cterm04, "", "")
 " Spelling highlighting
 call <sid>hi("SpellBad",     "", s:gui00, s:cterm01, "", "undercurl")
 call <sid>hi("SpellLocal",   "", s:gui00, "", s:cterm00, "undercurl")
-call <sid>hi("SpellCap",     "", s:gui00, "", s:cterm00, "undercurl")
+call <sid>hi("SpellCap",     "", s:gui00, "", "", "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 
 " Additional diff highlighting
