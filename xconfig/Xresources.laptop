@@ -5,12 +5,12 @@ URxvt.geometry: 190x50
 URxvt.colorUL: #0086d2
 
 ! Browser to use when launching links
-URxvt.url-launcher: opera
+URxvt.url-launcher: vivaldi-stable
 
 ! Font settings
 URxvt.font: xft:UbuntuMono:size=9
 URxvt.lineSpace: 4
-URxvt.letterSpace: 0
+URxvt.letterSpace: -1
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintsnone

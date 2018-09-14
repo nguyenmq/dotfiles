@@ -71,8 +71,8 @@ hide_edge_borders smart
 #gaps inner 20
 
 # Start a terminal
-bindsym $mod+Return exec urxvt -e "${HOME}/.dotfiles/scripts/tmux_start.sh"
-bindsym $mod+Control+Return exec urxvt
+bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
+bindsym $mod+Control+Return exec kitty
 
 # toggle mousepad
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"

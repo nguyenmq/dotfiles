@@ -9,7 +9,7 @@ SESSION=$(echo "$HOSTNAME" | cut -d '.' -f 1)
 WINDOW_NAMES="${HOME}/.tmux_windows"
 
 create_sessions() {
-    if [ -e "$WINDOW_NAMES" ]; then
+    if [[ -e "$WINDOW_NAMES" ]]; then
         tmux new-session -d -s "$SESSION" -n "$(head -n 1 "$WINDOW_NAMES")"
 
         while read -r name; do

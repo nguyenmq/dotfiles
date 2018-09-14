@@ -21,7 +21,7 @@ set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 # colors
 set $green    #22a21f
 set $white    #ffffff
-set $grey     #eeeeee
+set $grey     #c7c7c7
 set $lt_green #3fa53b
 set $purple   #875faf
 set $black    #000000
@@ -46,14 +46,15 @@ client.urgent           $purple   $purple   $white  $grey   $grey
 floating_modifier $mod
 
 # border configuration
-for_window [class="^.*"] border pixel 3
+default_border pixel 3
+hide_edge_borders smart
 
 # gaps configuration
 #gaps inner 30
 
 # Start a terminal
-bindsym $mod+Return exec urxvt -e "${HOME}/.dotfiles/scripts/tmux_start.sh"
-bindsym $mod+Control+Return exec urxvt
+bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
+bindsym $mod+Control+Return exec kitty
 
 # toggle mousepad
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"

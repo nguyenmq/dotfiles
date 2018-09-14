@@ -92,7 +92,7 @@ label-urgent-padding = ${self.label-mode-padding}
 label-urgent-underline = ${colors.white}
 
 label-separator = |
-label-separator-padding = 2
+label-separator-padding = 1
 label-separator-foreground = ${colors.white}
 
 [module/mpd]
