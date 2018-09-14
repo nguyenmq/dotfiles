@@ -88,8 +88,9 @@ bindsym $mod+bracketright exec mpc next
 # kill focused window
 bindsym $mod+Control+q kill
 
-# start dmenu (a program launcher)
+# rofi shortcuts
 bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
+bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 # change focus
 bindsym $mod+h focus left
@@ -127,7 +128,7 @@ bindsym $mod+semicolon workspace back_and_forth
 bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle

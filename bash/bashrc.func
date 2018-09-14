@@ -26,12 +26,12 @@ function ldrs {
 
 # Set the current volume level
 function vol {
-    if [ -z $1 ]; then
+    if [ -z "$1" ]; then
         local vol=50
     else
         local vol=$1
     fi
 
-    amixer set Master ${vol}% > /dev/null
-    pkill -RTMIN+10 i3blocks
+    amixer set Master "${vol}%" > /dev/null
 }
+

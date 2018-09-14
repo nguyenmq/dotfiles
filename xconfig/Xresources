@@ -9,8 +9,8 @@ URxvt.url-launcher: vivaldi-stable
 
 ! Font settings
 URxvt.font: xft:UbuntuMono:size=10
-URxvt.lineSpace: 4
-URxvt.letterSpace: 0
+URxvt.lineSpace: 3
+URxvt.letterSpace: -1
 Xft.autohint: 0
 Xft.lcdfilter: lcdnone
 Xft.hintstyle: hintsfull

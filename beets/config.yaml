@@ -1,13 +1,13 @@
 directory: /opt/music/
 library: /opt/music/library.db
-asciify_paths: yes
+asciify_paths: no
 art_filename: folder
 max_filename_length: 150
 threaded: yes
 ui:
     color: yes
 paths:
-   default: '%lower{${albumartist}/${album}/${track}__${artist}__${title}}'
+   default: '%lower{%asciify{${albumartist}/${album}/${track}__${artist}__${title}}}'
 replace:
     '[\s]': _
     '[+$#<>:"\?!\*\|\(\),\.\\''-]':
