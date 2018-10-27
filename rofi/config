@@ -1,9 +1,11 @@
 rofi.monitor: -1
-rofi.width: 50
+rofi.width: 30
 rofi.bw: 5
-rofi.font: Ubuntu Mono 12
+rofi.padding: 30
+rofi.font: Ubuntu Mono 11
+rofi.line-margin: 5
 rofi.color-enabled: true
-rofi.color-window: #ffffff, #875faf, #0f9437
+rofi.color-window: #ffffff, #005f00, #0f9437
 rofi.color-normal: #ffffff, #002b36, #ffffff, #22a21f, #ffffff
 rofi.color-active: #ffffff, #0086d2, #ffffff, #0086d2, #ffffff
 rofi.color-urgent: #ffffff, #875faf, #ffffff, #875faf, #ffffff

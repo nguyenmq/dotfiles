@@ -17,7 +17,7 @@ Xft.hintstyle: hintsfull
 Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
-Xcursor.size: 48
+Xcursor.size: 24
 
 ! Set window title string
 URxvt.title: urxvt
