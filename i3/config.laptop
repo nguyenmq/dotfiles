@@ -22,9 +22,9 @@ set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 set $green    #22a21f
 set $white    #ffffff
 set $grey     #c7c7c7
-set $lt_green #3fa53b
 set $purple   #875faf
 set $black    #000000
+set $dk_green #005f00
 
 # Set default workspace layout
 workspace_layout default
@@ -36,11 +36,11 @@ assign [class="mpv"] $WS10
 font pango:Ubuntu 10
 
 # Window colors
-# colorclass            hdr_bdr   bg        text    indic   btm_bdr
-client.focused          $green    $green    $white  $green  $green
-client.focused_inactive $lt_green $lt_green $black  $grey   $grey
-client.unfocused        $lt_green $lt_green $white  $grey   $grey
-client.urgent           $purple   $purple   $white  $grey   $grey
+# colorclass            hdr_bdr   bg        text    indic      btm_bdr
+client.focused          $dk_green $dk_green $white  $dk_green  $dk_green
+client.focused_inactive $green    $green    $black  $green     $green
+client.unfocused        $green    $green    $white  $green     $green
+client.urgent           $purple   $purple   $white  $green     $green
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -60,8 +60,7 @@ bindsym $mod+Control+Return exec kitty
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
 
 # open browser
-bindsym $mod+o exec opera
-bindsym $mod+Control+o exec opera --private
+bindsym $mod+o exec vivaldi-stable
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
@@ -70,8 +69,9 @@ bindsym $mod+bracketright exec mpc next
 # kill focused window
 bindsym $mod+Control+q kill
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi"
+# rofi shortcuts
+bindsym $mod+space exec "rofi -show drun -modi run"
+bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 # change focus
 bindsym $mod+h focus left
@@ -109,7 +109,7 @@ bindsym $mod+semicolon workspace back_and_forth
 bindsym $mod+c split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+Control+v split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
