@@ -43,22 +43,27 @@ set tagcase=match                   " match case when searching tags
 set timeoutlen=1000                 " mapped key timeout
 set ttimeoutlen=10                  " key code timeout
 set showcmd                         " show keystroke commands in status
+colorscheme olive                   " set the color scheme
 
 if has( "win32" )
-set grepprg=grep\ -n                " define grep program
-set dir=c:\\temp                    " set the swap directory
+    set grepprg=grep\ -n            " define grep program
+    set dir=c:\\temp                " set the swap directory
 else
-set dir=/tmp                        " set the swap directory
+    set dir=/tmp                    " set the swap directory
+    endif
+
+if &diff
+    set cursorline
+    set diffopt=filler,context:1000000
 endif
-colorscheme olive                   " set the color scheme
 
 if executable( 'ag' )
     " Use ag over grep
-    set grepprg=ag\ --all-text\ --nogroup\ --nocolor\ --follow\ --vimgrep\ $*
+    set grepprg=ag\ --all-text\ --nogroup\ --nocolor\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
 
     " Use ag in CtrlP for listing files
-    let g:ctrlp_user_command = 'ag %s -l --all-text --nocolor --follow -g ""'
+    let g:ctrlp_user_command = 'ag %s -l --all-text --nocolor -g ""'
 
     " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
@@ -127,7 +132,7 @@ noremap <Leader>k yiw<C-W>h:tselect <C-R>"<CR>
 " quit the current window
 noremap <Leader>x :q<CR>
 " open the current window in a new tab
-noremap <Leader>z :tab split<CR>
+noremap <Leader>z :tab split<CR>:diffoff<CR>
 " move to the previous activated window (similar to tmux binding)
 noremap <C-W>p <C-W>;
 " echo the file name

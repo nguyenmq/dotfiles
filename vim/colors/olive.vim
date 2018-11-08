@@ -30,14 +30,14 @@ let s:cterm07 = "07"            " terminal white
 
 let s:cterm08 = "243"           " dark grey
 let s:cterm09 = "159"           " light blue
-let s:cterm0A = "41"            " light green
-let s:cterm0B = "229"           " light yellow
+let s:cterm0A = "194"           " light green
+let s:cterm0B = "228"           " light yellow
 let s:cterm0C = "97"            " lavender
 let s:cterm0D = "22"            " dark green
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
 let s:cterm10 = "217"           " light red
-let s:cterm11 = "183"           " light lavender
+let s:cterm11 = "189"           " light lavender
 
 " Theme setup
 hi clear
@@ -103,7 +103,7 @@ call <sid>hi("Normal",        s:gui01, s:gui00, "", "", "none")
 call <sid>hi("LineNr",        s:gui05, s:gui0E, s:cterm02, s:cterm0F, "")
 call <sid>hi("SignColumn",    s:gui03, s:gui01, s:cterm03, s:cterm01, "")
 call <sid>hi("StatusLine",    s:gui0E, s:gui05, s:cterm02, s:cterm02, "none")
-call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm02, s:cterm02, "none")
+call <sid>hi("StatusLineNC",  s:gui00, s:gui04, s:cterm0D, s:cterm02, "none")
 call <sid>hi("VertSplit",     s:gui02, s:gui04, s:cterm02, s:cterm02, "none")
 call <sid>hi("ColorColumn",   "", s:gui02, "", s:cterm0F, "none")
 call <sid>hi("CursorColumn",  "", s:gui01, "", s:cterm0E, "none")
@@ -161,10 +161,10 @@ call <sid>hi("SpellCap",     "", s:gui00, "", "", "undercurl")
 call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 
 " Additional diff highlighting
-call <sid>hi("DiffAdd",      "",      s:gui0F, "", s:cterm09, "")
-call <sid>hi("DiffChange",   "",      s:gui0F, s:cterm00, s:cterm0F, "")
+call <sid>hi("DiffAdd",      "",      s:gui0F, "",        s:cterm0A, "")
+call <sid>hi("DiffChange",   "",      s:gui0F, "",        s:cterm0A, "")
 call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0A, "none")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0B, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")
