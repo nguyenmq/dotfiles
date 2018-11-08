@@ -42,8 +42,7 @@
     deleted = red bold
     header = cyan
 [difftool]
-    prompt = false
-    tool = gvimdiff
+    prompt = true
 [grep]
     lineNumber = true
 [fetch]
