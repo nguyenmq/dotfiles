@@ -19,7 +19,7 @@ set $WS10 10:10
 set $Locker i3lock -i "${HOME}/.xlock/lock.png"
 
 # colors
-set $green    #22a21f
+set $green    #2bb24c
 set $white    #ffffff
 set $grey     #c7c7c7
 set $purple   #875faf

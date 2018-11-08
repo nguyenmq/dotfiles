@@ -52,7 +52,7 @@ settings.theme = `
     color: #000000;
 }
 .sk_theme .url {
-    color: #22a21f;
+    color: #2bb24c;
 }
 .sk_theme .annotation {
     color: #000000;
@@ -63,7 +63,7 @@ settings.theme = `
 };
 
 .sk_hints {
-    background: #22a21f !important;
+    background: #2bb24c !important;
 };
 `
 

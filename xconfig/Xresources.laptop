@@ -50,8 +50,8 @@ rofi.dpi: 192
 *.color9:       #ff4646
 
 ! green
-*.color2:       #22a21f
-*.color10:      #22a21f
+*.color2:       #2bb24c
+*.color10:      #2bb24c
 
 ! yellow
 *.color3:       #d3a40b

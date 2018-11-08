@@ -1,8 +1,8 @@
 let g:airline#themes#olive#palette = {}
 
 function! airline#themes#olive#refresh()
-    let s:NORM1 = [ '#12181a', '#22a21f', '00', '07' ]
-    let s:NORM2 = [ '#ffffff', '#22a21f', '00', '02' ]
+    let s:NORM1 = [ '#12181a', '#2bb24c', '00', '07' ]
+    let s:NORM2 = [ '#ffffff', '#2bb24c', '00', '02' ]
     let s:NORM3 = [ '#12181a', '#eeeeee', '231', '22' ]
 
     let g:airline#themes#olive#palette.normal = airline#themes#generate_color_map(s:NORM1, s:NORM2, s:NORM3)
