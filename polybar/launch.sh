@@ -11,7 +11,8 @@ killall -q polybar
 # Wait until the processes have been shut down
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
-# launch polybar on each output
-for m in $(xrandr --query | awk '/\<connected\>/ {print $1}'); do
+# launch polybar on each active output
+for m in $(xrandr --query | awk '/\<connected\> (primary )?[0-9]/ {print $1}' | sort --reverse); do
     MONITOR=$m NETWORK="$2" polybar "$1" &
+    sleep 0.2s
 done
