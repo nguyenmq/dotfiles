@@ -16,11 +16,10 @@
     lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' --all
     lb = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)'
     ln = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' --all -20
+    lbm = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' -20 HEAD origin/mainline
     dt = difftool
     su = submodule update --init --recursive
     ls = status --no-short --untracked-files=normal
-    rem = rebase origin/master
-    cm = checkout master
     df = diff --no-color
     d1 = difftool HEAD~1 HEAD
     d2 = difftool HEAD~2 HEAD
@@ -57,3 +56,5 @@
     submoduleSummary = true
 [include]
     path = ~/.gitconfig.local
+[push]
+	default = simple
