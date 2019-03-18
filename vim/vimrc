@@ -276,6 +276,11 @@ noremap <Leader>ct :TagbarToggle<CR>
 let g:tmux_navigator_disable_when_zoomed = 1
 
 "-----------------------------------------------------------
+" vim-markdown configuration
+"-----------------------------------------------------------
+let g:vim_markdown_folding_disabled = 1
+
+"-----------------------------------------------------------
 " Functions
 "-----------------------------------------------------------
 " LookFor a general regex
