@@ -149,7 +149,7 @@ let g:airline_symbols = {
   \ }
 let g:airline_skip_empty_sections = 1
 let g:airline_inactive_collapse=0
-let g:airline_extensions = ['branch', 'ctrlp', 'whitespace', 'tagbar']
+let g:airline_extensions = ['branch', 'whitespace', 'tagbar']
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#branch#empty_message = ''
 let g:airline#extensions#branch#format = 1
@@ -181,30 +181,39 @@ endfunction
 autocmd User AirlineAfterInit call AirlineInit()
 
 "-----------------------------------------------------------
-" Configure CtrlP
+" Configure fzf
 "-----------------------------------------------------------
-let g:ctrlp_max_depth = 40
-let g:ctrlp_max_files = 0
-let g:ctrlp_switch_buffer = '0'
-let g:ctrlp_working_path_mode = '0'
-let g:ctrlp_show_hidden = 0
-let g:ctrlp_extensions = ['tag', 'buffertag']
-let g:ctrlp_buftag_types = {
-    \ 'go' : '--language-force=go --go-types=d',
-    \ 'java' : '--extras=F --fields=* --*-kinds=*'
-\ }
+let g:fzf_layout = { 'down': '~20%' }
+
+" Customize fzf colors to match your color scheme
 
 " search open buffers
-noremap <silent> <Leader>b :CtrlPBuffer<cr>
+noremap <silent> <Leader>b :Buffers<cr>
 " search tags in current buffer
-noremap <silent> <Leader>t :CtrlPBufTag<cr>
+noremap <silent> <Leader>t :BTags<cr>
 " search file recursively
-noremap <silent> <Leader>f :CtrlP<cr>
+noremap <silent> <Leader>f :Files<cr>
 
 "-----------------------------------------------------------
 " Configure Supertab
 "-----------------------------------------------------------
 let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Cursor'],
+  \ 'fg+':     ['fg', 'PMenuSel'],
+  \ 'bg+':     ['bg', 'StatusLine'],
+  \ 'hl+':     ['fg', 'Cursor'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['bg', 'MatchParen'],
+  \ 'pointer': ['bg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'SpellRare'] }
 
 "-----------------------------------------------------------
 " Configure numbers plugin
