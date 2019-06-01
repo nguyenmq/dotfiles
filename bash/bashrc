@@ -79,6 +79,15 @@ alias vp="vim -R -"
 alias ring="echo -e '\a'"
 alias pc="pass show -c"
 
+# fzf configuration
+if [[ -f "${HOME}/.config/fzf/fzf.bash" ]]; then
+    source "${HOME}/.config/fzf/fzf.bash"
+fi
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_DEFAULT_OPTS='--height 60%'
+export FZF_DEFAULT_COMMAND='ag -l --all-text --nocolor -g ""'
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
 # Load optional functions file
 if [ -f ~/.bashrc.func ]; then
     source ~/.bashrc.func
