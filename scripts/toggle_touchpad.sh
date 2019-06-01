@@ -1,8 +1,10 @@
 #!/bin/bash
 
-MODE=$(synclient | grep TouchpadOff | awk '{ print $3 }')
+DEVICE_ID=$(xinput list | awk -F '=' '/Synaptics TouchPad/ {split($2, a, "\\s+"); print a[1]}')
+MODE=$(xinput --list-props $DEVICE_ID | awk '/Device Enabled/ {print $NF}')
+
 if [ $MODE -eq 0 ]; then
-    synclient TouchpadOff=1
+    xinput --enable $DEVICE_ID
 else
-    synclient TouchpadOff=0
+    xinput --disable $DEVICE_ID
 fi
