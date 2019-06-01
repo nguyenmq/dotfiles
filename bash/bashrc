@@ -31,13 +31,13 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 color_prompt=yes
 
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+    git branch 2> /dev/null | awk '/^\*/ {printf " (%s)", $NF}'
 }
 
 show_bg_jobs() {
     count=$(jobs -s | wc -l)
     if [ $count -gt 0 ]; then
-        echo $count | sed 's/\(.*\)/ (\1)/'
+        printf " (%s)" "$count"
     fi
 }
 
@@ -70,7 +70,7 @@ _expand() {
 
 # User specific aliases and functions
 alias gits="git status"
-alias c="clear"
+alias c="clear -x"
 alias ls="ls --color=auto --file-type -X"
 alias ll="ls -alh --color=auto --group-directories-first"
 alias grep='grep --color=auto'
