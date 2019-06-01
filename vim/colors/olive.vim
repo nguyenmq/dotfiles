@@ -37,7 +37,7 @@ let s:cterm0D = "22"            " dark green
 let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
 let s:cterm10 = "217"           " light red
-let s:cterm11 = "189"           " light lavender
+let s:cterm11 = "183"           " light lavender
 
 " Theme setup
 hi clear
@@ -95,7 +95,7 @@ call <sid>hi("Visual",        "", s:gui08, "", s:cterm0F, "")
 call <sid>hi("VisualNOS",     s:gui01, "", s:cterm08, "", "")
 call <sid>hi("WarningMsg",    s:gui01, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui00, s:gui05, s:cterm08, "", "")
-call <sid>hi("Title",         s:gui0C, "", s:cterm06, "", "none")
+call <sid>hi("Title",         s:gui0C, "", s:cterm02, "", "none")
 call <sid>hi("Conceal",       s:gui0C, s:gui00, s:cterm05, s:cterm00, "")
 call <sid>hi("Cursor",        s:gui00, s:gui11, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui05, s:gui02, s:cterm03, "", "")
@@ -114,7 +114,7 @@ call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm0E, s:cterm02, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm0E, s:cterm02, "none")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm0D, s:cterm02, "none")
 call <sid>hi("TabLineSel",    s:gui09, s:gui01, s:cterm0E, s:cterm0D, "none")
-call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm03,  "none")
+call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm11,  "none")
 call <sid>link_group("IncSearch", "Search")
 call <sid>hi("CtrlPMatch",    "",      "",      s:cterm06, s:cterm0F, "")
 
@@ -172,8 +172,8 @@ call <sid>hi("DiffLine",     s:gui01, s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffRemoved",  s:gui08, s:gui0F, s:cterm01, "",        "")
 
 " HTML highlighting
-call <sid>hi("htmlBold",    s:gui0A, "", s:cterm0A, "", "")
-call <sid>hi("htmlItalic",  s:gui06, "", s:cterm02, "", "")
+call <sid>hi("htmlBold",    s:gui0A, "", s:cterm04, "", "")
+call <sid>hi("htmlItalic",  s:gui06, "", s:cterm04, "", "")
 call <sid>hi("htmlEndTag",  s:gui05, "", s:cterm05, "", "")
 call <sid>hi("htmlTag",     s:gui05, "", s:cterm05, "", "")
 

@@ -55,3 +55,10 @@ function! functions#CleanWhitespace()
     execute "noh"
     execute "update"
 endfun
+
+"-----------------------------------------------------------
+" Check the current buffer for unused java imports
+"-----------------------------------------------------------
+function! functions#CheckImports()
+    execute "cexpr system('~/.dotfiles/scripts/check_imports.sh ' . expand('%'))"
+endfun

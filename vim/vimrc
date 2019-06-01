@@ -29,8 +29,6 @@ set numberwidth=5                   " set the width of the number line
 set switchbuf=useopen               " use current window if open when jumping from quickfix
 set noerrorbells visualbell t_vb=   " turn off bells
 set foldnestmax=1                   " set max fold level
-set cscopequickfix=s-,c-,d-,i-,t-,e-
-                                    " open cscope results in quickfix
 set completeopt=menuone,longest     " set the autocomplete options
 set swapfile                        " enable swapfile
 set lazyredraw                      " don't redraw screen when executing macros
@@ -44,14 +42,9 @@ set timeoutlen=1000                 " mapped key timeout
 set ttimeoutlen=10                  " key code timeout
 set showcmd                         " show keystroke commands in status
 colorscheme olive                   " set the color scheme
+set dir=/tmp                        " set the swap directory
 
-if has( "win32" )
-    set grepprg=grep\ -n            " define grep program
-    set dir=c:\\temp                " set the swap directory
-else
-    set dir=/tmp                    " set the swap directory
-    endif
-
+" Configuration for diff mode
 if &diff
     set cursorline
     set diffopt=filler,context:1000000
@@ -61,24 +54,8 @@ if executable( 'ag' )
     " Use ag over grep
     set grepprg=ag\ --all-text\ --nogroup\ --nocolor\ --vimgrep\ $*
     set grepformat=%f:%l:%c:%m
-
-    " Use ag in CtrlP for listing files
-    let g:ctrlp_user_command = 'ag %s -l --all-text --nocolor -g ""'
-
-    " ag is fast enough that CtrlP doesn't need to cache
-    let g:ctrlp_use_caching = 0
+    let g:ackprg = 'ag --nogroup --nocolor --column'
 endif
-
-"-----------------------------------------------------------
-" Abbreviations
-"-----------------------------------------------------------
-abbr nll NULL
-
-"-----------------------------------------------------------
-" Auto commands
-"-----------------------------------------------------------
-autocmd GUIEnter * set visualbell t_vb=
-autocmd GUIEnter * let c_no_comment_fold=1
 
 "-----------------------------------------------------------
 " Define new commands
@@ -95,20 +72,18 @@ command! -nargs=1 Height resize <args>
 let mapleader = "\<space>"
 " map jk to escape
 inoremap jk <Esc>:update<CR>
-" ctrl+s to save
-noremap  <silent> <C-S> :update<CR>
 " use ctrl+j for local completion and cycling
 inoremap <expr> <C-j> ((pumvisible())?("\<C-n>"):("\<C-x><C-n>"))
 " use ctrl+k for local completion and cycling
 inoremap <expr> <C-k> ((pumvisible())?("\<C-p>"):("\<C-x><C-p>"))
 " move to window below
-noremap <C-J>     <C-W>j
+noremap <C-J> <C-W>j
 " move to window above
-noremap <C-K>     <C-W>k
+noremap <C-K> <C-W>k
 " move to left window
-noremap <C-H>     <C-W>h
+noremap <C-H> <C-W>h
 " move to right window
-noremap <C-L>     <C-W>l
+noremap <C-L> <C-W>l
 " delete trailing whitespace
 noremap <silent> <Leader>w :Cw<CR>
 " turn off highlighting
@@ -125,16 +100,10 @@ noremap <silent> <Leader>H y/<C-R>0<CR>``zz:set hls<CR>
 noremap <Leader>y "+yiw:let @*=@+<CR>:echo 'Yanked: <C-R>+'<CR>
 " yank from the cursor position till the end of the line
 noremap <Leader>Y "+y$:let @*=@+<CR>:echo "Yanked!"<CR>
-" paste before cursor from system clipboard
-noremap <Leader>p "+gP
-" find the definition for the word under cursor and go to the window on the left
-noremap <Leader>k yiw<C-W>h:tselect <C-R>"<CR>
 " quit the current window
 noremap <Leader>x :q<CR>
 " open the current window in a new tab
 noremap <Leader>z :tab split<CR>:diffoff<CR>
-" move to the previous activated window (similar to tmux binding)
-noremap <C-W>p <C-W>;
 " echo the file name
 noremap <Leader>l :echo expand('%:p')<CR>
 
@@ -185,19 +154,14 @@ autocmd User AirlineAfterInit call AirlineInit()
 "-----------------------------------------------------------
 let g:fzf_layout = { 'down': '~20%' }
 
-" Customize fzf colors to match your color scheme
-
 " search open buffers
 noremap <silent> <Leader>b :Buffers<cr>
 " search tags in current buffer
 noremap <silent> <Leader>t :BTags<cr>
+" search command history
+noremap <silent> <Leader>r :Commands<cr>
 " search file recursively
 noremap <silent> <Leader>f :Files<cr>
-
-"-----------------------------------------------------------
-" Configure Supertab
-"-----------------------------------------------------------
-let g:SuperTabDefaultCompletionType = "<c-x><c-n>"
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -230,35 +194,11 @@ let g:loaded_logipat = 1
 " run git blame
 noremap <silent> <Leader>gb :Gblame<CR>
 " run git diff
-noremap <silent> <Leader>gd :tab split<CR>:Gvdiff<CR>
+noremap <silent> <Leader>gd :Gvdiff origin/mainline<CR>zR
 " close tabs
 noremap <silent> <Leader>gx :tabclose<CR>gT
 
-"-----------------------------------------------------------
-" Configure pymode
-"-----------------------------------------------------------
-let g:pymode_lint_on_write = 0
-let g:pymode_lint_unmodified = 0
-let g:pymode_lint_on_fly = 0
-let g:pymode_lint_checkers = [ 'pyflakes', 'pep8' ]
-let g:pymode_lint_signs = 0
-let g:pymode_lint_cwindow = 1
-let g:pymode_indent = 0
-let g:pymode_lint_sort = ['E', 'C', 'I']
-let g:pymode_folding = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_rope_goto_definition_cmd = 'e'
-let g:pymode_rope_goto_definition_bind = '<leader>jg'
-let g:pymode_breakpoint_bind = '<leader>jb'
-let g:pymode_rope_regenerate_on_write = 0
-let g:pymode_trim_whitespaces = 0
-let g:pymode_syntax_indent_errors = 0
-let g:pymode_syntax_space_errors = 0
-let g:pymode_options = 0
-let g:pymode_options_colorcolumn = 0
-let g:pymode_lint_ignore = "E265,E501"
-noremap <Leader>jl :PymodeLint<CR>
+noremap <silent> <Leader>gt "tyiw:YATE<CR>\<t\>
 
 "-----------------------------------------------------------
 " Configure go whitespace highlighting
@@ -290,23 +230,22 @@ let g:tmux_navigator_disable_when_zoomed = 1
 let g:vim_markdown_folding_disabled = 1
 
 "-----------------------------------------------------------
+" configure ack
+"-----------------------------------------------------------
+let g:ack_qhandler = "botright copen 7"
+let g:ack_lhandler = "botright lopen 7"
+let g:ackhighlight = 1
+cnoreabbrev ag Ack
+
+"-----------------------------------------------------------
 " Functions
 "-----------------------------------------------------------
 " LookFor a general regex
 command! -nargs=* Lf call functions#Lookfor( <f-args> )
-" Lookfor python functions
-command! -nargs=0 Ldef call functions#Lookfor( '^\s*\<def\>' )
-" Align general block of text
-command! -nargs=+ A call functions#Align( <f-args> )
-" Align single line of text to given text width
-command! -nargs=1 Al call functions#Align( 0, <f-args> )
-" Align comments
-command! -nargs=1 Ac call functions#Align( <f-args>, 60 )
-" Align function header comments
-command! -nargs=1 Af call functions#Align( <f-args>, 70 )
 " Copy the filename of the active file into the system clipboard register
 command! -nargs=0 Bn call functions#Basename()
 " Change and #define line into an #undef line
-command! -nargs=0 Und call functions#Undefine()
-" Cleanup whitespace in file
 command! -nargs=0 Cw call functions#CleanWhitespace()
+" Check dangling java imports
+command! -nargs=0 Ci call functions#CheckImports()
+noremap <silent> <Leader>ci :Ci<CR>
