@@ -81,36 +81,32 @@ format = <label-state> <label-mode>
 wrapping-scroll = false
 enable-click = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = ${colors.black}
 label-mode-background = ${colors.white}
 
 ; focused = Active workspace on focused monitor
-label-focused = %name%
+label-focused = %index%:
 label-focused-background = ${colors.dk_green}
-label-focused-underline = ${colors.grey}
+label-focused-underline = ${colors.white}
 label-focused-padding = ${self.label-mode-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = ${self.label-focused}
+label-unfocused = %index%:
 label-unfocused-padding = ${self.label-mode-padding}
-label-unfocused-underline = ${self.label-focused-underline}
+label-unfocused-underline = ${colors.grey}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = ${self.label-focused}
+label-visible = ${self.label-unfocused}
 label-visible-background = ${colors.green}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${colors.grey}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = ${self.label-focused}
+label-urgent = ${self.label-unfocused}
 label-urgent-background = ${colors.purple}
 label-urgent-padding = ${self.label-mode-padding}
 label-urgent-underline = ${colors.white}
-
-label-separator = |
-label-separator-padding = 1
-label-separator-foreground = ${colors.white}
 
 [module/mpd]
 type = internal/mpd
@@ -234,8 +230,8 @@ type = internal/xwindow
 format = <label>
 format-background = ${colors.dk_green}
 format-foreground = ${colors.white}
-label = " %title%"
-label-underline = ${colors.grey}
+label = " %title%"
+label-underline = ${colors.white}
 label-padding = 2
 label-maxlen = 40
 
