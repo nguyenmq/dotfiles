@@ -1,7 +1,7 @@
 [global]
     font = Ubuntu 11
     allow_markup = yes
-    format = "<span font="Ubuntu 11"><b>%s</b>\n\n%b</span>"
+    format = "<span font="Ubuntu 12"><b>%s</b>\n\n%b</span>"
     sort = yes
     indicate_hidden = yes
     alignment = left
@@ -13,8 +13,7 @@
     shrink = no
     transparency = 0
     idle_threshold = 3600
-    monitor = 0
-    follow = none
+    follow = keyboard
     sticky_history = yes
     history_length = 20
     show_indicators = yes
@@ -30,7 +29,7 @@
     icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
 
 [frame]
-    width = 3
+    width = 0
     color = "#005f00"
 
 [shortcuts]
@@ -39,13 +38,13 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#ffffff"
-    foreground = "#555555"
+    background = "#005f00"
+    foreground = "#ffffff"
     timeout = 20
 
 [urgency_normal]
-    background = "#ffffff"
-    foreground = "#555555"
+    background = "#005f00"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
