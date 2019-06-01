@@ -233,7 +233,7 @@ format-background = ${colors.dk_green}
 format-foreground = ${colors.white}
 label = " %title%"
 label-underline = ${colors.white}
-label-padding = 2
+label-padding = 1
 label-maxlen = 40
 
 [settings]
