@@ -3,6 +3,9 @@
 # Set mod keys to shift+alt
 set $mod Mod1+Shift
 
+# Define monitor outputs
+set $monitor_default "eDP1"
+
 # workspace names
 set $WS1  1:term
 set $WS2  2:web
@@ -26,6 +29,9 @@ set $purple   #875faf
 set $black    #000000
 set $dk_green #005f00
 
+# bind workspaces to specific monitors
+workspace $WS1 output $monitor_default
+
 # Set default workspace layout
 workspace_layout default
 
@@ -33,7 +39,7 @@ workspace_layout default
 assign [class="mpv"] $WS10
 
 # Font for window titles
-font pango:Ubuntu 10
+font pango:Ubuntu 9
 
 # Window colors
 # colorclass            hdr_bdr   bg        text    indic      btm_bdr
@@ -223,3 +229,4 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh honeydew wlp1s0"
 exec "unclutter -b --timeout 3"
+exec "nm-applet"
