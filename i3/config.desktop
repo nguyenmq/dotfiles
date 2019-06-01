@@ -4,8 +4,8 @@
 set $mod Mod1+Shift
 
 # Define monitor outputs
-set $monitor_left "HDMI-0"
-set $monitor_right "DP-1"
+set $monitor_left "DP-1"
+set $monitor_right "HDMI-0"
 
 # workspace names
 set $WS1  1:term
@@ -50,7 +50,7 @@ workspace_layout default
 assign [class="mpv"] $WS10
 
 # Font for window titles
-font pango:Ubuntu 10
+font pango:Ubuntu 9
 
 # Window colors
 # colorclass            hdr_bdr   bg        text    indic      btm_bdr
@@ -201,7 +201,7 @@ bindsym $mod+r mode "resize"
 # Prompts to power off/reboot/suspend system
 set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode --pango_markup "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id sleep .4s && xset dpms force off && $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
@@ -225,3 +225,4 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh lime wlp4s0"
 exec "unclutter -b --timeout 3"
+exec "nm-applet"
