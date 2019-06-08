@@ -11,7 +11,6 @@ dk_grey = #aaaaaa
 monitor = ${env:MONITOR:}
 background = ${colors.green}
 border-color = ${colors.green}
-border-bottom-size = 3
 cursor-click = pointer
 cursor-scroll = ns-resize
 fixed-center = true
@@ -34,7 +33,6 @@ font-3 = "material\-wifi:size=16;4"
 font-4 = "MaterialIcons-Regular:size=16;4"
 height = 2%
 inherit = bar/base
-line-size = 4
 module-margin-left = 1
 module-margin-right = 1
 modules-right = mpd battery pavolume xbacklight date time
@@ -50,7 +48,6 @@ font-3 = "material\-wifi:size=10;1"
 font-4 = "MaterialIcons-Regular:size=10;2"
 height = 18
 inherit = bar/base
-line-size = 2
 module-margin-left = 1
 module-margin-right = 1
 modules-right = mpd pavolume date time
@@ -66,7 +63,6 @@ font-3 = "material\-wifi:size=10"
 font-4 = "Material Icons:size=10"
 height = 19
 inherit = bar/base
-line-size = 2
 module-margin-left = 1
 module-margin-right = 1
 modules-right = battery-work pavolume xbacklight date time
@@ -240,6 +236,5 @@ label-maxlen = 40
 screenchange-reload = true
 
 [global/wm]
-margin-bottom = 5
 
 ; vim:ft=dosini
