@@ -110,7 +110,12 @@ noremap <Leader>l :echo expand('%:p')<CR>
 "-----------------------------------------------------------
 " Configure airline
 "-----------------------------------------------------------
-let g:airline_theme='olive'
+if empty($SSH_CLIENT)
+    let g:airline_theme='olive'
+else
+    let g:airline_theme='lavender'
+endif
+
 let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_symbols = {
@@ -159,7 +164,7 @@ noremap <silent> <Leader>b :Buffers<cr>
 " search tags in current buffer
 noremap <silent> <Leader>t :BTags<cr>
 " search command history
-noremap <silent> <Leader>r :Commands<cr>
+noremap <silent> <Leader>r :History:<cr>
 " search file recursively
 noremap <silent> <Leader>f :Files<cr>
 
@@ -248,4 +253,4 @@ command! -nargs=0 Bn call functions#Basename()
 command! -nargs=0 Cw call functions#CleanWhitespace()
 " Check dangling java imports
 command! -nargs=0 Ci call functions#CheckImports()
-noremap <silent> <Leader>ci :Ci<CR>
+noremap <Leader>ci :Ci<CR>
