@@ -140,7 +140,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Control+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+d focus mode_toggle
+bindsym $mod+x focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -213,6 +213,16 @@ mode --pango_markup "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+BackSpace mode "$mode_system"
+
+set $monitor_output (d) dual, (r) right only
+mode --pango_markup "$monitor_output" {
+    bindsym d exec --no-startup-id "autorandr --load dual", mode "default"
+    bindsym r exec --no-startup-id "autorandr --load right_only", mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+d mode "$monitor_output"
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
