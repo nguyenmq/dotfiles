@@ -12,7 +12,7 @@ function! airline#themes#olive#refresh()
 
     let s:IN1 = [ '#875faf', '#eeeeee', '00', '02' ]
     let s:IN2 = [ '#875faf', '#eeeeee', '00', '02' ]
-    let s:IN3 = [ '#875faf', '#eeeeee', '231', '02' ]
+    let s:IN3 = [ '#875faf', '#eeeeee', '00', '02' ]
     let g:airline#themes#olive#palette.inactive = airline#themes#generate_color_map(s:IN1, s:IN2, s:IN3)
 
     let s:WI = [ '#ffffff', '#875faf', '231', '06' ]
@@ -20,6 +20,11 @@ function! airline#themes#olive#refresh()
     let g:airline#themes#olive#palette.insert.airline_warning = g:airline#themes#olive#palette.normal.airline_warning
     let g:airline#themes#olive#palette.visual.airline_warning = g:airline#themes#olive#palette.normal.airline_warning
     let g:airline#themes#olive#palette.replace.airline_warning = g:airline#themes#olive#palette.normal.airline_warning
+
+    let g:airline#themes#olive#palette.tabline = {
+            \'airline_tab': ['#ffffff', '#5f0087', 231, 02],
+            \'airline_tabfill': ['#767676', '#ffffff', 02, 02],
+            \'airline_tabsel': ['#ffffff', '#875faf', 231, 22]}
 
 endfunction
 
