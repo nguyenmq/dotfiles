@@ -14,14 +14,22 @@ if [[ ! -e "$FILE" ]]; then
     exit 1
 fi
 
-declare -a IMPORTS
-readarray -t IMPORTS < <(ag --all-text --no-color --vimgrep '^import ' "$FILE")
+function check_unused_imports() {
+    local class
+    local count
+    declare -a imports
+    local imports
 
-for imp in "${IMPORTS[@]}"; do
-    class=$(echo "$imp" | awk -F '.' '{gsub(";", "", $NF); print $NF}')
-    count=$(grep -c "$class" "$FILE")
+    readarray -t imports < <(ag --all-text --no-color --vimgrep '^import ' "$FILE")
 
-    if [[ "$count" -eq 1 ]]; then
-        echo "$imp"
-    fi
-done
+    for import in "${imports[@]}"; do
+        class=$(echo "$import" | awk -F '.' '{gsub(";", "", $NF); print $NF}')
+        count=$(ag --count --word-regexp "$class" "$FILE")
+
+        if [[ "$count" -eq 1 ]]; then
+            echo "$import"
+        fi
+    done
+}
+
+check_unused_imports
