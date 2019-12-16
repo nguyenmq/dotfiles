@@ -6,6 +6,7 @@ execute pathogen#infect()
 "-----------------------------------------------------------
 syntax on                           " enable syntax highlighting
 set number                          " enable line nubmers
+set relativenumber                  " enable relative numbering
 set tabstop=4                       " width of a tab
 set shiftwidth=4                    " number of spaces for step of indentation
 set softtabstop=4                   " number of spaces to insert for a tab in insert mode
@@ -43,6 +44,7 @@ set ttimeoutlen=10                  " key code timeout
 set showcmd                         " show keystroke commands in status
 colorscheme olive                   " set the color scheme
 set dir=/tmp                        " set the swap directory
+set t_Co=256
 
 " Configuration for diff mode
 if &diff
@@ -106,6 +108,8 @@ noremap <Leader>x :q<CR>
 noremap <Leader>z :tab split<CR>:diffoff<CR>
 " echo the file name
 noremap <Leader>l :echo expand('%:p')<CR>
+" insert a date timestamp
+iab <expr> dts strftime("%Y-%m-%d")
 
 "-----------------------------------------------------------
 " Configure airline
@@ -270,4 +274,6 @@ command! -nargs=0 Bn call functions#Basename()
 command! -nargs=0 Cw call functions#CleanWhitespace()
 " Check dangling java imports
 command! -nargs=0 Ci call functions#CheckImports()
-noremap <Leader>ci :Ci<CR>
+" Resize or vertical split to fixed percentage
+command! -nargs=0 Vs call functions#VertSplitPercent(0.41)
+noremap <Leader>v :Vs<CR>

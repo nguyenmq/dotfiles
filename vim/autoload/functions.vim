@@ -62,3 +62,12 @@ endfun
 function! functions#CheckImports()
     execute "cexpr system('~/.dotfiles/scripts/check_imports.sh ' . expand('%'))"
 endfun
+
+" Create or resize a vertical split to a certain percentage
+function! functions#VertSplitPercent(percent)
+    if winnr('$') > 1
+        execute "vertical resize" . float2nr(&columns * a:percent)
+    else
+        execute "vertical " . float2nr(&columns * a:percent) . "split"
+    endif
+endfun
