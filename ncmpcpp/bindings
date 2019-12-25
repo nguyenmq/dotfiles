@@ -1,0 +1,106 @@
+def_key "k"
+  scroll_up
+
+def_key "shift-k"
+  select_item
+  scroll_up
+
+def_key "j"
+  scroll_down
+
+def_key "shift-j"
+  select_item
+  scroll_down
+
+def_key "["
+  scroll_up_album
+
+def_key "]"
+  scroll_down_album
+
+def_key "{"
+  scroll_up_artist
+
+def_key "}"
+  scroll_down_artist
+
+def_key "ctrl-b"
+  page_up
+
+def_key "ctrl-f"
+  page_down
+
+def_key "g"
+  move_home
+
+def_key "G"
+  move_end
+
+def_key "enter"
+  play_item
+
+def_key "a"
+  add_item_to_playlist
+
+def_key "l"
+  next_column
+
+def_key "+"
+  volume_up
+
+def_key "h"
+  previous_column
+
+def_key "-"
+  volume_down
+
+def_key "S"
+  stop
+
+def_key "space"
+  pause
+
+def_key ">"
+  next
+
+def_key "<"
+  previous
+
+def_key "z"
+  toggle_repeat
+
+def_key "r"
+  toggle_random
+
+def_key "t"
+  apply_filter
+
+def_key "/"
+  find
+
+def_key "/"
+  find_item_forward
+
+def_key "?"
+  find
+
+def_key "?"
+  find_item_backward
+
+def_key "n"
+  next_found_item
+
+def_key "p"
+  previous_found_item
+
+def_key "l"
+  show_lyrics
+
+def_key "A"
+  add_selected_items
+
+def_key "C"
+  clear_main_playlist
+
+def_key "f"
+  jump_to_playing_song
