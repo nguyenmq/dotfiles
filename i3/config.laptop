@@ -19,7 +19,7 @@ set $WS9  9:09
 set $WS10 10:10
 
 # set the lock program
-set $Locker i3lock -i "${HOME}/.xlock/lock.png"
+set $Locker "${HOME}/.dotfiles/scripts/lockscreen.sh"
 
 # colors
 set $green    #2bb24c
@@ -180,8 +180,8 @@ set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (
 mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
