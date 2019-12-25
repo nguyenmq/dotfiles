@@ -36,7 +36,6 @@ workspace $WS2 output $monitor_left
 workspace $WS3 output $monitor_left
 workspace $WS4 output $monitor_left
 workspace $WS5 output $monitor_left
-
 workspace $WS6 output $monitor_right
 workspace $WS7 output $monitor_right
 workspace $WS8 output $monitor_right
@@ -66,9 +65,6 @@ floating_modifier $mod
 default_border pixel 3
 hide_edge_borders smart
 
-# gaps configuration
-#gaps inner 20
-
 # Start a terminal
 bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
 bindsym $mod+Control+Return exec kitty
@@ -77,7 +73,7 @@ bindsym $mod+Control+Return exec kitty
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
 
 # open browser
-bindsym $mod+o exec vivaldi-stable
+bindsym $mod+o exec /usr/bin/firefox
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
@@ -122,19 +118,8 @@ bindsym $mod+Tab workspace next
 bindsym $mod+p workspace prev
 bindsym $mod+semicolon workspace back_and_forth
 
-# split in horizontal orientation
-bindsym $mod+c split h
-
-# split in vertical orientation
-bindsym $mod+Control+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Control+d floating toggle
@@ -197,11 +182,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-# Prompts to power off/reboot/suspend system
+# prompts to power off/reboot/suspend system
 set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode --pango_markup "$mode_system" {
-    bindsym l exec --no-startup-id sleep .4s && xset dpms force off && $Locker, mode "default"
+    bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
@@ -214,6 +198,7 @@ mode --pango_markup "$mode_system" {
 }
 bindsym $mod+BackSpace mode "$mode_system"
 
+# autorandr prompt
 set $monitor_output (d) dual, (r) right only
 mode --pango_markup "$monitor_output" {
     bindsym d exec --no-startup-id "autorandr --load dual", mode "default"
@@ -223,6 +208,19 @@ mode --pango_markup "$monitor_output" {
     bindsym Escape mode "default"
 }
 bindsym $mod+d mode "$monitor_output"
+
+# prompts to change window layout
+set $window_layout (s) stacked, (t) tabbed, (v) vertical split, (h) horizontal split
+mode --pango_markup "$window_layout" {
+    bindsym s layout stacking, mode "default"
+    bindsym t layout tabbed, mode "default"
+    bindsym v layout splitv, mode "default"
+    bindsym h layout splith, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+w mode "$window_layout"
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
@@ -235,4 +233,4 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh lime wlp4s0"
 exec "unclutter -b --timeout 3"
-exec "nm-applet"
+exec "/usr/bin/nm-applet"

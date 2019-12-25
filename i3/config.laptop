@@ -111,25 +111,14 @@ bindsym $mod+Tab workspace next
 bindsym $mod+p workspace prev
 bindsym $mod+semicolon workspace back_and_forth
 
-# split in horizontal orientation
-bindsym $mod+c split h
-
-# split in vertical orientation
-bindsym $mod+Control+v split v
-
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Control+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+d focus mode_toggle
+bindsym $mod+x focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -186,8 +175,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-
-# Prompts to power off/reboot/suspend system
+# prompts to power off/reboot/suspend system
 set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
@@ -216,7 +204,20 @@ mode --pango_markup "$monitor_output" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+x mode "$monitor_output"
+bindsym $mod+d mode "$monitor_output"
+
+# prompts to change window layout
+set $window_layout (s) stacked, (t) tabbed, (v) vertical split, (h) horizontal split
+mode --pango_markup "$window_layout" {
+    bindsym s layout stacking, mode "default"
+    bindsym t layout tabbed, mode "default"
+    bindsym v layout splitv, mode "default"
+    bindsym h layout splith, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+w mode "$window_layout"
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
