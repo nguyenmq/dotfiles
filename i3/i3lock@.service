@@ -1,0 +1,13 @@
+[Unit]
+Description=i3lock before suspend
+
+[Service]
+User=%I
+Type=simple
+Environment=DISPLAY=:0
+ExecStart=/home/%I/.dotfiles/scripts/lockscreen.sh
+TimeoutSec=infinity
+
+[Install]
+WantedBy=sleep.target
+WantedBy=suspend.target
