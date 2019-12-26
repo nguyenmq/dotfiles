@@ -35,3 +35,17 @@ function vol {
     amixer set Master "${vol}%" > /dev/null
 }
 
+# kill running ssh and sshfs processes
+function ks() {
+    if pgrep sshfs > /dev/null; then
+        local mountpoint
+        mountpoint=$(mount | awk '/fuse.sshfs/ {print $3}')
+        echo "unmounting $mountpoint"
+        fusermount -u "$mountpoint"
+    fi
+
+    for pid in $(pidof ssh); do
+        echo "killing $pid"
+        kill "$pid"
+    done
+}
