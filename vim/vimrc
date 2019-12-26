@@ -95,7 +95,7 @@ noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
 noremap <silent> <Leader>E :cN<CR> zz
 " highlight word
-noremap <silent> <Leader>h *``
+noremap <silent> <Leader>h :let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
 " highlight selection
 noremap <silent> <Leader>H y/<C-R>0<CR>``zz:set hls<CR>
 " yank current word to system clipboard
@@ -191,15 +191,15 @@ noremap <silent> <Leader>f :Files<cr>
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
+\ { 'fg':      ['fg', 'Cursor'],
   \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Cursor'],
-  \ 'fg+':     ['fg', 'PMenuSel'],
-  \ 'bg+':     ['bg', 'StatusLine'],
-  \ 'hl+':     ['fg', 'Cursor'],
+  \ 'hl':      ['fg', 'String'],
+  \ 'fg+':     ['fg', 'Cursor', 'Cursor', 'Cursor'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorLine'],
+  \ 'hl+':     ['fg', 'String'],
   \ 'info':    ['fg', 'PreProc'],
   \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['bg', 'MatchParen'],
+  \ 'prompt':  ['fg', 'StatusLine'],
   \ 'pointer': ['bg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
@@ -276,4 +276,4 @@ command! -nargs=0 Cw call functions#CleanWhitespace()
 command! -nargs=0 Ci call functions#CheckImports()
 " Resize or vertical split to fixed percentage
 command! -nargs=0 Vs call functions#VertSplitPercent(0.41)
-noremap <Leader>v :Vs<CR>
+noremap <silent> <Leader>v :Vs<CR>
