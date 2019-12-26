@@ -18,10 +18,22 @@ set $WS6  6:web
 set $WS7  7:07
 set $WS8  8:08
 set $WS9  9:09
-set $WS10 10:10
+set $WS10 10:compile
+
+# bind workspaces to specific outputs
+workspace $WS1 output $monitor_internal
+workspace $WS2 output $monitor_left
+workspace $WS3 output $monitor_left
+workspace $WS4 output $monitor_left
+workspace $WS5 output $monitor_left
+workspace $WS6 output $monitor_right
+workspace $WS7 output $monitor_right
+workspace $WS8 output $monitor_right
+workspace $WS9 output $monitor_right
+workspace $WS10 output $monitor_right
 
 # set the lock program
-set $Locker i3lock -i "${HOME}/.xlock/lock.png"
+set $Locker "${HOME}/.dotfiles/scripts/lockscreen.sh"
 
 # colors
 set $green    #2bb24c
@@ -63,7 +75,7 @@ client.urgent           $purple   $purple   $white  $green     $green
 floating_modifier $mod
 
 # border configuration
-default_border pixel 3
+new_window pixel 3
 hide_edge_borders smart
 
 # Start a terminal
@@ -84,7 +96,7 @@ bindsym $mod+bracketright exec mpc next
 bindsym $mod+Control+q kill
 
 # rofi shortcuts
-bindsym $mod+space exec "rofi -show drun -modi drun"
+bindsym $mod+space exec "rofi -modi combi -show combi -combi-modi window,drun"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 
 # change focus
@@ -172,10 +184,10 @@ bindsym $mod+comma exec i3-input -F 'rename workspace to "%s"' -P 'New name: '
 # resize window (you can also use the mouse for that)
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode
-    bindsym h resize shrink width 1 px or 1 ppt
-    bindsym j resize shrink height 1 px or 1 ppt
-    bindsym k resize grow height 1 px or 1 ppt
-    bindsym l resize grow width 1 px or 1 ppt
+    bindsym h resize shrink width 5 px or 1 ppt
+    bindsym j resize shrink height 5 px or 1 ppt
+    bindsym k resize grow height 5 px or 1 ppt
+    bindsym l resize grow width 5 px or 1 ppt
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -188,8 +200,8 @@ set $mode_system (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (
 mode --pango_markup "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -226,9 +238,9 @@ mode --pango_markup "$window_layout" {
 bindsym $mod+w mode "$window_layout"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec "${HOME}/.dotfiles/polybar/pavolume.sh --up"
+bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pavolume.sh --down"
+bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --togmute"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
