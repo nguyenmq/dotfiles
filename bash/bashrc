@@ -14,7 +14,7 @@ fi
 
 [ -e ~/.dircolors ] && eval $(dircolors -b ~/.dircolors) || eval $(dircolors -b)
 
-export PATH="${HOME}/.local/bin"
+export PATH="$PATH:${HOME}/.local/bin"
 
 # Uncomment the following line if you don't like systemctl's auto-paging feature:
 export SYSTEMD_PAGER="less"
