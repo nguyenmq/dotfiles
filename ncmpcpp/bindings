@@ -1,14 +1,14 @@
 def_key "k"
   scroll_up
 
-def_key "shift-k"
+def_key "ctrl-p"
   select_item
   scroll_up
 
 def_key "j"
   scroll_down
 
-def_key "shift-j"
+def_key "ctrl-n"
   select_item
   scroll_down
 
@@ -39,8 +39,11 @@ def_key "G"
 def_key "enter"
   play_item
 
+def_key "enter"
+  run_action
+
 def_key "a"
-  add_item_to_playlist
+  add_selected_items
 
 def_key "l"
   next_column
@@ -67,7 +70,7 @@ def_key "<"
   previous
 
 def_key "z"
-  toggle_repeat
+  dummy
 
 def_key "r"
   toggle_random
@@ -99,8 +102,17 @@ def_key "l"
 def_key "A"
   add_selected_items
 
-def_key "C"
+def_key "D"
   clear_main_playlist
 
 def_key "f"
   jump_to_playing_song
+
+def_key "o"
+  toggle_visualization_type
+
+def_key "x"
+  delete_playlist_items
+
+def_key "v"
+  remove_selection
