@@ -45,6 +45,8 @@ set showcmd                         " show keystroke commands in status
 colorscheme olive                   " set the color scheme
 set dir=/tmp                        " set the swap directory
 set t_Co=256
+set undofile
+set undodir=~/.cache/vim/undo
 
 " Configuration for diff mode
 if &diff
