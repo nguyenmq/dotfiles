@@ -46,7 +46,6 @@ datepos="${left_text}:${date_ypos}"
     --bshlcolor=ff4646ff \
     --veriftext="" --verif-font="Ubuntu" --verifsize=30 --verifcolor=2bb24cff \
     --wrongtext="" --wrong-font="Ubuntu" --wrongsize=30 --wrongcolor=ff4646ff \
-    --noinputtext="" \
-    --nofork
+    --noinputtext=""
 
 exit 0
