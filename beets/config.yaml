@@ -4,6 +4,7 @@ asciify_paths: no
 art_filename: folder
 max_filename_length: 150
 threaded: yes
+original_date: yes
 ui:
     color: yes
 paths:
@@ -17,8 +18,8 @@ plugins: fetchart embedart scrub edit
 fetchart:
     auto: yes
     cautious: yes
-    minwidth: 900
-    maxwidth: 900
+    minwidth: 1000
+    maxwidth: 1000
     enforce_ratio: yes
     cover_names: folder
     sources: filesystem
@@ -32,4 +33,4 @@ import:
     detail: yes
     write: yes
 format_item:
-    '$albumartist | $artist | $artist_sort | $album | $year | $genre | $comments | $mb_trackid | $track | $title'
+    '$albumartist | $artist | $artist_sort | $album | $year | $genre | $comments | $track | $title'
