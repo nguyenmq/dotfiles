@@ -1,7 +1,7 @@
 user_interface = classic
-fetch_lyrics_for_current_song_in_background = yes
+fetch_lyrics_for_current_song_in_background = no
 follow_now_playing_lyrics = yes
-lyrics_fetchers = lyricwiki, azlyrics, genius, sing365, lyricsmania, metrolyrics, justsomelyrics, jahlyrics, plyrics, tekstowo
+lyrics_fetchers = lyricwiki, azlyrics
 show_duplicate_tags = no
 media_library_primary_tag = album_artist
 media_library_albums_split_by_date = no
@@ -10,7 +10,6 @@ startup_screen = media_library
 autocenter_mode = yes
 default_find_mode = wrapped
 screen_switcher_mode = playlist, media_library
-execute_on_song_change="~/.ncmpcpp/art.sh"
 ask_before_clearing_playlists = no
 
 # visualizer settings

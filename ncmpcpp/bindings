@@ -43,7 +43,7 @@ def_key "enter"
   run_action
 
 def_key "a"
-  add_selected_items
+  add_item_to_playlist
 
 def_key "l"
   next_column
@@ -70,9 +70,6 @@ def_key "<"
   previous
 
 def_key "z"
-  dummy
-
-def_key "r"
   toggle_random
 
 def_key "t"
