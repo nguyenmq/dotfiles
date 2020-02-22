@@ -5,7 +5,7 @@
 #-----------------------------------------------------------
 
 # primary tmux session name
-SESSION=$(echo "$HOSTNAME" | cut -d '.' -f 1)
+SESSION="default"
 WINDOW_NAMES="${HOME}/.tmux_windows"
 
 create_sessions() {
