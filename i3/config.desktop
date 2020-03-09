@@ -4,8 +4,8 @@
 set $mod Mod1+Shift
 
 # Define monitor outputs
-set $monitor_left "DP-1"
-set $monitor_right "HDMI-0"
+set $monitor_left "DisplayPort-0"
+set $monitor_right "HDMI-A-0"
 
 # workspace names
 set $WS1  1:term
@@ -85,6 +85,7 @@ bindsym $mod+Control+q kill
 # rofi shortcuts
 bindsym $mod+space exec "rofi -show drun -modi run"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -231,6 +232,6 @@ bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
-exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh lime wlp4s0"
-exec "unclutter -b --timeout 3"
+exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh lime wlp8s0"
+exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
