@@ -1,11 +1,14 @@
 #!/bin/bash
 
 function set_audio_sink() {
-    local sink_name=$1
+    local description=$1
+    local sink_name
 
-    if ! pactl list sinks short | grep "$sink_name" > /dev/null; then
-        echo "$sink_name not connected"
+    if ! pactl list sinks | grep "$description" > /dev/null; then
+        echo "$description not connected"
     else
+        sink_name=$(pactl list sinks | grep -B1 "Description: $description" | awk -F ':' '/Name/ {sub(/^\s+/, "", $2); print $2}')
+
         # set the default sink
         pactl set-default-sink "$sink_name"
 
@@ -17,7 +20,7 @@ function set_audio_sink() {
 }
 
 function list_audio_sinks() {
-    for sink in $(pactl list sinks short | awk '{print $2}'); do
+    for sink in "$(pactl list sinks | awk -F ':' '/^\s+Description:/ {sub(/^\s+/, "", $2); print $2}')"; do
         echo "$sink"
     done
 }
