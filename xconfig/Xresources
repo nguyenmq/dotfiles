@@ -5,7 +5,7 @@ URxvt.geometry: 190x50
 URxvt.colorUL: #0086d2
 
 ! Browser to use when launching links
-URxvt.url-launcher: vivaldi-stable
+URxvt.url-launcher: firefox
 
 ! Font settings
 URxvt.font: xft:UbuntuMono:size=10
