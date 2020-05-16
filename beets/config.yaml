@@ -1,5 +1,5 @@
-directory: /opt/music/
-library: /opt/music/library.db
+directory: "~/music/"
+library: "~/music/library.db"
 asciify_paths: no
 art_filename: folder
 max_filename_length: 150
@@ -14,7 +14,7 @@ replace:
     '[+$#<>:"\?!\*\|\(\),\.\\''-]':
     '[&]': 'and'
     "[[]]":
-plugins: fetchart embedart scrub edit
+plugins: fetchart embedart scrub edit zero
 fetchart:
     auto: yes
     cautious: yes
@@ -32,5 +32,11 @@ import:
     default_action: apply
     detail: yes
     write: yes
+    set_fields:
+        genre: 'Rock'
 format_item:
     '$albumartist | $artist | $artist_sort | $album | $year | $genre | $comments | $track | $title'
+zero:
+    auto: yes
+    fields: comments
+    update_database: yes
