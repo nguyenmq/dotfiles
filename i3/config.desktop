@@ -47,6 +47,7 @@ workspace_layout default
 
 # Assign applications to specfic workspaces
 assign [class="mpv"] $WS10
+assign [class="Steam"] $WS8
 
 # Font for window titles
 font pango:Ubuntu 9
@@ -126,7 +127,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+x focus mode_toggle
+bindsym $mod+Control+n focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -203,7 +204,7 @@ bindsym $mod+BackSpace mode "$mode_system"
 set $monitor_output (d) dual, (r) right only
 mode --pango_markup "$monitor_output" {
     bindsym d exec --no-startup-id "autorandr --load dual", mode "default"
-    bindsym r exec --no-startup-id "autorandr --load right_only", mode "default"
+    bindsym r exec --no-startup-id "autorandr --load right", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -224,9 +225,9 @@ mode --pango_markup "$window_layout" {
 bindsym $mod+w mode "$window_layout"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec "${HOME}/.dotfiles/polybar/pavolume.sh --up"
+bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pavolume.sh --down"
+bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --togmute"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
