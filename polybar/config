@@ -29,8 +29,7 @@ border-top-size = 0
 font-0 = "Ubuntu Mono:weight=regular:size=18;3"
 font-1 = "Roboto:size=16;3"
 font-2 = "Droid Sans Fallback:size=16;1"
-font-3 = "material\-wifi:size=16;4"
-font-4 = "MaterialIcons-Regular:size=16;4"
+font-3 = "MaterialIcons-Regular:size=16;4"
 height = 2%
 inherit = bar/base
 module-margin-left = 1
@@ -42,10 +41,8 @@ padding-right = 1
 [bar/lime]
 border-top-size = 0
 font-0 = "Ubuntu Mono:weight=regular:size=10;1"
-font-1 = "Roboto:size=9;1"
-font-2 = "Droid Sans Fallback:size=10;1"
-font-3 = "material\-wifi:size=10;1"
-font-4 = "MaterialIcons-Regular:size=10;2"
+font-1 = "Noto Sans Mono CJK SC:size=9;2"
+font-2 = "MaterialIcons-Regular:size=11;3"
 height = 18
 inherit = bar/base
 module-margin-left = 1
@@ -109,7 +106,7 @@ label-urgent-underline = ${colors.white}
 type = internal/mpd
 format-online = <label-song>  <icon-random> <toggle>
 format-online-underline = ${colors.grey}
-label-song =  「%title%」  %artist%
+label-song =   %title% | %artist%
 format-online-background = ${colors.dk_green}
 format-online-padding = 1
 
@@ -169,7 +166,7 @@ type = internal/date
 interval = 60
 time = "%I:%M %p"
 time-alt = %H:%M
-label = " %time%"
+label = " %time%"
 format-foreground = ${colors.white}
 label-underline = ${colors.grey}
 
