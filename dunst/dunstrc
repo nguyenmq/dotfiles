@@ -1,36 +1,39 @@
 [global]
-    font = Ubuntu 11
-    allow_markup = yes
-    format = "<span font="Ubuntu 12"><b>%s</b>\n\n%b</span>"
+    font = Ubuntu 10
+    markup = full
+    format = "<span font="Ubuntu 11"><b>%s</b>\n\n%b</span>"
     sort = yes
     indicate_hidden = yes
     alignment = left
     bounce_freq = 0
     show_age_threshold = 60
-    word_wrap = yes
+    word_wrap = false
+    ellipsize = end
     ignore_newline = no
-    geometry = "400x5-15+35"
+    geometry = "400x5-25-45"
     shrink = no
     transparency = 0
-    idle_threshold = 3600
-    follow = keyboard
+    idle_threshold = 300
+    follow = none
+    monitor = 0
     sticky_history = yes
     history_length = 20
     show_indicators = yes
     line_height = 0
     separator_height = 2
     padding = 8
-    horizontal_padding = 8
+    horizontal_padding = 16
     separator_color = frame
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
-    browser = /usr/bin/vivaldi-stable
-    icon_position = off
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    browser = /usr/bin/firefox
+    icon_position = left
+    max_icon_size = 48
+    icon_folders = /usr/share/icons/Numix:/usr/share/icons/Adwaita:/usr/share/icons/hicolor
 
 [frame]
     width = 0
-    color = "#aaaaaa"
+    color = "#000000"
 
 [shortcuts]
     close = ctrl+space
