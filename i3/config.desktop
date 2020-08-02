@@ -227,7 +227,7 @@ bindsym $mod+w mode "$window_layout"
 # Volume controls
 bindsym XF86AudioRaiseVolume exec "${HOME}/.dotfiles/polybar/pavolume.sh --up"
 bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pavolume.sh --down"
-bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --togmute"
+bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --toggle"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2

@@ -55,9 +55,6 @@ floating_modifier $mod
 default_border pixel 3
 hide_edge_borders smart
 
-# gaps configuration
-#gaps inner 30
-
 # Start a terminal
 bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
 bindsym $mod+Control+Return exec kitty
@@ -66,7 +63,7 @@ bindsym $mod+Control+Return exec kitty
 bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
 
 # open browser
-bindsym $mod+o exec vivaldi-stable
+bindsym $mod+o exec /usr/bin/firefox
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
@@ -78,6 +75,7 @@ bindsym $mod+Control+q kill
 # rofi shortcuts
 bindsym $mod+space exec "rofi -show drun -modi run"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -118,7 +116,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+x focus mode_toggle
+bindsym $mod+Control+n focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -220,14 +218,14 @@ mode --pango_markup "$window_layout" {
 bindsym $mod+w mode "$window_layout"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer set Master 2%-
-bindsym XF86AudioMute exec --no-startup-id amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec "${HOME}/.dotfiles/polybar/pavolume.sh --up"
+bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pavolume.sh --down"
+bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --toggle"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh honeydew wlp1s0"
-exec "unclutter -b --timeout 3"
-exec "nm-applet"
+exec "unclutter --fork --timeout 3"
+exec "/usr/bin/nm-applet"
