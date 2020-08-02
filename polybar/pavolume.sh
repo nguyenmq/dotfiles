@@ -1,124 +1,85 @@
 #!/usr/bin/env bash
 
-# finds the active sink for pulse audio and increments the volume. useful when you have multiple audio outputs and have a key bound to vol-up and down
+# Controls the volume of the active pulseaudio sink
 
-osd='no'
-inc='2'
-capvol='no'
-maxvol='200'
-autosync='yes'
+INCREMENT="2"
+MAX_VOLUME="100"
 
-# Muted status
-# yes: muted
-# no : not muted
-curStatus="no"
-active_sink=""
-limit=$((100 - inc))
-maxlimit=$((maxvol - inc))
+IS_MUTED=0
+ACTIVE_SINK=""
+CURRENT_VOLUME=""
 
-reloadSink() {
-    active_sink=$(pacmd list-sinks | awk '/* index:/ {print $3}')
+function print_help() {
+    echo "Controls volume of the active pulseaudio sink. If used in listening"
+    echo "mode, then the script will listen for events from pulseaudio to"
+    echo "update the volume status. Without any flags, the script will output a"
+    echo "formatted string of the current volume."
+    echo ""
+    echo "Usage:"
+    echo "--help    Prints usage."
+    echo "--up      Increase volume by ${INCREMENT}%."
+    echo "--down    Decrease volume by ${INCREMENT}%."
+    echo "--toggle  Toggle mute state."
+    echo "--mute    Mute the active sink."
+    echo "--unmute  Unmute the active sink."
+    echo "--listen  Listen for pulseaudio events."
 }
 
-function volUp {
+function get_active_sink() {
+    ACTIVE_SINK="$(pacmd list-sinks | awk '/* index:/ {print $3}')"
+}
 
-    getCurVol
+function increase_volume() {
+    local volume
 
-    if [ "$capvol" = 'yes' ]
-    then
-        if [ "$curVol" -le 100 ] && [ "$curVol" -ge "$limit" ]
-        then
-            pactl set-sink-volume "$active_sink" -- 100%
-        elif [ "$curVol" -lt "$limit" ]
-        then
-            pactl set-sink-volume "$active_sink" -- "+$inc%"
-        fi
-    elif [ "$curVol" -le "$maxvol" ] && [ "$curVol" -ge "$maxlimit" ]
-    then
-        pactl set-sink-volume "$active_sink" "$maxvol%"
-    elif [ "$curVol" -lt "$maxlimit" ]
-    then
-        pactl set-sink-volume "$active_sink" "+$inc%"
+    get_active_sink
+    get_current_volume
+
+    volume=$(( CURRENT_VOLUME + INCREMENT ))
+
+    if [[ "$volume" -gt "$MAX_VOLUME" ]]; then
+        volume="$MAX_VOLUME"
     fi
 
-    getCurVol
-
-    if [ ${osd} = 'yes' ]
-    then
-        qdbus org.kde.kded /modules/kosd showVolume "$curVol" 0
-    fi
-
-    if [ ${autosync} = 'yes' ]
-    then
-        volSync
-    fi
+    pactl set-sink-volume "$ACTIVE_SINK" "${volume}%"
 }
 
-function volDown {
-
-    pactl set-sink-volume "$active_sink" "-$inc%"
-    getCurVol
-
-    if [ ${osd} = 'yes' ]
-    then
-        qdbus org.kde.kded /modules/kosd showVolume "$curVol" 0
-    fi
-
-    if [ ${autosync} = 'yes' ]
-    then
-        volSync
-    fi
-
+function decrease_volume() {
+    get_active_sink
+    pactl set-sink-volume "$ACTIVE_SINK" "-${INCREMENT}%"
 }
 
-function getSinkInputs {
-    input_array=$(pacmd list-sink-inputs | grep -B 4 "sink: $1 " | awk '/index:/{print $2}')
+function get_current_volume() {
+    CURRENT_VOLUME=$(pacmd list-sinks | grep -A 15 "index: $ACTIVE_SINK" | awk '/^\s*volume:/ {gsub("%", "", $5); print $5}')
 }
 
-function volSync {
-    getSinkInputs "$active_sink"
-    getCurVol
-
-    for each in $input_array
-    do
-        pactl set-sink-input-volume "$each" "$curVol%"
-    done
-}
-
-function getCurVol {
-    curVol=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/^\s*volume:/ {gsub("%", "", $5); print $5}')
-    curVol=$(printf "%03.0f" $curVol)
-}
-
-function volMute {
+function set_mute {
+    get_active_sink
     case "$1" in
-        mute)
-            pactl set-sink-mute "$active_sink" 1
-            curVol=0
-            status=1
+        "mute")
+            pactl set-sink-mute "$ACTIVE_SINK" 1
             ;;
-        unmute)
-            pactl set-sink-mute "$active_sink" 0
-            getCurVol
-            status=0
+        "unmute")
+            pactl set-sink-mute "$ACTIVE_SINK" 0
             ;;
     esac
+}
 
-    if [ ${osd} = 'yes' ]
-    then
-        qdbus org.kde.kded /modules/kosd showVolume ${curVol} ${status}
+function get_mute_status {
+    get_active_sink
+
+    if [[ $(pacmd list-sinks | grep -A 15 "index: $ACTIVE_SINK" | awk '/muted/{ print $2}') == "yes" ]]; then
+        IS_MUTED=1
+    else
+        IS_MUTED=0
     fi
-
 }
 
-function volMuteStatus {
-    curStatus=$(pacmd list-sinks | grep -A 15 "index: $active_sink$" | awk '/muted/{ print $2}')
-}
+# Listens for pulseaudio events
+function listen() {
+    local firstrun=0
 
-# Prints output for bar
-# Listens for events for fast update speed
-function listen {
-    firstrun=0
+    get_active_sink
 
     pactl subscribe 2>/dev/null | {
         while true; do
@@ -133,63 +94,61 @@ function listen {
                     firstrun=1
                 else
                     read -r event || break
-                    if ! echo "$event" | grep -e "on card" -e "on sink"
-                    then
+                    if ! echo "$event" | grep -e "on card" -e "on sink"; then
                         # Avoid double events
                         continue
                     fi
                 fi
             } &>/dev/null
-            output
+
+            print_volume
         done
     }
 }
 
-function output() {
-    reloadSink
-    getCurVol
-    volMuteStatus
-    if [ "${curStatus}" = 'yes' ]
-    then
+function print_volume() {
+    local volume_percentage
+
+    get_active_sink
+    get_current_volume
+    get_mute_status
+
+    if [[ "$IS_MUTED" -eq 1 ]]; then
         echo " mute"
     else
-        echo " $curVol%"
+        volume_percentage="$(printf '%0.0f%%' "$CURRENT_VOLUME")"
+        printf ' %-4s\n' "$volume_percentage"
     fi
-} #}}}
+}
 
-reloadSink
 case "$1" in
+    --help)
+        print_help
+        ;;
     --up)
-        volUp
+        increase_volume
         ;;
     --down)
-        volDown
+        decrease_volume
         ;;
-    --togmute)
-        volMuteStatus
-        if [ "$curStatus" = 'yes' ]
-        then
-            volMute unmute
+    --toggle)
+        get_mute_status
+        if [[ "$IS_MUTED" -eq 1 ]]; then
+            set_mute "unmute"
         else
-            volMute mute
+            set_mute "mute"
         fi
         ;;
     --mute)
-        volMute mute
+        set_mute "mute"
         ;;
     --unmute)
-        volMute unmute
-        ;;
-    --sync)
-        volSync
+        set_mute "unmute"
         ;;
     --listen)
-        # Listen for changes and immediately create new output for the bar
-        # This is faster than having the script on an interval
         listen
         ;;
     *)
-        # By default print output for bar
-        output
+        print_volume
         ;;
 esac
