@@ -38,6 +38,7 @@ let s:cterm0E = "231"           " white
 let s:cterm0F = "255"           " light grey
 let s:cterm10 = "217"           " light red
 let s:cterm11 = "183"           " light lavender
+let s:cterm12 = "42"            " moar green
 
 " Theme setup
 hi clear
@@ -116,7 +117,7 @@ call <sid>hi("PMenuSel",      s:gui02, s:gui05, s:cterm0E, s:cterm02, "")
 call <sid>hi("TabLine",       s:gui03, s:gui01, s:cterm0E, s:cterm02, "none")
 call <sid>hi("TabLineFill",   s:gui03, s:gui01, s:cterm0D, s:cterm02, "none")
 call <sid>hi("TabLineSel",    s:gui09, s:gui01, s:cterm0E, s:cterm0D, "none")
-call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm11,  "none")
+call <sid>hi("Search",        s:gui09, s:gui04, s:cterm00, s:cterm0B,  "none")
 call <sid>link_group("IncSearch", "Search")
 call <sid>hi("CtrlPMatch",    "",      "",      s:cterm06, s:cterm0F, "")
 
@@ -166,7 +167,7 @@ call <sid>hi("SpellRare",    "", s:gui00, "", s:cterm00, "undercurl")
 call <sid>hi("DiffAdd",      "",      s:gui0F, "",        s:cterm0A, "")
 call <sid>hi("DiffChange",   "",      s:gui0F, "",        s:cterm0A, "")
 call <sid>hi("DiffDelete",   s:gui01, s:gui10, s:cterm01, s:cterm10, "")
-call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm0B, "none")
+call <sid>hi("DiffText",     "",      s:gui0F, s:cterm00, s:cterm12, "none")
 call <sid>hi("DiffAdded",    "",      s:gui0F, s:cterm02, "",        "")
 call <sid>hi("DiffFile",     s:gui08, s:gui0F, s:cterm0C, "",        "")
 call <sid>hi("DiffNewFile",  s:gui0B, s:gui0F, s:cterm04, "",        "")

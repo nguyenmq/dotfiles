@@ -50,7 +50,6 @@ set undodir=~/.cache/vim/undo
 
 " Configuration for diff mode
 if &diff
-    set cursorline
     set diffopt=filler,context:1000000
 endif
 
