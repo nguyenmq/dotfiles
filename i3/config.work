@@ -96,8 +96,9 @@ bindsym $mod+bracketright exec mpc next
 bindsym $mod+Control+q kill
 
 # rofi shortcuts
-bindsym $mod+space exec "rofi -modi combi -show combi -combi-modi window,drun"
+bindsym $mod+space exec "rofi -show drun -modi run"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
 
 # change focus
 bindsym $mod+h focus left
@@ -138,7 +139,7 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Control+d floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+x focus mode_toggle
+bindsym $mod+Control+n focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -212,12 +213,12 @@ mode --pango_markup "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # autorandr prompt
-set $monitor_output (i) internal, (d) dock, (t) toggle dock, (l) internal and lock
+set $monitor_output (i) internal, (d) dock, (l) left only, (p) projector
 mode --pango_markup "$monitor_output" {
-    bindsym i exec --no-startup-id "autorandr --load mobile", mode "default"
-    bindsym d exec --no-startup-id "autorandr --load home_dock", mode "default"
-    bindsym t exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -t", mode "default"
-    bindsym l exec --no-startup-id "${HOME}/.dotfiles/scripts/laptop_output.sh -l", mode "default"
+    bindsym i exec --no-startup-id "autorandr --load mobile --force", mode "default"
+    bindsym d exec --no-startup-id "autorandr --load dock --force", mode "default"
+    bindsym l exec --no-startup-id "autorandr --load left_only --force", mode "default"
+    bindsym p exec --no-startup-id "autorandr --load project --force", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -240,12 +241,12 @@ bindsym $mod+w mode "$window_layout"
 # Volume controls
 bindsym XF86AudioRaiseVolume exec "${HOME}/.dotfiles/polybar/pavolume.sh --up"
 bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pavolume.sh --down"
-bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --togmute"
+bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --toggle"
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh work wlp2s0"
-exec "unclutter -b --timeout 3"
+exec "unclutter -idle 10"
 exec "/usr/bin/nm-applet"
