@@ -29,11 +29,9 @@
     browser = /usr/bin/firefox
     icon_position = left
     max_icon_size = 48
-    icon_folders = /usr/share/icons/Numix:/usr/share/icons/Adwaita:/usr/share/icons/hicolor
-
-[frame]
-    width = 0
-    color = "#000000"
+    icon_path = /usr/share/icons/Numix/64/status:/usr/share/icons/Numix/24/status:/usr/share/icons/Numix/64/actions:/usr/share/icons/Adwaita:/usr/share/icons/hicolor
+    frame_width = 0
+    frame_color = "#000000"
 
 [shortcuts]
     close = ctrl+space
@@ -41,13 +39,13 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#d4fca7"
-    foreground = "#000000"
+    background = "#3b4045"
+    foreground = "#ffffff"
     timeout = 20
 
 [urgency_normal]
-    background = "#d4fca7"
-    foreground = "#000000"
+    background = "#3b4045"
+    foreground = "#ffffff"
     timeout = 10
 
 [urgency_critical]
