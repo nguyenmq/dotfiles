@@ -280,6 +280,9 @@ command! -nargs=0 Ci call functions#CheckImports()
 command! -nargs=0 Vs call functions#VertSplitPercent(0.41)
 noremap <silent> <Leader>v :Vs<CR>
 
-noremap <silent> <Leader>dd 0f[lrxWi~~<ESC>A~~<ESC>0
+command! -nargs=0 TaskDoneToggle call functions#TaskDoneToggle()
+noremap <silent> <Leader>dd :TaskDoneToggle<CR>
+command! -nargs=0 TaskStrikeToggle call functions#TaskStrikeToggle()
+noremap <silent> <Leader>ds :TaskStrikeToggle<CR>
 noremap <silent> <Leader>dn :normal o- [ ] <CR>A
 noremap <silent> <Leader>dp :normal O- [ ] <CR>A

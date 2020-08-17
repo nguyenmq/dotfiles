@@ -78,3 +78,31 @@ function! functions#VertSplitPercent(percent)
         execute "vertical " . float2nr(&columns * a:percent) . "split"
     endif
 endfun
+
+" Toggle a markdown task as done/not done
+function! functions#TaskDoneToggle()
+    let l:is_done = split(getline("."), '\[\|\]')[1]
+
+    if l:is_done == "x"
+        execute 's/\~//g'
+        execute 's/\[\zsx\ze\]/ /'
+    else
+        let @/ = '^\s*-\s\[.\] \zs.'
+        execute "normal! 0ni~~"
+        execute "normal! A~~"
+        execute 's/\[\zs\s\ze\]/x/'
+    endif
+endfun
+
+" Toggle a markdown line to be striked through
+function! functions#TaskStrikeToggle()
+    let l:is_strikethrough = match(getline("."), '\~\~')
+
+    if l:is_strikethrough >= 0
+        execute 's/\~//g'
+    else
+        let @/ = '^\s*-*\s*\zs.'
+        execute "normal! 0ni~~"
+        execute "normal! A~~"
+    endif
+endfun
