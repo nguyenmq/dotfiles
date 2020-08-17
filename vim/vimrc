@@ -255,6 +255,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " vim-markdown configuration
 "-----------------------------------------------------------
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_strikethrough = 1
 
 "-----------------------------------------------------------
 " configure ack
@@ -278,3 +279,7 @@ command! -nargs=0 Ci call functions#CheckImports()
 " Resize or vertical split to fixed percentage
 command! -nargs=0 Vs call functions#VertSplitPercent(0.41)
 noremap <silent> <Leader>v :Vs<CR>
+
+noremap <silent> <Leader>dd 0f[lrxWi~~<ESC>A~~<ESC>0
+noremap <silent> <Leader>dn :normal o- [ ] <CR>A
+noremap <silent> <Leader>dp :normal O- [ ] <CR>A
