@@ -1,7 +1,7 @@
 directory: "~/music/"
 library: "~/music/library.db"
 asciify_paths: no
-art_filename: folder
+art_filename: cover
 max_filename_length: 150
 threaded: yes
 original_date: yes
@@ -21,7 +21,7 @@ fetchart:
     minwidth: 1000
     maxwidth: 1000
     enforce_ratio: yes
-    cover_names: folder
+    cover_names: cover
     sources: filesystem
 embedart:
     auto: yes
