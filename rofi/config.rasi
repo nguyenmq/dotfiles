@@ -1,0 +1,15 @@
+configuration {
+    cycle: true;
+    display-drun: "Activate";
+    display-run: "Execute";
+    display-window: "Window";
+    hide-scrollbar: "true";
+    icon-theme: "Numix";
+    m: "-4";
+    matching: "fuzzy";
+    separator-style: "none";
+    sidebar-mode: false;
+    sort: true;
+    sorting-method: "fzf";
+    theme: "olive";
+}
