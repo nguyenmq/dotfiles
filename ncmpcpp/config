@@ -1,7 +1,7 @@
 user_interface = classic
 fetch_lyrics_for_current_song_in_background = no
 follow_now_playing_lyrics = yes
-lyrics_fetchers = lyricwiki, azlyrics
+lyrics_fetchers = genius, metrolyrics, azlyrics, musixmatch
 show_duplicate_tags = no
 media_library_primary_tag = album_artist
 media_library_albums_split_by_date = no
