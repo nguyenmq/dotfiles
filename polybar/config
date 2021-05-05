@@ -44,7 +44,7 @@ font-1 = "Noto Sans Mono CJK SC:size=9;2"
 font-2 = "MaterialIcons-Regular:size=11;3"
 height = 18
 inherit = bar/base
-modules-right = mpd pavolume date time
+modules-right = mpd pavolume notifications date time
 
 [bar/work]
 font-0 = "Ubuntu Mono:weight=regular:size=10;2"
@@ -168,6 +168,15 @@ click-right = exec pavucontrol
 click-left = ~/.config/polybar/pavolume.sh --toggle
 scroll-up = ~/.config/polybar/pavolume.sh --up
 scroll-down = ~/.config/polybar/pavolume.sh --down
+
+[module/notifications]
+type = custom/script
+tail = true
+label = %output%
+label-underline = ${colors.grey}
+exec = ~/.config/polybar/notifications.sh --listen
+click-left = ~/.config/polybar/notifications.sh --toggle
+click-right = ~/.config/polybar/notifications.sh --clear
 
 [module/battery]
 type = internal/battery

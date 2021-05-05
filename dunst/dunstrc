@@ -1,16 +1,17 @@
 [global]
-    font = Ubuntu 10
+    font = Ubuntu 8
     markup = full
-    format = "<span font="Ubuntu 11"><b>%s</b>\n\n%b</span>"
+    format = "<span font="Ubuntu 8"><b>%s</b></span>\n%b"
     sort = yes
     indicate_hidden = yes
     alignment = left
+    vertical_alignment = center
     bounce_freq = 0
     show_age_threshold = 60
     word_wrap = false
     ellipsize = end
     ignore_newline = no
-    geometry = "400x5-25-45"
+    geometry = "350x1-5+5"
     shrink = no
     transparency = 0
     idle_threshold = 300
@@ -18,20 +19,21 @@
     monitor = 0
     sticky_history = yes
     history_length = 20
-    show_indicators = yes
+    show_indicators = false
     line_height = 0
     separator_height = 2
     padding = 8
-    horizontal_padding = 16
+    horizontal_padding = 8
     separator_color = frame
     startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
     browser = /usr/bin/firefox
     icon_position = left
-    max_icon_size = 48
-    icon_path = /usr/share/icons/Numix/64/status:/usr/share/icons/Numix/24/status:/usr/share/icons/Numix/64/actions:/usr/share/icons/Adwaita:/usr/share/icons/hicolor
+    max_icon_size = 32
+    icon_path = /usr/share/icons/Numix/32/status:/usr/share/icons/Numix/32/devices:/usr/share/icons/Numix/32/apps:/usr/share/icons/hicolor/32x32/status:/usr/share/icons/hicolor/32x32/apps
     frame_width = 0
-    frame_color = "#000000"
+    text_icon_padding = 10
+    corner_radius = 5
 
 [shortcuts]
     close = ctrl+space
@@ -39,16 +41,24 @@
     context = ctrl+shift+period
 
 [urgency_low]
-    background = "#3b4045"
-    foreground = "#ffffff"
+    background = "#12181a"
+    foreground = "#eeeeee"
     timeout = 20
 
 [urgency_normal]
-    background = "#3b4045"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#12181a"
+    foreground = "#eeeeee"
+    timeout = 15
 
 [urgency_critical]
     background = "#875faf"
-    foreground = "#ffffff"
+    foreground = "#eeeeee"
     timeout = 0
+
+[solaar]
+    desktop_entry = "solaar"
+    skip_display = true
+
+[flameshot]
+    icon = "flameshot"
+    skip_display = true
