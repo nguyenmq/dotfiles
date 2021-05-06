@@ -35,7 +35,7 @@ function print_notifications() {
 
     count=$(dunstctl count waiting)
 
-    printf '%s %02d\n' "$icon" "$count"
+    printf '%s %d\n' "$icon" "$count"
 }
 
 function listen() {
