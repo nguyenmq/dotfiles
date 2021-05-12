@@ -5,32 +5,20 @@ set $mod Mod1+Shift
 
 # Define monitor outputs
 set $monitor_internal eDP1
-set $monitor_left DP1-2
-set $monitor_right DP1-1
+set $monitor_left DP1-3
+set $monitor_right HDMI2
 
 # workspace names
 set $WS1  1:01
 set $WS2  2:02
 set $WS3  3:03
 set $WS4  4:04
-set $WS5  5:term
-set $WS6  6:web
+set $WS5  5:05
+set $WS6  6:06
 set $WS7  7:07
 set $WS8  8:08
 set $WS9  9:09
-set $WS10 10:compile
-
-# bind workspaces to specific outputs
-workspace $WS1 output $monitor_internal
-workspace $WS2 output $monitor_left
-workspace $WS3 output $monitor_left
-workspace $WS4 output $monitor_left
-workspace $WS5 output $monitor_left
-workspace $WS6 output $monitor_right
-workspace $WS7 output $monitor_right
-workspace $WS8 output $monitor_right
-workspace $WS9 output $monitor_right
-workspace $WS10 output $monitor_right
+set $WS10 10:10
 
 # set the lock program
 set $Locker "${HOME}/.dotfiles/scripts/lockscreen.sh"
@@ -45,7 +33,7 @@ set $dk_green #005f00
 
 # bind workspaces to specific monitors: odd on the left, even on the right
 workspace $WS1 output $monitor_left
-workspace $WS2 output $monitor_left
+workspace $WS2 output $monitor_internal
 workspace $WS3 output $monitor_left
 workspace $WS4 output $monitor_left
 workspace $WS5 output $monitor_left
@@ -59,7 +47,15 @@ workspace $WS10 output $monitor_right
 workspace_layout default
 
 # Assign applications to specfic workspaces
+<<<<<<< HEAD
 assign [class="mpv"] $WS10
+=======
+assign [class="mpv"] $WS7
+assign [class="Steam"] $WS9
+assign [class="Chromium"] $WS8
+assign [class="Google-chrome"] $WS8
+assign [class="jetbrains-idea-ce"] $WS7
+>>>>>>> 5272731... i3 work
 
 # Font for window titles
 font pango:Ubuntu 9
@@ -75,15 +71,17 @@ client.urgent           $purple   $purple   $white  $green     $green
 floating_modifier $mod
 
 # border configuration
-new_window pixel 3
+default_border pixel 3
 hide_edge_borders smart
 
 # Start a terminal
 bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
 bindsym $mod+Control+Return exec kitty
 
-# toggle mousepad
-bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
+# notification management
+bindsym $mod+m exec "dunstctl close"
+bindsym $mod+Control+m exec "${HOME}/.dotfiles/polybar/notifications.sh --toggle"
+bindsym $mod+c exec "${HOME}/.dotfiles/polybar/notifications.sh --clear"
 
 # open browser
 bindsym $mod+o exec /usr/bin/firefox
@@ -95,10 +93,16 @@ bindsym $mod+bracketright exec mpc next
 # kill focused window
 bindsym $mod+Control+q kill
 
+# scratchpad management
+bindsym $mod+minus scratchpad show
+bindsym $mod+Control+minus move scratchpad
+
 # rofi shortcuts
-bindsym $mod+space exec "rofi -show drun -modi run"
+bindsym $mod+space exec "rofi -show drun -modi run -show-icons"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
+bindsym $mod+Control+space exec "${HOME}/repos/rofi-pass/rofi-pass --last-used"
+bindsym $mod+semicolon exec "rofi -show emoji -modi emoji"
 
 # change focus
 bindsym $mod+h focus left
@@ -130,7 +134,6 @@ bindsym $mod+Control+Right move right
 bindsym $mod+n workspace next
 bindsym $mod+Tab workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+semicolon workspace back_and_forth
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -213,12 +216,13 @@ mode --pango_markup "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # autorandr prompt
-set $monitor_output (i) internal, (d) dock, (l) left only, (p) projector
+set $monitor_output (i) internal, (d) dock, (l) left only, (p) projector (w) widescreen
 mode --pango_markup "$monitor_output" {
     bindsym i exec --no-startup-id "autorandr --load mobile --force", mode "default"
     bindsym d exec --no-startup-id "autorandr --load dock --force", mode "default"
     bindsym l exec --no-startup-id "autorandr --load left_only --force", mode "default"
     bindsym p exec --no-startup-id "autorandr --load project --force", mode "default"
+    bindsym w exec --no-startup-id "autorandr --load widescreen --force", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -247,6 +251,6 @@ bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pavolume.sh --toggle"
 bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 
-exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh work wlp2s0"
+exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh work wlp61s0"
 exec "unclutter -idle 10"
 exec "/usr/bin/nm-applet"
