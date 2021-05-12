@@ -47,15 +47,11 @@ workspace $WS10 output $monitor_right
 workspace_layout default
 
 # Assign applications to specfic workspaces
-<<<<<<< HEAD
-assign [class="mpv"] $WS10
-=======
 assign [class="mpv"] $WS7
 assign [class="Steam"] $WS9
 assign [class="Chromium"] $WS8
 assign [class="Google-chrome"] $WS8
 assign [class="jetbrains-idea-ce"] $WS7
->>>>>>> 5272731... i3 work
 
 # Font for window titles
 font pango:Ubuntu 9
