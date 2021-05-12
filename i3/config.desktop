@@ -4,16 +4,16 @@
 set $mod Mod1+Shift
 
 # Define monitor outputs
-set $monitor_left "DisplayPort-0"
-set $monitor_right "HDMI-A-0"
+set $monitor_left "DisplayPort-2"
+set $monitor_right "DisplayPort-1"
 
 # workspace names
-set $WS1  1:term
+set $WS1  1:01
 set $WS2  2:02
 set $WS3  3:03
 set $WS4  4:04
 set $WS5  5:05
-set $WS6  6:web
+set $WS6  6:06
 set $WS7  7:07
 set $WS8  8:08
 set $WS9  9:09
@@ -46,8 +46,9 @@ workspace $WS10 output $monitor_right
 workspace_layout default
 
 # Assign applications to specfic workspaces
-assign [class="mpv"] $WS10
-assign [class="Steam"] $WS8
+assign [class="mpv"] $WS7
+assign [class="Steam"] $WS9
+assign [class="Chromium"] $WS8
 
 # Font for window titles
 font pango:Ubuntu 9
@@ -70,8 +71,10 @@ hide_edge_borders smart
 bindsym $mod+Return exec kitty --session "${HOME}/.dotfiles/kitty/default_session.conf"
 bindsym $mod+Control+Return exec kitty
 
-# toggle mousepad
-bindsym $mod+m exec "${HOME}/.dotfiles/scripts/toggle_touchpad.sh"
+# notification management
+bindsym $mod+m exec "dunstctl close"
+bindsym $mod+Control+m exec "${HOME}/.dotfiles/polybar/notifications.sh --toggle"
+bindsym $mod+c exec "${HOME}/.dotfiles/polybar/notifications.sh --clear"
 
 # open browser
 bindsym $mod+o exec /usr/bin/firefox
@@ -83,10 +86,16 @@ bindsym $mod+bracketright exec mpc next
 # kill focused window
 bindsym $mod+Control+q kill
 
+# scratchpad management
+bindsym $mod+minus scratchpad show
+bindsym $mod+Control+minus move scratchpad
+
 # rofi shortcuts
-bindsym $mod+space exec "rofi -show drun -modi run"
+bindsym $mod+space exec "rofi -show drun -modi run -show-icons"
 bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
 bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
+bindsym $mod+Control+space exec "${HOME}/repos/rofi-pass/rofi-pass --last-used"
+bindsym $mod+semicolon exec "rofi -show emoji -modi emoji"
 
 # change focus
 bindsym $mod+h focus left
@@ -118,7 +127,6 @@ bindsym $mod+Control+Right move right
 bindsym $mod+n workspace next
 bindsym $mod+Tab workspace next
 bindsym $mod+p workspace prev
-bindsym $mod+semicolon workspace back_and_forth
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -236,3 +244,5 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh lime wlp8s0"
 exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
+exec "/usr/bin/solaar --window hide"
+exec "/usr/bin/mullvad-vpn"
