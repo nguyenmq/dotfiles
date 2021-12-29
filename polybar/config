@@ -31,9 +31,8 @@ module-margin-right = 1
 
 [bar/honeydew]
 font-0 = "Ubuntu Mono:weight=regular:size=18;3"
-font-1 = "Roboto:size=16;3"
-font-2 = "Droid Sans Fallback:size=16;1"
-font-3 = "MaterialIcons-Regular:size=16;4"
+font-1 = "Noto Sans Mono CJK SC:size=16;1"
+font-2 = "MaterialIcons-Regular:size=16;4"
 height = 2%
 inherit = bar/base
 modules-right = mpd battery pavolume xbacklight date time
