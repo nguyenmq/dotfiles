@@ -6,7 +6,7 @@ configuration {
     hide-scrollbar: true;
     icon-theme: "Numix";
     m: "-4";
-    separator-style: "none";
     sidebar-mode: false;
-    theme: "olive";
 }
+
+@theme "olive"
