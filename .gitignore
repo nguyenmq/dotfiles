@@ -2,3 +2,6 @@
 vim/.netrwhist
 xconfig/urxvt_ext/clipboard
 vim/spell
+.dotter/local.toml
+.dotter/cache.toml
+.dotter/cache

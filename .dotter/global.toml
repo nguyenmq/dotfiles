@@ -1,0 +1,97 @@
+[helpers]
+
+[default]
+depends = []
+
+[default.files]
+vim = ""
+
+# local variables:
+#   fullname
+#   email
+[preferences.variables]
+black = "#000000"
+black_almost = "#12181a"
+blue = "#116dd5"
+gray_dark = "#c7c7c7"
+gray_light = "#eeeeee"
+green = "#2bb24c"
+green_dark = "#005f00"
+lavender = "#875faf"
+magenta = "#ff3580"
+red = "#ff4646"
+white = "#ffffff"
+#yellow = "#e7b945"
+yellow = "#d3a40b"
+ui_font_family = "Ubuntu"
+
+[terminal]
+depends = ["preferences"]
+
+[terminal.files]
+"bash/bashrc" = "~/.bashrc"
+"bash/bashrc.func" = "~/.bashrc.func"
+"git/gitconfig" = "~/.config/git/config"
+"tmux/tmux.conf" = "~/.tmux.conf"
+"ncmpcpp/config" = "~/.config/ncmpcpp/config"
+"ncmpcpp/bindings" = "~/.config/ncmpcpp/bindings"
+"ranger/rc.conf" = "~/.config/ranger/rc.conf"
+"w3m/config" = "~/.w3m/config"
+"w3m/keymap" = "~/.w3m/keymap"
+"etc/inputrc" = "~/.inputrc"
+"vim" = { target = "~/.vim", type = "symbolic" }
+
+[terminal.variables]
+term_font_family = "Ubuntu Mono"
+term_font_family_bold = "Ubuntu Mono Bold"
+term_font_family_italic = "Ubuntu Mono Italic"
+term_font_family_bold_italic = "Ubuntu Mono Bold Italic"
+term_font_size = 10.8
+term_adjust_line_height = 4
+term_adjust_column_width = 1
+term_window_padding_width = 2.0
+fzf_shell_completions = "/usr/share/fzf/completion.bash"
+fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
+
+[gui]
+depends = ["preferences"]
+
+[gui.files]
+"kitty/kitty.conf" = "~/.config/kitty/kitty.conf"
+"rofi/config.rasi" = "~/.config/rofi/config.rasi"
+"rofi/olive.rasi" = "~/.config/rofi/olive.rasi"
+"rofi-pass/config" = "~/.config/rofi-pass/config"
+"dunst/dunstrc" = "~/.config/dunst/dunstrc"
+"greenclip/greenclip.toml" = "~/.config/greenclip.toml"
+"i3/config" = "~/.config/i3/config"
+"polybar/config" = "~/.config/polybar/config"
+"polybar/launch.sh" = "~/.config/polybar/launch.sh"
+"polybar/notifications.sh" = "~/.config/polybar/notifications.sh"
+"polybar/pavolume.sh" = "~/.config/polybar/pavolume.sh"
+"xconfig/Xresources" = "~/.Xresources"
+
+# local variables:
+#   greenclip_history_file
+#   i3_monitor_internal - use left monitor if no internal monitor
+#   i3_monitor_left
+#   i3_monitor_two
+#   i3_additional_execs
+[gui.variables]
+default_browser = "/usr/bin/firefox"
+rofi_font_size = 12
+dunst_font_size = 8
+dunst_width = 350
+dunst_offset = "10x10"
+i3_window_font_size = 9
+i3_border_width = 3
+i3_locker = "/usr/bin/xsecurelock"
+polybar_modules_right = "mpd pavolume notifications date time"
+polybar_font_zero = "Ubuntu Mono:weight=regular:size=10;2"
+polybar_font_one = "Noto Sans Mono CJK SC:size=10;1"
+polybar_font_two = "MaterialIcons-Regular:size=10;3"
+polybar_height = 18
+xresources_cursor_size = 24
+xresources_dpi = 96
+
+[beets.files]
+"beets/config.yaml" = "~/.config/beets/config.yaml"

@@ -1,12 +1,12 @@
 * {
-    font:                        "Ubuntu Mono 13";
-    background-color:            #12181a;
-    text-color:                  #c7c7c7;
-    selbg:                       #2bb24c;
-    actbg:                       #2bb24c;
-    urgbg:                       #ff4646;
-    winfg:                       #ffffff;
-    highlight:                   bold #ffffff;
+    font:                        "{{term_font_family}}  {{rofi_font_size}}";
+    background-color:            {{black_almost}};
+    text-color:                  {{gray_dark}};
+    selbg:                       {{green}};
+    actbg:                       {{green}};
+    urgbg:                       {{red}};
+    winfg:                       {{white}};
+    highlight:                   bold {{white}};
 
     selected-normal-foreground:  @winfg;
     normal-foreground:           @text-color;
@@ -91,7 +91,7 @@ element selected.normal {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
     border:           0 5px solid 0 0;
-    border-color:        @active-background;
+    border-color:     @active-background;
 }
 
 element selected.urgent {

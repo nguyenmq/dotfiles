@@ -2,10 +2,10 @@
 URxvt.geometry: 190x50
 
 ! Color for links
-URxvt.colorUL: #0086d2
+URxvt.colorUL: {{blue}}
 
 ! Browser to use when launching links
-URxvt.url-launcher: firefox
+URxvt.url-launcher: {{default_browser}}
 
 ! Font settings
 URxvt.font: xft:UbuntuMono:size=10
@@ -17,7 +17,9 @@ Xft.hintstyle: hintslight
 Xft.hinting: true
 Xft.antialias: 1
 Xft.rgba: rgb
-Xcursor.size: 24
+Xcursor.size: {{xresources_cursor_size}}
+Xft.dpi: {{xresources_dpi}}
+rofi.dpi: {{xresources_dpi}}
 
 ! Set window title string
 URxvt.title: urxvt
@@ -33,38 +35,38 @@ URxvt.matcher.button: 1
 URxvt.iso14755: False
 
 ! special
-*.foreground:   #2e3018
-*.background:   #ffffff
-*.cursorColor:  #000000
+*.foreground:   {{black}}
+*.background:   {{white}}
+*.cursorColor:  {{black}}
 
 ! black
-*.color0:       #12181a
-*.color8:       #12181a
+*.color0:       {{black_almost}}
+*.color8:       {{black_almost}}
 
 ! red
-*.color1:       #ff4646
-*.color9:       #ff4646
+*.color1:       {{red}}
+*.color9:       {{red}}
 
 ! green
-*.color2:       #2bb24c
-*.color10:      #2bb24c
+*.color2:       {{green}}
+*.color10:      {{green}}
 
 ! yellow
-*.color3:       #d3a40b
-*.color11:      #d3a40b
+*.color3:       {{yellow}}
+*.color11:      {{yellow}}
 
 ! blue
-*.color4:       #116dd5
-*.color12:      #116dd5
+*.color4:       {{blue}}
+*.color12:      {{blue}}
 
 ! magenta
-*.color5:       #ff3580
-*.color13:      #ff3580
+*.color5:       {{magenta}}
+*.color13:      {{magenta}}
 
 ! cyan
-*.color6:       #875faf
-*.color14:      #875faf
+*.color6:       {{lavender}}
+*.color14:      {{lavender}}
 
 ! white
-*.color7:       #c7c7c7
-*.color15:      #eeeeee
+*.color7:       {{gray_dark}}
+*.color15:      {{gray_light}}

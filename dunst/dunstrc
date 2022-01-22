@@ -1,12 +1,11 @@
 [global]
-    font = Ubuntu 8
+    font = {{ui_font_family}} {{dunst_font_size}}
     markup = full
-    format = "<span font="Ubuntu 8"><b>%s</b></span>\n%b"
+    format = "<span font="{{ui_font_family}} {{dunst_font_size}}"><b>%s</b></span>\n%b"
     sort = yes
     indicate_hidden = yes
     alignment = left
     vertical_alignment = center
-    bounce_freq = 0
     show_age_threshold = 60
     word_wrap = false
     ellipsize = end
@@ -24,7 +23,6 @@
     padding = 8
     horizontal_padding = 8
     separator_color = frame
-    startup_notification = false
     dmenu = /usr/bin/dmenu -p dunst:
     browser = /usr/bin/firefox
     icon_position = left
@@ -32,29 +30,24 @@
     icon_path = /usr/share/icons/Numix/32/status:/usr/share/icons/Numix/32/devices:/usr/share/icons/Numix/32/apps:/usr/share/icons/hicolor/32x32/status:/usr/share/icons/hicolor/32x32/apps
     frame_width = 0
     text_icon_padding = 10
-    corner_radius = 5
-    width = 350
-    offset = 5x5
+    corner_radius = 0
+    width = {{dunst_width}}
+    offset = {{dunst_offset}}
     notification_limit = 1
 
-[shortcuts]
-    close = ctrl+space
-    history = ctrl+shift+space
-    context = ctrl+shift+period
-
 [urgency_low]
-    background = "#12181a"
-    foreground = "#eeeeee"
+    background = "{{black_almost}}"
+    foreground = "{{gray_light}}"
     timeout = 20
 
 [urgency_normal]
-    background = "#12181a"
-    foreground = "#eeeeee"
+    background = "{{black_almost}}"
+    foreground = "{{gray_light}}"
     timeout = 15
 
 [urgency_critical]
-    background = "#875faf"
-    foreground = "#eeeeee"
+    background = "{{lavender}}"
+    foreground = "{{gray_light}}"
     timeout = 0
 
 [solaar]

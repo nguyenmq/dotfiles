@@ -13,10 +13,9 @@ screen_switcher_mode = playlist, media_library
 ask_before_clearing_playlists = no
 
 # visualizer settings
-visualizer_fifo_path = /tmp/mpd.fifo
+visualizer_data_source = /tmp/mpd.fifo
 visualizer_output_name = my_fifo
 visualizer_in_stereo = yes
-visualizer_sync_interval = 30
 visualizer_type = spectrum
 visualizer_look = ▃▃
 audio_output {
@@ -25,7 +24,6 @@ audio_output {
     path   "/tmp/mpd.fifo"
     format "48000:16:2"
 }
-
 
 # defines the format of each column in the playlist view
 song_columns_list_format = "(5)[]{nl} (25)[]{Al} (40)[]{tl} (25)[]{bl} (5)[]{lr}"

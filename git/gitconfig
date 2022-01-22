@@ -1,3 +1,6 @@
+[user]
+    name = {{fullname}}
+    email = {{email}}
 [core]
     editor = vim
     pager = less -S
@@ -54,8 +57,6 @@
     short = true
     showUntrackedFiles = no
     submoduleSummary = true
-[include]
-    path = ~/.gitconfig.local
 [push]
     default = simple
 [pull]

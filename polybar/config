@@ -1,33 +1,37 @@
 [colors]
-green = #2bb24c
-dk_green = #005f00
-white = #ffffff
-black = #000000
-grey = #d3d3d3
-purple = #875faf
-dk_grey = #aaaaaa
+background = {{green}}
+border_color = {{green}}
+foreground = {{white}}
+focused_background = {{green_dark}}
+focused_foreground = {{white}}
+unfocused_foreground = {{gray_dark}}
 
 [bar/base]
-monitor = ${env:MONITOR:}
-background = ${colors.green}
-border-color = ${colors.green}
+background = ${colors.background}
+border-color = ${colors.border_color}
+border-top-size = 0
 cursor-click = pointer
 cursor-scroll = ns-resize
 fixed-center = true
-foreground = ${colors.white}
+font-0 = "{{polybar_font_zero}}"
+font-1 = "{{polybar_font_one}}"
+font-2 = "{{polybar_font_two}}"
+foreground = ${colors.foreground}
+height = {{polybar_height}}
+module-margin-left = 1
+module-margin-right = 1
 modules-center =
 modules-left = i3 title
+modules-right = {{polybar_modules_right}}
+monitor = ${env:MONITOR:}
+padding-left = 0
+padding-right = 1
 radius = 0.0
 scroll-down = i3wm-wsprev
 scroll-up = i3wm-wsnext
 tray-padding = 2
 tray-position = right
 width = 100%
-padding-left = 0
-padding-right = 1
-border-top-size = 0
-module-margin-left = 1
-module-margin-right = 1
 
 [bar/honeydew]
 font-0 = "Ubuntu Mono:weight=regular:size=18;3"
@@ -36,14 +40,6 @@ font-2 = "MaterialIcons-Regular:size=16;4"
 height = 2%
 inherit = bar/base
 modules-right = mpd battery pavolume xbacklight date time
-
-[bar/lime]
-font-0 = "Ubuntu Mono:weight=regular:size=10;1"
-font-1 = "Noto Sans Mono CJK SC:size=9;2"
-font-2 = "MaterialIcons-Regular:size=11;3"
-height = 18
-inherit = bar/base
-modules-right = mpd pavolume notifications date time
 
 [bar/work]
 font-0 = "Ubuntu Mono:weight=regular:size=10;2"
@@ -63,38 +59,38 @@ wrapping-scroll = false
 enable-click = true
 
 label-mode-padding = 1
-label-mode-foreground = ${colors.black}
-label-mode-background = ${colors.white}
+#label-mode-foreground = ${colors.black}
+#label-mode-background = ${colors.white}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%:
-label-focused-background = ${colors.dk_green}
-label-focused-underline = ${colors.white}
+label-focused-background = ${colors.focused_background}
+label-focused-underline = ${colors.focused_foreground}
 label-focused-padding = ${self.label-mode-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%:
 label-unfocused-padding = ${self.label-mode-padding}
-label-unfocused-underline = ${colors.grey}
+label-unfocused-underline = ${colors.unfocused_foreground}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = ${self.label-unfocused}
-label-visible-background = ${colors.green}
-label-visible-underline = ${colors.grey}
+label-visible-background = ${colors.background}
+label-visible-underline = ${colors.unfocused_foreground}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%:
-label-urgent-background = ${colors.green}
+label-urgent-background = ${colors.background}
 label-urgent-padding = ${self.label-mode-padding}
-label-urgent-underline = ${colors.white}
+label-urgent-underline = ${colors.focused_foreground}
 
 [module/mpd]
 type = internal/mpd
 format-online = <label-song>  <icon-random> <toggle>
-format-online-underline = ${colors.grey}
+format-online-underline = ${colors.unfocused_foreground}
 label-song =   %title% | %artist%
-format-online-background = ${colors.dk_green}
+format-online-background = ${colors.focused_background}
 format-online-padding = 1
 
 icon-previous = 
@@ -107,37 +103,15 @@ icon-random = 
 label-song-maxlen = 80
 label-song-ellipsis = true
 
-toggle-on-foreground = ${colors.white}
-toggle-off-foreground = ${colors.dk_grey}
+toggle-on-foreground = ${colors.focused_foreground}
+toggle-off-foreground = ${colors.unfocused_foreground}
 
 [module/xbacklight]
 type = internal/xbacklight
 format = <label>
 label =  %percentage%%
-format-underline = ${colors.grey}
-label-foreground = ${colors.white}
-
-[module/wlan]
-type = internal/network
-interface = ${env:NETWORK:}
-interval = 3.0
-
-format-connected = <ramp-signal> <label-connected>
-format-connected-underline = ${colors.grey}
-label-connected = "%essid% (%signal%%)"
-label-connected-foreground = ${colors.white}
-
-format-disconnected = <label-disconnected>
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = " disconnected"
-label-disconnected-foreground = ${self.label-connected-foreground}
-
-; 0-3: weakess to strong signal. 4: disconnected
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-foreground = ${self.label-connected-foreground}
+format-underline = ${colors.unfocused_foreground}
+label-foreground = ${colors.focused_foreground}
 
 [module/date]
 type = internal/date
@@ -145,8 +119,8 @@ interval = 3600
 date = "%a, %b %d"
 date-alt = " %d-%m-%Y"
 label = " %date%"
-format-foreground = ${colors.white}
-label-underline = ${colors.grey}
+format-foreground = ${colors.focused_foreground}
+label-underline = ${colors.unfocused_foreground}
 
 [module/time]
 type = internal/date
@@ -154,14 +128,14 @@ interval = 60
 time = "%I:%M %p"
 time-alt = %H:%M
 label = " %time%"
-format-foreground = ${colors.white}
-label-underline = ${colors.grey}
+format-foreground = ${colors.focused_foreground}
+label-underline = ${colors.unfocused_foreground}
 
 [module/pavolume]
 type = custom/script
 tail = true
 label = %output%
-label-underline = ${colors.grey}
+label-underline = ${colors.unfocused_foreground}
 exec = ~/.config/polybar/pavolume.sh --listen
 click-right = exec pavucontrol
 click-left = ~/.config/polybar/pavolume.sh --toggle
@@ -172,7 +146,7 @@ scroll-down = ~/.config/polybar/pavolume.sh --down
 type = custom/script
 tail = true
 label = %output%
-label-underline = ${colors.grey}
+label-underline = ${colors.unfocused_foreground}
 exec = ~/.config/polybar/notifications.sh --listen
 click-left = ~/.config/polybar/notifications.sh --toggle
 click-right = ~/.config/polybar/notifications.sh --clear
@@ -185,7 +159,7 @@ full-at = 98
 time-format = %H:%M
 
 format-charging = <label-charging>
-format-charging-underline = ${colors.grey}
+format-charging-underline = ${colors.unfocused_foreground}
 label-charging = " %percentage%% (%time%)"
 
 format-discharging = <label-discharging>
@@ -204,7 +178,7 @@ full-at = 98
 time-format = %H:%M
 
 format-charging = <label-charging>
-format-charging-underline = ${colors.grey}
+format-charging-underline = ${colors.unfocused_foreground}
 label-charging = " %percentage%% (%time%)"
 
 format-discharging = <label-discharging>
@@ -218,10 +192,10 @@ label-full = " %percentage%%"
 [module/title]
 type = internal/xwindow
 format = <label>
-format-background = ${colors.dk_green}
-format-foreground = ${colors.white}
+format-background = ${colors.focused_background}
+format-foreground = ${colors.focused_foreground}
 label = " %title%"
-label-underline = ${colors.white}
+label-underline = ${colors.focused_foreground}
 label-padding = 1
 label-maxlen = 40
 

@@ -82,8 +82,11 @@ alias ring="echo -e '\a'"
 alias pc="pass show -c"
 
 # fzf configuration
-if [[ -f "${HOME}/.config/fzf/fzf.bash" ]]; then
-    source "${HOME}/.config/fzf/fzf.bash"
+if [[ -f "{{fzf_shell_completions}}" ]]; then
+    source "{{fzf_shell_completions}}"
+fi
+if [[ -f "{{fzf_shell_bindings}}" ]]; then
+    source "{{fzf_shell_bindings}}"
 fi
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_DEFAULT_OPTS='--height 60%'
