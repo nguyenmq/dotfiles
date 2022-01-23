@@ -5,6 +5,8 @@ foreground = {{white}}
 focused_background = {{green_dark}}
 focused_foreground = {{white}}
 unfocused_foreground = {{gray_dark}}
+label_mode_background = {{gray_light}}
+label_mode_foreground = {{black}}
 
 [bar/base]
 background = ${colors.background}
@@ -59,8 +61,8 @@ wrapping-scroll = false
 enable-click = true
 
 label-mode-padding = 1
-#label-mode-foreground = ${colors.black}
-#label-mode-background = ${colors.white}
+label-mode-foreground = ${colors.label_mode_foreground}
+label-mode-background = ${colors.label_mode_background}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%:
