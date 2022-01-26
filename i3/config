@@ -197,15 +197,8 @@ mode --pango_markup "$mode_system" {
 bindsym $mod+BackSpace mode "$mode_system"
 
 # autorandr prompt
-set $monitor_output (d) dual, (r) right only
-mode --pango_markup "$monitor_output" {
-    bindsym d exec --no-startup-id "autorandr --load dual", mode "default"
-    bindsym r exec --no-startup-id "autorandr --load right", mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-bindsym $mod+d mode "$monitor_output"
+# bindsym $mod+d mode "$monitor_output"
+{{command_output "scripts/monitor_outputs.sh"}}
 
 # prompts to change window layout
 set $window_layout (s) stacked, (t) tabbed, (v) vertical split, (h) horizontal split
