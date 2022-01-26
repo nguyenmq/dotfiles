@@ -63,6 +63,7 @@ listview {
 }
 
 element {
+    padding: 0.3em;
 }
 
 entry {
@@ -122,11 +123,11 @@ element alternate.active {
 element-text {
     background-color: inherit;
     text-color:       inherit;
-    padding: 0.4em;
+    padding: inherit;
 }
 
 element-icon {
     background-color: inherit;
     text-color: inherit;
-    padding: 0.4em;
+    padding: inherit;
 }
