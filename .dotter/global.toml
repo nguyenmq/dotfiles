@@ -20,7 +20,7 @@ green_dark = "#005f00"
 lavender = "#875faf"
 magenta = "#ff3580"
 red = "#ff4646"
-white = "#ffffff"
+white = "#fcfcfc"
 #yellow = "#e7b945"
 yellow = "#d3a40b"
 ui_font_family = "Ubuntu"
@@ -78,6 +78,8 @@ depends = ["preferences"]
 #   i3_additional_execs
 [gui.variables]
 default_browser = "/usr/bin/firefox"
+default_terminal_with_session = "kitty --session '${HOME}/.dotfiles/kitty/default_session.conf'"
+default_terminal = "kitty"
 rofi_font_size = 12
 dunst_font_size = 8
 dunst_width = 350
@@ -95,3 +97,6 @@ xresources_dpi = 96
 
 [beets.files]
 "beets/config.yaml" = "~/.config/beets/config.yaml"
+
+[alacritty.files]
+"alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
