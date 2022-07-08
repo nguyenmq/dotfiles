@@ -17,11 +17,13 @@ gray_dark = "#c7c7c7"
 gray_light = "#eeeeee"
 green = "#008958"
 green_dark = "#00442c"
+green_bright = "#2bb24c"
 lavender = "#875faf"
 magenta = "#ff3580"
 red = "#ff4646"
 white = "#fcfcfc"
 yellow = "#dd9933"
+yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
 
 [terminal]
