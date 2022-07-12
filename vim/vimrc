@@ -47,6 +47,20 @@ set dir=/tmp                        " set the swap directory
 set t_Co=256
 set undofile
 set undodir=~/.cache/vim/undo
+set cursorlineopt=screenline
+
+" enable true color mode
+" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+" set termguicolors
+
+" enable strikethrough for certain terminals
+if &term =~ 'xterm\|kitty\|alacritty\|tmux'
+    let &t_Ts = "\e[9m"   " Strikethrough
+    let &t_Te = "\e[29m"
+    let &t_Cs = "\e[4:3m" " Undercurl
+    let &t_Ce = "\e[4:0m"
+endif
 
 " Configuration for diff mode
 if &diff
@@ -110,7 +124,13 @@ noremap <Leader>z :tab split<CR>:diffoff<CR>
 " echo the file name
 noremap <Leader>l :echo expand('%:p')<CR>
 " insert a date timestamp
-iab <expr> dts strftime("%Y-%m-%d")
+iab <expr> dts strftime("%Y-%m-%d %I:%M %p")
+" open code review panel
+noremap <Leader>cr :botright 7sp ~/notes/cr.md<CR>
+" open file for code review
+noremap <Leader>co :tab split<CR>gf
+" enable cursorline
+noremap <Leader>cl :set cursorline!<CR>
 
 "-----------------------------------------------------------
 " Configure airline
@@ -219,7 +239,7 @@ let g:loaded_logipat = 1
 " Configure fugitive
 "-----------------------------------------------------------
 " run git blame
-noremap <silent> <Leader>gb :Gblame<CR>
+noremap <silent> <Leader>gb :Git blame<CR>
 " run git diff
 noremap <silent> <Leader>gd :Gvdiff origin/mainline<CR>zR
 " close tabs
@@ -280,10 +300,16 @@ command! -nargs=0 Ci call functions#CheckImports()
 " Resize or vertical split to fixed percentage
 command! -nargs=0 Vs call functions#VertSplitPercent(0.41)
 noremap <silent> <Leader>v :Vs<CR>
+command! -nargs=0 Gl call functions#GetLocation()
 
-command! -nargs=0 TaskDoneToggle call functions#TaskDoneToggle()
-noremap <silent> <Leader>dd :TaskDoneToggle<CR>
-command! -nargs=0 TaskStrikeToggle call functions#TaskStrikeToggle()
-noremap <silent> <Leader>ds :TaskStrikeToggle<CR>
-noremap <silent> <Leader>dn :normal o- [ ] <CR>A
-noremap <silent> <Leader>dp :normal O- [ ] <CR>A
+"-----------------------------------------------------------
+" Settings for managing tasks in the planner
+"-----------------------------------------------------------
+let @d='- [ ] '
+command! -nargs=0 -range TaskStrikethroughToggle <line1>,<line2>call functions#TaskStrikethroughToggle()
+noremap <silent> <Leader>dd :TaskStrikethroughToggle<CR>
+command! -nargs=0 PrepPlanner call functions#PrepPlanner()
+command! -nargs=0 PuntTasks call functions#PuntTasks()
+noremap <silent> <Leader>dp :PuntTasks<CR>
+command! -nargs=0 WipTask call functions#WipTask()
+noremap <silent> <Leader>dw :WipTask<CR>

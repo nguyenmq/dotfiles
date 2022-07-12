@@ -38,6 +38,13 @@ function! functions#Basename()
     echo 'Yanked: ' . @+
 endfun
 
+function! functions#GetLocation()
+    let l:filepath = expand("%")
+    let l:line_number = line(".")
+    let @+ = l:filepath . ":" . l:line_number
+    echo 'Yanked: ' . @+
+endfun
+
 "-----------------------------------------------------------
 " Undefines the #define located at the cursor position
 "-----------------------------------------------------------
@@ -79,6 +86,17 @@ function! functions#VertSplitPercent(percent)
     endif
 endfun
 
+" Toggle strike through of a bullet item in markdown planner
+function! functions#TaskStrikethroughToggle()
+    let l:is_task = match(getline("."), '^\s*-\s\[.\]')
+
+    if l:is_task == 0
+        call functions#TaskDoneToggle()
+    else
+        call functions#TaskStrikeToggle()
+    endif
+endfun
+
 " Toggle a markdown task as done/not done
 function! functions#TaskDoneToggle()
     let l:is_done = split(getline("."), '\[\|\]')[1]
@@ -105,4 +123,48 @@ function! functions#TaskStrikeToggle()
         execute "normal! 0ni~~"
         execute "normal! A~~"
     endif
+endfun
+
+function! functions#PrepPlanner()
+    execute 'global /\~\~$/ delete'
+    silent execute '%s/\(^\n\)*##\s\d\+\n\(^\n\)*//g'
+
+    let l:current_day = trim(system('date +%A'))
+
+    if l:current_day ==# "Monday"
+        let l:current_epoch_time = strftime("%s")
+    else
+        let l:current_epoch_time = system('date +%s -d "last Monday"')
+    endif
+
+    let l:seconds_in_day = 86400
+    normal G
+    normal o
+
+    for i in [0, 1, 2, 3, 4]
+        execute 'normal o## ' . strftime("%d", l:current_epoch_time + (l:seconds_in_day * i))
+        normal 2o
+
+        if i == 0
+            execute 'normal I- [ ] Weekly backup'
+            normal o
+        endif
+    endfor
+endfun
+
+" Move open tasks to the next day
+function! functions#PuntTasks()
+    normal "myip
+    execute 'normal vip'
+    execute '''<,''>g /[^~]\{2}$/ d'
+    let @/ = '^##\s\w\{2}\n\zs'
+    execute 'normal n"mpvip'
+    execute '''<,''>g /\~\~/ d'
+endfun
+
+" Create a work-in-progress parent task in the current day so that the task
+" can be punted to the next day
+function! functions#WipTask()
+    normal yypA (wip)
+    call functions#TaskStrikethroughToggle()
 endfun
