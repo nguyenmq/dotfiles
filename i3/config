@@ -63,9 +63,11 @@ bindsym $mod+Control+Return exec {{default_terminal}}
 bindsym $mod+m exec "dunstctl close"
 bindsym $mod+Control+m exec "${HOME}/.dotfiles/polybar/notifications.sh --toggle"
 bindsym $mod+c exec "${HOME}/.dotfiles/polybar/notifications.sh --clear"
+bindsym $mod+Control+c exec "dunstctl history-pop"
 
 # open browser
 bindsym $mod+o exec "{{default_browser}}"
+bindsym $mod+Control+o exec "{{alternate_browser}}"
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
@@ -84,6 +86,9 @@ bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run
 bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
 bindsym $mod+Control+space exec "${HOME}/repos/rofi-pass/rofi-pass --last-used"
 bindsym $mod+semicolon exec "rofi -show emoji -modi emoji"
+
+# screenshot
+bindsym $mod+bracketleft exec "/usr/bin/flameshot gui"
 
 # change focus
 bindsym $mod+h focus left
@@ -156,8 +161,6 @@ bindsym $mod+Control+8 move container to workspace number $WS8
 bindsym $mod+Control+9 move container to workspace number $WS9
 bindsym $mod+Control+0 move container to workspace number $WS10
 
-# reload the configuration file
-bindsym $mod+Control+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Control+r restart
 # exit i3 (logs you out of your X session)
