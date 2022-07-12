@@ -72,6 +72,9 @@ def_key "<"
 def_key "z"
   toggle_random
 
+def_key "c"
+  toggle_consume
+
 def_key "t"
   apply_filter
 
