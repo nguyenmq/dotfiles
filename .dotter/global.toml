@@ -50,7 +50,7 @@ term_font_family_bold_italic = "Ubuntu Mono Bold Italic"
 term_font_size = 10.8
 term_adjust_line_height = 4
 term_adjust_column_width = 1
-term_window_padding_width = 2.0
+term_window_padding_width = 0.0
 fzf_shell_completions = "/usr/share/fzf/completion.bash"
 fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
 
@@ -75,12 +75,14 @@ depends = ["preferences"]
 #   greenclip_history_file
 #   i3_monitor_internal - use left monitor if no internal monitor
 #   i3_monitor_left
-#   i3_monitor_two
+#   i3_monitor_right
 #   i3_additional_execs
+#   dunst_additional_settings
 [gui.variables]
 default_browser = "/usr/bin/firefox"
 default_terminal_with_session = "kitty --session '${HOME}/.dotfiles/kitty/default_session.conf'"
 default_terminal = "kitty"
+rofi_font_family = "Ubuntu Mono"
 rofi_font_size = 12
 dunst_font_size = 8
 dunst_width = 350

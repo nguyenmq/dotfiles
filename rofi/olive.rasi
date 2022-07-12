@@ -1,5 +1,5 @@
 * {
-    font:                        "{{term_font_family}}  {{rofi_font_size}}";
+    font:                        "{{rofi_font_family}} {{rofi_font_size}}";
     background-color:            {{black_almost}};
     text-color:                  {{gray_dark}};
     selbg:                       {{green}};

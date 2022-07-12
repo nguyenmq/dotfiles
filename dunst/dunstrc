@@ -7,7 +7,7 @@
     alignment = left
     vertical_alignment = center
     show_age_threshold = 60
-    word_wrap = false
+    word_wrap = true
     ellipsize = end
     ignore_newline = no
     shrink = no
@@ -57,3 +57,14 @@
 [flameshot]
     icon = "flameshot"
     skip_display = true
+
+[messenger]
+    desktop_entry = "Firefox"
+    summary = "Facebook"
+    new_icon = "~/.local/share/icons/messenger_32.png"
+
+[network_manager]
+    desktop_entry = "nm-applet"
+    skip_display = true
+
+{{dunst_additional_settings}}
