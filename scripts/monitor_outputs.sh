@@ -11,7 +11,7 @@ while read -r output; do
     shortcut="${output:0:1}"
     label="${output}"
     monitor_outputs["$shortcut"]="$label"
-done < <(autorandr --list)
+done < <(find ~/.config/autorandr/ -maxdepth 1 -mindepth 1 -type d | awk -F '/' '{print $NF}')
 
 # Build the label prompt
 prompt=""
