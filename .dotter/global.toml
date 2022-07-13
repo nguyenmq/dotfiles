@@ -40,10 +40,12 @@ depends = ["preferences"]
 "w3m/config" = "~/.w3m/config"
 "w3m/keymap" = "~/.w3m/keymap"
 "etc/inputrc" = "~/.inputrc"
+"vim/colors/olive.vim" = "~/.vim/colors/olive.vim"
+"vim/autoload/airline/themes/olive.vim" = "~/.vim/autoload/airline/themes/olive.vim"
 "vim" = { target = "~/.vim", type = "symbolic" }
 
 [terminal.variables]
-term_font_family = "Ubuntu Mono"
+term_font_family = "Cartograph CF"
 term_font_family_bold = "Ubuntu Mono Bold"
 term_font_family_italic = "Ubuntu Mono Italic"
 term_font_family_bold_italic = "Ubuntu Mono Bold Italic"
@@ -82,7 +84,7 @@ depends = ["preferences"]
 default_browser = "/usr/bin/firefox"
 default_terminal_with_session = "kitty --session '${HOME}/.dotfiles/kitty/default_session.conf'"
 default_terminal = "kitty"
-rofi_font_family = "Ubuntu Mono"
+rofi_font_family = "Cartograph CF"
 rofi_font_size = 12
 dunst_font_size = 8
 dunst_width = 350

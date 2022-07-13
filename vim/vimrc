@@ -50,9 +50,9 @@ set undodir=~/.cache/vim/undo
 set cursorlineopt=screenline
 
 " enable true color mode
-" let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-" let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-" set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 
 " enable strikethrough for certain terminals
 if &term =~ 'xterm\|kitty\|alacritty\|tmux'

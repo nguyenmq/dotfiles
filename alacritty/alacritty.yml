@@ -56,3 +56,5 @@ key_bindings:
   - { key: V, mods: Control|Alt, action: Paste }
 hints:
   alphabet: "asdfgqwertzxcvb"
+env:
+  TERM: xterm-256color
