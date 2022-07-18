@@ -54,6 +54,9 @@ cursor:
     blinking: Off
 key_bindings:
   - { key: V, mods: Control|Alt, action: Paste }
+  - { key: Key0, mods: Control, action: ResetFontSize }
+  - { key: Plus, mods: Control, action: IncreaseFontSize }
+  - { key: Minus, mods: Control, action: DecreaseFontSize }
 hints:
   alphabet: "asdfgqwertzxcvb"
 env:
