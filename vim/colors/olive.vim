@@ -17,7 +17,7 @@ let s:gui0D = "{{green_dark}}"   " dark green
 let s:gui0E = "{{white}}"        " white
 let s:gui0F = "#eeeeee"          " light gray
 let s:gui10 = "#ffd7d7"          " light red, used only diffs
-let s:gui11 = "#d7afff"          " light lavender, used only for search
+let s:gui11 = "{{yellow_light}}" " used only for search
 let s:gui12 = "#c1e5c1"          " more green, used only for diff
 
 " d6f3ff light blue
@@ -85,7 +85,7 @@ endfun
 " Vim editor colors
 call <sid>hi("Bold",          "", "", "", "", "bold")
 call <sid>hi("Directory",     s:gui05, "", s:cterm05, "", "")
-call <sid>hi("ErrorMsg",      s:gui00, s:gui05, s:cterm0E, s:cterm05, "")
+call <sid>hi("ErrorMsg",      s:gui0E, s:gui05, s:cterm0E, s:cterm05, "")
 call <sid>hi("Exception",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("FoldColumn",    s:gui0E, s:gui02, s:cterm0E, s:cterm02, "")
 call <sid>hi("Folded",        s:gui04, s:gui0E, s:cterm04, s:cterm0E, "")
