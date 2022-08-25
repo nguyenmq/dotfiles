@@ -56,6 +56,8 @@ default_do='typePass'
 auto_enter='false'
 notify='false'
 default_autotype='pass'
+help_color="{{gray_dark}}"
+default_user="{{email}}"
 
 # Clipboard settings
 # Possible options: primary, clipboard, both
