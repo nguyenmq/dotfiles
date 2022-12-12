@@ -5,6 +5,8 @@ settings.stealFocusOnLoad = true;
 settings.showModeStatus = false;
 settings.richHintsForKeystroke = false;
 settings.modeAfterYank = 'Normal';
+settings.hintAlign = "left";
+settings.omnibarPosition = "middle";
 
 // new mappings
 api.mapkey('p', 'Switch frames', 'Normal.rotateFrame()');
@@ -38,9 +40,11 @@ api.map('F', 'af');
 api.map('s', 'j');
 api.map('w', 'k');
 api.map(';m', 'sm');
+api.vmap('<Ctrl-[>', '<Esc>');
+api.imap('jk', '<Esc>');
 
-// link hint color
-api.Hints.style('border: solid 1px #000000; color:#000000; background: initial; background-color: #fbff6f; font-family: "Ubuntu";');
+// hint color
+api.Hints.style('border: solid 1px #000000; border-radius: 0px; color:#ffffff; background: initial; background-color: #005f00; font-family: "Ubuntu Mono Bold";');
 
 // omnibar theme
 settings.theme = `
@@ -70,7 +74,7 @@ settings.theme = `
 }
 
 #sk_status {
-    right: 89% !important;
+    right: 85% !important;
     font-size: 14px !important;
 }
 `
