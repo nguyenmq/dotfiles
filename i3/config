@@ -31,7 +31,7 @@ workspace $WS9 output "{{i3_monitor_right}}"
 workspace $WS10 output "{{i3_monitor_right}}"
 
 # Set default workspace layout
-workspace_layout default
+workspace_layout stacking
 
 # Assign applications to specfic workspaces
 assign [class="mpv"] $WS7
