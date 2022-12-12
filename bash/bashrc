@@ -23,9 +23,9 @@ shopt -s histappend
 shopt -s histverify
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=10000
-HISTCONTROL=ignorespace
+export HISTSIZE=10000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignorespace
 
 # Immediately append to history
 if [[ -z "$PROMPT_COMMAND" ]]; then
