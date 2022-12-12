@@ -125,7 +125,7 @@ function! functions#TaskStrikeToggle()
     endif
 endfun
 
-function! functions#PrepPlanner()
+function! functions#RotateCapture()
     execute 'global /\~\~$/ delete'
     silent execute '%s/\(^\n\)*##\s\d\+\n\(^\n\)*//g'
 

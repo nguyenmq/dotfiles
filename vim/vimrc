@@ -130,7 +130,7 @@ iab <expr> dts strftime("%Y-%m-%d %I:%M %p")
 " open code review panel
 noremap <Leader>cr :botright 7sp ~/notes/cr.md<CR>
 " open file for code review
-noremap <Leader>co :tab split<CR>gf
+noremap <silent> <Leader>co :tab split<CR>0f]wgf:execute 'Gvdiff ' . $GIT_DIFF_OBJECT<CR>zR]czz
 " enable cursorline
 noremap <Leader>cl :set cursorline!<CR>
 
@@ -309,8 +309,8 @@ command! -nargs=0 Gl call functions#GetLocation()
 "-----------------------------------------------------------
 let @d='- [ ] '
 command! -nargs=0 -range TaskStrikethroughToggle <line1>,<line2>call functions#TaskStrikethroughToggle()
-noremap <silent> <Leader>dd :TaskStrikethroughToggle<CR>
-command! -nargs=0 PrepPlanner call functions#PrepPlanner()
+noremap <silent> <Leader>dd :TaskStrikethroughToggle<CR>:update<CR>
+command! -nargs=0 RotateCapture call functions#RotateCapture()
 command! -nargs=0 PuntTasks call functions#PuntTasks()
 noremap <silent> <Leader>dp :PuntTasks<CR>
 command! -nargs=0 WipTask call functions#WipTask()
