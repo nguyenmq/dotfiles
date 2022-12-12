@@ -3,6 +3,7 @@ window:
     x: 4
     y: 4
   dynamic_padding: true
+  decorations: none
 font:
   normal:
     family: {{term_font_family}}
