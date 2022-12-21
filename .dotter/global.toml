@@ -105,3 +105,6 @@ xresources_dpi = 96
 
 [alacritty.files]
 "alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+
+[yay.files]
+"yay/config.json" = "~/.config/yay/config.json"
