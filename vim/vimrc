@@ -220,12 +220,13 @@ let g:fzf_colors =
   \ 'fg+':     ['fg', 'Cursor', 'Cursor', 'Cursor'],
   \ 'bg+':     ['bg', 'CursorLine', 'CursorLine'],
   \ 'hl+':     ['fg', 'String'],
-  \ 'info':    ['fg', 'PreProc'],
+  \ 'info':    ['fg', 'String'],
   \ 'border':  ['fg', 'Ignore'],
   \ 'prompt':  ['fg', 'StatusLine'],
   \ 'pointer': ['bg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
+  \ 'gutter':  ['bg', 'LineNr'],
   \ 'header':  ['fg', 'SpellRare'] }
 
 "-----------------------------------------------------------
