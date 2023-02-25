@@ -27,7 +27,7 @@ yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
 
 [terminal]
-depends = ["preferences"]
+depends = ["preferences", "vim"]
 
 [terminal.files]
 "bash/bashrc" = "~/.bashrc"
@@ -40,9 +40,6 @@ depends = ["preferences"]
 "w3m/config" = "~/.w3m/config"
 "w3m/keymap" = "~/.w3m/keymap"
 "etc/inputrc" = "~/.inputrc"
-"vim/colors/olive.vim" = "~/.vim/colors/olive.vim"
-"vim/autoload/airline/themes/olive.vim" = "~/.vim/autoload/airline/themes/olive.vim"
-"vim" = { target = "~/.vim", type = "symbolic" }
 
 [terminal.variables]
 term_font_family = "Cartograph CF"
@@ -55,6 +52,15 @@ term_adjust_column_width = 1
 term_window_padding_width = 0.0
 fzf_shell_completions = "/usr/share/fzf/completion.bash"
 fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
+
+[vim.files]
+"vim/vimrc" = "~/.vim/vimrc"
+"vim/after" = "~/.vim/after"
+"vim/ftplugin" = "~/.vim/ftplugin"
+"vim/colors/olive.vim" = "~/.vim/colors/olive.vim"
+"vim/autoload/functions.vim" = "~/.vim/autoload/functions.vim"
+"vim/autoload/airline/themes/olive.vim" = "~/.vim/autoload/airline/themes/olive.vim"
+"vim-plug/plug.vim" = "~/.vim/autoload/plug.vim"
 
 [gui]
 depends = ["preferences"]

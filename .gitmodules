@@ -40,3 +40,6 @@
 [submodule "vim/bundle/yate"]
 	path = vim/bundle/yate
 	url = https://github.com/vim-scripts/yate.git
+[submodule "vim-plug"]
+	path = vim-plug
+	url = https://github.com/junegunn/vim-plug.git
