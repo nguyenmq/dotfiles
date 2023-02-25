@@ -255,6 +255,9 @@ call <sid>hi("xmlTag",     s:gui06, "", s:cterm06, "", "")
 call <sid>hi("xmlEndTag",  s:gui06, "", s:cterm06, "", "")
 call <sid>hi("xmlAttrib",  s:gui01, "", s:cterm01, "", "")
 
+" vim wiki highlighting
+call <sid>hi("VimwikiDelText",  s:gui08, "", s:cterm08, "", "strikethrough")
+
 " Remove functions
 delf <sid>hi
 delf <sid>gui
