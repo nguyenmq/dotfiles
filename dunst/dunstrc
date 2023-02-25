@@ -34,6 +34,7 @@
     width = {{dunst_width}}
     offset = {{dunst_offset}}
     notification_limit = 1
+    origin = bottom-left
 
 [urgency_low]
     background = "{{black_almost}}"
