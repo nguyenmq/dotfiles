@@ -168,3 +168,20 @@ function! functions#WipTask()
     normal yypA (wip)
     call functions#TaskStrikethroughToggle()
 endfun
+
+function! functions#SearchWithHighlight(search_term)
+    call clearmatches()
+    execute "let @/='" . a:search_term . "'"
+    call matchadd('Search', a:search_term)
+    call histadd("search", a:search_term)
+    set hlsearch
+endfun
+
+function! functions#SearchTurnOffHighlight()
+    call clearmatches()
+endfun
+
+function! functions#Search(search_term)
+    execute "Ag! " . a:search_term
+    call functions#SearchWithHighlight(a:search_term)
+endfun

@@ -120,13 +120,13 @@ noremap <C-L> <C-W>l
 " delete trailing whitespace
 noremap <silent> <Leader>w :Cw<CR>
 " turn off highlighting
-noremap <silent> <Leader>n :noh<CR>
+noremap <Leader>n :call functions#SearchTurnOffHighlight()<CR>:noh<CR>
 " go to next error in quickfix
 noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
 noremap <silent> <Leader>E :cN<CR> zz
 " highlight word
-noremap <silent> <Leader>h :let @/='\<<C-R><C-W>\>'<CR>:set hls<CR>
+noremap <silent> <Leader>h :call functions#SearchWithHighlight("\\<<C-R><C-W>\\>")<CR>
 " highlight selection
 noremap <silent> <Leader>H y/<C-R>0<CR>``zz:set hls<CR>
 " yank current word to system clipboard
@@ -275,6 +275,8 @@ endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
+let g:fzf_preview_window = ['down,50%,<10(right,50%)', 'ctrl-/']
+
 "-----------------------------------------------------------
 " Configure numbers plugin
 "-----------------------------------------------------------
@@ -369,3 +371,5 @@ command! -nargs=0 PuntTasks call functions#PuntTasks()
 noremap <silent> <Leader>dp :PuntTasks<CR>
 command! -nargs=0 WipTask call functions#WipTask()
 noremap <silent> <Leader>dw :WipTask<CR>
+command! -nargs=1 Agg call functions#Search(<f-args>)
+
