@@ -172,9 +172,7 @@ endfun
 function! functions#SearchWithHighlight(search_term)
     call clearmatches()
     execute "let @/='" . a:search_term . "'"
-    call matchadd('Search', a:search_term)
     call histadd("search", a:search_term)
-    set hlsearch
 endfun
 
 function! functions#SearchTurnOffHighlight()

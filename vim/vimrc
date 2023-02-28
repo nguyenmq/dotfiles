@@ -10,6 +10,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'lambdalisue/vim-pager'
 Plug 'majutsushi/tagbar'
+Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 
@@ -120,13 +121,13 @@ noremap <C-L> <C-W>l
 " delete trailing whitespace
 noremap <silent> <Leader>w :Cw<CR>
 " turn off highlighting
-noremap <Leader>n :call functions#SearchTurnOffHighlight()<CR>:noh<CR>
+noremap <silent> <Leader>n :call functions#SearchTurnOffHighlight()<CR>:noh<CR>
 " go to next error in quickfix
 noremap <silent> <Leader>e :cn<CR> zz
 " go to previous error in quickfix
 noremap <silent> <Leader>E :cN<CR> zz
 " highlight word
-noremap <silent> <Leader>h :call functions#SearchWithHighlight("\\<<C-R><C-W>\\>")<CR>
+noremap <silent> <Leader>h :call functions#SearchWithHighlight("\\<<C-R><C-W>\\>")<CR>:set hls<CR>
 " highlight selection
 noremap <silent> <Leader>H y/<C-R>0<CR>``zz:set hls<CR>
 " yank current word to system clipboard
