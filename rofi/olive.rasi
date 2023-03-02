@@ -3,14 +3,14 @@
     background-color:            {{black_almost}};
     text-color:                  {{gray_dark}};
     selbg:                       {{green}};
-    actbg:                       {{green}};
+    actbg:                       {{green_dark}};
     urgbg:                       {{red}};
     winfg:                       {{white}};
     highlight:                   bold {{white}};
 
     selected-normal-foreground:  @winfg;
     normal-foreground:           @text-color;
-    selected-normal-background:  @actbg;
+    selected-normal-background:  @selbg;
     normal-background:           @background-color;
 
     selected-urgent-foreground:  @background-color;
@@ -20,8 +20,8 @@
 
     selected-active-foreground:  @winfg;
     active-foreground:           @text-color;
-    selected-active-background:  @actbg;
-    active-background:           @selbg;
+    selected-active-background:  @selbg;
+    active-background:           @actbg;
 
     line-margin:                 1;
     line-padding:                1;
@@ -30,17 +30,18 @@
 }
 
 window {
-    location:    west;
-    anchor:      west;
-    height:      100%;
-    width:       22%;
+    location:    north;
+    anchor:      north;
+    height:      40%;
+    width:       40%;
     orientation: horizontal;
     children:    [mainbox];
+    y-offset:    5%;
 }
 
 mainbox {
     spacing:  0px;
-    children: [entry, listview, mode-switcher];
+    children: [entry, listview];
 }
 
 button {
@@ -49,12 +50,14 @@ button {
 
 button selected {
     background-color: @active-background;
-    text-color:       @background-color;
+    text-color:       @selected-normal-foreground;
 }
 
 inputbar {
-    padding: 0.3em;
-    spacing: 0.3em;
+}
+
+prompt {
+    text-color: {{black_almost}};
 }
 
 listview {
@@ -67,10 +70,13 @@ element {
 }
 
 entry {
-    expand:         false;
-    text-color:     @normal-foreground;
-    vertical-align: 1;
-    padding:        5px;
+    expand:           false;
+    background-color: {{white}};
+    text-color:       {{black_almost}};
+    vertical-align:   1;
+    padding:          10px;
+    border:           {{i3_border_width}}px;
+    border-color:     {{black_almost}};
 }
 
 element normal.normal {
@@ -91,8 +97,6 @@ element normal.active {
 element selected.normal {
     background-color: @selected-normal-background;
     text-color:       @selected-normal-foreground;
-    border:           0 5px solid 0 0;
-    border-color:     @active-background;
 }
 
 element selected.urgent {
