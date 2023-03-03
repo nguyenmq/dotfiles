@@ -1,12 +1,19 @@
 configuration {
-    cycle: true;
-    display-drun: "Activate";
-    display-run: "Execute";
-    display-window: "Window";
-    hide-scrollbar: true;
-    icon-theme: "Numix";
-    m: "-4";
-    sidebar-mode: false;
+    cycle:               true;
+    display-clipboard:   "";
+    display-drun:        "";
+    display-filebrowser: "";
+    display-run:         "";
+    display-window:      "";
+    display-emoji:       "";
+    drun-display-format: "{name}";
+    hide-scrollbar:      true;
+    icon-theme:          "Numix";
+    m:                   "-4";
+    sidebar-mode:        false;
+    sort: true;
+    window-format:       "{c} · {t}";
+    window-thumbnail: true;
 }
 
 @theme "olive"

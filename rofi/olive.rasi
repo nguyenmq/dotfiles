@@ -36,12 +36,12 @@ window {
     width:       40%;
     orientation: horizontal;
     children:    [mainbox];
-    y-offset:    5%;
+    y-offset:    10%;
 }
 
 mainbox {
     spacing:  0px;
-    children: [entry, listview];
+    children: [inputbar, listview];
 }
 
 button {
@@ -54,29 +54,40 @@ button selected {
 }
 
 inputbar {
+    spacing:          0;
+    children:         [prompt, entry];
 }
 
 prompt {
-    text-color: {{black_almost}};
+    background-color: {{green_dark}};
+    text-color: {{white}};
+    padding: 1em;
+    border:           {{i3_border_width}}px;
+    border-color:     {{black_almost}};
 }
 
 listview {
     spacing: 0.5em;
     dynamic: false;
+    border:           0 {{i3_border_width}}px;
+    border-color:     {{black_almost}};
 }
 
 element {
-    padding: 0.3em;
+    padding: 0.5em 0;
+    children: [element-icon, element-text];
 }
 
 entry {
-    expand:           false;
+    expand:           true;
     background-color: {{white}};
     text-color:       {{black_almost}};
     vertical-align:   1;
-    padding:          10px;
-    border:           {{i3_border_width}}px;
+    padding:          1em;
+    placeholder:      "···";
+    border:           {{i3_border_width}}px {{i3_border_width}} {{i3_border_width}}px 0;
     border-color:     {{black_almost}};
+    blink: false;
 }
 
 element normal.normal {
@@ -127,11 +138,12 @@ element alternate.active {
 element-text {
     background-color: inherit;
     text-color:       inherit;
-    padding: inherit;
+    padding: 0 2em 0 2em;
+    vertical-align: 0.5;
 }
 
 element-icon {
     background-color: inherit;
     text-color: inherit;
-    padding: inherit;
+    padding: 0 0 0 2em;
 }
