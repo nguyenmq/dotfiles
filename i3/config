@@ -71,6 +71,7 @@ bindsym $mod+Control+o exec "{{alternate_browser}}"
 
 # control mediaplayers
 bindsym $mod+backslash exec mpc toggle
+bindsym $mod+Control+backslash exec "${HOME}/.dotfiles/scripts/dunst_mpd.sh"
 bindsym $mod+bracketright exec mpc next
 
 # kill focused window

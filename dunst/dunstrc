@@ -5,7 +5,7 @@
     sort = yes
     indicate_hidden = yes
     alignment = left
-    vertical_alignment = center
+    vertical_alignment = top
     show_age_threshold = 60
     word_wrap = true
     ellipsize = end
@@ -35,6 +35,7 @@
     offset = {{dunst_offset}}
     notification_limit = 1
     origin = bottom-left
+    mouse_middle_click = do_action
 
 [urgency_low]
     background = "{{black_almost}}"
@@ -67,5 +68,10 @@
 [network_manager]
     desktop_entry = "nm-applet"
     skip_display = true
+
+[mpd]
+    appname = "mpd"
+    max_icon_size = 100
+    action_name = default
 
 {{dunst_additional_settings}}

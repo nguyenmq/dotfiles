@@ -89,7 +89,7 @@ label-urgent-underline = ${colors.focused_foreground}
 
 [module/mpd]
 type = internal/mpd
-format-online = <label-song>  <icon-random> <toggle>
+format-online = <icon-random> <toggle>
 format-online-underline = ${colors.unfocused_foreground}
 label-song =   %title% | %artist%
 format-online-background = ${colors.focused_background}
