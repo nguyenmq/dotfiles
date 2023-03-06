@@ -81,11 +81,10 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Control+minus move scratchpad
 
 # rofi shortcuts
-bindsym $mod+space exec "rofi -modi window,drun -show drun"
-bindsym $mod+v exec "rofi -modi 'clipboard:greenclip print' -show clipboard -run-command '{cmd}'"
+bindsym $mod+space exec "rofi -show drun"
+bindsym $mod+v exec "rofi -show clipboard"
 bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
 bindsym $mod+Control+space exec "${HOME}/repos/rofi-pass/rofi-pass --last-used"
-bindsym $mod+semicolon exec "rofi -show emoji -modi emoji"
 
 # screenshot
 bindsym $mod+bracketleft exec "/usr/bin/flameshot gui"

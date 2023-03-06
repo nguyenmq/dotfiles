@@ -28,7 +28,7 @@ function list_audio_sinks() {
 if [[ "$@" ]]; then
     set_audio_sink "$@"
 else
-    echo -en "\x00prompt\x1fAudio sinks\n"
+    echo -en "\x00prompt\x1f\n"
 
     list_audio_sinks
 fi

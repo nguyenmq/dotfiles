@@ -1,32 +1,32 @@
 * {
-    font:                        "{{rofi_font_family}} {{rofi_font_size}}";
-    background-color:            {{black_almost}};
-    text-color:                  {{gray_dark}};
-    selbg:                       {{green}};
-    actbg:                       {{green_dark}};
-    urgbg:                       {{red}};
-    winfg:                       {{white}};
-    highlight:                   bold {{white}};
+    font:                       "{{rofi_font_family}} {{rofi_font_size}}";
+    background-color:           {{black_almost}};
+    text-color:                 {{gray_dark}};
+    selbg:                      {{green}};
+    actbg:                      {{green_dark}};
+    urgbg:                      {{red}};
+    winfg:                      {{white}};
+    highlight:                  bold {{white}};
 
-    selected-normal-foreground:  @winfg;
-    normal-foreground:           @text-color;
-    selected-normal-background:  @selbg;
-    normal-background:           @background-color;
+    selected-normal-foreground: @winfg;
+    normal-foreground:          @text-color;
+    selected-normal-background: @selbg;
+    normal-background:          @background-color;
 
-    selected-urgent-foreground:  @background-color;
-    urgent-foreground:           @text-color;
-    selected-urgent-background:  @urgbg;
-    urgent-background:           @background-color;
+    selected-urgent-foreground: @background-color;
+    urgent-foreground:          @text-color;
+    selected-urgent-background: @urgbg;
+    urgent-background:          @background-color;
 
-    selected-active-foreground:  @winfg;
-    active-foreground:           @text-color;
-    selected-active-background:  @selbg;
-    active-background:           @actbg;
+    selected-active-foreground: @winfg;
+    active-foreground:          @text-color;
+    selected-active-background: @selbg;
+    active-background:          @actbg;
 
-    line-margin:                 1;
-    line-padding:                1;
-    margin:                      0;
-    padding:                     0;
+    line-margin:                1;
+    line-padding:               1;
+    margin:                     0;
+    padding:                    0;
 }
 
 window {
@@ -45,37 +45,46 @@ mainbox {
 }
 
 button {
-    padding: 0.3em 0.1em;
+    padding:          1em;
+    background-color: {{black_almost}};
+    text-color:       {{gray_light}};
 }
 
 button selected {
-    background-color: @active-background;
-    text-color:       @selected-normal-foreground;
+    background-color: {{yellow}};
+    text-color:       {{black_almost}};
 }
 
 inputbar {
-    spacing:          0;
-    children:         [prompt, entry];
+    spacing:      {{i3_border_width}};
+    children:     [entry, mode-switcher];
+    border:       {{i3_border_width}}px;
+    border-color: {{black_almost}};
+}
+
+mode-switcher {
+    spacing: {{i3_border_width}};
+    padding: 0;
+    border:  0;
+    margin:  0;
 }
 
 prompt {
-    background-color: {{green_dark}};
-    text-color: {{white}};
-    padding: 1em;
-    border:           {{i3_border_width}}px;
-    border-color:     {{black_almost}};
+    background-color: {{yellow}};
+    text-color:       {{white}};
+    padding:          1em;
 }
 
 listview {
-    spacing: 0.5em;
-    dynamic: false;
-    border:           0 {{i3_border_width}}px;
-    border-color:     {{black_almost}};
+    spacing:      0.5em;
+    dynamic:      false;
+    border:       0 {{i3_border_width}}px;
+    border-color: {{black_almost}};
 }
 
 element {
-    padding: 0.5em 0;
-    children: [element-icon, element-text];
+    padding:  0.5em 0;
+    children: [element-text];
 }
 
 entry {
@@ -85,9 +94,7 @@ entry {
     vertical-align:   1;
     padding:          1em;
     placeholder:      "···";
-    border:           {{i3_border_width}}px {{i3_border_width}} {{i3_border_width}}px 0;
-    border-color:     {{black_almost}};
-    blink: false;
+    blink:            false;
 }
 
 element normal.normal {
@@ -138,12 +145,12 @@ element alternate.active {
 element-text {
     background-color: inherit;
     text-color:       inherit;
-    padding: 0 2em 0 2em;
-    vertical-align: 0.5;
+    padding:          0 2em 0 2em;
+    vertical-align:   0.5;
 }
 
 element-icon {
     background-color: inherit;
-    text-color: inherit;
-    padding: 0 0 0 2em;
+    text-color:       inherit;
+    padding:          0 0 0 2em;
 }

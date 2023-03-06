@@ -1,19 +1,25 @@
 configuration {
     cycle:               true;
-    display-clipboard:   "";
+    display-clipboard:   "";
     display-drun:        "";
+    display-emoji:       "";
     display-filebrowser: "";
     display-run:         "";
     display-window:      "";
-    display-emoji:       "";
     drun-display-format: "{name}";
     hide-scrollbar:      true;
     icon-theme:          "Numix";
+    kb-mode-complete:    "";
+    kb-mode-next:        "Control+N";
+    kb-mode-previous:    "Control+P";
+    kb-row-down:         "Control+n";
+    kb-row-up:           "Control+p";
     m:                   "-4";
+    modi:                "window,drun,clipboard:greenclip print,emoji";
     sidebar-mode:        false;
-    sort: true;
+    sort:                true;
     window-format:       "{c} · {t}";
-    window-thumbnail: true;
+    window-thumbnail:    true;
 }
 
 @theme "olive"

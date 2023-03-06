@@ -1,0 +1,5 @@
+@theme "olive"
+
+inputbar {
+    children: [entry, prompt];
+}
