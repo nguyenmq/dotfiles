@@ -51,8 +51,8 @@ button {
 }
 
 button selected {
-    background-color: {{yellow}};
-    text-color:       {{black_almost}};
+    background-color: {{blue}};
+    text-color:       {{white}};
 }
 
 inputbar {
@@ -70,7 +70,7 @@ mode-switcher {
 }
 
 prompt {
-    background-color: {{yellow}};
+    background-color: {{blue}};
     text-color:       {{white}};
     padding:          1em;
 }
