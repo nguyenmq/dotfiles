@@ -1,8 +1,4 @@
-if has( "win32" )
-    set guifont=Consolas:h10:cANSI
-else
-    set guifont=Ubuntu\ Mono\ 10
-endif
+set guifont=Ubuntu\ Mono\ 12
 set guioptions-=T
 set guioptions-=m
 set guioptions-=r
@@ -12,13 +8,3 @@ set guioptions-=L
 set guioptions+=P
 set guioptions+=c
 set guicursor+=a:blinkon0
-
-"-----------------------------------------------------------
-" Highlight the current line in the current buffer window
-"-----------------------------------------------------------
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
-

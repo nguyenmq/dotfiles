@@ -21,7 +21,8 @@ green_bright = "#2bb24c"
 lavender = "#875faf"
 magenta = "#ff3580"
 red = "#ff4646"
-white = "#fcfcfc"
+white_almost = "#fcfdfe"
+white = "#ffffff"
 yellow = "#f5a553"
 yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
@@ -115,3 +116,6 @@ xresources_dpi = 96
 
 [yay.files]
 "yay/config.json" = "~/.config/yay/config.json"
+
+[gvim.files]
+"vim/gvimrc" = "~/.vim/gvimrc"

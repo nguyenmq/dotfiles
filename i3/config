@@ -230,4 +230,5 @@ exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
 exec "/usr/bin/solaar --window hide"
 exec "/usr/bin/xss-lock -- {{i3_locker}}"
+for_window [class="Gvim"] floating enable, resize set 860 500
 {{i3_additional_execs}}
