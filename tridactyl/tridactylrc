@@ -1,5 +1,5 @@
 " General Settings
-set update.lastchecktime 1679256207711
+set update.lastchecktime 1679105580550
 set update.nag true
 set update.nagwait 7
 set update.lastnaggedversion 1.14.0
@@ -10,6 +10,19 @@ set hintchars asdfgqwertzxcvb
 set theme olive
 set newtab about:blank
 set historyresults 20
+set searchurls.amazon https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
+set searchurls.ar https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s
+set searchurls.b bing
+set searchurls.bing https://www.bing.com/search?q=
+set searchurls.d duckduckgo
+set searchurls.duckduckgo https://duckduckgo.com/?q=
+set searchurls.g google
+set searchurls.google https://www.google.com/search?q=
+set searchurls.mb https://musicbrainz.org/search?type=artist&method=indexed&query=%s
+set searchurls.ym https://music.youtube.com/search?q=%s
+set searchurls.youtube https://www.youtube.com/results?search_query=
+set searchurls.yt youtube
+set searchurls.z amazon
 
 " Binds
 bind d scrollpage 0.5
@@ -165,6 +178,7 @@ bind m gobble 1 markadd
 bind ` gobble 1 markjump
 bind e scrollpage -0.5
 bind E tabprev
+bind ya hint -p
 
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " vim: set filetype=tridactyl

@@ -119,3 +119,7 @@ xresources_dpi = 96
 
 [gvim.files]
 "vim/gvimrc" = "~/.vim/gvimrc"
+
+[tridactyl.files]
+"tridactyl/tridactylrc" =  "~/.config/tridactyl/tridactylrc"
+"tridactyl/olive.css" =  "~/.config/tridactyl/themes/olive.css"
