@@ -183,3 +183,35 @@ function! functions#Search(search_term)
     execute "Ag! " . a:search_term
     call functions#SearchWithHighlight(a:search_term)
 endfun
+
+let s:wrapenabled = 0
+function! functions#ToggleWrap()
+  if s:wrapenabled
+    unmap j
+    unmap k
+    unmap 0
+    unmap ^
+    unmap $
+    setlocal nowrap
+    setlocal nolinebreak
+    setlocal nospell
+    setlocal textwidth=0
+    let s:wrapenabled = 0
+  else
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+    setlocal wrap
+    setlocal linebreak
+    setlocal spell
+    setlocal textwidth=0
+    let s:wrapenabled = 1
+  endif
+endfunction

@@ -39,6 +39,7 @@ set ignorecase                      " ignore case when searching
 set smartcase                       " match case when contains uppercase
 set background=light                " set background to light for noctu
 filetype plugin on                  " turn on filetype
+filetype indent off
 set noequalalways                   " keep windows from automatically resizing
 set laststatus=2                    " always show status line
 set numberwidth=5                   " set the width of the number line
@@ -63,6 +64,7 @@ set t_Co=256
 set undofile
 set undodir=~/.cache/vim/undo
 set cursorlineopt=screenline
+set formatoptions+=j
 
 " enable true color mode
 if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
@@ -373,4 +375,4 @@ noremap <silent> <Leader>dp :PuntTasks<CR>
 command! -nargs=0 WipTask call functions#WipTask()
 noremap <silent> <Leader>dw :WipTask<CR>
 command! -nargs=1 Agg call functions#Search(<f-args>)
-
+command! -nargs=0 Wm call functions#ToggleWrap()
