@@ -24,6 +24,8 @@ set searchurls.youtube https://www.youtube.com/results?search_query=
 set searchurls.yt youtube
 set searchurls.z amazon
 
+{{tridactyl_additional_settings}}
+
 " Binds
 bind d scrollpage 0.5
 bind ;x hint -F e => { const pos = tri.dom.getAbsoluteCentre(e); tri.excmds.exclaim_quiet("xdotool mousemove --sync " + window.devicePixelRatio * pos.x + " " + window.devicePixelRatio * pos.y + "; xdotool click 1")}
