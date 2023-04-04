@@ -10,15 +10,15 @@ let s:gui07 = "{{gray_dark}}"
 
 let s:gui08 = "#767676"          " dark grey
 let s:gui09 = "#afffff"          " light blue, can replace
-let s:gui0A = "#d7ffd7"          " light green, used only for diffs
+let s:gui0A = "#e7ffec"          " light green, used only for diffs
 let s:gui0B = "#ffff87"          " pale yellow, used only for cursor line
 let s:gui0C = "#875faf"          " lavender
 let s:gui0D = "{{green_dark}}"   " dark green
 let s:gui0E = "{{white}}"        " white
 let s:gui0F = "#eeeeee"          " light gray
-let s:gui10 = "#ffd7d7"          " light red, used only diffs
+let s:gui10 = "#ffe4e6"          " light red, used only diffs
 let s:gui11 = "{{yellow_light}}" " used only for search
-let s:gui12 = "#c1e5c1"          " more green, used only for diff
+let s:gui12 = "#cfe5d4"          " more green, used only for diff
 
 " d6f3ff light blue
 
