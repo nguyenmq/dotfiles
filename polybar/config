@@ -126,7 +126,7 @@ label-underline = ${colors.unfocused_foreground}
 
 [module/time]
 type = internal/date
-interval = 60
+interval = 10
 time = "%I:%M %p"
 time-alt = %H:%M
 label = " %time%"
