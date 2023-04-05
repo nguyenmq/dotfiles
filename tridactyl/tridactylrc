@@ -1,5 +1,5 @@
 " General Settings
-set update.lastchecktime 1679105580550
+set update.lastchecktime 1680588429988
 set update.nag true
 set update.nagwait 7
 set update.lastnaggedversion 1.14.0
@@ -10,17 +10,17 @@ set hintchars asdfgqwertzxcvb
 set theme olive
 set newtab about:blank
 set historyresults 20
-set searchurls.amazon https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
-set searchurls.ar https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s
-set searchurls.b bing
-set searchurls.bing https://www.bing.com/search?q=
 set searchurls.d duckduckgo
-set searchurls.duckduckgo https://duckduckgo.com/?q=
-set searchurls.g google
-set searchurls.google https://www.google.com/search?q=
 set searchurls.mb https://musicbrainz.org/search?type=artist&method=indexed&query=%s
-set searchurls.ym https://music.youtube.com/search?q=%s
+set searchurls.ar https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=%s
+set searchurls.google https://www.google.com/search?q=
+set searchurls.bing https://www.bing.com/search?q=
+set searchurls.duckduckgo https://duckduckgo.com/?q=
 set searchurls.youtube https://www.youtube.com/results?search_query=
+set searchurls.amazon https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Daps&field-keywords=
+set searchurls.ym https://music.youtube.com/search?q=%s
+set searchurls.b bing
+set searchurls.g google
 set searchurls.yt youtube
 set searchurls.z amazon
 
@@ -175,12 +175,31 @@ bind zz zoom 1
 bind zI zoom 3
 bind zO zoom 0.3
 bind . repeat
-bind <AS-ArrowUp><AS-ArrowUp><AS-ArrowDown><AS-ArrowDown><AS-ArrowLeft><AS-ArrowRight><AS-ArrowLeft><AS-ArrowRight>ba open https://www.youtube.com/watch?v=M3iOROuTuMA
+unbind <AS-ArrowUp><AS-ArrowUp><AS-ArrowDown><AS-ArrowDown><AS-ArrowLeft><AS-ArrowRight><AS-ArrowLeft><AS-ArrowRight>ba
 bind m gobble 1 markadd
 bind ` gobble 1 markjump
 bind e scrollpage -0.5
 bind E tabprev
-bind ya hint -p
+bind ya hint -y
+unbindurl ^https://mail.google.com.* j
+unbindurl ^https://mail.google.com.* k
+
+" Removed settings
+setnull searchurls.googlelucky
+setnull searchurls.scholar
+setnull searchurls.googleuk
+setnull searchurls.yahoo
+setnull searchurls.twitter
+setnull searchurls.wikipedia
+setnull searchurls.amazonuk
+setnull searchurls.startpage
+setnull searchurls.github
+setnull searchurls.searx
+setnull searchurls.cnrtl
+setnull searchurls.osm
+setnull searchurls.mdn
+setnull searchurls.gentoo_wiki
+setnull searchurls.qwant
 
 " For syntax highlighting see https://github.com/tridactyl/vim-tridactyl
 " vim: set filetype=tridactyl
