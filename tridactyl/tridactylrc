@@ -127,7 +127,8 @@ bind ;s hint -s
 bind ;S hint -S
 bind ;a hint -a
 bind ;A hint -A
-bind ;; hint -; *
+bind ;; hint -;
+bind ;l hint -;
 bind ;# hint -#
 bind ;v hint -W mpvsafe
 bind ;V hint -V
