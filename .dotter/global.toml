@@ -16,7 +16,7 @@ blue = "#116dd5"
 gray_dark = "#c7c7c7"
 gray_light = "#eeeeee"
 green = "#008958"
-green_dark = "#00442c"
+green_dark = "#0b421a"
 green_bright = "#2bb24c"
 lavender = "#875faf"
 magenta = "#ff3580"
@@ -26,6 +26,18 @@ white = "#ffffff"
 yellow = "#f5a553"
 yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
+
+# the primary color of status bar ui elements
+ui_primary = "#0b421a"
+# the accent color for contrasting with the primary color, usual to denote
+# selection of an item.
+ui_accent = "#008958"
+# when you need a brighter/darker ui accent color to contrast with the primary
+ui_accent_alt = "#2bb24c"
+# the text color when it appears inside ui elements
+ui_text_accent = "#fcfdfe"
+# when you need a brighter/darker text accent color
+ui_text_accent_alt = "#c7c7c7"
 
 [terminal]
 depends = ["preferences", "vim"]
