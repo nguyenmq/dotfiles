@@ -34,7 +34,7 @@
     width = {{dunst_width}}
     offset = {{dunst_offset}}
     notification_limit = 1
-    origin = bottom-left
+    origin = top-left
     mouse_middle_click = do_action
 
 [urgency_low]
