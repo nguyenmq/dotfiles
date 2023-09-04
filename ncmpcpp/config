@@ -50,5 +50,5 @@ window_border_color = green
 active_window_border = green
 state_flags_color = green
 statusbar_color = green
-now_playing_prefix = $b$(cyan)
+now_playing_prefix = $b$(blue)
 now_playing_suffix = $/b$(end)
