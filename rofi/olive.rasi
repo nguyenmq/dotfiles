@@ -2,8 +2,8 @@
     font:                       "{{rofi_font_family}} {{rofi_font_size}}";
     background-color:           {{black_almost}};
     text-color:                 {{gray_dark}};
-    selbg:                      {{green}};
-    actbg:                      {{green_dark}};
+    selbg:                      {{ui_accent}};
+    actbg:                      {{ui_primary}};
     urgbg:                      {{red}};
     winfg:                      {{white}};
     highlight:                  bold {{white}};
@@ -51,7 +51,7 @@ button {
 }
 
 button selected {
-    background-color: {{blue}};
+    background-color: {{ui_primary}};
     text-color:       {{white}};
 }
 
@@ -70,7 +70,7 @@ mode-switcher {
 }
 
 prompt {
-    background-color: {{blue}};
+    background-color: {{ui_primary}};
     text-color:       {{white}};
     padding:          1em;
 }
@@ -83,7 +83,7 @@ listview {
 }
 
 element {
-    padding:  0.5em 0;
+    padding: 0.5em 1em;
     children: [element-text];
 }
 

@@ -28,12 +28,12 @@ yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
 
 # the primary color of status bar ui elements
-ui_primary = "#0b421a"
+ui_primary = "#335e4e"
 # the accent color for contrasting with the primary color, usual to denote
 # selection of an item.
-ui_accent = "#008958"
+ui_accent = "#559e83"
 # when you need a brighter/darker ui accent color to contrast with the primary
-ui_accent_alt = "#2bb24c"
+ui_accent_alt = "#559e83"
 # the text color when it appears inside ui elements
 ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color

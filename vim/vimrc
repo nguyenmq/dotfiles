@@ -297,9 +297,9 @@ let g:terminal_ansi_colors = [
 
 function! s:fzf_statusline()
     " Override statusline as you like
-    highlight fzf1 guifg={{black_almost}} guibg={{green}}
-    highlight fzf2 guifg={{black_almost}} guibg={{green}}
-    highlight fzf3 guifg={{black_almost}} guibg={{green}}
+    highlight fzf1 guifg={{black_almost}} guibg={{ui_accent}}
+    highlight fzf2 guifg={{black_almost}} guibg={{ui_accent}}
+    highlight fzf3 guifg={{black_almost}} guibg={{ui_accent}}
     setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
 endfunction
 

@@ -42,11 +42,11 @@ assign [class="Chromium"] $WS8
 font pango:{{ui_font_family}} {{i3_window_font_size}}
 
 # Window colors
-# colorclass            hdr_bdr         bg              text        indic           btm_bdr
-client.focused          {{green_dark}}  {{green_dark}}  {{white}}   {{green_dark}}  {{green_dark}}
-client.focused_inactive {{green}}       {{green}}       {{black}}   {{green}}       {{green}}
-client.unfocused        {{green}}       {{green}}       {{white}}   {{green}}       {{green}}
-client.urgent           {{lavender}}    {{lavender}}    {{white}}   {{green}}       {{green}}
+# colorclass            hdr_bdr        bg             text      indic          btm_bdr
+client.focused          {{ui_primary}} {{ui_primary}} {{white}} {{ui_primary}} {{ui_primary}}
+client.focused_inactive {{ui_accent}}  {{ui_accent}}  {{black}} {{ui_accent}}  {{ui_accent}}
+client.unfocused        {{ui_accent}}  {{ui_accent}}  {{white}} {{ui_accent}}  {{ui_accent}}
+client.urgent           {{lavender}}   {{lavender}}   {{white}} {{ui_accent}}  {{ui_accent}}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -231,4 +231,5 @@ exec "/usr/bin/nm-applet"
 exec "/usr/bin/solaar --window hide"
 exec "/usr/bin/xss-lock -- {{i3_locker}}"
 for_window [class="Gvim"] floating enable, resize set 860 500
+bindsym $mod+semicolon [class="Gvim"] scratchpad show
 {{i3_additional_execs}}
