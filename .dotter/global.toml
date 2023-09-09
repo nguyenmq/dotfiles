@@ -92,6 +92,7 @@ depends = ["preferences"]
 "polybar/notifications.sh" = "~/.config/polybar/notifications.sh"
 "polybar/pavolume.sh" = "~/.config/polybar/pavolume.sh"
 "xconfig/Xresources" = "~/.Xresources"
+"firefox/profile/chrome/userChrome.css" = ""
 
 # local variables:
 #   greenclip_history_file
