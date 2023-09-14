@@ -19,16 +19,16 @@ set $WS10 10:10
 set $Locker "{{i3_locker}}"
 
 # bind workspaces to specific monitors: first five on the left, last five on the right
-workspace $WS1 output "{{i3_monitor_left}}"
-workspace $WS2 output "{{i3_monitor_internal}}"
-workspace $WS3 output "{{i3_monitor_left}}"
-workspace $WS4 output "{{i3_monitor_left}}"
-workspace $WS5 output "{{i3_monitor_left}}"
-workspace $WS6 output "{{i3_monitor_right}}"
-workspace $WS7 output "{{i3_monitor_right}}"
-workspace $WS8 output "{{i3_monitor_right}}"
-workspace $WS9 output "{{i3_monitor_right}}"
-workspace $WS10 output "{{i3_monitor_right}}"
+workspace $WS1 output "{{monitor_left}}"
+workspace $WS2 output "{{monitor_internal}}"
+workspace $WS3 output "{{monitor_left}}"
+workspace $WS4 output "{{monitor_left}}"
+workspace $WS5 output "{{monitor_left}}"
+workspace $WS6 output "{{monitor_right}}"
+workspace $WS7 output "{{monitor_right}}"
+workspace $WS8 output "{{monitor_right}}"
+workspace $WS9 output "{{monitor_right}}"
+workspace $WS10 output "{{monitor_right}}"
 
 # Set default workspace layout
 workspace_layout stacking

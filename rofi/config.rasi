@@ -1,11 +1,11 @@
 configuration {
     cycle:               true;
-    display-clipboard:   "";
-    display-drun:        "";
-    display-emoji:       "";
+    display-clipboard:   "";
+    display-drun:        "";
+    display-emoji:       "";
     display-filebrowser: "";
     display-run:         "";
-    display-window:      "";
+    display-window:      "";
     drun-display-format: "{name}";
     hide-scrollbar:      true;
     icon-theme:          "Numix";
@@ -15,7 +15,7 @@ configuration {
     kb-row-down:         "Control+n";
     kb-row-up:           "Control+p";
     m:                   "-4";
-    modi:                "window,drun,clipboard:greenclip print,emoji";
+    modi:                "window,drun,emoji";
     sidebar-mode:        false;
     sort:                true;
     window-format:       "{c} · {t}";

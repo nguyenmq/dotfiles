@@ -88,8 +88,8 @@ bind gi focusinput -l
 bind g? rot13
 bind g! jumble
 bind g; changelistjump -1
-bind J tabprev
-bind K tabnext
+bind J tabnext
+bind K tabprev
 bind gt tabnext_gt
 bind gT tabprev
 bind g^ tabfirst
