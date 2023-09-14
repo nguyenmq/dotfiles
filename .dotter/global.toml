@@ -26,6 +26,9 @@ white = "#ffffff"
 yellow = "#f5a553"
 yellow_light = "#e5dd80"
 ui_font_family = "Ubuntu"
+default_browser = "/usr/bin/firefox"
+default_terminal_with_session = "alacritty --command ${HOME}/.dotfiles/scripts/tmux_start.sh"
+default_terminal = "alacritty"
 
 # the primary color of status bar ui elements
 ui_primary = "#335e4e"
@@ -65,6 +68,7 @@ term_adjust_column_width = 1
 term_window_padding_width = 0.0
 fzf_shell_completions = "/usr/share/fzf/completion.bash"
 fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
+tmux_clipboard_cmd = "xclip -in -selection clipboard"
 
 [vim.files]
 "vim/vimrc" = "~/.vim/vimrc"
@@ -75,52 +79,81 @@ fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
 "vim/autoload/airline/themes/olive.vim" = "~/.vim/autoload/airline/themes/olive.vim"
 "vim-plug/plug.vim" = "~/.vim/autoload/plug.vim"
 
-[gui]
+[x11]
 depends = ["preferences"]
 
-[gui.files]
-"kitty/kitty.conf" = "~/.config/kitty/kitty.conf"
-"rofi/config.rasi" = "~/.config/rofi/config.rasi"
-"rofi/olive.rasi" = "~/.config/rofi/olive.rasi"
-"rofi/dmenu.rasi" = "~/.config/rofi/dmenu.rasi"
-"rofi-pass/config" = "~/.config/rofi-pass/config"
-"dunst/dunstrc" = "~/.config/dunst/dunstrc"
-"greenclip/greenclip.toml" = "~/.config/greenclip.toml"
+[x11.files]
+"xconfig/Xresources" = "~/.Xresources"
+
+[x11.variables]
+xresources_cursor_size = 24
+xresources_dpi = 96
+
+[wayland]
+depends = ["preferences", "alacritty", "sway"]
+
+[i3]
+depends = ["preferences"]
+
+[i3.files]
 "i3/config" = "~/.config/i3/config"
+
+[i3.variables]
+i3_window_font_size = 9
+i3_border_width = 3
+i3_locker = "/usr/bin/xsecurelock"
+
+[polybar]
+depends = ["preferences"]
+
+[polybar.files]
 "polybar/config" = "~/.config/polybar/config"
 "polybar/launch.sh" = "~/.config/polybar/launch.sh"
 "polybar/notifications.sh" = "~/.config/polybar/notifications.sh"
 "polybar/pavolume.sh" = "~/.config/polybar/pavolume.sh"
-"xconfig/Xresources" = "~/.Xresources"
-"firefox/profile/chrome/userChrome.css" = ""
 
-# local variables:
-#   greenclip_history_file
-#   i3_monitor_internal - use left monitor if no internal monitor
-#   i3_monitor_left
-#   i3_monitor_right
-#   i3_additional_execs
-#   dunst_additional_settings
-[gui.variables]
-default_browser = "/usr/bin/firefox"
-default_terminal_with_session = "kitty --session '${HOME}/.dotfiles/kitty/default_session.conf'"
-default_terminal = "kitty"
-rofi_font_family = "Cartograph CF"
-rofi_font_size = 10
-dunst_font_size = 9
-dunst_width = 400
-dunst_offset = "10x10"
-i3_window_font_size = 9
-i3_border_width = 3
-i3_locker = "/usr/bin/xsecurelock"
+[polybar.variables]
 polybar_modules_right = "mpd pavolume notifications date time"
 polybar_font_zero = "Ubuntu Mono:weight=regular:size=10;2"
 polybar_font_one = "Noto Sans Mono CJK SC:size=10;1"
 polybar_font_two = "MaterialIcons-Regular:size=10;3"
 polybar_height = 18
-xresources_cursor_size = 24
-xresources_dpi = 96
-rofi_password_manager = ""
+
+[rofi]
+depends = ["preferences"]
+
+[rofi.files]
+"rofi/config.rasi" = "~/.config/rofi/config.rasi"
+"rofi/olive.rasi" = "~/.config/rofi/olive.rasi"
+"rofi/dmenu.rasi" = "~/.config/rofi/dmenu.rasi"
+"rofi-pass/config" = "~/.config/rofi-pass/config"
+
+[rofi.variables]
+rofi_font_family = "Cartograph CF"
+rofi_font_size = 10
+
+[greenclip.files]
+#   greenclip_history_file
+"greenclip/greenclip.toml" = "~/.config/greenclip.toml"
+
+[dunst]
+depends = ["preferences"]
+
+[dunst.files]
+"dunst/dunstrc" = "~/.config/dunst/dunstrc"
+
+[dunst.variables]
+dunst_additional_settings = ""
+dunst_font_size = 9
+dunst_width = 400
+dunst_offset = "10x10"
+
+[gui_common]
+depends = ["preferences"]
+
+[gui_common.files]
+
+[gui_common.variables]
 
 [beets.files]
 "beets/config.yaml" = "~/.config/beets/config.yaml"
@@ -137,3 +170,31 @@ rofi_password_manager = ""
 [tridactyl.files]
 "tridactyl/tridactylrc" =  "~/.config/tridactyl/tridactylrc"
 "tridactyl/olive.css" =  "~/.config/tridactyl/themes/olive.css"
+
+[sway]
+depends = ["preferences"]
+
+[sway.files]
+"sway/config" = "~/.config/sway/config"
+
+[sway.variables]
+sway_border_width = 3
+
+[firefox.files]
+"firefox/profile/chrome/userChrome.css" = ""
+
+[kanshi.files]
+"kanshi/config" = "~/.config/kanshi/config"
+
+[waybar]
+depends = ["preferences"]
+
+[waybar.files]
+"waybar/config" = "~/.config/waybar/config"
+"waybar/style.css" = "~/.config/waybar/style.css"
+
+[swaylock]
+depends = ["preferences"]
+
+[swaylock.files]
+"swaylock/config" = "~/.config/swaylock/config"

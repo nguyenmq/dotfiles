@@ -48,6 +48,7 @@ button {
     padding:          1em;
     background-color: {{black_almost}};
     text-color:       {{gray_light}};
+    width:            3em;
 }
 
 button selected {

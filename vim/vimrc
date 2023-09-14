@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
+Plug 'jasonccox/vim-wayland-clipboard'
 
 call plug#end()
 
