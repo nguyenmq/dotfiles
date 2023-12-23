@@ -50,7 +50,7 @@ function decrease_volume() {
 }
 
 function get_current_volume() {
-    CURRENT_VOLUME=$(pacmd list-sinks | grep -A 15 "index: $ACTIVE_SINK" | awk '/^\s*volume:/ {gsub("%", "", $5); print $5}')
+    CURRENT_VOLUME=$(pacmd list-sinks | grep -A 15 "index: $ACTIVE_SINK$" | awk '/^\s*volume:/ {gsub("%", "", $5); print $5}')
 }
 
 function set_mute {
