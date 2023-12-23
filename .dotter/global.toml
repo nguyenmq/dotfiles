@@ -120,6 +120,7 @@ polybar_font_two = "MaterialIcons-Regular:size=10;3"
 polybar_height = 18
 xresources_cursor_size = 24
 xresources_dpi = 96
+rofi_password_manager = ""
 
 [beets.files]
 "beets/config.yaml" = "~/.config/beets/config.yaml"
