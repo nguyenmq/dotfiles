@@ -28,9 +28,7 @@ export HISTFILESIZE=10000
 export HISTCONTROL=ignorespace
 
 # Immediately append to history
-if [[ -z "$PROMPT_COMMAND" ]]; then
-    export PROMPT_COMMAND="history -a; history -c; history -r $PROMPT_COMMAND"
-fi
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 color_prompt=yes
 
