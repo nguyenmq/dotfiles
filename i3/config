@@ -43,9 +43,9 @@ font pango:{{ui_font_family}} {{i3_window_font_size}}
 
 # Window colors
 # colorclass            hdr_bdr        bg             text      indic          btm_bdr
-client.focused          {{ui_primary}} {{ui_primary}} {{white}} {{ui_primary}} {{ui_primary}}
-client.focused_inactive {{ui_accent}}  {{ui_accent}}  {{black}} {{ui_accent}}  {{ui_accent}}
-client.unfocused        {{ui_accent}}  {{ui_accent}}  {{white}} {{ui_accent}}  {{ui_accent}}
+client.focused          {{ui_accent}}  {{ui_accent}}  {{white}} {{ui_accent}}  {{ui_accent}}
+client.focused_inactive {{ui_primary}} {{ui_primary}} {{black}} {{ui_primary}} {{ui_primary}}
+client.unfocused        {{ui_primary}} {{ui_primary}} {{white}} {{ui_primary}} {{ui_primary}}
 client.urgent           {{lavender}}   {{lavender}}   {{white}} {{ui_accent}}  {{ui_accent}}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
