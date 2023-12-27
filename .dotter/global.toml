@@ -36,7 +36,7 @@ ui_primary = "#335e4e"
 # selection of an item.
 ui_accent = "#559e83"
 # when you need a brighter/darker ui accent color to contrast with the primary
-ui_accent_alt = "#559e83"
+ui_accent_alt = "#2bb24c"
 # the text color when it appears inside ui elements
 ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color
