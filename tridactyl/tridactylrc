@@ -99,7 +99,6 @@ bind ga tabaudio
 bind gr reader
 bind gu urlparent
 bind gU urlroot
-bind gf viewsource
 bind : fillcmdline_notrail
 bind s scrollline 10
 bind S back
@@ -109,6 +108,7 @@ bind b fillcmdline tab
 bind ZZ qall
 bind f hint
 bind F hint -t
+bind gf hint -qb
 bind gF hint -qb
 bind ;i hint -i
 bind ;b hint -b
