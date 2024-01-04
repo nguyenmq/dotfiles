@@ -198,3 +198,12 @@ depends = ["preferences"]
 
 [swaylock.files]
 "swaylock/config" = "~/.config/swaylock/config"
+
+[flameshot]
+depends = ["preferences"]
+
+[flameshot.files]
+"flameshot/flameshot.ini" = "~/.config/flameshot/flameshot.ini"
+
+[flameshot.variables]
+flameshot_save_path = ""
