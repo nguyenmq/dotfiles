@@ -1,0 +1,92 @@
+[colors.cursor]
+cursor = "{{black_almost}}"
+text = "{{white}}"
+
+[colors.normal]
+black = "{{black_almost}}"
+red = "{{red}}"
+green = "{{green}}"
+yellow = "{{yellow}}"
+blue = "{{blue}}"
+magenta = "{{magenta}}"
+cyan = "{{lavender}}"
+white = "{{gray_dark}}"
+
+[colors.bright]
+black = "{{black_almost}}"
+red = "{{red}}"
+green = "{{green}}"
+yellow = "{{yellow}}"
+blue = "{{blue}}"
+magenta = "{{magenta}}"
+cyan = "{{lavender}}"
+white = "{{gray_dark}}"
+
+[colors.primary]
+background = "{{white}}"
+foreground = "{{black}}"
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+builtin_box_drawing = true
+size = {{term_font_size}}
+
+[font.normal]
+family = "{{term_font_family}}"
+style = "Regular"
+
+[font.bold]
+family = "{{term_font_family}}"
+style = "Bold"
+
+[font.bold_italic]
+family = "{{term_font_family}}"
+style = "Bold Italic"
+
+[font.glyph_offset]
+y = 1
+
+[font.italic]
+family = "{{term_font_family}}"
+style = "Italic"
+
+[font.offset]
+x = {{term_adjust_column_width}}
+y = {{term_adjust_line_height}}
+
+[hints]
+alphabet = "asdfgqwertzxcvb"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Plus"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
+
+[window]
+decorations = "none"
+dynamic_padding = true
+
+[window.padding]
+x = 4
+y = 4

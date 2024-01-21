@@ -159,7 +159,7 @@ depends = ["preferences"]
 "beets/config.yaml" = "~/.config/beets/config.yaml"
 
 [alacritty.files]
-"alacritty/alacritty.yml" = "~/.config/alacritty/alacritty.yml"
+"alacritty/alacritty.toml" = "~/.config/alacritty/alacritty.toml"
 
 [yay.files]
 "yay/config.json" = "~/.config/yay/config.json"
