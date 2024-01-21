@@ -42,11 +42,11 @@ assign [class="Chromium"] $WS8
 font pango:{{ui_font_family}} {{i3_window_font_size}}
 
 # Window colors
-# colorclass            hdr_bdr        bg             text      indic          btm_bdr
-client.focused          {{ui_accent}}  {{ui_accent}}  {{white}} {{ui_accent}}  {{ui_accent}}
-client.focused_inactive {{ui_primary}} {{ui_primary}} {{black}} {{ui_primary}} {{ui_primary}}
-client.unfocused        {{ui_primary}} {{ui_primary}} {{white}} {{ui_primary}} {{ui_primary}}
-client.urgent           {{lavender}}   {{lavender}}   {{white}} {{ui_accent}}  {{ui_accent}}
+# colorclass            hdr_bdr           bg                text      indic          btm_bdr
+client.focused          {{ui_accent_alt}} {{ui_accent_alt}} {{white}} {{ui_accent}}  {{ui_accent_alt}}
+client.focused_inactive {{ui_primary}}    {{ui_primary}}    {{black}} {{ui_primary}} {{ui_primary}}
+client.unfocused        {{ui_primary}}    {{ui_primary}}    {{white}} {{ui_primary}} {{ui_primary}}
+client.urgent           {{lavender}}      {{lavender}}      {{white}} {{ui_accent}}  {{ui_accent}}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -85,6 +85,7 @@ bindsym $mod+Control+minus move scratchpad
 bindsym $mod+space exec "rofi -show drun"
 bindsym $mod+v exec "{{rofi_clipboard_manager}}"
 bindsym $mod+Control+p exec "rofi -show fb -modi fb:${HOME}/.dotfiles/scripts/audio_inputs.sh"
+bindsym $mod+Control+b exec "${HOME}/repos/rofi-pass/rofi-pass --last-used"
 bindsym $mod+Control+space exec "{{rofi_password_manager}}"
 
 # screenshot
