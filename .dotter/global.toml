@@ -90,7 +90,7 @@ xresources_cursor_size = 24
 xresources_dpi = 96
 
 [wayland]
-depends = ["preferences", "alacritty", "sway"]
+depends = ["preferences"]
 
 [i3]
 depends = ["preferences"]

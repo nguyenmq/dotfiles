@@ -4,7 +4,8 @@
  */
 
 * {
-    font-family: "Ubuntu Mono";
+    font-family: "{{term_font_family}}";
+    font-size: 12px;
 }
 
 #TabsToolbar {
@@ -19,4 +20,9 @@
 
 #sidebar-header {
     display: none;
+}
+
+/* Minimize fullscreen transition time */
+#navigator-toolbox[fullscreenShouldAnimate] {
+    transition: 0ms !important;
 }
