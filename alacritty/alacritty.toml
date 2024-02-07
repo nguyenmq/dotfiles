@@ -26,6 +26,14 @@ white = "{{gray_dark}}"
 background = "{{white}}"
 foreground = "{{black}}"
 
+[colors.hints.start]
+foreground = "{{black}}"
+background = "{{green_bright}}"
+
+[colors.hints.end]
+foreground = "{{black}}"
+background = "{{green_bright}}"
+
 [cursor.style]
 blinking = "Off"
 shape = "Block"
@@ -84,9 +92,13 @@ key = "Minus"
 mods = "Control"
 
 [window]
-decorations = "none"
+decorations = "full"
 dynamic_padding = true
 
 [window.padding]
 x = 4
 y = 4
+
+[window.dimensions]
+columns = 125
+lines = 25
