@@ -1,11 +1,11 @@
 configuration {
     cycle:               true;
-    display-clipboard:   "";
-    display-drun:        "";
-    display-emoji:       "";
-    display-filebrowser: "";
-    display-run:         "";
-    display-window:      "";
+    display-clipboard:   "󰅇";
+    display-drun:        "󰏋";
+    display-emoji:       "󰱨";
+    display-filebrowser: "󰉋";
+    display-run:         "󰆍";
+    display-window:      "󰣆";
     drun-display-format: "{name}";
     hide-scrollbar:      true;
     icon-theme:          "Numix";
