@@ -173,9 +173,9 @@ keymap C-e DOWN
 keymap C-y UP
 keymap gg BEGIN
 keymap G END
-keymap C-d NEXT_PAGE
+keymap C-d DOWN
 keymap C-f NEXT_PAGE
-keymap C-u PREV_PAGE
+keymap C-u UP
 keymap C-b PREV_PAGE
 keymap zz CENTER_V
 
