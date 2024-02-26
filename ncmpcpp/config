@@ -1,16 +1,22 @@
-user_interface = classic
+user_interface = alternative
 fetch_lyrics_for_current_song_in_background = no
 follow_now_playing_lyrics = yes
 lyrics_fetchers = genius, metrolyrics, azlyrics
 show_duplicate_tags = no
 media_library_primary_tag = album_artist
-media_library_albums_split_by_date = no
+media_library_albums_split_by_date = yes
+media_library_hide_album_dates = yes
 playlist_disable_highlight_delay = 0
 startup_screen = media_library
 autocenter_mode = yes
 default_find_mode = wrapped
 screen_switcher_mode = playlist, media_library
 ask_before_clearing_playlists = no
+connected_message_on_startup = no
+statusbar_visibility = yes
+header_visibility = yes
+playlist_display_mode = columns
+browser_display_mode = columns
 
 # visualizer settings
 visualizer_output_name = my_fifo
@@ -44,7 +50,7 @@ header_window_color = green
 state_line_color = green
 progressbar_color = white
 progressbar_elapsed_color = green
-progressbar_look = "▃▃▃"
+progressbar_look = "▀▀"
 alternative_ui_separator_color = green:b
 window_border_color = green
 active_window_border = green
