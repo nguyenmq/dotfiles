@@ -15,7 +15,7 @@ configuration {
     kb-row-down:         "Control+n";
     kb-row-up:           "Control+p";
     m:                   "-4";
-    modi:                "window,drun,emoji";
+    modi:                "drun,emoji,clipboard:greenclip print";
     sidebar-mode:        false;
     sort:                true;
     window-format:       "{c} · {t}";
