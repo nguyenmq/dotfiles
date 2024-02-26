@@ -17,6 +17,7 @@ Plug 'udalov/kotlin-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'dense-analysis/ale'
 Plug 'jasonccox/vim-wayland-clipboard'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -430,5 +431,6 @@ let g:ale_sign_column_always = 1
 
 let g:ale_linters = {
       \  'java': ['javac'],
-      \  'markdown': []
+      \  'markdown': [],
+      \  'ruby': ['ruby']
       \ }

@@ -1,3 +1,6 @@
+" If you need to modify a color of an element, use the placeholder name
+" instead of the variables defined here.
+
 " GUI color definitions
 let s:gui00 = "{{black_almost}}"
 let s:gui01 = "{{red}}"
@@ -132,17 +135,17 @@ call <sid>hi("Comment",         s:gui02, "", s:cterm02, "", "")
 call <sid>hi("Conditional",     s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("Constant",        s:gui04, "", s:cterm04, "", "")
 call <sid>hi("Debug",           s:gui0C, "", s:cterm0C, "", "none")
-call <sid>hi("Define",          s:gui01, "", s:cterm01, "", "none")
+call <sid>hi("Define",          s:gui05, "", s:cterm05, "", "none")
 call <sid>hi("Delimiter",       s:gui0C, "", s:cterm0C, "", "")
 call <sid>hi("Error",           "{{white}}", "{{red}}", s:cterm0F, s:cterm01, "")
 call <sid>hi("Exception",       s:gui06, "", s:cterm06, "", "bold")
 call <sid>hi("Float",           s:gui04, "", s:cterm04, "", "")
-call <sid>hi("Function",        s:gui01, "", s:cterm01, "", "bold")
+call <sid>hi("Function",        s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("Identifier",      s:gui08, "", s:cterm08, "", "none")
-call <sid>hi("Include",         s:gui01, "", s:cterm01, "", "")
+call <sid>hi("Include",         s:gui05, "", s:cterm05, "", "")
 call <sid>hi("Keyword",         s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("Label",           s:gui08, "", s:cterm08, "", "")
-call <sid>hi("Macro",           s:gui01, "", s:cterm01, "", "")
+call <sid>hi("Macro",           s:gui05, "", s:cterm05, "", "")
 call <sid>hi("Number",          s:gui04, "", s:cterm04, "", "")
 call <sid>hi("Operator",        s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("PreCondit",       s:gui01, "", s:cterm01, "", "")
@@ -150,7 +153,7 @@ call <sid>hi("PreProc",         s:gui01, "", s:cterm01, "", "")
 call <sid>hi("Repeat",          s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("Special",         s:gui06, "", s:cterm06, "", "")
 call <sid>hi("SpecialChar",     s:gui0C, "", s:cterm0C, "", "")
-call <sid>hi("SpecialComment",  s:gui0C, "", s:cterm0C, "", "")
+call <sid>hi("SpecialComment",  "{{green}}", "", s:cterm0C, "", "")
 call <sid>hi("Statement",       s:gui05, "", s:cterm05, "", "bold")
 call <sid>hi("StorageClass",    s:gui06, "", s:cterm06, "", "bold")
 call <sid>hi("String",          s:gui04, "", s:cterm04, "", "")
