@@ -114,7 +114,7 @@ depends = ["preferences"]
 
 [polybar.variables]
 polybar_modules_right = "mpd pavolume notifications date time"
-polybar_font_zero = "Ubuntu Mono:weight=regular:size=10;2"
+polybar_font_zero = "Cartograph CF:weight=regular:size=11;2"
 polybar_font_one = "Noto Sans Mono CJK SC:size=10;1"
 polybar_font_two = "Material Design Icons:size=10;3"
 polybar_height = 18
