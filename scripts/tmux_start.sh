@@ -6,7 +6,7 @@
 
 # primary tmux session name
 SESSION="default"
-WINDOW_NAMES="${HOME}/.tmux_windows"
+WINDOW_NAMES="${HOME}/.config/tmux_windows"
 
 create_sessions() {
     if [[ -e "$WINDOW_NAMES" ]]; then
