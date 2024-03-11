@@ -1,8 +1,8 @@
 [colors]
 focused_foreground = {{white}}
 unfocused_foreground = {{gray_dark}}
-label_mode_background = {{gray_light}}
-label_mode_foreground = {{black}}
+module_background = {{ui_primary}}
+module_foreground = {{white}}
 
 [bar/base]
 background = {{ui_primary}}
@@ -16,36 +16,18 @@ font-1 = "{{polybar_font_one}}"
 font-2 = "{{polybar_font_two}}"
 foreground = {{ui_text_accent}}
 height = {{polybar_height}}
-module-margin-left = 1
-module-margin-right = 1
+module-margin-left = 0
+module-margin-right = 0
 modules-center = title
 modules-left = i3
 modules-right = {{polybar_modules_right}}
 monitor = ${env:MONITOR:}
 padding-left = 0
-padding-right = 1
+padding-right = 0
 radius = 0.0
 scroll-down = i3wm-wsprev
 scroll-up = i3wm-wsnext
-tray-padding = 2
-tray-position = right
 width = 100%
-
-[bar/honeydew]
-font-0 = "Ubuntu Mono:weight=regular:size=18;3"
-font-1 = "Noto Sans Mono CJK SC:size=16;1"
-font-2 = "MaterialIcons-Regular:size=16;4"
-height = 2%
-inherit = bar/base
-modules-right = mpd battery pavolume xbacklight date time
-
-[bar/work]
-font-0 = "Ubuntu Mono:weight=regular:size=10;2"
-font-1 = "Noto Sans Mono CJK SC:size=10;1"
-font-2 = "Material Icons:size=10;2"
-height = 19
-inherit = bar/base
-modules-right = mpd battery-work pavolume xbacklight notifications date time
 
 [module/i3]
 type = internal/i3
@@ -55,31 +37,44 @@ index-sort = true
 format = <label-state> <label-mode>
 wrapping-scroll = false
 enable-click = true
+ws-icon-0 = "1:01;󰎤"
+ws-icon-1 = "2:02;󰎧"
+ws-icon-2 = "3:03;󰎪"
+ws-icon-3 = "4:04;󰎭"
+ws-icon-4 = "5:05;󰎱"
+ws-icon-5 = "6:06;󰎳"
+ws-icon-6 = "7:07;󰎶"
+ws-icon-7 = "8:08;󰎹"
+ws-icon-8 = "9:09;󰎼"
+ws-icon-9 = "10:10;󰽽"
+ws-icon-default = 󱗜
 
-label-mode-padding = 1
-label-mode-foreground = ${colors.label_mode_foreground}
-label-mode-background = ${colors.label_mode_background}
+label-mode-padding = 2
+label-mode-foreground = {{white}}
+label-mode-background = {{ui_accent}}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%:󰐾
-label-focused-background = ${colors.unfocused_background}
+label-focused = %index%
+label-focused-foreground = {{white}}
+label-focused-background = {{ui_accent}}
 label-focused-underline = ${colors.focused_foreground}
 label-focused-padding = ${self.label-mode-padding}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%:󰐽
+label-unfocused = %index%
 label-unfocused-padding = ${self.label-mode-padding}
 label-unfocused-underline = ${colors.unfocused_foreground}
+label-unfocused-background = {{ui_accent_alt}}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = ${self.label-unfocused}
-label-visible-background = {{ui_primary}}
+label-visible-background = {{ui_accent_alt}}
 label-visible-underline = ${colors.unfocused_foreground}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = %index%:󰀨
-label-urgent-background = {{ui_primary}}
+label-urgent = %index%
+label-urgent-background = {{ui_accent_alt}}
 label-urgent-padding = ${self.label-mode-padding}
 label-urgent-underline = ${colors.focused_foreground}
 
@@ -88,7 +83,7 @@ type = internal/mpd
 format-online = <icon-random> <toggle>
 format-online-underline = ${colors.unfocused_foreground}
 label-song = 󰎆  %title% | %artist%
-format-online-background = {{ui_primary}}
+format-online-background = ${colors.module_background}
 format-online-padding = 1
 
 icon-previous = 󰒮
@@ -110,6 +105,7 @@ format = <label>
 label = 󰃝 %percentage%%
 format-underline = ${colors.unfocused_foreground}
 label-foreground = ${colors.focused_foreground}
+label-padding = 1
 
 [module/date]
 type = internal/date
@@ -118,7 +114,9 @@ date = "%a, %b %d"
 date-alt = " %d-%m-%Y"
 label = "󰃶 %date%"
 format-foreground = ${colors.focused_foreground}
+format-background = ${colors.module_background}
 label-underline = ${colors.unfocused_foreground}
+label-padding = 1
 
 [module/time]
 type = internal/date
@@ -128,6 +126,8 @@ time-alt = %H:%M
 label = "󰅐 %time%"
 format-foreground = ${colors.focused_foreground}
 label-underline = ${colors.unfocused_foreground}
+label-padding = 1
+format-background = ${colors.module_background}
 
 [module/pavolume]
 type = custom/script
@@ -148,6 +148,8 @@ label-underline = ${colors.unfocused_foreground}
 exec = ~/.config/polybar/notifications.sh --listen
 click-left = ~/.config/polybar/notifications.sh --toggle
 click-right = ~/.config/polybar/notifications.sh --clear
+label-padding = 1
+format-background = ${colors.module_background}
 
 [module/battery]
 type = internal/battery
@@ -159,14 +161,17 @@ time-format = %H:%M
 format-charging = <label-charging>
 format-charging-underline = ${colors.unfocused_foreground}
 label-charging = "󰂄 %percentage%% (%time%)"
+label-charging-padding = 1
 
 format-discharging = <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 label-discharging = "󰁹 %percentage%%"
+label-discharging-padding = 1
 
 format-full = <label-full>
 format-full-underline = ${self.format-charging-underline}
 label-full = "󰁹 %percentage%%"
+label-full-padding = 1
 
 [module/battery-work]
 type = internal/battery
@@ -194,8 +199,26 @@ format-background = {{ui_primary}}
 format-foreground = ${colors.focused_foreground}
 label = "%title%"
 label-underline = ${colors.focused_foreground}
-label-padding = 1
 label-maxlen = 40
+
+[module/pulseaudio]
+type = internal/pulseaudio
+interval = 2
+label-volume = 󰕾 %percentage%%
+label-muted = 󰖁 muted
+use-ui-max = false
+label-volume-padding = 1
+label-muted-padding = 1
+format-volume-background = ${colors.module_background}
+format-muted-background = ${colors.module_background}
+
+[module/tray]
+type = internal/tray
+tray-size = 75%
+tray-padding = 5px
+tray-background = ${colors.module_background}
+tray-foreground = {{white}}
+format-background = ${colors.module_background}
 
 [settings]
 screenchange-reload = true
