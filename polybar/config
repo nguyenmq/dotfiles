@@ -56,7 +56,7 @@ label-mode-background = {{ui_accent}}
 ; focused = Active workspace on focused monitor
 label-focused = %index%
 label-focused-foreground = {{white}}
-label-focused-background = {{ui_accent}}
+label-focused-background = {{ui_accent_alt}}
 label-focused-underline = ${colors.focused_foreground}
 label-focused-padding = ${self.label-mode-padding}
 
@@ -64,11 +64,13 @@ label-focused-padding = ${self.label-mode-padding}
 label-unfocused = %index%
 label-unfocused-padding = ${self.label-mode-padding}
 label-unfocused-underline = ${colors.unfocused_foreground}
-label-unfocused-background = {{ui_accent_alt}}
+label-unfocused-foreground = {{gray_dark}}
+label-unfocused-background = {{ui_primary}}
 
 ; visible = Active workspace on unfocused monitor
 label-visible = ${self.label-unfocused}
-label-visible-background = {{ui_accent_alt}}
+label-visible-foreground = {{gray_dark}}
+label-visible-background = {{ui_primary}}
 label-visible-underline = ${colors.unfocused_foreground}
 label-visible-padding = ${self.label-focused-padding}
 
@@ -153,8 +155,8 @@ format-background = ${colors.module_background}
 
 [module/battery]
 type = internal/battery
-battery = BAT1
-adapter = ADP1
+battery = {{polybar_power_battery}}
+adapter = {{polybar_power_adapter}}
 full-at = 98
 time-format = %H:%M
 
@@ -172,25 +174,6 @@ format-full = <label-full>
 format-full-underline = ${self.format-charging-underline}
 label-full = "󰁹 %percentage%%"
 label-full-padding = 1
-
-[module/battery-work]
-type = internal/battery
-battery = BAT0
-adapter = AC
-full-at = 98
-time-format = %H:%M
-
-format-charging = <label-charging>
-format-charging-underline = ${colors.unfocused_foreground}
-label-charging = "󰂄 %percentage%% (%time%)"
-
-format-discharging = <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
-label-discharging = "󰁹 %percentage%%"
-
-format-full = <label-full>
-format-full-underline = ${self.format-charging-underline}
-label-full = "󰁹 %percentage%%"
 
 [module/title]
 type = internal/xwindow
@@ -214,8 +197,8 @@ format-muted-background = ${colors.module_background}
 
 [module/tray]
 type = internal/tray
-tray-size = 75%
-tray-padding = 5px
+tray-size = 100%
+tray-padding = 2px
 tray-background = ${colors.module_background}
 tray-foreground = {{white}}
 format-background = ${colors.module_background}
