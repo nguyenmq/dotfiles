@@ -20,7 +20,7 @@ date=$(echo "$json_info" | jq --raw-output '.date' | cut -d'-' -f1)
 mpc readpicture "$file" > "$TMP_ALBUM_ART_PATH"
 
 player_stats=$(echo "$raw_mpc" | tail -n-2 | head -n1 | awk '{printf "%s %s %s", $3, $4, $1}')
-action=$(dunstify --action="default,albumart" --appname="mpd" --replace=32 --icon="$TMP_ALBUM_ART_PATH" --timeout=10000 "$title" "\n$artist\n$album\n$date\n$player_stats")
+action=$(dunstify --action="default,albumart" --appname="mpd" --replace=32 --icon="$TMP_ALBUM_ART_PATH" --timeout=2000 "$title" "\n$artist\n$album\n$date\n$player_stats")
 
 case "$action" in
     "default")
