@@ -381,9 +381,10 @@ nmap ga <Plug>(EasyAlign)
 "-----------------------------------------------------------
 " configure vim wiki
 "-----------------------------------------------------------
-let g:vimwiki_list = [{'path': '~/next/second_brain/',
+let g:vimwiki_list = [{'path': '~/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_list_margin = 0
+let g:vimwiki_listsyms = ' .oO✓'
 
 "-----------------------------------------------------------
 " Functions
