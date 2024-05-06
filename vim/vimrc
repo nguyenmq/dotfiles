@@ -384,7 +384,7 @@ nmap ga <Plug>(EasyAlign)
 let g:vimwiki_list = [{'path': '~/notes/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 let g:vimwiki_list_margin = 0
-let g:vimwiki_listsyms = ' .oO✓'
+let g:vimwiki_listsyms = ' .:ox'
 
 "-----------------------------------------------------------
 " Functions

@@ -104,7 +104,7 @@ call <sid>hi("VisualNOS",     s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WarningMsg",    s:gui08, "", s:cterm08, "", "")
 call <sid>hi("WildMenu",      s:gui08, "", s:cterm08, "", "")
 call <sid>hi("Title",         s:gui02, "", s:cterm02, "", "bold")
-call <sid>hi("Conceal",       s:gui05, s:gui00, s:cterm05, s:cterm00, "")
+call <sid>hi("Conceal",       "{{gray_dark}}", "{{white}}", s:cterm05, s:cterm00, "none")
 call <sid>hi("Cursor",        "", s:gui00, s:cterm00, s:cterm05, "")
 call <sid>hi("NonText",       s:gui03, "", s:cterm03, "", "")
 call <sid>hi("Normal",        "", "", "", "", "none")
@@ -257,6 +257,10 @@ call <sid>hi("xmlAttrib",  s:gui01, "", s:cterm01, "", "")
 
 " vim wiki highlighting
 call <sid>hi("VimwikiDelText",  s:gui08, "", s:cterm08, "", "strikethrough")
+call <sid>hi("VimwikiPre",  s:gui08, "", s:cterm08, "", "")
+call <sid>hi("VimwikiCode",  s:gui08, "", s:cterm08, "", "")
+call <sid>hi("VimwikiListTodo",  "{{lavender}}", "", s:cterm08, "", "")
+call <sid>hi("VimwikiCheckBoxDone",  "{{green}}", "", s:cterm08, "", "")
 
 " Remove functions
 delf <sid>hi
