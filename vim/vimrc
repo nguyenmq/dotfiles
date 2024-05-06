@@ -19,6 +19,7 @@ Plug 'dense-analysis/ale'
 Plug 'jasonccox/vim-wayland-clipboard'
 Plug 'rust-lang/rust.vim'
 Plug 'vimwiki/vimwiki'
+Plug 'aklt/plantuml-syntax'
 
 call plug#end()
 
