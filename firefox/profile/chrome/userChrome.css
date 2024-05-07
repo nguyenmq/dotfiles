@@ -26,3 +26,8 @@
 #navigator-toolbox[fullscreenShouldAnimate] {
     transition: 0ms !important;
 }
+
+/* force popup menu to use light theme */
+:root, menupopup {
+    color-scheme: light !important;
+}
