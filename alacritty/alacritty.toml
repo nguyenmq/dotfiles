@@ -23,7 +23,7 @@ cyan = "{{lavender}}"
 white = "{{gray_dark}}"
 
 [colors.primary]
-background = "{{white}}"
+background = "{{white_almost}}"
 foreground = "{{black}}"
 
 [colors.hints.start]
