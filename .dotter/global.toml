@@ -1,15 +1,7 @@
 [helpers]
 
-[default]
-depends = []
-
-[default.files]
-vim = ""
-
-# local variables:
-#   fullname
-#   email
-[preferences.variables]
+[colors.variables]
+# base colors
 black = "#000000"
 black_almost = "#12181a"
 blue = "#116dd5"
@@ -25,11 +17,6 @@ white_almost = "#f9fafb"
 white = "#ffffff"
 yellow = "#f5a553"
 yellow_light = "#e5dd80"
-ui_font_family = "Ubuntu"
-default_browser = "/usr/bin/firefox"
-default_terminal_with_session = "alacritty --command ${HOME}/.dotfiles/scripts/tmux_start.sh"
-default_terminal = "alacritty"
-
 # the primary color of status bar ui elements
 ui_primary = "#335e4e"
 # the accent color for contrasting with the primary color, usual to denote
@@ -42,8 +29,17 @@ ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color
 ui_text_accent_alt = "#c7c7c7"
 
+# local variables:
+#   fullname
+#   email
+[preferences.variables]
+ui_font_family = "Ubuntu"
+default_browser = "/usr/bin/firefox"
+default_terminal_with_session = "alacritty --command ${HOME}/.dotfiles/scripts/tmux_start.sh"
+default_terminal = "alacritty"
+
 [terminal]
-depends = ["preferences", "vim"]
+depends = ["vim"]
 
 [terminal.files]
 "bash/bashrc" = "~/.bashrc"
@@ -79,21 +75,12 @@ tmux_clipboard_cmd = "xclip -in -selection clipboard"
 "vim/autoload/airline/themes/olive.vim" = "~/.vim/autoload/airline/themes/olive.vim"
 "vim-plug/plug.vim" = "~/.vim/autoload/plug.vim"
 
-[x11]
-depends = ["preferences"]
-
 [x11.files]
 "xconfig/Xresources" = "~/.Xresources"
 
 [x11.variables]
 xresources_cursor_size = 24
 xresources_dpi = 96
-
-[wayland]
-depends = ["preferences"]
-
-[i3]
-depends = ["preferences"]
 
 [i3.files]
 "i3/config" = "~/.config/i3/config"
@@ -102,9 +89,6 @@ depends = ["preferences"]
 i3_window_font_size = 9
 i3_border_width = 3
 i3_locker = "/usr/bin/xsecurelock"
-
-[polybar]
-depends = ["preferences"]
 
 [polybar.files]
 "polybar/config" = "~/.config/polybar/config"
@@ -121,9 +105,6 @@ polybar_height = 18
 polybar_power_battery = "BAT0"
 polybar_power_adapter = "AC"
 
-[rofi]
-depends = ["preferences"]
-
 [rofi.files]
 "rofi/config.rasi" = "~/.config/rofi/config.rasi"
 "rofi/olive.rasi" = "~/.config/rofi/olive.rasi"
@@ -138,9 +119,6 @@ rofi_font_size = 10
 #   greenclip_history_file
 "greenclip/greenclip.toml" = "~/.config/greenclip.toml"
 
-[dunst]
-depends = ["preferences"]
-
 [dunst.files]
 "dunst/dunstrc" = "~/.config/dunst/dunstrc"
 
@@ -149,9 +127,6 @@ dunst_additional_settings = ""
 dunst_font_size = 9
 dunst_width = 400
 dunst_offset = "10x10"
-
-[gui_common]
-depends = ["preferences"]
 
 [gui_common.files]
 
@@ -173,9 +148,6 @@ depends = ["preferences"]
 "tridactyl/tridactylrc" =  "~/.config/tridactyl/tridactylrc"
 "tridactyl/olive.css" =  "~/.config/tridactyl/themes/olive.css"
 
-[sway]
-depends = ["preferences"]
-
 [sway.files]
 "sway/config" = "~/.config/sway/config"
 
@@ -188,21 +160,12 @@ sway_border_width = 3
 [kanshi.files]
 "kanshi/config" = "~/.config/kanshi/config"
 
-[waybar]
-depends = ["preferences"]
-
 [waybar.files]
 "waybar/config" = "~/.config/waybar/config"
 "waybar/style.css" = "~/.config/waybar/style.css"
 
-[swaylock]
-depends = ["preferences"]
-
 [swaylock.files]
 "swaylock/config" = "~/.config/swaylock/config"
-
-[flameshot]
-depends = ["preferences"]
 
 [flameshot.files]
 "flameshot/flameshot.ini" = "~/.config/flameshot/flameshot.ini"
