@@ -91,6 +91,29 @@ action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
 
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "K"
+mods = "Control|Shift"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "Y"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ClearSelection"
+key = "Y"
+mode = "Vi|~Search"
+mods = "Shift"
+
+[[keyboard.bindings]]
+action = "ToggleViMode"
+key = "Y"
+mode = "Vi|~Search"
+mods = "Shift"
+
 [window]
 decorations = "full"
 dynamic_padding = true
