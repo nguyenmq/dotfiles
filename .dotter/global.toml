@@ -54,13 +54,13 @@ depends = ["vim"]
 "etc/inputrc" = "~/.inputrc"
 
 [terminal.variables]
-term_font_family = "Cartograph CF"
+term_font_family = "CommitMono Nerd Font Propo"
 term_font_family_bold = "Ubuntu Mono Bold"
 term_font_family_italic = "Ubuntu Mono Italic"
 term_font_family_bold_italic = "Ubuntu Mono Bold Italic"
-term_font_size = 10.8
+term_font_size = 10
 term_adjust_line_height = 4
-term_adjust_column_width = 1
+term_adjust_column_width = 0
 term_window_padding_width = 0.0
 fzf_shell_completions = "/usr/share/fzf/completion.bash"
 fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
@@ -98,7 +98,7 @@ i3_locker = "/usr/bin/xsecurelock"
 
 [polybar.variables]
 polybar_modules_right = "mpd pulseaudio notifications date time tray"
-polybar_font_zero = "Cartograph CF:weight=regular:size=9;2"
+polybar_font_zero = "CommitMono Nerd Font Propo:weight=bold:size=9;2"
 polybar_font_one = "Noto Sans Mono CJK SC:size=10;1"
 polybar_font_two = "Material Design Icons:size=10;3"
 polybar_height = 18
