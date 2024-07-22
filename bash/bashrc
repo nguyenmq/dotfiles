@@ -90,8 +90,10 @@ if [[ -f "{{fzf_shell_bindings}}" ]]; then
 fi
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_DEFAULT_OPTS='--height 60%'
-export FZF_DEFAULT_COMMAND='ag --skip-vcs-ignores --files-with-matches --hidden --nocolor -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
+
+export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/rgrc"
 
 # Load optional functions file
 if [ -f ~/.bashrc.func ]; then

@@ -1,0 +1,5 @@
+.dotter/cache/*
+.git
+target/debug
+target/release
+.vscode

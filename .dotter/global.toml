@@ -172,3 +172,7 @@ sway_border_width = 3
 
 [flameshot.variables]
 flameshot_save_path = ""
+
+[ripgrep.files]
+"ripgrep/rgignore" = "~/.config/ripgrep/rgignore"
+"ripgrep/rgrc" = "~/.config/ripgrep/rgrc"
