@@ -173,6 +173,16 @@ sway_border_width = 3
 [flameshot.variables]
 flameshot_save_path = ""
 
+[neovim.files]
+"nvim/autoload/" = "~/.config/nvim/autoload/"
+"nvim/colors/olive.vim" = "~/.config/nvim/colors/olive.vim"
+"nvim/init.lua" = "~/.config/nvim/init.lua"
+"nvim/lua/commands.lua" = "~/.config/nvim/lua/commands.lua"
+"nvim/lua/config/lazy.lua" = "~/.config/nvim/lua/config/lazy.lua"
+"nvim/lua/keymaps.lua" = "~/.config/nvim/lua/keymaps.lua"
+"nvim/lua/plugins/" = "~/.config/nvim/lua/plugins/"
+"nvim/lua/settings.lua" = "~/.config/nvim/lua/settings.lua"
+
 [ripgrep.files]
 "ripgrep/rgignore" = "~/.config/ripgrep/rgignore"
 "ripgrep/rgrc" = "~/.config/ripgrep/rgrc"
