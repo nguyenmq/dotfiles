@@ -47,7 +47,7 @@ size = {{term_font_size}}
 
 [font.normal]
 family = "{{term_font_family}}"
-style = "Bold"
+style = "Medium"
 
 [font.bold]
 family = "{{term_font_family}}"
