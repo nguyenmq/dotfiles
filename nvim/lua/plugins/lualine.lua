@@ -7,7 +7,7 @@ return {
         require("lualine").setup {
             sections = {
                 lualine_a = {'location'},
-                lualine_b = {'branch', 'diagnostics'},
+                lualine_b = {'diagnostics'},
                 lualine_c = {'filename'},
                 lualine_x = {},
                 lualine_y = {'filetype'},
