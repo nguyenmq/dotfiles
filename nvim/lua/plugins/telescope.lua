@@ -24,6 +24,14 @@ return {
                         '--no-ignore-vcs',
                         '--follow'
                     }
+                },
+                tags = {
+                    only_sort_tags = true,
+                    fname_width = 50,
+                },
+                current_buffer_tags = {
+                    only_sort_tags = true,
+                    fname_width = 50,
                 }
             }
         }
@@ -33,5 +41,6 @@ return {
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
         vim.keymap.set('n', '<leader>r', builtin.command_history, {})
         vim.keymap.set('n', '<leader>t', builtin.current_buffer_tags, {})
+        vim.keymap.set('n', '<leader>T', builtin.tags, {})
     end,
 }
