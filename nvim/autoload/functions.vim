@@ -13,3 +13,9 @@ function! functions#VertSplitPercent(percent)
         execute "vertical " . float2nr(&columns * a:percent) . "split"
     endif
 endfun
+
+function! functions#SearchWithHighlight(search_term)
+    call clearmatches()
+    execute "let @/='" . a:search_term . "'"
+    call histadd("search", a:search_term)
+endfun

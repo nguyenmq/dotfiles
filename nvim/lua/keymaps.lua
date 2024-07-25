@@ -13,8 +13,13 @@ vim.keymap.set('n', '<C-L>', '<C-W>l')
 -- toggle cursorline
 vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.cursorline end)
 
--- turn off search highlight
+-- search
 vim.keymap.set('n', '<Leader>n', function() vim.cmd('nohlsearch') end)
+vim.keymap.set('n', '<Leader>h', function()
+    local word = vim.fn.expand("<cword>")
+    vim.fn['functions#SearchWithHighlight']('\\<'..word..'\\>')
+    vim.cmd('set hlsearch')
+end)
 
 -- windows and tabs
 vim.keymap.set('n', '<Leader>v', function() vim.fn['functions#VertSplitPercent'](0.41) end)
