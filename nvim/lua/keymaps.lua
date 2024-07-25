@@ -20,3 +20,11 @@ vim.keymap.set('n', '<Leader>n', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<Leader>v', function() vim.fn['functions#VertSplitPercent'](0.41) end)
 vim.keymap.set('n', '<Leader>gx', function() vim.cmd('tabclose'); vim.cmd('normal gT') end)
 vim.keymap.set('n', '<Leader>z', function() vim.cmd('tab split'); vim.cmd('diffoff') end)
+
+-- completion
+vim.keymap.set('i', '<C-j>', function()
+    return vim.fn.pumvisible() == 1 and "<C-n>" or "<C-x><C-n>"
+end, { expr = true })
+vim.keymap.set('i', '<C-k>', function()
+    return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-x><C-p>"
+end, { expr = true })
