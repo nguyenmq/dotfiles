@@ -33,3 +33,7 @@ end, { expr = true })
 vim.keymap.set('i', '<C-k>', function()
     return vim.fn.pumvisible() == 1 and "<C-p>" or "<C-x><C-p>"
 end, { expr = true })
+
+-- quickfix
+vim.keymap.set('n', '<Leader>e', '<cmd>cn<cr>zz', { silent = true })
+vim.keymap.set('n', '<Leader>E', '<cmd>cN<cr>zz', { silent = true })
