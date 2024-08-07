@@ -63,3 +63,5 @@
     default = simple
 [pull]
     ff = only
+[rerere]
+	enabled = true
