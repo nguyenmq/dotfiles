@@ -1,14 +1,13 @@
 -- exit insert mode and update the file
 vim.keymap.set('i', 'jk', '<esc><cmd>update<cr>')
 
--- quit the buffer
-vim.keymap.set('n', '<Leader>x', '<cmd>q<cr>')
-
--- buffer navigation
+-- buffer
 vim.keymap.set('n', '<C-J>', '<C-W>j')
 vim.keymap.set('n', '<C-K>', '<C-W>k')
 vim.keymap.set('n', '<C-H>', '<C-W>h')
 vim.keymap.set('n', '<C-L>', '<C-W>l')
+vim.keymap.set('n', '<Leader>x', '<cmd>q<cr>')
+vim.keymap.set('n', '<Leader>l', function() print(vim.fn.expand('%:p')) end)
 
 -- toggle cursorline
 vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.cursorline end)
@@ -23,7 +22,7 @@ end)
 
 -- windows and tabs
 vim.keymap.set('n', '<Leader>v', function() vim.fn['functions#VertSplitPercent'](0.41) end)
-vim.keymap.set('n', '<Leader>gx', function() vim.cmd('tabclose'); vim.cmd('normal gT') end)
+vim.keymap.set('n', '<Leader>gx', function() vim.cmd('tabclose') end)
 vim.keymap.set('n', '<Leader>z', function() vim.cmd('tab split'); vim.cmd('diffoff') end)
 
 -- completion
@@ -37,3 +36,12 @@ end, { expr = true })
 -- quickfix
 vim.keymap.set('n', '<Leader>e', '<cmd>cn<cr>zz', { silent = true })
 vim.keymap.set('n', '<Leader>E', '<cmd>cN<cr>zz', { silent = true })
+
+-- diff
+vim.keymap.set('n', '<Leader>co', function()
+    vim.cmd('tab split')
+    vim.cmd('normal 0f]wgf')
+    vim.cmd('Gvdiffsplit ' .. os.getenv('GIT_DIFF_OBJECT'))
+    vim.cmd('normal zR]czz')
+    vim.fn['functions#VertSplitPercent'](0.41)
+end)
