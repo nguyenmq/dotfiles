@@ -112,7 +112,7 @@ polybar_power_adapter = "AC"
 "rofi-pass/config" = "~/.config/rofi-pass/config"
 
 [rofi.variables]
-rofi_font_family = "Cartograph CF"
+rofi_font_family = "UbuntuSansMono NFP Medium"
 rofi_font_size = 10
 
 [greenclip.files]
