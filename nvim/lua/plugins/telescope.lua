@@ -2,7 +2,8 @@ return {
     'nvim-telescope/telescope.nvim',
     tag = '0.1.8',
     dependencies = {
-        'nvim-lua/plenary.nvim'
+        'nvim-lua/plenary.nvim',
+        'nvim-telescope/telescope-live-grep-args.nvim'
     },
     config = function()
         local tags_file = '/tmp/tags'
@@ -38,8 +39,10 @@ return {
             }
         }
         local builtin = require('telescope.builtin')
+        local extensions = require('telescope').extensions
         vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-        vim.keymap.set('n', '<leader>s', builtin.live_grep, {})
+        vim.keymap.set('n', '<leader>s', builtin.grep_string, {})
+        vim.keymap.set('n', '<leader>S', extensions.live_grep_args.live_grep_args, {})
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
         vim.keymap.set('n', '<leader>r', builtin.command_history, {})
         vim.keymap.set('n', '<leader>T', builtin.tags, {})
