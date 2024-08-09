@@ -98,7 +98,7 @@ i3_locker = "/usr/bin/xsecurelock"
 
 [polybar.variables]
 polybar_modules_right = "mpd pulseaudio notifications date time tray"
-polybar_font_zero = "UbuntuSansMono Nerd Font Propo:weight=medium:size=9;2"
+polybar_font_zero = "UbuntuSansMono Nerd Font Propo:weight=medium:size=8;2"
 polybar_font_one = "Noto Sans Mono CJK SC:size=10;1"
 polybar_font_two = "Material Design Icons:size=10;3"
 polybar_height = 18
