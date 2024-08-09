@@ -7,35 +7,36 @@ tab-item {
 /* show tab number */
 
 #tabbar {
-  counter-reset: vtabs atabs tabs;
-  /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+    counter-reset: vtabs atabs tabs;
+    /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
 }
 
 tab-item:not(.collapsed):not(.discarded) {
-  counter-increment: vtabs atabs tabs;
+    counter-increment: vtabs atabs tabs;
 }
 
 tab-item:not(.collapsed) {
-  counter-increment: vtabs tabs;
+    counter-increment: vtabs tabs;
 }
 
 tab-item:not(.discarded) {
-  counter-increment: atabs tabs;
+    counter-increment: atabs tabs;
 }
 
 tab-item {
-  counter-increment: tabs;
+    counter-increment: tabs;
 }
 
 tab-item .extra-items-container.behind {
-  z-index: unset !important;
+    z-index: unset !important;
 }
 
 tab-item .extra-items-container.behind::after {
-  color: HighlightText;
-  content: counter(vtabs);
-  font-size: x-small;
-  padding: 0.3em;
-  pointer-events: none;
-  z-index: 1000;
+    color: HighlightText;
+    content: counter(vtabs);
+    font-size: x-small;
+    padding-top: 0.1em;
+    padding-left: 0.5em;
+    pointer-events: none;
+    z-index: 1000;
 }
