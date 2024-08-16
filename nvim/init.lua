@@ -9,3 +9,5 @@ require("commands")
 
 -- load lazy package manager
 require("config.lazy")
+
+vim.cmd('colorscheme olive')

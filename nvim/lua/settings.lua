@@ -1,5 +1,6 @@
 vim.opt.autoindent = true
 vim.opt.backspace = {'indent', 'eol', 'start'}
+vim.opt.background = 'light'
 vim.opt.compatible = false
 vim.opt.completeopt = {'menuone', 'longest', 'preview'}
 vim.opt.cursorlineopt = 'screenline'
@@ -41,7 +42,6 @@ vim.opt.wildmode = {'longest', 'list', 'full'}
 vim.opt.wildoptions = {'pum'}
 vim.opt.wrap = false
 
-vim.cmd 'colorscheme olive'
 vim.cmd 'filetype indent off'
 vim.cmd 'filetype plugin on'
 vim.cmd 'syntax on'

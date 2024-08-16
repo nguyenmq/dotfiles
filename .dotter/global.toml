@@ -6,6 +6,7 @@ black = "#000000"
 black_almost = "#12181a"
 blue = "#116dd5"
 gray_dark = "#c7c7c7"
+gray_darker = "#767676"
 gray_light = "#eeeeee"
 green = "#008958"
 green_dark = "#0b421a"
@@ -17,6 +18,7 @@ white_almost = "#f9fafb"
 white = "#ffffff"
 yellow = "#f5a553"
 yellow_light = "#e5dd80"
+yellow_pale = "#ffff87"
 # the primary color of status bar ui elements
 ui_primary = "#335e4e"
 # the accent color for contrasting with the primary color, usual to denote
@@ -175,13 +177,15 @@ flameshot_save_path = ""
 
 [neovim.files]
 "nvim/autoload/" = "~/.config/nvim/autoload/"
-"nvim/colors/olive.vim" = "~/.config/nvim/colors/olive.vim"
+"nvim/colors/olive.lua" = "~/.config/nvim/colors/olive.lua"
 "nvim/init.lua" = "~/.config/nvim/init.lua"
 "nvim/lua/commands.lua" = "~/.config/nvim/lua/commands.lua"
 "nvim/lua/config/lazy.lua" = "~/.config/nvim/lua/config/lazy.lua"
 "nvim/lua/keymaps.lua" = "~/.config/nvim/lua/keymaps.lua"
 "nvim/lua/plugins/" = "~/.config/nvim/lua/plugins/"
+"nvim/lua/lush_theme" = "~/.config/nvim/lua/lush_theme/"
 "nvim/lua/settings.lua" = "~/.config/nvim/lua/settings.lua"
+"nvim/lua/lualine/themes/olive.lua" = "~/.config/nvim/lua/lualine/themes/olive.lua"
 
 [ripgrep.files]
 "ripgrep/rgignore" = "~/.config/ripgrep/rgignore"
