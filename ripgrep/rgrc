@@ -1,1 +1,1 @@
---ignore-file=/home/mqn/.config/ripgrep/rgignore
+--ignore-file={{command_output "echo -n $HOME"}}/.config/ripgrep/rgignore

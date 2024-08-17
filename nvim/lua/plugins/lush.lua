@@ -1,5 +1,5 @@
 return {
     "rktjmp/lush.nvim",
     priority = 1000,
-    { dir = '/home/mqn/.config/nvim', lazy = true },
+    { dir = "{{command_output "echo -n $HOME"}}/.config/nvim", lazy = true },
 }
