@@ -56,7 +56,7 @@ local theme = lush(function(injected_functions)
     CursorLine      { fg = Normal.fg, bg = yellow_pale }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn    { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Directory       { fg = blue } , -- Directory names (and other special names in listings)
-    DiffAdd         { bg = green.desaturate(30).lighten(85) }, -- Diff mode: Added line |diff.txt|
+    DiffAdd         { bg = green_bright.lighten(90) }, -- Diff mode: Added line |diff.txt|
     DiffChange      { DiffAdd }, -- Diff mode: Changed line |diff.txt|
     DiffDelete      { fg = red, bg = red.desaturate(30).lighten(85) }, -- Diff mode: Deleted line |diff.txt|
     DiffText        { fg = Normal.fg, bg = DiffAdd.bg }, -- Diff mode: Changed text within a changed line |diff.txt|
@@ -104,7 +104,7 @@ local theme = lush(function(injected_functions)
     TabLine         { fg = white, bg = ui_primary }, -- Tab pages line, not active tab page label
     TabLineFill     { TabLine }, -- Tab pages line, where there are no labels
     TabLineSel      { fg = white, bg = ui_accent }, -- Tab pages line, active tab page label
-    -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
+    Title          { fg = green, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual          { bg = gray_light }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     WarningMsg      { fg = gray_darker }, -- Warning messages
@@ -129,8 +129,8 @@ local theme = lush(function(injected_functions)
     Number          { fg = blue }, --   A number constant: 234, 0xff
     Boolean         { fg = blue }, --   A boolean constant: TRUE, false
     Float           { fg = blue }, --   A floating point constant: 2.3e10
-    Identifier      { fg = gray_darker }, -- (*) Any variable name
-    Function        { fg = magenta, gui = "bold" }, --   Function name (also: methods for classes)
+    Identifier      { fg = lavender }, -- (*) Any variable name
+    Function        { fg = green_dark }, --   Function name (also: methods for classes)
     Statement       { fg = magenta, gui = "bold" }, -- (*) Any statement
     Conditional     { fg = magenta, gui = "bold" }, --   if, then, else, endif, switch, etc.
     Repeat          { fg = magenta, gui = "bold" }, --   for, do, while, etc.
@@ -138,10 +138,10 @@ local theme = lush(function(injected_functions)
     Operator        { fg = magenta, gui = "bold" }, --   "sizeof", "+", "*", etc.
     Keyword         { fg = magenta, gui = "bold" }, --   any other keyword
     Exception       { fg = lavender, gui = "bold" }, --   try, catch, throw
-    PreProc         { fg = red }, -- (*) Generic Preprocessor
+    PreProc         { fg = gray_darker }, -- (*) Generic Preprocessor
     Include         { fg = magenta }, --   Preprocessor #include
     Define          { fg = magenta }, --   Preprocessor #define
-    Macro           { fg = magenta }, --   Same as Define
+    Macro           { fg = red }, --   Same as Define
     PreCondit       { fg = red }, --   Preprocessor #if, #else, #endif, etc.
 
     Type            { fg = lavender }, -- (*) int, long, char, etc.
@@ -264,6 +264,8 @@ local theme = lush(function(injected_functions)
     -- sym"@preproc"           { }, -- PreProc
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
+
+    VimwikiHeaderChar          { fg = green, gui = "bold" }
 }
 end)
 
