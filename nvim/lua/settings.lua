@@ -3,6 +3,7 @@ vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.background = 'light'
 vim.opt.compatible = false
 vim.opt.completeopt = {'menuone', 'longest', 'preview'}
+vim.opt.conceallevel = 2
 vim.opt.cursorlineopt = 'screenline'
 vim.opt.dir = '/tmp'
 vim.opt.equalalways = false
