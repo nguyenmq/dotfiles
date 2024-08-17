@@ -15,3 +15,30 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = 1 }
 )
+
+-- rotate the capture/focus file to the current week
+vim.api.nvim_create_user_command(
+    'RotateCapture',
+    function(opts)
+        vim.fn['functions#RotateCapture']()
+    end,
+    { nargs  = 0 }
+)
+
+-- toggle line wrapping
+vim.api.nvim_create_user_command(
+    'RotateCapture',
+    function(opts)
+        vim.fn['functions#RotateCapture']()
+    end,
+    { nargs  = 0 }
+)
+
+-- writing/prose mode
+vim.api.nvim_create_user_command(
+    'Wm',
+    function(opts)
+        vim.fn['functions#ToggleWrap']()
+    end,
+    { nargs  = 0 }
+)
