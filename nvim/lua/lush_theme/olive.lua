@@ -43,7 +43,7 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    Normal          { fg = black_almost, bg = white_almost }, -- Normal text
+    Normal          { fg = black_almost, bg = white }, -- Normal text
     ColorColumn     { fg = Normal.fg, bg = gray_light }, -- Columns set with 'colorcolumn'
     Cursor          { bg = Normal.fg, fg = Normal.bg }, -- Character under the cursor
     Search          { fg = Normal.fg, bg = yellow_light }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
