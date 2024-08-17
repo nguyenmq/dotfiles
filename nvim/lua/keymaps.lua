@@ -45,3 +45,16 @@ vim.keymap.set('n', '<Leader>co', function()
     vim.cmd('normal zR]czz')
     vim.fn['functions#VertSplitPercent'](0.41)
 end)
+
+-- yanks
+vim.keymap.set('n', '<Leader>y', function()
+    vim.cmd('normal "+yiw')
+    vim.cmd('echo "Yanked: " . @+')
+end)
+vim.keymap.set('n', '<Leader>Y', function()
+    vim.cmd('normal "+y$')
+    vim.cmd('echo "Yanked: " . @+')
+end)
+
+-- puts
+vim.keymap.set('n', '<Leader>cr', function() vim.fn['functions#PasteCRLink']() end)
