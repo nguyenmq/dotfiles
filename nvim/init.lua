@@ -10,4 +10,6 @@ require("commands")
 -- load lazy package manager
 require("config.lazy")
 
+-- settings after loading plugins
 vim.cmd('colorscheme olive')
+vim.opt.showtabline = 1

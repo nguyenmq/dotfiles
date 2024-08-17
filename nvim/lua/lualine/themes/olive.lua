@@ -1,8 +1,10 @@
 return {
     normal = {
         a = { bg = '{{gray_dark}}', fg = '{{black_almost}}', gui = 'bold' },
+        b = { bg = '{{ui_primary}}', fg = '{{white}}', gui = 'bold' },
         c = { bg = '{{ui_accent}}', fg = '{{white}}', gui = 'bold' },
-        y = { bg = '{{gray_light}}', fg = '{{black_almost}}', gui = 'bold' },
+        x = { bg = '{{yellow}}', fg = '{{black_almost}}' },
+        y = { bg = '{{ui_primary}}', fg = '{{gray_dark}}', gui = 'bold' },
         z = { bg = '{{gray_dark}}', fg = '{{black_almost}}', gui = 'bold' },
     },
     insert = {
