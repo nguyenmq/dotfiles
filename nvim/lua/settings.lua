@@ -1,6 +1,6 @@
 vim.opt.autoindent = true
-vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.background = 'light'
+vim.opt.backspace = {'indent', 'eol', 'start'}
 vim.opt.compatible = false
 vim.opt.completeopt = {'menuone', 'longest', 'preview'}
 vim.opt.conceallevel = 2
@@ -23,6 +23,7 @@ vim.opt.relativenumber = true
 vim.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize'}
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = true
+vim.opt.signcolumn = 'number'
 vim.opt.smartcase = true
 vim.opt.softtabstop = 4
 vim.opt.startofline = false
