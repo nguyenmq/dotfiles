@@ -7,6 +7,7 @@ local hsl = lush.hsl
 local black = hsl("{{black}}")
 local black_almost = hsl("{{black_almost}}")
 local blue = hsl("{{blue}}")
+local blue_dark = hsl("{{blue_dark}}")
 local gray_dark = hsl("{{gray_dark}}")
 local gray_darker = hsl("{{gray_darker}}")
 local gray_light = hsl("{{gray_light}}")
@@ -16,6 +17,7 @@ local green_bright = hsl("{{green_bright}}")
 local lavender = hsl("{{lavender}}")
 local magenta = hsl("{{magenta}}")
 local red = hsl("{{red}}")
+local red_dark = hsl("{{red_dark}}")
 local white_almost = hsl("{{white_almost}}")
 local white = hsl("{{white}}")
 local yellow = hsl("{{yellow}}")
@@ -31,8 +33,8 @@ local ui_text_accent_alt = hsl("{{ui_text_accent_alt}}")
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
 local theme = lush(function(injected_functions)
-  local sym = injected_functions.sym
-  return {
+    local sym = injected_functions.sym
+    return {
     -- The following are the Neovim (as of 0.8.0-dev+100-g371dfb174) highlight
     -- groups, mostly used for styling UI elements.
     -- Comment them out and add your own properties to override the defaults.
@@ -67,13 +69,13 @@ local theme = lush(function(injected_functions)
     VertSplit       { fg = ui_primary, bg = ui_primary }, -- Column separating vertically split windows
     Folded          { fg = blue, bg = white }, -- Line used for closed folds
     FoldColumn      { fg = ui_text_accent, bg = ui_accent }, -- 'foldcolumn'
-    SignColumn      { fg = ui_primary, bg = gray_light }, -- Column where |signs| are displayed
+    SignColumn      { fg = ui_primary, bg = gray_dark }, -- Column where |signs| are displayed
     LineNr          { fg = ui_primary, bg = white }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove     { fg = ui_primary, bg = gray_light }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow     { LineNrAbove }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr    { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
-    -- CursorLineSign { }, -- Like SignColumn when 'cursorline' is set for the cursor line
+    CursorLineSign  { SignColumn }, -- Like SignColumn when 'cursorline' is set for the cursor line
     MatchParen      { fg = blue, bg = gray_dark }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
     ModeMsg         { fg = ui_primary }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea         { Normal }, -- Area for messages and cmdline
@@ -81,8 +83,8 @@ local theme = lush(function(injected_functions)
     MoreMsg         { fg = yellow }, -- |more-prompt|
     NonText         { fg = gray_dark }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat     { Normal }, -- Normal text in floating windows.
-    FloatBorder     { VertSplit }, -- Border of floating windows.
-    FloatTitle      { fg = ui_primary }, -- Title of floating windows.
+    FloatBorder     { fg = ui_primary, bg = NormalFloat.bg }, -- Border of floating windows.
+    FloatTitle      { Normal, fg = ui_primary }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
     Pmenu           { fg = green, bg = gray_light }, -- Popup menu: Normal item.
     PmenuSel        { fg = white, bg = green }, -- Popup menu: Selected item.
@@ -137,7 +139,7 @@ local theme = lush(function(injected_functions)
     Label           { fg = gray_darker }, --   case, default, etc.
     Operator        { fg = magenta, gui = "bold" }, --   "sizeof", "+", "*", etc.
     Keyword         { fg = magenta, gui = "bold" }, --   any other keyword
-    Exception       { fg = lavender, gui = "bold" }, --   try, catch, throw
+    Exception       { fg = blue_dark, gui = "bold" }, --   try, catch, throw
     PreProc         { fg = gray_darker }, -- (*) Generic Preprocessor
     Include         { fg = magenta }, --   Preprocessor #include
     Define          { fg = magenta }, --   Preprocessor #define
@@ -146,7 +148,7 @@ local theme = lush(function(injected_functions)
 
     Type            { fg = lavender }, -- (*) int, long, char, etc.
     StorageClass    { fg = lavender, gui = "bold" }, --   static, register, volatile, etc.
-    Structure       { fg = lavender, gui = "bold" }, --   struct, union, enum, etc.
+    Structure       { fg = blue_dark, gui = "bold" }, --   struct, union, enum, etc.
     Typedef         { fg = lavender, gui = "bold" }, --   A typedef
 
     Special         { fg = lavender }, -- (*) Any special symbol
