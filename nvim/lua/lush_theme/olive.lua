@@ -132,21 +132,21 @@ local theme = lush(function(injected_functions)
     Boolean         { fg = blue }, --   A boolean constant: TRUE, false
     Float           { fg = blue }, --   A floating point constant: 2.3e10
     Identifier      { fg = lavender }, -- (*) Any variable name
-    Function        { fg = green_dark }, --   Function name (also: methods for classes)
-    Statement       { fg = magenta, gui = "bold" }, -- (*) Any statement
-    Conditional     { fg = magenta, gui = "bold" }, --   if, then, else, endif, switch, etc.
+    Function        { fg = magenta, gui = "bold" }, --   Function name (also: methods for classes)
+    Statement       { fg = blue_dark, gui = "bold" }, -- (*) Any statement
+    Conditional     { fg = blue_dark, gui = "bold" }, --   if, then, else, endif, switch, etc.
     Repeat          { fg = magenta, gui = "bold" }, --   for, do, while, etc.
     Label           { fg = gray_darker }, --   case, default, etc.
     Operator        { fg = magenta, gui = "bold" }, --   "sizeof", "+", "*", etc.
-    Keyword         { fg = magenta, gui = "bold" }, --   any other keyword
-    Exception       { fg = blue_dark, gui = "bold" }, --   try, catch, throw
+    Keyword         { fg = blue_dark }, --   any other keyword
+    Exception       { fg = blue_dark }, --   try, catch, throw
     PreProc         { fg = gray_darker }, -- (*) Generic Preprocessor
     Include         { fg = magenta }, --   Preprocessor #include
     Define          { fg = magenta }, --   Preprocessor #define
     Macro           { fg = red }, --   Same as Define
     PreCondit       { fg = red }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type            { fg = lavender }, -- (*) int, long, char, etc.
+    Type            { fg = lavender, gui = "bold" }, -- (*) int, long, char, etc.
     StorageClass    { fg = lavender, gui = "bold" }, --   static, register, volatile, etc.
     Structure       { fg = blue_dark, gui = "bold" }, --   struct, union, enum, etc.
     Typedef         { fg = lavender, gui = "bold" }, --   A typedef
