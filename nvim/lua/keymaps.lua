@@ -13,7 +13,7 @@ vim.keymap.set('n', '<Leader>l', function() print(vim.fn.expand('%:p')) end)
 vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.cursorline end)
 
 -- search
-vim.keymap.set('n', '<Leader>n', function() vim.cmd('nohlsearch') end)
+vim.keymap.set('n', '<Esc>', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<Leader>h', function()
     local word = vim.fn.expand("<cword>")
     vim.fn['functions#SearchWithHighlight']('\\<'..word..'\\>')
