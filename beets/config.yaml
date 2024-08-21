@@ -34,6 +34,7 @@ import:
     write: yes
     set_fields:
         genre: 'Rock'
+    incremental: yes
 format_item:
     '$albumartist | $artist | $artist_sort | $album | $year | $genre | $comments | $track | $title'
 zero:
