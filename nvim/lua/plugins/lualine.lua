@@ -14,7 +14,7 @@ return {
             sections = {
                 lualine_a = {'location'},
                 lualine_b = {'branch'},
-                lualine_c = {'filename'},
+                lualine_c = {'diagnostics', 'filename'},
                 lualine_x = {'searchcount'},
                 lualine_y = { { 'filetype', colored = false } },
                 lualine_z = {'selectioncount', 'progress'}
