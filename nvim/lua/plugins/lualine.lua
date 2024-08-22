@@ -7,16 +7,16 @@ return {
         require("lualine").setup {
             options = {
                 theme = 'olive',
-                component_separators = { left = '', right = ''},
-                section_separators = { left = '', right = ''},
+                component_separators = { left = '│', right = '│'},
+                section_separators = '',
                 always_divide_middle = true,
             },
             sections = {
                 lualine_a = {'location'},
-                lualine_b = {'branch'},
-                lualine_c = {'diagnostics', 'filename'},
+                lualine_b = {'branch' },
+                lualine_c = { { 'filename', path = 1 } },
                 lualine_x = {'searchcount'},
-                lualine_y = { { 'filetype', colored = false } },
+                lualine_y = { { 'diagnostics', colored = false }, { 'filetype', colored = false } },
                 lualine_z = {'selectioncount', 'progress'}
             },
             inactive_sections = {
