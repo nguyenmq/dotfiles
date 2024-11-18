@@ -49,6 +49,18 @@ function decrease_volume() {
     pactl set-sink-volume "$ACTIVE_SINK" "-${INCREMENT}%"
 }
 
+function set_volume() {
+    local target_volume
+    target_volume="${1}"
+
+    if [[ "$target_volume" -gt "$MAX_VOLUME" ]]; then
+        target_volume="$MAX_VOLUME"
+    fi
+
+    get_active_sink
+    pactl set-sink-volume "$ACTIVE_SINK" "${target_volume}%"
+}
+
 function get_current_volume() {
     CURRENT_VOLUME=$(pacmd list-sinks | grep -A 15 "index: $ACTIVE_SINK$" | awk '/^\s*volume:/ {gsub("%", "", $5); print $5}')
 }
@@ -147,6 +159,9 @@ case "$1" in
         ;;
     --listen)
         listen
+        ;;
+    --set)
+        set_volume "$2"
         ;;
     *)
         print_volume
