@@ -50,7 +50,6 @@ function! functions#ToggleWrap()
     setlocal nospell
     setlocal textwidth=0
     setlocal nobreakindent
-    setlocal columns=9999
     let s:wrapenabled = 0
   else
     nnoremap j gj
