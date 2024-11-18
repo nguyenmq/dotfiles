@@ -62,7 +62,7 @@ y = 1
 
 [font.italic]
 family = "{{term_font_family}}"
-style = "Italic"
+style = "Medium Italic"
 
 [font.offset]
 x = {{term_adjust_column_width}}
