@@ -70,3 +70,13 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = 1 }
 )
+
+vim.api.nvim_create_user_command(
+    'Dt',
+    function(opts)
+        date_cmd = 'date -d "' .. opts.args .. '" +"%Y-%m-%d"'
+        date = vim.fn.system(date_cmd)
+        vim.cmd('normal A' .. date)
+    end,
+    { nargs = 1 }
+)

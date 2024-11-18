@@ -58,3 +58,6 @@ end)
 
 -- puts
 vim.keymap.set('n', '<Leader>cr', function() vim.fn['functions#PasteCRLink']() end)
+
+-- abbreviation to insert date
+vim.keymap.set('ia', 'dt', vim.fn['strftime']("%Y-%m-%d"))
