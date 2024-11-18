@@ -59,3 +59,14 @@ vim.api.nvim_create_user_command(
     { nargs = 0 }
 )
 
+-- search with all characters escaped
+vim.api.nvim_create_user_command(
+    'ES',
+    function(opts)
+        search_args = '\\V' .. vim.fn.escape(opts.args, '\\')
+        vim.fn.setreg('/', search_args)
+        vim.fn.histadd('search', search_args)
+        vim.cmd('set hlsearch')
+    end,
+    { nargs = 1 }
+)
