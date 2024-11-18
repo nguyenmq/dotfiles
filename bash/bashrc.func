@@ -32,7 +32,7 @@ function vol {
         local vol=$1
     fi
 
-    amixer set Master "${vol}%" > /dev/null
+    ~/.dotfiles/polybar/pavolume.sh --set "${vol}" > /dev/null
 }
 
 # kill running ssh and sshfs processes
