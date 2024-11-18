@@ -18,12 +18,12 @@ vim.opt.laststatus = 2
 vim.opt.lazyredraw = true
 vim.opt.modeline = true
 vim.opt.number = true
-vim.opt.numberwidth = 5
+vim.opt.numberwidth = 4
 vim.opt.relativenumber = true
 vim.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize'}
 vim.opt.shiftwidth = 4
 vim.opt.showcmd = true
-vim.opt.signcolumn = 'number'
+vim.opt.signcolumn = 'yes:1'
 vim.opt.smartcase = true
 vim.opt.softtabstop = 4
 vim.opt.startofline = false
@@ -50,3 +50,5 @@ vim.cmd 'syntax on'
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = "\\"
+
+vim.fn.setreg('d', '- [ ] ')
