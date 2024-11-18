@@ -69,8 +69,8 @@ local theme = lush(function(injected_functions)
     VertSplit       { fg = ui_primary, bg = ui_primary }, -- Column separating vertically split windows
     Folded          { fg = blue, bg = white }, -- Line used for closed folds
     FoldColumn      { fg = ui_text_accent, bg = ui_accent }, -- 'foldcolumn'
-    SignColumn      { fg = ui_primary, bg = gray_dark }, -- Column where |signs| are displayed
-    LineNr          { fg = ui_primary, bg = white }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    SignColumn      { fg = ui_primary, bg = gray_light }, -- Column where |signs| are displayed
+    LineNr          { fg = ui_primary, bg = gray_light }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     LineNrAbove     { fg = ui_primary, bg = gray_light }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow     { LineNrAbove }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr    { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
@@ -178,10 +178,10 @@ local theme = lush(function(injected_functions)
 
     -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
     --
-    -- DiagnosticError            { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticWarn             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticInfo             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-    -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticError            { Normal, fg = red } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticWarn             { Normal, fg = yellow } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticInfo             { Normal, fg = green_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+    DiagnosticHint             { Normal, fg = blue_dark } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticVirtualTextError { } , -- Used for "Error" diagnostic virtual text.
     -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
@@ -198,10 +198,10 @@ local theme = lush(function(injected_functions)
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingHint     { } , -- Used to color "Hint" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingOk       { } , -- Used to color "Ok" diagnostic messages in diagnostics float.
-    -- DiagnosticSignError        { } , -- Used for "Error" signs in sign column.
-    -- DiagnosticSignWarn         { } , -- Used for "Warn" signs in sign column.
-    -- DiagnosticSignInfo         { } , -- Used for "Info" signs in sign column.
-    -- DiagnosticSignHint         { } , -- Used for "Hint" signs in sign column.
+    DiagnosticSignError        { DiagnosticError, bg = LineNrAbove.bg } , -- Used for "Error" signs in sign column.
+    DiagnosticSignWarn         { DiagnosticWarn, bg = LineNrAbove.bg } , -- Used for "Warn" signs in sign column.
+    DiagnosticSignInfo         { DiagnosticInfo, bg = LineNrAbove.bg } , -- Used for "Info" signs in sign column.
+    DiagnosticSignHint         { DiagnosticHint, bg = LineNrAbove.bg } , -- Used for "Hint" signs in sign column.
     -- DiagnosticSignOk           { } , -- Used for "Ok" signs in sign column.
 
     -- Tree-Sitter syntax groups.
