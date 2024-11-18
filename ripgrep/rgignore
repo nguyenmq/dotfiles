@@ -3,3 +3,4 @@
 target/debug
 target/release
 .vscode
+build
