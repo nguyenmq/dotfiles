@@ -35,7 +35,8 @@ return {
                     tabs_color = {
                         active = 'lualine_b_normal',
                         inactive = 'lualine_c_normal',
-                    }
+                    },
+                    max_length = vim.o.columns,
                 } },
             }
         }
