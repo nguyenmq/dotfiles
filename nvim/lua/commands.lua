@@ -42,3 +42,20 @@ vim.api.nvim_create_user_command(
     end,
     { nargs  = 0 }
 )
+
+vim.api.nvim_create_user_command(
+    'Bn',
+    function(opts)
+        vim.fn['functions#Basename']()
+    end,
+    { nargs = 0 }
+)
+
+vim.api.nvim_create_user_command(
+    'Gl',
+    function(opts)
+        vim.fn['functions#GetLocation']()
+    end,
+    { nargs = 0 }
+)
+

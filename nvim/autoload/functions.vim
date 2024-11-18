@@ -79,3 +79,15 @@ function! functions#PasteCRLink()
     execute "let @/='\\d\\+'"
     normal $F[r(f]r)$Nyt#F]i (rev 0)
 endfun
+
+function! functions#Basename()
+    execute "let @+ = fnamemodify('" . @% . "',':t')"
+    echo 'Yanked: ' . @+
+endfun
+
+function! functions#GetLocation()
+    let l:filepath = expand("%")
+    let l:line_number = line(".")
+    let @+ = l:filepath . ":" . l:line_number
+    echo 'Yanked: ' . @+
+endfun
