@@ -23,6 +23,7 @@ set searchurls.b bing
 set searchurls.g google
 set searchurls.yt youtube
 set searchurls.z amazon
+seturl ^https://play.rust-lang.org.* superignore true
 
 {{tridactyl_additional_settings}}
 
