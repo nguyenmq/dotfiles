@@ -22,7 +22,18 @@ end)
 
 -- windows and tabs
 vim.keymap.set('n', '<Leader>v', function() vim.fn['functions#VertSplitPercent'](0.41) end)
-vim.keymap.set('n', '<Leader>gx', function() vim.cmd('tabclose') end)
+vim.keymap.set('n', '<Leader>gx', function()
+    local tab_count = table.getn(vim.fn['gettabinfo']())
+    local current_tab_number = vim.fn['tabpagenr']()
+    vim.cmd('tabclose')
+
+    -- Closing the last tab means the "left" tab comes into focus. Closing a
+    -- tab in the middle shifts focus to the "right". Make the behavior
+    -- consistent by always bringing the "left" tab into focus after closing.
+    if current_tab_number ~= tab_count then
+        vim.cmd('normal gT')
+    end
+end)
 vim.keymap.set('n', '<Leader>z', function() vim.cmd('tab split'); vim.cmd('diffoff') end)
 
 -- completion
