@@ -61,7 +61,7 @@ local theme = lush(function(injected_functions)
     DiffAdd         { bg = green_bright.lighten(90) }, -- Diff mode: Added line |diff.txt|
     DiffChange      { DiffAdd }, -- Diff mode: Changed line |diff.txt|
     DiffDelete      { fg = red, bg = red.desaturate(30).lighten(85) }, -- Diff mode: Deleted line |diff.txt|
-    DiffText        { fg = Normal.fg, bg = DiffAdd.bg }, -- Diff mode: Changed text within a changed line |diff.txt|
+    DiffText        { fg = Normal.fg, bg = DiffAdd.bg.desaturate(30).darken(10), gui = "bold" }, -- Diff mode: Changed text within a changed line |diff.txt|
     -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
