@@ -192,3 +192,6 @@ flameshot_save_path = ""
 [ripgrep.files]
 "ripgrep/rgignore" = "~/.config/ripgrep/rgignore"
 "ripgrep/rgrc" = "~/.config/ripgrep/rgrc"
+
+[scripts.files]
+"scripts/kms_create_capture_note.sh" = "~/.local/bin/cap"
