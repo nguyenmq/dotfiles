@@ -196,3 +196,7 @@ flameshot_save_path = ""
 [scripts.files]
 "scripts/kms_create_capture_note.sh" = "~/.local/bin/cap"
 "scripts/kms_create_project.sh" = "~/.local/bin/prj"
+
+[rmpc.files]
+"rmpc/config.ron" = "~/.config/rmpc/config.ron"
+"rmpc/themes/olive.ron" = "~/.config/rmpc/themes/olive.ron"
