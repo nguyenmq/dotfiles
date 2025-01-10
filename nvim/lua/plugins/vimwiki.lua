@@ -1,5 +1,6 @@
 return {
     'vimwiki/vimwiki',
+    enabled = false,
     init = function()
         vim.g.vimwiki_list = {
             {
