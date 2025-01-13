@@ -21,14 +21,14 @@ function set_audio_sink() {
 
 function list_audio_sinks() {
     for sink in "$(pactl list sinks | awk -F ':' '/^\s+Description:/ {sub(/^\s+/, "", $2); print $2}' | sort)"; do
-        echo "$sink"
+        echo -en "${sink}"
     done
 }
 
 if [[ "$@" ]]; then
     set_audio_sink "$@"
 else
-    echo -en "\x00prompt\x1f\n"
+    echo -en "\x00prompt\x1f󰓃\n"
 
     list_audio_sinks
 fi

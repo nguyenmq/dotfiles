@@ -126,10 +126,10 @@ function print_volume() {
     get_mute_status
 
     if [[ "$IS_MUTED" -eq 1 ]]; then
-        echo "󰖁 mute"
+        echo "  mute"
     else
         volume_percentage="$(printf '%0.0f%%' "$CURRENT_VOLUME")"
-        printf '󰕾 %-4s\n' "$volume_percentage"
+        printf ' %-4s\n' "$volume_percentage"
     fi
 }
 

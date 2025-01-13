@@ -28,9 +28,9 @@ function print_notifications() {
     local count
 
     if [[ $(dunstctl is-paused) == "true" ]]; then
-        icon="󱙎"
+        icon="󱗡"
     else
-        icon="󰍥"
+        icon="󰅺"
     fi
 
     count=$(dunstctl count waiting)
