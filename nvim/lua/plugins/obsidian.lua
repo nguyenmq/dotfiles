@@ -56,7 +56,7 @@ return {
             markdown_link_func = "prepend_note_path",
             preferred_link_styel = "markdown",
             ui = {
-                enable = true,
+                enable = false,
                 update_debounce = 200,
                 checkboxes = {
                     [" "] = { char = "", hl_group = "ObsidianTodo" },

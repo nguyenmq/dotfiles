@@ -8,9 +8,11 @@ local black = hsl("{{black}}")
 local black_almost = hsl("{{black_almost}}")
 local blue = hsl("{{blue}}")
 local blue_dark = hsl("{{blue_dark}}")
+local blue_light = hsl("{{blue_light}}")
 local gray_dark = hsl("{{gray_dark}}")
 local gray_darker = hsl("{{gray_darker}}")
 local gray_light = hsl("{{gray_light}}")
+local gray_lighter = hsl("{{gray_lighter}}")
 local green = hsl("{{green}}")
 local green_dark = hsl("{{green_dark}}")
 local green_bright = hsl("{{green_bright}}")
@@ -267,7 +269,14 @@ local theme = lush(function(injected_functions)
     -- sym"@debug"             { }, -- Debug
     -- sym"@tag"               { }, -- Tag
 
-    VimwikiHeaderChar          { fg = green, gui = "bold" }
+    VimwikiHeaderChar          { fg = green, gui = "bold" },
+    RenderMarkdownUnchecked    { fg = blue_light },
+    RenderMarkdownChecked      { RenderMarkdownUnchecked },
+    RenderMarkdownBullet       { fg = blue_dark },
+    RenderMarkdownCode         { bg = gray_lighter },
+    RenderMarkdownCodeInline   { RenderMarkdownCode },
+    RenderMarkdownDash         { fg = gray_darker, bg = gray_lighter },
+    RenderMarkdownH1Bg         { fg = green, bg = DiffAdd.bg },
 }
 end)
 
