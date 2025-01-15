@@ -25,15 +25,6 @@ return {
                     end,
                     opts = { noremap = false, expr = true, buffer = true },
                 },
-                -- Toggle check-boxes and write buffer.
-                ["<C-Space>"] = {
-                    action = function()
-                        local status = util.toggle_checkbox()
-                        vim.cmd('update')
-                        return status
-                    end,
-                    opts = { buffer = true },
-                },
                 -- Smart action depending on context, either follow link or toggle checkbox.
                 ["<cr>"] = {
                     action = function()

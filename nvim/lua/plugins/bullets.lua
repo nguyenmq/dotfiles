@@ -16,7 +16,14 @@ return {
             { 'nmap', '<<', '<Plug>(bullets-promote)' },
             { 'vmap', '<', '<Plug>(bullets-promote)' },
         }
+        vim.g.bullets_outline_levels = {'ROM', 'ABC', 'num', 'abc', 'rom', 'std-'}
+        vim.g.bullets_checkbox_markers = '    x'
+        vim.g.bullets_nested_checkboxes = 1
     end,
     config = function()
+        vim.keymap.set('n', '<C-Space>', function()
+            vim.cmd('ToggleCheckbox')
+            vim.cmd('update')
+        end)
     end,
 }
