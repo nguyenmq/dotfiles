@@ -7,6 +7,7 @@
     font-family: "{{term_font_family}}";
     font-size: 11px;
     font-weight: 500;
+    border-radius: 0px !important;
 }
 
 #TabsToolbar {
@@ -31,4 +32,12 @@
 /* force popup menu to use light theme */
 :root, menupopup {
     color-scheme: light !important;
+}
+
+#navigator-toolbox {
+    --chrome-content-separator-color: {{ui_primary}} !important;
+}
+
+#nav-bar {
+    border-top: 0px !important;
 }
