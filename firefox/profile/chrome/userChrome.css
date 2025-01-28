@@ -15,7 +15,7 @@
 }
 
 #sidebar-splitter {
-    background-color: {{ui_primary}} !important;
+    background-color: {{green_light}} !important;
     border: 0px !important;
     width: 1px !important;
 }

@@ -2,41 +2,70 @@ tab-item {
     font-family: "UbuntuSans Nerd Font Propo";
     font-size: 13px;
     font-weight: 500;
+  	--tab-size: 2.7em !important;
 }
 
-/* show tab number */
+tab-label {
+    padding: 1em 0 !important
+}
+
+tab-item tab-item-substance {
+  background-color: var(--theme-colors-frame);
+  box-shadow: none;
+}
+
+tab-item.active tab-item-substance {
+  background-color: white;
+}
+
+tab-item.active .label-content {
+  font-weight: bold;
+}
+
+tab-item.active tab-twisty,
+tab-item.active .label-content,
+tab-item.active .contextual-identity-marker {
+  color: black;
+}
+
+/* Less visible tab dividers. 
+   A black border with a very low alpha slightly darkens any color. */
+tab-item-substance {
+  border: solid 1px #00000033;
+}
+
+.contextual-identity-marker {
+  top: 0;
+  bottom: 0;
+}
+
+/* change the base box to layout position:absolute box, from the root container box to the tab item */
+:root.group-tab li {
+  position: absolute;
+}
+
+:root.sidebar #background {
+  background: var(--theme-colors-frame);
+}
+
+.newtab-button-box {
+  display: none;
+}
 
 #tabbar {
-    counter-reset: vtabs atabs tabs;
-    /* vtabs tracks visible tabs, atabs tracks active tabs, tabs tracks all tabs */
+  bottom: 0 !important; /* Eliminate dead space on bottom */
 }
 
-tab-item:not(.collapsed):not(.discarded) {
-    counter-increment: vtabs atabs tabs;
+tab-item tab-closebox {
+  display: none;
 }
 
-tab-item:not(.collapsed) {
-    counter-increment: vtabs tabs;
+tab-item:not(.faviconized):not(.loading) tab-favicon {
+  margin-right: 0.5em;
+  margin-left: 0.1em;
 }
 
-tab-item:not(.discarded) {
-    counter-increment: atabs tabs;
-}
-
-tab-item {
-    counter-increment: tabs;
-}
-
-tab-item .extra-items-container.behind {
-    z-index: unset !important;
-}
-
-tab-item .extra-items-container.behind::after {
-    color: HighlightText;
-    content: counter(vtabs);
-    font-size: x-small;
-    padding-top: 0.1em;
-    padding-left: 0.5em;
-    pointer-events: none;
-    z-index: 1000;
+tab-item tab-item-substance:hover {
+  background: #eeeeee !important;
+  opacity: 1;
 }
