@@ -41,3 +41,20 @@
 #nav-bar {
     border-top: 0px !important;
 }
+
+.browser-toolbar {
+    background-color: {{ui_primary}} !important;
+}
+
+.toolbarbutton-animatable-box, .toolbarbutton-1 {
+    color: {{white}} !important;
+    fill: {{white}} !important;
+}
+
+.urlbar {
+    color: {{black}} !important;
+}
+
+#urlbar-background {
+    background-color: {{white}} !important;
+}
