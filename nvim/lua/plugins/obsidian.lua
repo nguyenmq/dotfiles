@@ -10,11 +10,18 @@ return {
         local util = require("obsidian.util")
         vim.keymap.set('ca', 'obn', 'ObsidianNew')
         vim.keymap.set('ca', 'obs', 'ObsidianQuickSwitch')
+        vim.keymap.set('n', '<Leader>or', function()
+            vim.cmd('global /^\\s*- \\[x\\]/ d')
+        end)
         require("obsidian").setup {
             workspaces = {
                 {
                     name = "kms",
                     path = "~/next/kms",
+                },
+                {
+                    name = "work",
+                    path = "~/notes",
                 },
             },
             mappings = {
