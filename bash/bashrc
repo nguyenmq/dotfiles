@@ -44,15 +44,17 @@ show_bg_jobs() {
 }
 
 # Exports
-export EDITOR=vim
-if [ -z ${SSH_CLIENT+x} ]; then
-    # If the ssh client variable isn't set, then this is a local terminal and
-    # use the regular prompt color
-    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
-else
+export EDITOR=nvim
+if [ -v "IN_CR" ]; then
+    # This is a terminal session for conducting CRs
+    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs) \[\e[00;31m\](cr mode)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
+elif [ -v "SSH_CLIENT" ]; then
     # Else this is an ssh session. Change the prompt colors so it's more
     # obvious this isn't a local machine
     export PS1="\[\e[00;36m\][ \[\e[01;36m\]\u@\h:\[\e[00;33m\]\w\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
+else
+    # This is a local terminal and use the regular prompt color
+    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
 fi
 
 # man pager color -- escapes for urxvt/xterm
@@ -76,8 +78,8 @@ alias c="clear -x"
 alias ls="ls --color=auto --file-type -X"
 alias ll="ls -alh --color=auto --group-directories-first"
 alias grep='grep --color=auto'
-alias vi="vim"
-alias vp="vim -R -"
+alias vi="nvim"
+alias vp="nvim -R -"
 alias ring="echo -e '\a'"
 alias pc="pass show -c"
 
