@@ -16,7 +16,7 @@ return {
                 -- The number of '#' in the heading determines the 'level'
                 -- The 'level' is used to index into the list using a cycle
                 -- If the value is a function the input is the nesting level of the heading within sections
-                icons = { '󰎤 ', '󰎧 ', '󰎪 ', '󰎭 ', '󰎱 ', '󰎳 ' },
+                icons = { '󰎤 ', '󰎧󱓻 ', '󰎪󱓻󱓻 ', '󰎭󱓻󱓻󱓻 ', '󰎱󱓻󱓻󱓻󱓻 ', '󰎳󱓻󱓻󱓻󱓻󱓻 ' },
                 position = 'overlay',
                 width = 'block',
                 -- Amount of margin to add to the left of headings
