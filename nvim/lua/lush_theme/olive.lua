@@ -275,7 +275,7 @@ local theme = lush(function(injected_functions)
     RenderMarkdownBullet       { fg = blue_dark },
     RenderMarkdownCode         { bg = gray_lighter },
     RenderMarkdownCodeInline   { RenderMarkdownCode },
-    RenderMarkdownDash         { fg = gray_darker, bg = gray_lighter },
+    RenderMarkdownDash         { fg = gray_darker },
     RenderMarkdownH1Bg         { fg = green, bg = DiffAdd.bg },
 }
 end)
