@@ -203,3 +203,6 @@ flameshot_save_path = ""
 [rmpc.files]
 "rmpc/config.ron" = "~/.config/rmpc/config.ron"
 "rmpc/themes/olive.ron" = "~/.config/rmpc/themes/olive.ron"
+
+[xconfig.files]
+"xconfig/user-dirs.dirs" = "~/.config/user-dirs.dirs"
