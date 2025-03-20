@@ -39,6 +39,10 @@ tab-item-substance {
     bottom: 0;
 }
 
+:root {
+    --shadow-color: rgba(0, 0, 0, 0);
+}
+
 /* change the base box to layout position:absolute box, from the root container box to the tab item */
 :root.group-tab li {
     position: absolute;
