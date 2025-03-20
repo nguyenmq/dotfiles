@@ -37,6 +37,7 @@
 
 #navigator-toolbox {
     --chrome-content-separator-color: {{ui_primary}} !important;
+    border-bottom: 0px !important;
 }
 
 #nav-bar {
@@ -57,7 +58,7 @@
 }
 
 #urlbar-background {
-    background-color: {{white}} !important;
+    background-color: {{gray_lighter}} !important;
 }
 
 #urlbar-container[breakout] {
