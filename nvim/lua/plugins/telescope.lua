@@ -4,7 +4,8 @@ return {
     tag = '0.1.8',
     dependencies = {
         'nvim-lua/plenary.nvim',
-        'nvim-telescope/telescope-live-grep-args.nvim'
+        'nvim-telescope/telescope-live-grep-args.nvim',
+        { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
         local tags_file = '/tmp/tags'
@@ -13,10 +14,12 @@ return {
                 layout_strategy = 'vertical',
                 layout_config = {
                     vertical = {
-                        width = 0.5,
-                        mirror = true
-                    }
-                }
+                        height = 0.6,
+                        width = 0.45,
+                        mirror = true,
+                    },
+                },
+                border = false,
             },
             pickers = {
                 buffers = {
@@ -48,13 +51,14 @@ return {
                 }
             }
         }
+        require('telescope').load_extension('fzf')
         local builtin = require('telescope.builtin')
         local extensions = require('telescope').extensions
         vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-        vim.keymap.set('n', '<leader>s', builtin.grep_string, {})
-        vim.keymap.set('n', '<leader>S', extensions.live_grep_args.live_grep_args, {})
+        vim.keymap.set('n', '<leader>sd', builtin.grep_string, {})
+        vim.keymap.set('n', '<leader>ss', extensions.live_grep_args.live_grep_args, {})
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
-        vim.keymap.set('n', '<leader>r', builtin.command_history, {})
+        vim.keymap.set('n', '<leader>;', builtin.command_history, {})
         vim.keymap.set('n', '<leader>T', function()
             local lsp_count = table.getn(vim.lsp.get_clients({bufnr=0}))
             if lsp_count > 0 then

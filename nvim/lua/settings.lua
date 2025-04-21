@@ -42,6 +42,7 @@ vim.opt.wildignore = {'*.o', '*.so', '*.a', '*.o32', '*.obj', '*.out', '*.zip', 
 vim.opt.wildmenu = true
 vim.opt.wildmode = {'longest', 'list', 'full'}
 vim.opt.wildoptions = {'pum'}
+vim.opt.winborder = 'single'
 vim.opt.wrap = false
 
 vim.cmd 'filetype indent off'
