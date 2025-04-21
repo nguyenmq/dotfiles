@@ -2,6 +2,7 @@ return {
     'bullets-vim/bullets.vim',
     name = 'bullets',
     init = function()
+        vim.g.bullets_enable_in_empty_buffers = 0
         vim.g.bullets_set_mappings = 0
         vim.g.bullets_custom_mappings = {
             { 'imap', '<cr>', '<Plug>(bullets-newline)' },
