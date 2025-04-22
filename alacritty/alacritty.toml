@@ -109,19 +109,16 @@ mods = "Control|Shift"
 action = "Copy"
 key = "Y"
 mode = "Vi|~Search"
-mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ClearSelection"
 key = "Y"
 mode = "Vi|~Search"
-mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ToggleViMode"
 key = "Y"
 mode = "Vi|~Search"
-mods = "Shift"
 
 [window]
 decorations = "full"
