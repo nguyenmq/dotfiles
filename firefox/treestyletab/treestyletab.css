@@ -41,6 +41,11 @@ tab-item-substance {
 
 :root {
     --shadow-color: rgba(0, 0, 0, 0);
+    --browser-background: #cce7de;
+    --in-content-box-border-color: rgba(0, 0, 0, 0);
+    --ThreeDShadow: rgba(0, 0, 0, 0);
+    --ThreeDHightlight: rgba(0, 0, 0, 0);
+    --AppWorkspace: rgba(0, 0, 0, 0);
 }
 
 /* change the base box to layout position:absolute box, from the root container box to the tab item */
@@ -49,7 +54,7 @@ tab-item-substance {
 }
 
 :root.sidebar #background {
-  background: #cce7de;
+    background: #cce7de;
 }
 
 .newtab-button-box {

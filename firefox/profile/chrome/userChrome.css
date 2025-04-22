@@ -9,6 +9,9 @@
     font-weight: 500;
     border-radius: 0px !important;
     --urlbar-margin-inline: 0px;
+    --toolbar-field-color: {{black}};
+    --toolbar-field-focus-background-color: {{white}};
+    --toolbar-field-focus-color: {{black}};
 }
 
 #TabsToolbar {
@@ -36,7 +39,7 @@
 }
 
 #navigator-toolbox {
-    --chrome-content-separator-color: {{ui_primary}} !important;
+    --chrome-content-separator-color: {{green_light}} !important;
     border-bottom: 0px !important;
 }
 
@@ -45,20 +48,21 @@
 }
 
 .browser-toolbar {
-    background-color: {{ui_primary}} !important;
+    background-color: {{green_light}} !important;
 }
 
 .toolbarbutton-animatable-box, .toolbarbutton-1 {
-    color: {{white}} !important;
-    fill: {{white}} !important;
+    color: {{black}} !important;
+    fill: {{black}} !important;
 }
 
-.urlbar {
+.urlbar, .urlbar-input {
     color: {{black}} !important;
+    fill: {{black}} !important;
 }
 
 #urlbar-background {
-    background-color: {{gray_lighter}} !important;
+    background-color: {{green_light}} !important;
 }
 
 #urlbar-container[breakout] {
