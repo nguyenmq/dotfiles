@@ -15,7 +15,7 @@ return {
                 layout_config = {
                     vertical = {
                         height = 0.6,
-                        width = 0.45,
+                        width = { 0.95, max = 130 },
                         mirror = true,
                     },
                 },
@@ -47,7 +47,8 @@ return {
                     bufnr = 0,
                 },
                 lsp_document_symbols = {
-                    fname_width = 50,
+                    symbol_width = 50,
+                    show_line = true,
                 }
             }
         }
@@ -71,7 +72,7 @@ return {
             local lsp_count = table.getn(vim.lsp.get_clients({bufnr=0}))
 
             if lsp_count > 0 then
-                builtin.lsp_document_symbols({fname_width=50})
+                builtin.lsp_document_symbols()
             else
                 -- run ctags on the current buffer to get an updated tags file if no lsp client
                 local filename = vim.fn.expand('%:p')
