@@ -1,8 +1,8 @@
 tab-item {
     font-family: "UbuntuSans Nerd Font Propo";
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 500;
-  	--tab-size: 2.7em !important;
+  	--tab-size: 2.9em !important;
 }
 
 tab-label {
@@ -31,7 +31,7 @@ tab-item.active .contextual-identity-marker {
 /* Less visible tab dividers. 
    A black border with a very low alpha slightly darkens any color. */
 tab-item-substance {
-    border: solid 1px #cccccc;
+    border: solid 0px #cccccc;
 }
 
 .contextual-identity-marker {
@@ -70,8 +70,8 @@ tab-item tab-closebox {
 }
 
 tab-item:not(.faviconized):not(.loading) tab-favicon {
-    margin-right: 0.5em;
-    margin-left: 0.1em;
+    margin-right: 0.6em;
+    margin-left: 0.2em;
 }
 
 tab-item tab-item-substance:hover {
