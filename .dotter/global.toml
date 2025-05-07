@@ -191,6 +191,7 @@ flameshot_save_path = ""
 "nvim/lua/lush_theme" = "~/.config/nvim/lua/lush_theme/"
 "nvim/lua/settings.lua" = "~/.config/nvim/lua/settings.lua"
 "nvim/lua/lualine/themes/olive.lua" = "~/.config/nvim/lua/lualine/themes/olive.lua"
+"nvim/ftplugin/" = "~/.config/nvim/ftplugin/"
 
 [ripgrep.files]
 "ripgrep/rgignore" = "~/.config/ripgrep/rgignore"
