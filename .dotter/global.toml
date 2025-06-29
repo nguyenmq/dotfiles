@@ -25,7 +25,7 @@ yellow = "#f5a553"
 yellow_light = "#e5dd80"
 yellow_pale = "#ffff87"
 # the primary color of status bar ui elements
-ui_primary = "#335e4e"
+ui_primary = "#235b51"
 # the accent color for contrasting with the primary color, usual to denote
 # selection of an item.
 ui_accent = "#559e83"
