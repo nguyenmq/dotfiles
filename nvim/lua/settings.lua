@@ -5,6 +5,7 @@ vim.opt.compatible = false
 vim.opt.completeopt = {'menuone', 'longest', 'preview'}
 vim.opt.conceallevel = 2
 vim.opt.cursorlineopt = 'screenline'
+vim.opt.diffopt = {'context:9999', 'algorithm:minimal', 'closeoff', 'filler', 'internal', 'linematch:60'}
 vim.opt.dir = '/tmp'
 vim.opt.equalalways = false
 vim.opt.errorbells = false
