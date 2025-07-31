@@ -20,6 +20,7 @@ vim.opt.lazyredraw = true
 vim.opt.modeline = true
 vim.opt.number = true
 vim.opt.numberwidth = 4
+vim.opt.previewheight = 15
 vim.opt.relativenumber = true
 vim.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize'}
 vim.opt.shiftwidth = 4
