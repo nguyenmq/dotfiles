@@ -17,7 +17,7 @@ return {
             { 'nmap', '<<', '<Plug>(bullets-promote)' },
             { 'vmap', '<', '<Plug>(bullets-promote)' },
         }
-        vim.g.bullets_outline_levels = {'ROM', 'ABC', 'num', 'abc', 'rom', 'std-'}
+        vim.g.bullets_outline_levels = {'num'}
         vim.g.bullets_checkbox_markers = '    x'
         vim.g.bullets_nested_checkboxes = 1
     end,
