@@ -164,6 +164,9 @@ sway_border_width = 3
 [firefox.files]
 "firefox/profile/chrome/userChrome.css" = ""
 
+[firefox.variables]
+firefox_font = "UbuntuSans Nerd Font Propo"
+
 [kanshi.files]
 "kanshi/config" = "~/.config/kanshi/config"
 

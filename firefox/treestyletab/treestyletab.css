@@ -1,5 +1,5 @@
 tab-item {
-    font-family: "UbuntuSans Nerd Font Propo";
+    font-family: "{{firefox_font}}";
     font-size: 12px;
     font-weight: 500;
   	--tab-size: 2.9em !important;

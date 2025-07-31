@@ -4,8 +4,8 @@
  */
 
 * {
-    font-family: "{{term_font_family}}";
-    font-size: 11px;
+    font-family: "{{firefox_font}}";
+    font-size: 12px;
     font-weight: 500;
     border-radius: 0px !important;
     --urlbar-margin-inline: 0px;
