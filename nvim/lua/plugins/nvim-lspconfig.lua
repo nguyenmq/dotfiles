@@ -3,9 +3,6 @@
 return {
     'neovim/nvim-lspconfig',
     name = 'nvim-lspconfig',
-    dependencies = {
-        { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-    },
     config = function()
         local on_attach = function(client, bufnr)
             vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -23,7 +20,6 @@ return {
             workspace_setup()
         end
 
-        require('mason').setup()
         local lspconfig = require('lspconfig')
     end,
 }
