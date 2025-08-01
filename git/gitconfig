@@ -6,6 +6,7 @@
     pager = less -S
     filemode = false
     preloadIndex = true
+    compression = 9
 [merge]
     tool = vimdiff
     guitool = gvimdiff
@@ -64,4 +65,13 @@
 [pull]
     ff = only
 [rerere]
-	enabled = true
+    enabled = true
+    autoUpdate = true
+[commit]
+    verbose = true
+[branch]
+    sort = -committerdate
+[tag]
+    sort = -version:refname
+[column]
+    ui = auto
