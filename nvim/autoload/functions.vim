@@ -67,7 +67,6 @@ function! functions#ToggleWrap()
     setlocal spell
     setlocal textwidth=0
     setlocal breakindent
-    setlocal columns=120
     let s:wrapenabled = 1
   endif
 endfunction
