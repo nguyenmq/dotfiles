@@ -19,7 +19,10 @@ return {
                         mirror = true,
                     },
                 },
-                border = false,
+                border = true,
+                borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+                dynamic_preview_title = true,
+                results_title = false,
             },
             pickers = {
                 buffers = {
