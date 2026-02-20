@@ -1,1 +1,3 @@
-return { 'lambdalisue/vim-pager' }
+return {
+    'lambdalisue/vim-pager',
+}
