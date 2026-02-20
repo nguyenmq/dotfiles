@@ -24,6 +24,7 @@ set searchurls.g google
 set searchurls.yt youtube
 set searchurls.z amazon
 seturl ^https://play.rust-lang.org.* superignore true
+seturl ^https://notes.ext.chateau-miina.com.* superignore true
 
 {{tridactyl_additional_settings}}
 
