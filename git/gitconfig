@@ -2,16 +2,16 @@
     name = {{fullname}}
     email = {{email}}
 [core]
-    editor = vim
+    editor = nvim
     pager = less -S
     filemode = false
     preloadIndex = true
     compression = 9
 [merge]
-    tool = vimdiff
+    tool = nvimdiff
     guitool = gvimdiff
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
     guitool = gvimdiff
 [color]
     ui = true
@@ -75,3 +75,4 @@
     sort = -version:refname
 [column]
     ui = auto
+    status = never
