@@ -230,7 +230,7 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 2
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh"
 exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
-exec "/usr/bin/solaar --window hide"
+exec "/usr/bin/solaar --window hide --battery-icons symbolic"
 exec "/usr/bin/xss-lock -- {{i3_locker}}"
 bindsym $mod+semicolon [class="Alacritty"] scratchpad show
 {{i3_additional_execs}}
