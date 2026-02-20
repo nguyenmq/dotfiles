@@ -72,3 +72,35 @@ vim.keymap.set('n', '<Leader>cr', function() vim.fn['functions#PasteCRLink']() e
 
 -- abbreviation to insert date
 vim.keymap.set('ia', 'dt', vim.fn['strftime']("%Y-%m-%d"))
+-- custom text object selection for markdown code fences
+function select_code_fence()
+  local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+  local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+
+  -- Find opening fence (search backwards)
+  local start_line = nil
+  for i = row, 1, -1 do
+    if lines[i]:match("^```") then
+      start_line = i
+      break
+    end
+  end
+
+  -- Find closing fence (search forwards)
+  local end_line = nil
+  for i = row, #lines do
+    if lines[i]:match("^```") and i ~= start_line then
+      end_line = i
+      break
+    end
+  end
+
+  if start_line and end_line then
+    vim.cmd("normal! \27")
+    vim.api.nvim_win_set_cursor(0, {start_line + 1, 0})
+    vim.cmd("normal! 0v")
+    vim.api.nvim_win_set_cursor(0, {end_line - 1, 0})
+    vim.cmd("normal! g_")
+  end
+end
+vim.keymap.set({'x', 'o'}, 'if', select_code_fence, { desc = "Inner code fence" })
