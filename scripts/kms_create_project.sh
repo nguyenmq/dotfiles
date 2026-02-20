@@ -63,7 +63,7 @@ while true; do
         --)
             NEW_DIRECTORY_NAME="${2,,}"
             NEW_DIRECTORY_NAME=$(echo "$NEW_DIRECTORY_NAME" | tr -d "[:punct:]")
-            NEW_DIRECTORY_NAME="${NEW_DIRECTORY_NAME// /_}"
+            NEW_DIRECTORY_NAME="${NEW_DIRECTORY_NAME// /-}"
             shift
             break
             ;;
