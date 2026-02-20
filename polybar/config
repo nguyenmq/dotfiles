@@ -163,7 +163,7 @@ time-format = %H:%M
 
 format-charging = <label-charging>
 format-charging-underline = ${colors.unfocused_foreground}
-label-charging = "󰂄 %percentage%% (%time%)"
+label-charging = "󰂅 %percentage%% (%time%)"
 label-charging-padding = 1
 
 format-discharging = <label-discharging>
