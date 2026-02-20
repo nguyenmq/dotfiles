@@ -71,6 +71,8 @@ end)
 vim.keymap.set('n', '<Leader>cr', function() vim.fn['functions#PasteCRLink']() end)
 
 -- abbreviation to insert date
+vim.keymap.set('ia', 'yr', vim.fn['strftime']("%Y"))
+vim.keymap.set('ia', 'ym', vim.fn['strftime']("%Y-%m"))
 vim.keymap.set('ia', 'dt', vim.fn['strftime']("%Y-%m-%d"))
 -- custom text object selection for markdown code fences
 function select_code_fence()
