@@ -31,7 +31,7 @@ workspace $WS9 output "{{monitor_right}}"
 workspace $WS10 output "{{monitor_right}}"
 
 # Set default workspace layout
-workspace_layout stacking
+workspace_layout tabbed
 
 # Assign applications to specfic workspaces
 assign [class="mpv"] $WS7
@@ -40,6 +40,7 @@ assign [class="Chromium"] $WS8
 
 # Font for window titles
 font pango:{{ui_font_family}} {{i3_window_font_size}}
+title_align center
 
 # Window colors
 # colorclass            hdr_bdr           bg                text      indic          btm_bdr
@@ -72,7 +73,7 @@ bindsym $mod+Control+o exec "{{alternate_browser}}"
 # control mediaplayers
 bindsym $mod+backslash exec "playerctl play-pause"
 bindsym $mod+Control+backslash exec "playerctl play-pause --player=mpd"
-bindsym $mod+bracketright exec mpc next
+bindsym $mod+bracketright exec "playerctl next"
 
 # kill focused window
 bindsym $mod+Control+q kill
