@@ -63,7 +63,7 @@
 [messenger]
     desktop_entry = "Firefox"
     summary = "Facebook"
-    new_icon = "~/.local/share/icons/messenger_32.png"
+    new_icon = "~/.local/share/icons/messenger.png"
 
 [network_manager]
     desktop_entry = "nm-applet"
