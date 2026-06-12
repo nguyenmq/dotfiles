@@ -49,3 +49,12 @@ function ks() {
         kill "$pid"
     done
 }
+
+function cp-path {
+    if [[ -z "$1" ]]; then
+        echo "No file supplied"
+    else
+        realpath "$1" | tr -d '[\n\r]' | xclip -selection clipboard -in
+        printf "%s\n" "$(xclip -selection clipboard -out)"
+    fi
+}
