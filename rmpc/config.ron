@@ -27,6 +27,7 @@
             "1":       SwitchToTab("Library"),
             "2":       SwitchToTab("Stack"),
             "3":       SwitchToTab("Queue"),
+            "4":       SwitchToTab("Cover"),
             "q":       Quit,
             "}":       NextTrack,
             "<Space>": TogglePause,
@@ -101,33 +102,68 @@
         album_sort_by: Date,
     ),
     tabs: [
-        (
-            name: "Library",
-            border_type: Single,
-            pane: Pane(AlbumArtists),
+        (name: "Library", pane: Split(direction: Horizontal, panes: [
+                    (size: "100%", borders: "ALL", border_symbols: Rounded, pane: Pane(Browser(root_tag: "AlbumArtist",
+            levels: [
+                        (
+                            group_by: [[AlbumArtist]],
+                            skip: SingleEmpty,
+                        ),
+                        (
+                            group_by: [[Album], [Other("date"), Other("originaldate")]],
+                            format: [
+                                (kind: Group([
+                                    (kind: Text("(")),
+                                    (kind: Property(Other("date"))),
+                                    (kind: Text(") ")),
+                                ])),
+                                (kind: Property(Album)),
+                            ],
+                        ),
+                    ],
+                ))),
+            ])
         ),
-        (
-            name: "Stack",
-            border_type: Single,
-            pane: Split(
-                direction: Vertical,
-                panes: [
-                    (size: "48%", pane: Pane(AlbumArt)),
-                    (size: "52%", pane: Pane(Queue))
-                ],
-            ),
+        (name: "Stack", pane: Split(direction: Vertical, panes: [
+                    (size: "50%", borders: "NONE", border_symbols: Rounded, border: "ALL", pane: Pane(AlbumArt)),
+                    (size: "50%", borders: "NONE", pane: Split(direction: Vertical, panes: [
+                                (size: "3", borders: "ALL", border_symbols: Rounded , pane: Pane(QueueHeader())),
+                                (size: "100%", borders: "ALL", border_symbols: Rounded ,pane: Pane(Queue)),
+                        ])
+                    ),
+                ])
         ),
-        (
-            name: "Queue",
-            border_type: Single,
-            pane: Split(
-                direction: Horizontal,
-                panes: [
-                    (size: "41%", pane: Pane(AlbumArt)),
-                    (size: "59%", pane: Pane(Queue))
-                ],
-            ),
+        (name: "Queue",pane: Split(direction: Vertical, panes: [
+                    (size: "50%", pane: Split(direction: Horizontal, panes: [
+                                (size: "23%", borders: "ALL", border_symbols: Rounded, pane: Pane(AlbumArt)),
+                                (size: "77%", borders: "ALL", border_symbols: Rounded, pane: Pane(Queue)),
+                            ])
+                    ),
+                    (size: "50%", borders: "ALL", border_symbols: Rounded, pane: Pane(Cava)),
+                ])
         ),
+        (name: "Cover", pane: Pane(AlbumArt)),
     ],
+    cava: (
+    framerate: 60, // default 60
+    autosens: true, // default true
+    sensitivity: 100, // default 100
+    lower_cutoff_freq: 50, // not passed to cava if not provided
+    higher_cutoff_freq: 10000, // not passed to cava if not provided
+    input: (
+        method: Fifo,
+        source: "/tmp/mpd.fifo",
+        sample_rate: 48000,
+        channels: 2,
+        sample_bits: 16,
+    ),
+    smoothing: (
+        noise_reduction: 77, // default 77
+        monstercat: false, // default false
+        waves: false, // default false
+    ),
+    // this is a list of floating point numbers thats directly passed to cava
+    // they are passed in order that they are defined
+    eq: []
+    ),
 )
-
