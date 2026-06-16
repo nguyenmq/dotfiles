@@ -138,6 +138,7 @@ bindsym $mod+a focus parent
 # disable mouse warping
 focus_follows_mouse no
 mouse_warping none
+focus_on_window_activation none
 
 # switch to workspace
 bindsym $mod+1 workspace number $WS1
