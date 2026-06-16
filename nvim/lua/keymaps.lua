@@ -15,13 +15,32 @@ vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.curs
 -- search
 vim.keymap.set('n', '<Esc>', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<Leader>h', function()
-    local word = vim.fn.expand("<cword>")
-    vim.fn['functions#SearchWithHighlight']('\\<'..word..'\\>')
-    vim.cmd('set hlsearch')
+  local word = vim.fn.expand("<cword>")
+  vim.fn['functions#SearchWithHighlight']('\\<'..word..'\\>')
+  vim.cmd('set hlsearch')
 end)
 
+-- percentage based horizontal split/resizing of windows
+local function vert_split_percent(percent)
+  local qf_count = 0
+  for _, w in ipairs(vim.fn.getwininfo()) do
+    if w.quickfix == 1 or w.loclist == 1 then
+      qf_count = qf_count + 1
+    end
+  end
+
+  local win_count = vim.fn.winnr('$') - qf_count
+  local width = math.floor(vim.o.columns * percent)
+
+  if win_count > 1 then
+    vim.api.nvim_win_set_width(0, width)
+  else
+    vim.cmd('vertical ' .. width .. 'split')
+  end
+end
+vim.keymap.set('n', '<Leader>v', function() vert_split_percent(0.41) end)
+
 -- windows and tabs
-vim.keymap.set('n', '<Leader>v', function() vim.fn['functions#VertSplitPercent'](0.41) end)
 vim.keymap.set('n', '<Leader>gx', function()
     local tab_count = table.getn(vim.fn['gettabinfo']())
     local current_tab_number = vim.fn['tabpagenr']()
@@ -50,11 +69,19 @@ vim.keymap.set('n', '<Leader>E', '<cmd>cN<cr>zz', { silent = true })
 
 -- diff
 vim.keymap.set('n', '<Leader>co', function()
+    -- figure out if this is a new file
+    local is_new = vim.fn.getline('.'):find('(new)')
     vim.cmd('tab split')
     vim.cmd('normal 0f]wgf')
+
+    if is_new then
+        return
+    end
+
     vim.cmd('Gvdiffsplit ' .. os.getenv('GIT_DIFF_OBJECT'))
     vim.cmd('normal zR]czz')
-    vim.fn['functions#VertSplitPercent'](0.41)
+    vert_split_percent(0.41)
+    vim.cmd('windo set foldcolumn=0')
 end)
 
 -- yanks
