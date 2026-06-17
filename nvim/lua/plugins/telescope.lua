@@ -1,3 +1,12 @@
+function count_lsp_clients()
+    local clients = vim.lsp.get_clients({bufnr = 0})
+    local count = 0
+    for _, client in ipairs(clients) do
+          count = count + 1
+    end
+    return count
+end
+
 return {
     'nvim-telescope/telescope.nvim',
     name = 'telescope',
@@ -14,9 +23,13 @@ return {
                 layout_strategy = 'vertical',
                 layout_config = {
                     vertical = {
-                        height = 0.6,
+                        height = 0.65,
                         width = { 0.95, max = 130 },
                         mirror = true,
+                    },
+                    bottom_pane = {
+                        height = 0.5,
+                        prompt_position = "bottom",
                     },
                 },
                 border = true,
@@ -64,7 +77,7 @@ return {
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
         vim.keymap.set('n', '<leader>;', builtin.command_history, {})
         vim.keymap.set('n', '<leader>T', function()
-            local lsp_count = table.getn(vim.lsp.get_clients({bufnr=0}))
+            local lsp_count = count_lsp_clients()
             if lsp_count > 0 then
                 builtin.lsp_workspace_symbols()
             else
@@ -72,8 +85,7 @@ return {
             end
         end)
         vim.keymap.set('n', '<leader>t', function()
-            local lsp_count = table.getn(vim.lsp.get_clients({bufnr=0}))
-
+            local lsp_count = count_lsp_clients()
             if lsp_count > 0 then
                 builtin.lsp_document_symbols()
             else
@@ -83,7 +95,8 @@ return {
                 builtin.current_buffer_tags()
             end
         end)
-        vim.keymap.set('n', '<leader>d', function() builtin.diagnostics({bufnr = 0}) end)
+        vim.keymap.set('n', '<leader>dd', function() builtin.diagnostics({bufnr = 0, severity = "error"}) end)
+        vim.keymap.set('n', '<leader>da', function() builtin.diagnostics({bufnr = 0}) end)
         vim.keymap.set('n', '<leader>lr', function() builtin.lsp_references({}) end)
         vim.keymap.set('n', '<leader>lc', function() builtin.lsp_incoming_calls({}) end)
     end,
