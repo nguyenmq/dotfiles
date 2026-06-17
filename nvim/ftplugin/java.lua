@@ -8,11 +8,11 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
     vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
-    vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-    vim.keymap.set('n', 'ge', '<cmd>botright lua vim.lsp.diagnostic.set_loclist()<cr>', opts)
+    vim.keymap.set('n', 'ge', '<cmd>botright lua vim.diagnostic.setloclist()<cr>', opts)
+    vim.keymap.set('n', 'gp', '<cmd>lua require("jdtls").organize_imports()<cr>', opts)
 end
 
 local root_dir = require("jdtls.setup").find_root({ "packageInfo" }, "Config")
@@ -46,7 +46,6 @@ local config = {
         '-Dlog.level=ALL',
         '-Xmx2g',
         '-javaagent:' .. lombok_path,
-        '-Xbootclasspath/a:' .. lombok_path,
         '--add-modules=ALL-SYSTEM',
         '--add-opens', 'java.base/java.util=ALL-UNNAMED',
         '--add-opens', 'java.base/java.lang=ALL-UNNAMED',
@@ -87,8 +86,16 @@ local config = {
                     staticStarThreshold = 9999,
                 },
             },
-        }
-    },
+            completion = {
+                importOrder = {
+                    "", -- all other imports
+                    "java",
+                    "javax",
+                    "#", -- static imports will go last
+                }
+            }
+        },
+    }
 }
 
 jdtls.start_or_attach(config)
