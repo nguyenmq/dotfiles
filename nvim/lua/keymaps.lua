@@ -94,13 +94,55 @@ vim.keymap.set('n', '<Leader>Y', function()
     vim.cmd('echo "Yanked: " . @+')
 end)
 
--- puts
-vim.keymap.set('n', '<Leader>cr', function() vim.fn['functions#PasteCRLink']() end)
+-- insert formatted links
+local link_insertion_config = {
+    parsers = {
+        function(input)
+            local _, _, title, url = string.find(input, "%[(.+)%]%((.+)%)")
+            return title, url
+        end,
+    },
+    transforms = {},
+}
+
+-- Load local extensions if they exist
+local ok, local_extensions = pcall(require, "local_extensions")
+if ok then local_extensions.extend_link_config(link_insertion_config) end
+
+function insert_link()
+    local input = vim.fn.getreg("+")
+    local title, url
+
+    for _, parse in ipairs(link_insertion_config.parsers) do
+        title, url = parse(input)
+        if title then break end
+    end
+
+    if not title or not url then return end
+
+    title = title:gsub("%[", "("):gsub("%]", ")")
+
+    for _, t in ipairs(link_insertion_config.transforms) do
+        if url:find(t.match) then
+            title = t.fn(title, url)
+            break
+        end
+    end
+
+    local tw = vim.opt.textwidth:get()
+    vim.opt.textwidth = 0
+    vim.api.nvim_put({"[" .. title .. "](" .. url .. ")"}, "c", true, true)
+    vim.opt.textwidth = tw
+end
+vim.keymap.set('i', '<C-u>', function()
+    insert_link()
+end)
 
 -- abbreviation to insert date
 vim.keymap.set('ia', 'yr', vim.fn['strftime']("%Y"))
 vim.keymap.set('ia', 'ym', vim.fn['strftime']("%Y-%m"))
 vim.keymap.set('ia', 'dt', vim.fn['strftime']("%Y-%m-%d"))
+
 -- custom text object selection for markdown code fences
 function select_code_fence()
   local row, col = unpack(vim.api.nvim_win_get_cursor(0))
