@@ -16,6 +16,7 @@ local gray_lighter = hsl("{{gray_lighter}}")
 local green = hsl("{{green}}")
 local green_dark = hsl("{{green_dark}}")
 local green_bright = hsl("{{green_bright}}")
+local green_light = hsl("{{green_light}}")
 local lavender = hsl("{{lavender}}")
 local magenta = hsl("{{magenta}}")
 local red = hsl("{{red}}")
@@ -60,7 +61,7 @@ local theme = lush(function(injected_functions)
     CursorLine      { fg = Normal.fg, bg = yellow_pale }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn    { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Directory       { fg = blue } , -- Directory names (and other special names in listings)
-    DiffAdd         { bg = green_bright.lighten(90) }, -- Diff mode: Added line |diff.txt|
+    DiffAdd         { bg = green_light }, -- Diff mode: Added line |diff.txt|
     DiffChange      { DiffAdd }, -- Diff mode: Changed line |diff.txt|
     DiffDelete      { fg = red, bg = red.desaturate(30).lighten(85) }, -- Diff mode: Deleted line |diff.txt|
     DiffText        { fg = Normal.fg, bg = DiffAdd.bg.desaturate(30).darken(10), gui = "bold" }, -- Diff mode: Changed text within a changed line |diff.txt|
@@ -114,7 +115,7 @@ local theme = lush(function(injected_functions)
     WarningMsg      { fg = gray_darker }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
     Winseparator   { VertSplit }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
-    WildMenu        { fg = gray_darker }, -- Current match in 'wildmenu' completion
+    WildMenu        { Pmenu }, -- Current match in 'wildmenu' completion
     -- WinBar         { }, -- Window bar of current window
     -- WinBarNC       { }, -- Window bar of not-current windows
 
@@ -148,7 +149,7 @@ local theme = lush(function(injected_functions)
     Macro           { fg = red }, --   Same as Define
     PreCondit       { fg = red }, --   Preprocessor #if, #else, #endif, etc.
 
-    Type            { fg = lavender, gui = "bold" }, -- (*) int, long, char, etc.
+    Type            { fg = blue_dark }, -- (*) int, long, char, etc.
     StorageClass    { fg = lavender, gui = "bold" }, --   static, register, volatile, etc.
     Structure       { fg = blue_dark, gui = "bold" }, --   struct, union, enum, etc.
     Typedef         { fg = lavender, gui = "bold" }, --   A typedef
@@ -276,7 +277,7 @@ local theme = lush(function(injected_functions)
     RenderMarkdownCode         { bg = gray_lighter },
     RenderMarkdownCodeInline   { RenderMarkdownCode },
     RenderMarkdownDash         { fg = gray_darker },
-    RenderMarkdownH1Bg         { fg = green, bg = DiffAdd.bg },
+    RenderMarkdownH1Bg         { fg = green, bg = green_bright.lighten(90) },
 }
 end)
 
