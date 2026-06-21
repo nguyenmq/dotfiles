@@ -1,6 +1,8 @@
 /*
  * Use the browser toolbox to inspect Firefox's UI
  * https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html
+ *
+ * To help debug menu popups, set ui.popup.disable_autohide=false in about:config
  */
 
 * {
@@ -12,6 +14,7 @@
     --toolbar-field-color: {{black}};
     --toolbar-field-focus-background-color: {{white}};
     --toolbar-field-focus-color: {{black}};
+    --panel-box-shadow-margin: 0px;
 }
 
 #TabsToolbar {
@@ -19,7 +22,7 @@
 }
 
 #sidebar-splitter {
-    background-color: {{green_light}} !important;
+    background-color: {{firefox_main_color}} !important;
     border: 0px !important;
     width: 1px !important;
     min-width: 1px !important;
@@ -39,8 +42,12 @@
     color-scheme: light !important;
 }
 
+#downloadsPanel-mainView {
+    padding: 0.6em !important;
+}
+
 #navigator-toolbox {
-    --chrome-content-separator-color: {{green_light}} !important;
+    --chrome-content-separator-color: {{firefox_main_color}} !important;
     border-bottom: 0px !important;
 }
 
@@ -49,7 +56,7 @@
 }
 
 .browser-toolbar {
-    background-color: {{green_light}} !important;
+    background-color: {{firefox_main_color}} !important;
 }
 
 .toolbarbutton-animatable-box, .toolbarbutton-1 {
@@ -63,7 +70,7 @@
 }
 
 #urlbar-background {
-    background-color: {{green_light}} !important;
+    background-color: {{firefox_main_color}} !important;
 }
 
 #urlbar-container[breakout] {

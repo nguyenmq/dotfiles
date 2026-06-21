@@ -35,6 +35,7 @@ ui_accent_alt = "#1e382e"
 ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color
 ui_text_accent_alt = "#c7c7c7"
+firefox_main_color = "#cce7de"
 
 # local variables:
 #   fullname
@@ -191,8 +192,6 @@ flameshot_save_path = ""
 "nvim/lua/config/lazy.lua" = "~/.config/nvim/lua/config/lazy.lua"
 "nvim/lua/keymaps.lua" = "~/.config/nvim/lua/keymaps.lua"
 "nvim/lua/plugins/" = "~/.config/nvim/lua/plugins/"
-"nvim/lsp/" = "~/.config/nvim/lsp/"
-"nvim/lua/lsp/" = "~/.config/nvim/lua/lsp/"
 "nvim/lua/lush_theme" = "~/.config/nvim/lua/lush_theme/"
 "nvim/lua/settings.lua" = "~/.config/nvim/lua/settings.lua"
 "nvim/lua/lualine/themes/olive.lua" = "~/.config/nvim/lua/lualine/themes/olive.lua"
