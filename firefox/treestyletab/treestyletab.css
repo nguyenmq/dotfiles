@@ -2,16 +2,34 @@ tab-item {
     font-family: "{{firefox_font}}";
     font-size: 12px;
     font-weight: 500;
-  	--tab-size: 2.9em !important;
+    --tab-size: 2.9em !important;
+    --tab-group-color-yellow: {{yellow_light}};
+    --tab-group-color-blue: {{blue}};
+    --tab-group-color-red: {{red}};
+    --tab-group-color-green: {{green}};
+    --tab-group-color-purple: {{lavender}};
+    --tab-group-color-orange: {{yellow}};
+    --tab-group-color-pink: {{magenta}};
+    --tab-group-color-cyan: {{blue_light}};
+    --tab-group-color-grey: {{gray_darker}};
 }
 
 tab-label {
     padding: 1em 0 !important
 }
 
-tab-item tab-item-substance {
+tab-item tab-item-substance[type="tab"] {
     background-color: {{gray_light}};
     box-shadow: none;
+}
+
+tab-item tab-item-substance[type="group"] {
+    padding-left: 1em !important;
+    background-color: var(--tab-group-color) !important;
+}
+
+tab-item tab-item-substance[type="group"] .label-content {
+    color: {{white}};
 }
 
 tab-item.active tab-item-substance {
