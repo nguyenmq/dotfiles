@@ -14,7 +14,20 @@
     --toolbar-field-color: {{black}};
     --toolbar-field-focus-background-color: {{white}};
     --toolbar-field-focus-color: {{black}};
+
+    /* url bar background when focused */
+    --toolbar-field-background-color-focus: {{white}};
+
+    /* url bar text colors */
+    --toolbar-field-text-color-focus: {{black}};
+    --toolbar-field-text-color: {{white}};
+
+    /* toolbar button text color */
+    --toolbar-text-color: #ffffff;
     --panel-box-shadow-margin: 0px;
+
+    /* url bar badges background color */
+    --urlbar-box-background-color: {{ui_primary}};
 }
 
 #TabsToolbar {
@@ -22,7 +35,7 @@
 }
 
 #sidebar-splitter {
-    background-color: {{firefox_main_color}} !important;
+    background-color: {{gray_light}} !important;
     border: 0px !important;
     width: 1px !important;
     min-width: 1px !important;
@@ -56,21 +69,7 @@
 }
 
 .browser-toolbar {
-    background-color: {{firefox_main_color}} !important;
-}
-
-.toolbarbutton-animatable-box, .toolbarbutton-1 {
-    color: {{black}} !important;
-    fill: {{black}} !important;
-}
-
-.urlbar, .urlbar-input {
-    color: {{black}} !important;
-    fill: {{black}} !important;
-}
-
-#urlbar-background {
-    background-color: {{firefox_main_color}} !important;
+    background-color: {{ui_primary}} !important;
 }
 
 #urlbar-container[breakout] {

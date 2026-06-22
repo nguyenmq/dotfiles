@@ -10,12 +10,12 @@ tab-label {
 }
 
 tab-item tab-item-substance {
-    background-color: #cce7de;
+    background-color: {{gray_light}};
     box-shadow: none;
 }
 
 tab-item.active tab-item-substance {
-    background-color: white;
+    background-color: {{white}};
 }
 
 tab-item.active .label-content {
@@ -25,7 +25,7 @@ tab-item.active .label-content {
 tab-item.active tab-twisty,
 tab-item.active .label-content,
 tab-item.active .contextual-identity-marker {
-  color: black;
+  color: {{black}};
 }
 
 /* Less visible tab dividers. 
@@ -41,7 +41,7 @@ tab-item-substance {
 
 :root {
     --shadow-color: rgba(0, 0, 0, 0);
-    --browser-background: #cce7de;
+    --browser-background: {{gray_light}};
     --in-content-box-border-color: rgba(0, 0, 0, 0);
     --ThreeDShadow: rgba(0, 0, 0, 0);
     --ThreeDHightlight: rgba(0, 0, 0, 0);
@@ -54,7 +54,7 @@ tab-item-substance {
 }
 
 :root.sidebar #background {
-    background: #cce7de;
+    background: {{gray_light}};
 }
 
 .newtab-button-box {
@@ -74,7 +74,13 @@ tab-item:not(.faviconized):not(.loading) tab-favicon {
     margin-left: 0.2em;
 }
 
+/* set the text color when hovering over a tab */
+tab-item tab-item-substance:hover .label-content,
+tab-item tab-item-substance:hover tab-twisty {
+    color: {{white}} !important;
+}
+
 tab-item tab-item-substance:hover {
-    background: #eeeeee !important;
+    background: {{ui_accent}} !important;
     opacity: 1;
 }
