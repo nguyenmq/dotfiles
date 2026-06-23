@@ -10,9 +10,9 @@
     font-size: 12px;
     font-weight: 500;
     border-radius: 0px !important;
-    --urlbar-margin-inline: 0px;
+    --urlbar-margin-inline: 0.4em;
     --toolbar-field-color: {{black}};
-    --toolbar-field-focus-background-color: {{white}};
+    --toolbar-field-focus-background-color: {{black}};
     --toolbar-field-focus-color: {{black}};
 
     /* url bar background when focused */
@@ -20,14 +20,19 @@
 
     /* url bar text colors */
     --toolbar-field-text-color-focus: {{black}};
-    --toolbar-field-text-color: {{white}};
+    --toolbar-field-text-color: {{black}};
 
     /* toolbar button text color */
-    --toolbar-text-color: #ffffff;
+    --toolbar-text-color: {{black}};
     --panel-box-shadow-margin: 0px;
 
     /* url bar badges background color */
-    --urlbar-box-background-color: {{ui_primary}};
+    --urlbar-box-background-color: {{ui_accent}};
+}
+
+::selection {
+    background-color: {{blue_light}};
+    color: {{black}};
 }
 
 #TabsToolbar {
@@ -35,7 +40,7 @@
 }
 
 #sidebar-splitter {
-    background-color: {{gray_light}} !important;
+    background-color: {{ui_accent}} !important;
     border: 0px !important;
     width: 1px !important;
     min-width: 1px !important;
@@ -60,8 +65,9 @@
 }
 
 #navigator-toolbox {
-    --chrome-content-separator-color: {{firefox_main_color}} !important;
-    border-bottom: 0px !important;
+    --chrome-content-separator-color: {{ui_accent}} !important;
+    padding: 0.4em;
+    background-color: {{ui_accent}};
 }
 
 #nav-bar {
@@ -69,7 +75,7 @@
 }
 
 .browser-toolbar {
-    background-color: {{ui_primary}} !important;
+    background-color: {{ui_accent}} !important;
 }
 
 #urlbar-container[breakout] {

@@ -19,6 +19,7 @@ tab-label {
 }
 
 tab-item tab-item-substance[type="tab"] {
+    color: {{black}};
     background-color: {{gray_light}};
     box-shadow: none;
 }
@@ -33,7 +34,7 @@ tab-item tab-item-substance[type="group"] .label-content {
 }
 
 tab-item.active tab-item-substance {
-    background-color: {{white}};
+    background-color: {{ui_primary}};
 }
 
 tab-item.active .label-content {
@@ -43,7 +44,7 @@ tab-item.active .label-content {
 tab-item.active tab-twisty,
 tab-item.active .label-content,
 tab-item.active .contextual-identity-marker {
-  color: {{black}};
+  color: {{gray_light}};
 }
 
 /* Less visible tab dividers. 
