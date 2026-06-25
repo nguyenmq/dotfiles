@@ -20,7 +20,7 @@ tab-label {
 
 tab-item tab-item-substance[type="tab"] {
     color: {{black}};
-    background-color: {{gray_light}};
+    background-color: {{white}};
     box-shadow: none;
 }
 
@@ -73,7 +73,7 @@ tab-item-substance {
 }
 
 :root.sidebar #background {
-    background: {{gray_light}};
+    background: {{white}};
 }
 
 .newtab-button-box {

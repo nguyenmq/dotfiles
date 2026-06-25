@@ -15,8 +15,9 @@
     --toolbar-field-focus-background-color: {{black}};
     --toolbar-field-focus-color: {{black}};
 
-    /* url bar background when focused */
+    /* url bar background colors */
     --toolbar-field-background-color-focus: {{white}};
+    --toolbar-field-background-color: {{white}};
 
     /* url bar text colors */
     --toolbar-field-text-color-focus: {{black}};
@@ -26,8 +27,8 @@
     --toolbar-text-color: {{black}};
     --panel-box-shadow-margin: 0px;
 
-    /* url bar badges background color */
-    --urlbar-box-background-color: {{ui_accent}};
+    /* url bar badges (e.g. search badge) background color */
+    --urlbar-box-background-color: {{white}};
 }
 
 ::selection {
