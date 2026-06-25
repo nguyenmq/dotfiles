@@ -58,7 +58,7 @@
 [status]
     branch = true
     short = true
-    showUntrackedFiles = no
+    showUntrackedFiles = all
     submoduleSummary = true
 [push]
     default = simple
