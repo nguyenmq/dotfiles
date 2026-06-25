@@ -22,14 +22,14 @@ end)
 
 -- percentage based horizontal split/resizing of windows
 local function vert_split_percent(percent)
-  local qf_count = 0
+  local exclude_count = 0
   for _, w in ipairs(vim.fn.getwininfo()) do
-    if w.quickfix == 1 or w.loclist == 1 then
-      qf_count = qf_count + 1
+    if w.quickfix == 1 or w.loclist == 1 or vim.bo[w.bufnr].filetype == "fugitive" then
+      exclude_count = exclude_count + 1
     end
   end
 
-  local win_count = vim.fn.winnr('$') - qf_count
+  local win_count = vim.fn.winnr('$') - exclude_count
   local width = math.floor(vim.o.columns * percent)
 
   if win_count > 1 then
