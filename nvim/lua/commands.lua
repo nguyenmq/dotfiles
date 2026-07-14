@@ -80,3 +80,36 @@ vim.api.nvim_create_user_command(
     end,
     { nargs = 1 }
 )
+
+-- search current buffer for the a search pattern an populations the buffer's location list
+vim.api.nvim_create_user_command(
+    'Lf',
+    function(opts)
+        local pattern = opts.args
+        if pattern == '' then
+            pattern = vim.fn.getreg('/')
+        end
+        local lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+        local items = {}
+        for i, line in ipairs(lines) do
+            if vim.fn.match(line, pattern) >= 0 then
+                table.insert(items, {
+                    bufnr = vim.api.nvim_get_current_buf(),
+                    lnum = i,
+                    col = 1,
+                    text = line,
+                })
+            end
+        end
+        vim.fn.setloclist(0, items, 'r')
+        if #items > 0 then
+            vim.cmd('lwindow 7')
+        else
+            print('No matches for: ' .. pattern)
+        end
+        vim.fn.setreg('/', pattern)
+        vim.opt.hlsearch = true
+        vim.cmd('redraw')
+    end,
+    { nargs = '?' }
+)
