@@ -15,14 +15,16 @@
     guitool = gvimdiff
 [color]
     ui = true
+[format]
+    pretty = %C(bold magenta)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n          %C(black)%s%C(reset)%C(reset)
 [alias]
-    lg1 = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' --all
-    lgm = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' HEAD origin/mainline
-    lb = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)'
-    ln = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' --all -20
-    lbm = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' -20 HEAD origin/mainline
-    lbb = log --graph --abbrev-commit --decorate --format=format:'%C(bold red)%h%C(reset) - %C(bold blue)%an%C(reset) - %C(bold green)%aD%C(reset) %C(reset)%C(bold yellow)%d%C(reset)%n''          %C(black)%s%C(reset)%C(reset)' -20 HEAD
+    lg1 = log --graph --abbrev-commit --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg = log --graph --abbrev-commit --all
+    lgm = log --graph --abbrev-commit HEAD origin/mainline
+    lb = log --graph --abbrev-commit HEAD
+    ln = log --graph --abbrev-commit --all -20
+    lbm = log --graph --abbrev-commit -20 HEAD origin/mainline
+    lbb = log --graph --abbrev-commit -20 HEAD
     dt = difftool
     su = submodule update --init --recursive
     ls = status --no-short --untracked-files=normal
@@ -30,8 +32,8 @@
     d1 = difftool HEAD~1 HEAD
     d2 = difftool HEAD~2 HEAD
     d3 = difftool HEAD~3 HEAD
-    sh = show --no-color
-    shn = show --no-color --name-only
+    sh = show --no-color --format=medium
+    shn = show --no-color --name-only --format=medium
 [credential]
     helper = cache
 [color "diff"]
@@ -76,3 +78,5 @@
 [column]
     ui = auto
     status = never
+[log]
+    decorate = true
