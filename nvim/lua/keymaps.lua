@@ -15,9 +15,11 @@ vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.curs
 -- search
 vim.keymap.set('n', '<Esc>', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<Leader>h', function()
-  local word = vim.fn.expand("<cword>")
-  vim.fn['functions#SearchWithHighlight']('\\<'..word..'\\>')
-  vim.cmd('set hlsearch')
+  local word = vim.fn.expand('<cword>')
+  local pattern = '\\<' .. word .. '\\>'
+  vim.fn.setreg('/', pattern)
+  vim.fn.histadd('search', pattern)
+  vim.opt.hlsearch = true
 end)
 
 -- percentage based horizontal split/resizing of windows

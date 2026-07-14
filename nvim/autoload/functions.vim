@@ -1,9 +1,3 @@
-function! functions#SearchWithHighlight(search_term)
-    call clearmatches()
-    execute "let @/='" . a:search_term . "'"
-    call histadd("search", a:search_term)
-endfun
-
 function! functions#RotateCapture()
     let l:current_day = trim(system('date +%A'))
 
@@ -54,14 +48,6 @@ function! functions#ToggleWrap()
     let s:wrapenabled = 1
   endif
 endfunction
-
-function! functions#PasteCRLink()
-    normal O
-    normal "+gp
-    execute 's/CR-\d\{8,} \(.*\) - Code Browser/\1/g'
-    execute "let @/='\\d\\+'"
-    normal $F[r(f]r)$Nyt#F]i (rev 0)
-endfun
 
 function! functions#Basename()
     execute "let @+ = fnamemodify('" . @% . "',':t')"
