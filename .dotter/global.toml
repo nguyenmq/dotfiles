@@ -122,6 +122,7 @@ polybar_power_adapter = "AC"
 [rofi.variables]
 rofi_font_family = "UbuntuSansMono NFP Medium"
 rofi_font_size = 10
+rofi_modi = "drun,emoji,audio:choose-audio-sink.sh,clipboard:greenclip print"
 
 [greenclip.files]
 #   greenclip_history_file
@@ -205,6 +206,7 @@ flameshot_save_path = ""
 [scripts.files]
 "scripts/kms_create_capture_note.sh" = "~/.local/bin/cap"
 "scripts/kms_create_project.sh" = "~/.local/bin/prj"
+"scripts/choose-audio-sink.sh" = "~/.local/bin/choose-audio-sink.sh"
 
 [rmpc.files]
 "rmpc/config.ron" = "~/.config/rmpc/config.ron"

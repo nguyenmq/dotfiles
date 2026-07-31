@@ -1,9 +1,11 @@
 configuration {
     cycle:               true;
+    display-audio:       "󰓃";
     display-clipboard:   "󰅇";
     display-drun:        "󰏋";
     display-emoji:       "󰱨";
     display-filebrowser: "󰉋";
+    display-packages:    "";
     display-run:         "󰆍";
     display-window:      "󰣆";
     drun-display-format: "{name}";
@@ -15,7 +17,7 @@ configuration {
     kb-row-down:         "Control+n";
     kb-row-up:           "Control+p";
     m:                   "-4";
-    modi:                "drun,emoji,clipboard:greenclip print";
+    modi:                "{{rofi_modi}}";
     sidebar-mode:        false;
     sort:                true;
     window-format:       "{c} · {t}";
