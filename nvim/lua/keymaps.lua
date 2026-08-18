@@ -104,7 +104,11 @@ local link_insertion_config = {
             return title, url
         end,
     },
-    transforms = {},
+    transforms = {
+        { match = "youtube.com", fn = function(title)
+            return title:gsub("(%s%-%s)YouTube", "")
+        end},
+    },
 }
 
 -- Load local extensions if they exist
