@@ -4,3 +4,6 @@ target/debug
 target/release
 .vscode
 build
+.venv
+.pytest_cache
+__pycache__

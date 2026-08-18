@@ -5,3 +5,4 @@ vim/spell
 .dotter/local.toml
 .dotter/cache.toml
 .dotter/cache
+.rgignore
