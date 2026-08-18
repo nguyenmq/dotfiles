@@ -143,6 +143,11 @@
                 ])
         ),
         (name: "Cover", pane: Pane(AlbumArt)),
+        (name: "Cover & Visualizer",pane: Split(direction: Vertical, panes: [
+                    (size: "50%", borders: "NONE", border_symbols: Rounded, border: "ALL", pane: Pane(AlbumArt)),
+                    (size: "50%", borders: "ALL", border_symbols: Rounded, pane: Pane(Cava)),
+                ])
+        ),
     ],
     cava: (
     framerate: 60, // default 60
