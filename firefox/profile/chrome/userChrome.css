@@ -82,3 +82,7 @@
 #urlbar-container[breakout] {
     min-height: 0px !important;
 }
+
+.urlbar {
+    background-color: {{white}} !important;
+}
