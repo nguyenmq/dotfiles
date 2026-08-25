@@ -59,6 +59,16 @@ vim.api.nvim_create_user_command(
     { nargs = 0 }
 )
 
+vim.api.nvim_create_user_command(
+    'Gll',
+    function(opts)
+        local path = vim.fn.expand('%:p')
+        vim.fn.setreg('+', path)
+        print('Yanked: ' .. path)
+    end,
+    { nargs = 0 }
+)
+
 -- search with all characters escaped
 vim.api.nvim_create_user_command(
     'ES',
@@ -110,6 +120,22 @@ vim.api.nvim_create_user_command(
         vim.fn.setreg('/', pattern)
         vim.opt.hlsearch = true
         vim.cmd('redraw')
+    end,
+    { nargs = '?' }
+)
+
+vim.api.nvim_create_user_command(
+    'LspStop',
+    function(opts)
+        vim.lsp.Client:stop()
+    end,
+    { nargs = '?' }
+)
+
+vim.api.nvim_create_user_command(
+    'LspInfo',
+    function(opts)
+        vim.cmd('checkhealth vim.lsp')
     end,
     { nargs = '?' }
 )
