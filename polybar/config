@@ -102,8 +102,8 @@ label-song-ellipsis = true
 toggle-on-foreground = ${colors.focused_foreground}
 toggle-off-foreground = ${colors.unfocused_foreground}
 
-[module/xbacklight]
-type = internal/xbacklight
+[module/backlight]
+type = internal/backlight
 format = <label>
 label = 󰃝 %percentage%%
 format-underline = ${colors.unfocused_foreground}
