@@ -225,13 +225,14 @@ bindsym XF86AudioLowerVolume exec  "${HOME}/.dotfiles/polybar/pipewire-volume.sh
 bindsym XF86AudioMute exec "${HOME}/.dotfiles/polybar/pipewire-volume.sh --toggle"
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 2
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh"
 exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
 exec "/usr/bin/solaar --window hide --battery-icons symbolic"
 exec "/usr/bin/xss-lock -- {{i3_locker}}"
+exec "/usr/bin/xiccd"
 bindsym $mod+semicolon [class="Alacritty"] scratchpad show
 {{i3_additional_execs}}
