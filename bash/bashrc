@@ -96,12 +96,15 @@ export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 
 export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/rgrc"
 
-# Load optional functions file
-if [ -f ~/.bashrc.func ]; then
-    source ~/.bashrc.func
-fi
+# Extra files to source if they exist
+source_files=(
+    "${HOME}/.local/lib/notes_completion.bash"
+    "${HOME}/.bashrc.func"
+    "${HOME}/.bashrc.local"
+)
 
-# Override with any local settings not tracked
-if [ -f ~/.bashrc.local ]; then
-    source ~/.bashrc.local
-fi
+for file in "${source_files[@]}"; do
+    if [[ -e "$file" ]]; then
+        source "$file"
+    fi
+done
