@@ -83,12 +83,6 @@ alias ring="echo -e '\a'"
 alias pc="pass show -c"
 
 # fzf configuration
-if [[ -f "{{fzf_shell_completions}}" ]]; then
-    source "{{fzf_shell_completions}}"
-fi
-if [[ -f "{{fzf_shell_bindings}}" ]]; then
-    source "{{fzf_shell_bindings}}"
-fi
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_DEFAULT_OPTS='--height 60%'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs --follow'
@@ -99,6 +93,8 @@ export RIPGREP_CONFIG_PATH="${HOME}/.config/ripgrep/rgrc"
 # Extra files to source if they exist
 source_files=(
     "${HOME}/.local/lib/notes_completion.bash"
+    "{{fzf_shell_completions}}"
+    "{{fzf_shell_bindings}}"
     "${HOME}/.bashrc.func"
     "${HOME}/.bashrc.local"
 )
