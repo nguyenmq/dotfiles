@@ -1,9 +1,12 @@
 #!/bin/bash
-# notes.sh - Create and list notes and projects
+# notes.sh - Create, list, open, and cd into notes and collections
+#            (projects, domains, resources)
 
 NOTES_ROOT="{{kms_path}}"
 CAPTURE_DIR="$NOTES_ROOT/inbox"
 PROJECTS_DIR="$NOTES_ROOT/projects"
+DOMAINS_DIR="$NOTES_ROOT/domains"
+RESOURCES_DIR="$NOTES_ROOT/resources"
 
 sanitize_name() {
     local input="${1,,}"
@@ -23,28 +26,61 @@ prompt_name() {
 
 cmd_new_note() {
     local slug
+    local filename
+    local filepath
     slug=$(prompt_name "Note name")
-    local filename="$(date +%Y-%m-%d)__${slug}.md"
-    local filepath="${CAPTURE_DIR}/${filename}"
+    filename="$(date +%Y-%m-%d)__${slug}.md"
+    filepath="${CAPTURE_DIR}/${filename}"
+
     mkdir -p "$CAPTURE_DIR"
     echo "$filepath"
-    exec nvim --cmd 'startinsert' "$filepath"
+    exec nvim --cmd "startinsert; cd ${CAPTURE_DIR}" "$filepath"
 }
 
-cmd_new_project() {
+# Create a brand new collection entry (project/domain/resource) with a main.md.
+create_collection_entry() {
+    local base
+    local label
     local slug
-    slug=$(prompt_name "Project name")
-    local project_path="${PROJECTS_DIR}/${slug}"
+    local entry_path
+    base="$1"
+    label="$2"
+    slug=$(prompt_name "${label} name")
+    entry_path="${base}/${slug}"
 
-    if [[ -d "$project_path" ]]; then
+    if [[ -d "$entry_path" ]]; then
         echo "${slug} already exists." >&2
         exit 0
     fi
 
-    mkdir -p "$project_path"
-    touch "${project_path}/main.md"
-    echo "Created: ${project_path}"
-    exec nvim "${project_path}/main.md"
+    mkdir -p "$entry_path"
+    touch "${entry_path}/main.md"
+    echo "Created: ${entry_path}"
+    exec nvim --cmd "cd ${entry_path}" "${entry_path}/main.md"
+}
+
+# fzf over the entries in a collection, plus a "Create new <label>" option.
+# Selecting an existing entry prompts for a new file to add to it; the "create
+# new" option makes a brand new entry.
+cmd_new_collection() {
+    local base
+    local label
+    local create_sentinel
+    local selection
+    base="$1"
+    label="$2"
+    create_sentinel="Create new ${label,,}"
+    selection=$( { echo "$create_sentinel"; list_collection "$base"; } | fzf --tac --cycle) || exit 0
+
+    if [[ "$selection" == "$create_sentinel" ]]; then
+        create_collection_entry "$base" "$label"
+    else
+        local slug
+        slug=$(prompt_name "File name")
+        local filepath="${base}/${selection}/${slug}.md"
+        echo "$filepath"
+        exec nvim --cmd "cd ${base}/${selection}" "$filepath"
+    fi
 }
 
 cmd_list_notes() {
@@ -53,24 +89,54 @@ cmd_list_notes() {
         | cut -d' ' -f2-
 }
 
-cmd_list_projects() {
-    for dir in "$PROJECTS_DIR"/*/; do
+# List the immediate subdirectories of a collection dir, oldest-modified first.
+list_collection() {
+    local base
+    base="$1"
+
+    for dir in "$base"/*/; do
         [[ -d "$dir" ]] || continue
         newest=$(find "$dir" -type f -printf '%T@\n' | sort -rn | head -1)
         echo "${newest:-0} $(basename "$dir")"
     done | sort -n | cut -d' ' -f2-
 }
 
-cmd_open_note() {
-    local selection
-    selection=$(cmd_list_notes | fzf --tac --cycle) || exit 0
-    exec nvim --cmd "cd $NOTES_ROOT" "${CAPTURE_DIR}/${selection}"
+# List every file under a directory (recursively), oldest-modified first,
+# as paths relative to that directory.
+list_files() {
+    local dir="$1"
+    find "$dir" -type f -printf '%T@ %P\n' | sort -n | cut -d' ' -f2-
 }
 
-cmd_open_project() {
+cmd_open_note() {
     local selection
-    selection=$(cmd_list_projects | fzf --tac --cycle) || exit 0
-    exec nvim --cmd "cd $NOTES_ROOT" "${PROJECTS_DIR}/${selection}/main.md"
+
+    selection=$(cmd_list_notes | fzf --tac --cycle) || exit 0
+    exec nvim --cmd "cd ${CAPTURE_DIR}" "${CAPTURE_DIR}/${selection}"
+}
+
+# Pick an entry in a collection, then pick a file within it, and open it.
+cmd_open_collection() {
+    local base
+    local entry
+    local file
+    base="$1"
+    entry=$(list_collection "$base" | fzf --tac --cycle) || exit 0
+    file=$(list_files "${base}/${entry}" | fzf --tac --cycle) || exit 0
+    exec nvim --cmd "cd ${base}/${entry}" "${base}/${entry}/${file}"
+}
+
+cmd_cd_inbox() {
+    echo "$CAPTURE_DIR"
+}
+
+# Pick an entry in a collection and print its path (the shell wrapper cd's into it).
+cmd_cd_collection() {
+    local base
+    local selection
+    base="$1"
+    selection=$(list_collection "$base" | fzf --tac --cycle) || exit 0
+    echo "${base}/${selection}"
 }
 
 cmd_review() {
@@ -133,30 +199,45 @@ cmd_review() {
 case "${1:-}" in
     new)
         case "${2:-}" in
-            project|projects) cmd_new_project ;;
-            "")               cmd_new_note ;;
-            *)                echo "Unknown: notes.sh new ${2}" >&2; exit 1 ;;
+            project|projects)   cmd_new_collection "$PROJECTS_DIR"  "Project" ;;
+            domain|domains)     cmd_new_collection "$DOMAINS_DIR"   "Domain" ;;
+            resource|resources) cmd_new_collection "$RESOURCES_DIR" "Resource" ;;
+            "")                 cmd_new_note ;;
+            *)                  echo "Unknown: notes.sh new ${2}" >&2; exit 1 ;;
         esac
         ;;
     list)
         case "${2:-}" in
-            project|projects) cmd_list_projects ;;
-            "")               cmd_list_notes ;;
-            *)                echo "Unknown: notes.sh list ${2}" >&2; exit 1 ;;
+            project|projects)   list_collection "$PROJECTS_DIR" ;;
+            domain|domains)     list_collection "$DOMAINS_DIR" ;;
+            resource|resources) list_collection "$RESOURCES_DIR" ;;
+            "")                 cmd_list_notes ;;
+            *)                  echo "Unknown: notes.sh list ${2}" >&2; exit 1 ;;
         esac
         ;;
     open)
         case "${2:-}" in
-            project|projects) cmd_open_project ;;
-            "")               cmd_open_note ;;
-            *)                echo "Unknown: notes.sh open ${2}" >&2; exit 1 ;;
+            project|projects)   cmd_open_collection "$PROJECTS_DIR" ;;
+            domain|domains)     cmd_open_collection "$DOMAINS_DIR" ;;
+            resource|resources) cmd_open_collection "$RESOURCES_DIR" ;;
+            "")                 cmd_open_note ;;
+            *)                  echo "Unknown: notes.sh open ${2}" >&2; exit 1 ;;
+        esac
+        ;;
+    cd)
+        case "${2:-}" in
+            project|projects)   cmd_cd_collection "$PROJECTS_DIR" ;;
+            domain|domains)     cmd_cd_collection "$DOMAINS_DIR" ;;
+            resource|resources) cmd_cd_collection "$RESOURCES_DIR" ;;
+            "")                 cmd_cd_inbox ;;
+            *)                  echo "Unknown: notes.sh cd ${2}" >&2; exit 1 ;;
         esac
         ;;
     review)
         cmd_review
         ;;
     *)
-        echo "Usage: notes.sh {new|list|open|review} [project]"
+        echo "Usage: notes.sh {new|list|open|cd} [project|domain|resource] | notes.sh review"
         exit 1
         ;;
 esac

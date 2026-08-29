@@ -205,7 +205,7 @@ flameshot_save_path = ""
 
 [scripts.files]
 "scripts/choose-audio-sink.sh" = "~/.local/bin/choose-audio-sink.sh"
-"scripts/notes.sh" = "~/.local/bin/notes"
+"scripts/notes.sh" = "~/.local/bin/nt"
 "scripts/notes_completion.bash" = "~/.local/lib/notes_completion.bash"
 
 [rmpc.files]
