@@ -7,6 +7,17 @@ CAPTURE_DIR="$NOTES_ROOT/inbox"
 PROJECTS_DIR="$NOTES_ROOT/projects"
 DOMAINS_DIR="$NOTES_ROOT/domains"
 RESOURCES_DIR="$NOTES_ROOT/resources"
+TEMPLATES_DIR="$RESOURCES_DIR/templates"
+
+call_fzf_on_files() {
+    local parent_dir=$1
+    fzf --tac --preview "bat --color=always --style=numbers --line-range=:200 --theme light $parent_dir/{}"
+}
+
+call_fzf_on_directories() {
+    local parent_dir=$1
+    fzf --tac --preview "tree -C $parent_dir/{} | head -200"
+}
 
 sanitize_name() {
     local input="${1,,}"
@@ -66,20 +77,29 @@ cmd_new_collection() {
     local base
     local label
     local create_sentinel
-    local selection
+    local selected_entry
+    local template_sentinel
+    local selected_template
     base="$1"
     label="$2"
     create_sentinel="Create new ${label,,}"
-    selection=$( { echo "$create_sentinel"; list_collection "$base"; } | fzf --tac --cycle) || exit 0
+    selected_entry=$( { echo "$create_sentinel"; list_collection "$base"; } | call_fzf_on_directories "$base") || exit 0
+    template_sentinel="Skip template"
 
-    if [[ "$selection" == "$create_sentinel" ]]; then
+    if [[ "$selected_entry" == "$create_sentinel" ]]; then
         create_collection_entry "$base" "$label"
     else
         local slug
         slug=$(prompt_name "File name")
-        local filepath="${base}/${selection}/${slug}.md"
+        local filepath="${base}/${selected_entry}/${slug}.md"
         echo "$filepath"
-        exec nvim --cmd "cd ${base}/${selection}" "$filepath"
+        selected_template=$( { list_files "$TEMPLATES_DIR"; echo "$template_sentinel"; } | call_fzf_on_files "$TEMPLATES_DIR") || exit 0
+
+        if [[ "$selected_template" != "$template_sentinel" ]]; then
+            cp "$TEMPLATES_DIR/$selected_template" "$filepath"
+        fi
+
+        exec nvim --cmd "cd ${base}/${selected_entry}" "$filepath"
     fi
 }
 
@@ -104,14 +124,16 @@ list_collection() {
 # List every file under a directory (recursively), oldest-modified first,
 # as paths relative to that directory.
 list_files() {
-    local dir="$1"
+    local dir
+    dir="$1"
+
     find "$dir" -type f -printf '%T@ %P\n' | sort -n | cut -d' ' -f2-
 }
 
 cmd_open_note() {
     local selection
 
-    selection=$(cmd_list_notes | fzf --tac --cycle) || exit 0
+    selection=$(cmd_list_notes | call_fzf_on_files "$CAPTURE_DIR") || exit 0
     exec nvim --cmd "cd ${CAPTURE_DIR}" "${CAPTURE_DIR}/${selection}"
 }
 
@@ -121,8 +143,8 @@ cmd_open_collection() {
     local entry
     local file
     base="$1"
-    entry=$(list_collection "$base" | fzf --tac --cycle) || exit 0
-    file=$(list_files "${base}/${entry}" | fzf --tac --cycle) || exit 0
+    entry=$(list_collection "$base" | call_fzf_on_directories "$base") || exit 0
+    file=$(list_files "${base}/${entry}" | call_fzf_on_files "${base}/${entry}") || exit 0
     exec nvim --cmd "cd ${base}/${entry}" "${base}/${entry}/${file}"
 }
 
@@ -135,7 +157,7 @@ cmd_cd_collection() {
     local base
     local selection
     base="$1"
-    selection=$(list_collection "$base" | fzf --tac --cycle) || exit 0
+    selection=$(list_collection "$base" | call_fzf_on_directories "$base") || exit 0
     echo "${base}/${selection}"
 }
 
@@ -195,6 +217,28 @@ cmd_review() {
         fi
     done
 }
+
+validate_required_directories() {
+    local required_directories
+    local directory
+
+    required_directories=(
+        "$CAPTURE_DIR"
+        "$PROJECTS_DIR"
+        "$DOMAINS_DIR"
+        "$RESOURCES_DIR"
+        "$TEMPLATES_DIR"
+    )
+
+    for directory in "${required_directories[@]}"; do
+        if [[ ! -d "$directory" ]]; then
+            printf 'Error: required directory "%s" does not exist\n' "$directory"
+            exit 1
+        fi
+    done
+}
+
+validate_required_directories
 
 case "${1:-}" in
     new)
