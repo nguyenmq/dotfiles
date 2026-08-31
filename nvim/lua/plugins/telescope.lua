@@ -47,7 +47,8 @@ return {
                         '--files',
                         '--hidden',
                         '--no-ignore-vcs',
-                        '--follow'
+                        '--follow',
+                        '--sortr=modified',
                     }
                 },
                 tags = {
@@ -72,6 +73,7 @@ return {
         local builtin = require('telescope.builtin')
         local extensions = require('telescope').extensions
         vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+        vim.keymap.set('n', '<leader>F', function() builtin.find_files({cwd = "{{kms_path}}"}) end)
         vim.keymap.set('n', '<leader>sd', builtin.grep_string, {})
         vim.keymap.set('n', '<leader>ss', extensions.live_grep_args.live_grep_args, {})
         vim.keymap.set('n', '<leader>b', builtin.buffers, {})
