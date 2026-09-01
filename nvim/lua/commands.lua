@@ -25,20 +25,36 @@ vim.api.nvim_create_user_command(
     { nargs  = 0 }
 )
 
--- toggle line wrapping
-vim.api.nvim_create_user_command(
-    'RotateCapture',
-    function(opts)
-        vim.fn['functions#RotateCapture']()
-    end,
-    { nargs  = 0 }
-)
-
--- writing/prose mode
+-- writing/prose mode: toggle soft-wrap navigation for the current buffer
 vim.api.nvim_create_user_command(
     'Wm',
     function(opts)
-        vim.fn['functions#ToggleWrap']()
+        local nav = { 'j', 'k', '0', '^', '$' }
+        if vim.b.wrapenabled then
+            for _, key in ipairs(nav) do
+                vim.keymap.del({ 'n', 'v' }, key)
+            end
+            vim.keymap.del('n', 'A')
+            vim.keymap.del('n', 'I')
+            vim.opt_local.wrap = false
+            vim.opt_local.linebreak = false
+            vim.opt_local.spell = false
+            vim.opt_local.textwidth = 0
+            vim.opt_local.breakindent = false
+            vim.b.wrapenabled = false
+        else
+            for _, key in ipairs(nav) do
+                vim.keymap.set({ 'n', 'v' }, key, 'g' .. key)
+            end
+            vim.keymap.set('n', 'A', 'g$i')
+            vim.keymap.set('n', 'I', 'g^i')
+            vim.opt_local.wrap = true
+            vim.opt_local.linebreak = true
+            vim.opt_local.spell = true
+            vim.opt_local.textwidth = 0
+            vim.opt_local.breakindent = true
+            vim.b.wrapenabled = true
+        end
     end,
     { nargs  = 0 }
 )

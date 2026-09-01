@@ -15,40 +15,6 @@ function! functions#RotateCapture()
     normal jdd
 endfun
 
-let s:wrapenabled = 0
-function! functions#ToggleWrap()
-  if s:wrapenabled
-    unmap j
-    unmap k
-    unmap 0
-    unmap ^
-    unmap $
-    setlocal nowrap
-    setlocal nolinebreak
-    setlocal nospell
-    setlocal textwidth=0
-    setlocal nobreakindent
-    let s:wrapenabled = 0
-  else
-    nnoremap j gj
-    nnoremap k gk
-    nnoremap 0 g0
-    nnoremap ^ g^
-    nnoremap $ g$
-    vnoremap j gj
-    vnoremap k gk
-    vnoremap 0 g0
-    vnoremap ^ g^
-    vnoremap $ g$
-    setlocal wrap
-    setlocal linebreak
-    setlocal spell
-    setlocal textwidth=0
-    setlocal breakindent
-    let s:wrapenabled = 1
-  endif
-endfunction
-
 function! functions#Basename()
     execute "let @+ = fnamemodify('" . @% . "',':t')"
     echo 'Yanked: ' . @+

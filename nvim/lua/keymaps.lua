@@ -12,6 +12,9 @@ vim.keymap.set('n', '<Leader>l', function() print(vim.fn.expand('%:p')) end)
 -- toggle cursorline
 vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.cursorline end)
 
+-- spelling: replace z= with the insert-mode suggestion popup
+vim.keymap.set('n', 'z=', 'ea<C-x>s')
+
 -- search
 vim.keymap.set('n', '<Esc>', function() vim.cmd('nohlsearch') end)
 vim.keymap.set('n', '<Leader>h', function()
