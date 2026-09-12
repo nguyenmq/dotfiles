@@ -93,6 +93,7 @@ xresources_dpi = 96
 
 [i3.files]
 "i3/config" = "~/.config/i3/config"
+"picom/picom.conf" = "~/.config/picom/picom.conf"
 
 [i3.variables]
 i3_window_font_size = 9

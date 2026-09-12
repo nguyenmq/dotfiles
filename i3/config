@@ -229,6 +229,7 @@ bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 exec_always --no-startup-id "${HOME}/.config/polybar/launch.sh"
+exec_always --no-startup-id "picom"
 exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
 exec "/usr/bin/solaar --window hide --battery-icons symbolic"
