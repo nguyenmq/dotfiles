@@ -11,7 +11,7 @@ TEMPLATES_DIR="$RESOURCES_DIR/templates"
 
 call_fzf_on_files() {
     local parent_dir=$1
-    fzf --tac --preview "bat --color=always --style=numbers --line-range=:200 --theme light $parent_dir/{}"
+    fzf --tac --preview "bat --color=always --style=numbers --line-range=:200 $parent_dir/{}"
 }
 
 call_fzf_on_directories() {
@@ -45,7 +45,7 @@ cmd_new_note() {
 
     mkdir -p "$CAPTURE_DIR"
     echo "$filepath"
-    exec nvim --cmd "startinsert; cd ${CAPTURE_DIR}" "$filepath"
+    exec nvim --cmd "startinsert" --cmd "cd ${CAPTURE_DIR}" "$filepath"
 }
 
 # Create a brand new collection entry (project/domain/resource) with a main.md.
@@ -241,43 +241,43 @@ validate_required_directories() {
 validate_required_directories
 
 case "${1:-}" in
-    new)
+    new|n)
         case "${2:-}" in
-            project|projects)   cmd_new_collection "$PROJECTS_DIR"  "Project" ;;
-            domain|domains)     cmd_new_collection "$DOMAINS_DIR"   "Domain" ;;
-            resource|resources) cmd_new_collection "$RESOURCES_DIR" "Resource" ;;
-            "")                 cmd_new_note ;;
-            *)                  echo "Unknown: notes.sh new ${2}" >&2; exit 1 ;;
+            project|projects|p)   cmd_new_collection "$PROJECTS_DIR"  "Project" ;;
+            domain|domains|d)     cmd_new_collection "$DOMAINS_DIR"   "Domain" ;;
+            resource|resources|r) cmd_new_collection "$RESOURCES_DIR" "Resource" ;;
+            "")                   cmd_new_note ;;
+            *)                    echo "Unknown: notes.sh new ${2}" >&2; exit 1 ;;
         esac
         ;;
-    list)
+    list|l)
         case "${2:-}" in
-            project|projects)   list_collection "$PROJECTS_DIR" ;;
-            domain|domains)     list_collection "$DOMAINS_DIR" ;;
-            resource|resources) list_collection "$RESOURCES_DIR" ;;
-            "")                 cmd_list_notes ;;
-            *)                  echo "Unknown: notes.sh list ${2}" >&2; exit 1 ;;
+            project|projects|p)   list_collection "$PROJECTS_DIR" ;;
+            domain|domains|d)     list_collection "$DOMAINS_DIR" ;;
+            resource|resources|r) list_collection "$RESOURCES_DIR" ;;
+            "")                   cmd_list_notes ;;
+            *)                    echo "Unknown: notes.sh list ${2}" >&2; exit 1 ;;
         esac
         ;;
-    open)
+    open|o)
         case "${2:-}" in
-            project|projects)   cmd_open_collection "$PROJECTS_DIR" ;;
-            domain|domains)     cmd_open_collection "$DOMAINS_DIR" ;;
-            resource|resources) cmd_open_collection "$RESOURCES_DIR" ;;
-            "")                 cmd_open_note ;;
-            *)                  echo "Unknown: notes.sh open ${2}" >&2; exit 1 ;;
+            project|projects|p)   cmd_open_collection "$PROJECTS_DIR" ;;
+            domain|domains|d)     cmd_open_collection "$DOMAINS_DIR" ;;
+            resource|resources|r) cmd_open_collection "$RESOURCES_DIR" ;;
+            "")                   cmd_open_note ;;
+            *)                    echo "Unknown: notes.sh open ${2}" >&2; exit 1 ;;
         esac
         ;;
     cd)
         case "${2:-}" in
-            project|projects)   cmd_cd_collection "$PROJECTS_DIR" ;;
-            domain|domains)     cmd_cd_collection "$DOMAINS_DIR" ;;
-            resource|resources) cmd_cd_collection "$RESOURCES_DIR" ;;
-            "")                 cmd_cd_inbox ;;
-            *)                  echo "Unknown: notes.sh cd ${2}" >&2; exit 1 ;;
+            project|projects|p)   cmd_cd_collection "$PROJECTS_DIR" ;;
+            domain|domains|d)     cmd_cd_collection "$DOMAINS_DIR" ;;
+            resource|resources|r) cmd_cd_collection "$RESOURCES_DIR" ;;
+            "")                   cmd_cd_inbox ;;
+            *)                    echo "Unknown: notes.sh cd ${2}" >&2; exit 1 ;;
         esac
         ;;
-    review)
+    review|rev|r)
         cmd_review
         ;;
     *)
