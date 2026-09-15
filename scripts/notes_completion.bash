@@ -17,12 +17,15 @@ _notes_sh() {
 
     case "$COMP_CWORD" in
         1)
-            COMPREPLY=($(compgen -W "new list open cd review" -- "$cur"))
+            COMPREPLY=($(compgen -W "new list open cd review timebox" -- "$cur"))
             ;;
         2)
             case "$prev" in
-                new|list|open|cd)
+                new|list|open|cd|n|l|o)
                     COMPREPLY=($(compgen -W "project domain resource" -- "$cur"))
+                    ;;
+                timebox|t)
+                    COMPREPLY=($(compgen -W "tomorrow yesterday sunday monday tuesday wednesday thursday friday saturday" -- "$cur"))
                     ;;
             esac
             ;;

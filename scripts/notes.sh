@@ -8,6 +8,7 @@ PROJECTS_DIR="$NOTES_ROOT/projects"
 DOMAINS_DIR="$NOTES_ROOT/domains"
 RESOURCES_DIR="$NOTES_ROOT/resources"
 TEMPLATES_DIR="$RESOURCES_DIR/templates"
+TIMEBOX_TEMPLATE_PATH="$TEMPLATES_DIR/timebox.md"
 
 call_fzf_on_files() {
     local parent_dir=$1
@@ -218,6 +219,27 @@ cmd_review() {
     done
 }
 
+cmd_timebox() {
+    local date
+    local filename
+    local filepath
+
+    if [[ -z "$1" ]]; then
+        date="$(date +%Y-%m-%d)"
+    else
+        date="$(date -d "$1" +%Y-%m-%d)" || exit 1
+    fi
+
+    filename="${date}__timebox.md"
+    filepath="${CAPTURE_DIR}/${filename}"
+
+    if [[ ! -e "$filepath" ]]; then
+        sed "s/{date}/${date}/g" "$TIMEBOX_TEMPLATE_PATH" > "$filepath"
+    fi
+    echo "$filepath"
+    exec nvim --cmd "cd ${NOTES_ROOT}" "$filepath"
+}
+
 validate_required_directories() {
     local required_directories
     local directory
@@ -279,6 +301,9 @@ case "${1:-}" in
         ;;
     review|rev|r)
         cmd_review
+        ;;
+    timebox|t)
+        cmd_timebox "${2:-}"
         ;;
     *)
         echo "Usage: notes.sh {new|list|open|cd} [project|domain|resource] | notes.sh review"
