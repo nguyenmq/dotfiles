@@ -50,11 +50,25 @@ function ks() {
     done
 }
 
+# Copy a file's absolute path to the clipboard. Uses xclip in a local X
+# session; on a remote host (over ssh, inside tmux) falls back to OSC 52 so
+# that the path also copies to the local clipboard.
 function cp-path {
     if [[ -z "$1" ]]; then
-        echo "No file supplied"
-    else
-        realpath "$1" | tr -d '[\n\r]' | xclip -selection clipboard -in
-        printf "%s\n" "$(xclip -selection clipboard -out)"
+        echo "No file supplied" >&2
+        return 1
     fi
+
+    local path
+    path=$(realpath "$1" | tr -d '\n\r')
+
+    if command -v xclip &> /dev/null && [[ -n "$DISPLAY" ]]; then
+        printf '%s' "$path" | xclip -selection clipboard -in
+    elif [[ -n "$TMUX" ]]; then
+        tmux set-buffer -w "$path"
+    else
+        printf '\033]52;c;%s\a' "$(printf '%s' "$path" | base64 | tr -d '\n')"
+    fi
+
+    printf '%s\n' "$path"
 }
