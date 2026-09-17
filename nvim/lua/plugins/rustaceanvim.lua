@@ -1,7 +1,6 @@
 return {
     'mrcjkb/rustaceanvim',
-    version = '^5',
-    lazy = true,
+    version = '^9',
     init = function()
         vim.g.rustaceanvim = {
             server = {
