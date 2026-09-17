@@ -9,6 +9,10 @@ vim.keymap.set('n', '<C-L>', '<C-W>l')
 vim.keymap.set('n', '<Leader>x', '<cmd>q<cr>')
 vim.keymap.set('n', '<Leader>l', function() print(vim.fn.expand('%:p')) end)
 
+-- use ctrl+tab to change tabs
+vim.keymap.set({ 'n', 'i', 't' }, '<C-Tab>', '<cmd>tabnext<cr>')
+vim.keymap.set({ 'n', 'i', 't' }, '<C-S-Tab>', '<cmd>tabprevious<cr>')
+
 -- toggle cursorline
 vim.keymap.set('n', '<Leader>cl', function() vim.opt.cursorline = not vim.o.cursorline end)
 
