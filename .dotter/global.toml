@@ -74,6 +74,7 @@ term_window_padding_width = 0.0
 fzf_shell_completions = "/usr/share/fzf/completion.bash"
 fzf_shell_bindings = "/usr/share/fzf/key-bindings.bash"
 tmux_clipboard_cmd = "xclip -in -selection clipboard"
+local_tmux = true
 
 [vim.files]
 "vim/vimrc" = "~/.vim/vimrc"
