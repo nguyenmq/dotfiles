@@ -43,17 +43,43 @@ show_bg_jobs() {
     fi
 }
 
+# Show the full direcotry path when it fits in 80 columns, else shorten parent
+# components to their first character (similar to nvim pathshorten)
+format_pwd() {
+    local target=80
+    local dir="${PWD/#$HOME/\~}"
+    if (( ${#dir} <= target )); then
+        printf '%s' "$dir"
+        return
+    fi
+
+    local -a parts; IFS='/' read -ra parts <<< "$dir"
+    local last=$(( ${#parts[@]} - 1 )) out="" i seg
+    for i in "${!parts[@]}"; do
+        seg="${parts[$i]}"
+        if (( i == last )) || [[ -z "$seg" ]]; then
+            out+="$seg"
+        elif [[ "$seg" == .* ]]; then
+            out+="${seg:0:2}"
+        else
+            out+="${seg:0:1}"
+        fi
+        (( i < last )) && out+="/"
+    done
+    printf '%s' "$out"
+}
+
 # Exports
 export EDITOR=nvim
 if [[ "$HOSTNAME" == "toolbx" ]]; then
-    export PS1="\[\e[00;35m\][ \[\e[01;35m\]\u@\h:\[\e[00;33m\]\w\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
+    export PS1="\[\e[00;35m\][ \[\e[01;35m\]\u@\h:\[\e[00;33m\]\$(format_pwd)\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
 elif [[ -n "${SSH_CLIENT+x}" ]]; then
     # Else this is an ssh session. Change the prompt colors so it's more
     # obvious this isn't a local machine
-    export PS1="\[\e[00;36m\][ \[\e[01;36m\]\u@\h:\[\e[00;33m\]\w\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
+    export PS1="\[\e[00;36m\][ \[\e[01;36m\]\u@\h:\[\e[00;33m\]\$(format_pwd)\[\e[00;31m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;36m\] ]\n\[\e[00;36m\]$ \[\e[0m\]"
 else
     # Default to local terminal session
-    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\w\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
+    export PS1="\[\e[00;32m\][ \[\e[01;32m\]\u@\h:\[\e[00;34m\]\$(format_pwd)\[\e[00;33m\]\$(parse_git_branch)\$(show_bg_jobs)\[\e[00;32m\] ]\n\[\e[00;32m\]$ \[\e[0m\]"
 fi
 
 # man pager color -- escapes for urxvt/xterm
