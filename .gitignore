@@ -5,4 +5,6 @@ vim/spell
 .dotter/local.toml
 .dotter/cache.toml
 .dotter/cache
+.dotter/monitors*.toml
 .rgignore
+nvim/lua/local_extensions.lua
