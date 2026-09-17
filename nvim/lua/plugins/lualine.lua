@@ -10,6 +10,7 @@ return {
                 component_separators = { left = '│', right = '│'},
                 section_separators = '',
                 always_divide_middle = true,
+                always_show_tabline = false,
             },
             sections = {
                 lualine_a = {'location'},
