@@ -46,7 +46,7 @@ vim.api.nvim_create_user_command(
             for _, key in ipairs(nav) do
                 vim.keymap.set({ 'n', 'v' }, key, 'g' .. key)
             end
-            vim.keymap.set('n', 'A', 'g$i')
+            vim.keymap.set('n', 'A', 'g$a')
             vim.keymap.set('n', 'I', 'g^i')
             vim.opt_local.wrap = true
             vim.opt_local.linebreak = true
