@@ -1,0 +1,11 @@
+#!/bin/sh
+# systemd system-sleep hook: restart the user's xiccd after resume so the
+# ICC profile / VCGT is re-applied (xiccd doesn't reliably reload on resume).
+# Install: chmod +x and copy to /usr/lib/systemd/system-sleep/xiccd
+
+[ "$1" = post ] || exit 0
+
+user=<replace-with-username>
+uid=$(id -u "$user") || exit 0
+
+su "$user" -c "XDG_RUNTIME_DIR=/run/user/$uid systemctl --user restart xiccd.service" || true

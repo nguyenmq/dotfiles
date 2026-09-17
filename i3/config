@@ -133,7 +133,7 @@ bindsym $mod+Control+d floating toggle
 bindsym $mod+Control+n focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+#bindsym $mod+a focus parent
 
 # disable mouse warping
 focus_follows_mouse no
@@ -234,6 +234,5 @@ exec "unclutter --fork --timeout 3"
 exec "/usr/bin/nm-applet"
 exec "/usr/bin/solaar --window hide --battery-icons symbolic"
 exec "/usr/bin/xss-lock -- {{i3_locker}}"
-exec "/usr/bin/xiccd"
 bindsym $mod+semicolon [class="Alacritty"] scratchpad show
 {{i3_additional_execs}}

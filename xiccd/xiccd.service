@@ -1,0 +1,13 @@
+[Unit]
+Description=Start xiccd (X11 ICC profile / colord bridge)
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/xiccd
+Restart=always
+Environment="DISPLAY=:0"
+Environment="XAUTHORITY=%h/.Xauthority"
+RestartSec=5
+
+[Install]
+WantedBy=default.target
