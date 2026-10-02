@@ -62,3 +62,6 @@
     min-height: 0px !important;
 }
 
+.browserContainer {
+    border: 0px !important;
+}
