@@ -3,32 +3,19 @@
  * https://firefox-source-docs.mozilla.org/devtools-user/browser_toolbox/index.html
  *
  * To help debug menu popups, set ui.popup.disable_autohide=false in about:config
+ *
+ * You can use the Firefox Color extension plus the browser toolbox to inspect
+ * what computed color values that extension sets.
+ *
+ * This current version needs to work in tandem with Firefox Color
  */
 
 * {
     font-family: "{{firefox_font}}";
     font-size: 12px;
     font-weight: 500;
-    border-radius: 0px !important;
-    --urlbar-margin-inline: 0.4em;
-    --toolbar-field-color: {{black}};
-    --toolbar-field-focus-background-color: {{black}};
-    --toolbar-field-focus-color: {{black}};
-
-    /* url bar background colors */
-    --toolbar-field-background-color-focus: {{white}};
-    --toolbar-field-background-color: {{white}};
-
-    /* url bar text colors */
-    --toolbar-field-text-color-focus: {{black}};
-    --toolbar-field-text-color: {{black}};
-
-    /* toolbar button text color */
-    --toolbar-text-color: {{black}};
-    --panel-box-shadow-margin: 0px;
-
-    /* url bar badges (e.g. search badge) background color */
-    --urlbar-box-background-color: {{white}};
+    --toolbox-background-color: {{ui_accent}};
+    --sidebar-border-color: {{ui_accent}};
 }
 
 ::selection {
@@ -41,14 +28,16 @@
 }
 
 #sidebar-splitter {
-    background-color: {{ui_accent}} !important;
     border: 0px !important;
-    width: 1px !important;
-    min-width: 1px !important;
 }
 
-#sidebar-header {
+#sidebar-panel-header {
     display: none;
+}
+
+#sidebar-box {
+    padding-left: 5px !important;
+    background-color: {{white}} !important;
 }
 
 /* Minimize fullscreen transition time */
@@ -65,24 +54,11 @@
     padding: 0.6em !important;
 }
 
-#navigator-toolbox {
-    --chrome-content-separator-color: {{ui_accent}} !important;
-    padding: 0.4em;
-    background-color: {{ui_accent}};
-}
-
 #nav-bar {
     border-top: 0px !important;
-}
-
-.browser-toolbar {
-    background-color: {{ui_accent}} !important;
 }
 
 #urlbar-container[breakout] {
     min-height: 0px !important;
 }
 
-.urlbar {
-    background-color: {{white}} !important;
-}
