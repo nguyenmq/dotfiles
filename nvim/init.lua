@@ -13,3 +13,6 @@ require("config.lazy")
 -- settings after loading plugins
 vim.cmd('colorscheme olive')
 vim.opt.showtabline = 1
+
+-- knowledge-base commands/keymaps (mirrors the `nt` CLI)
+require("notes").setup()
