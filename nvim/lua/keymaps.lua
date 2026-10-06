@@ -188,3 +188,5 @@ function select_code_fence()
   end
 end
 vim.keymap.set({'x', 'o'}, 'if', select_code_fence, { desc = "Inner code fence" })
+
+return { vert_split_percent = vert_split_percent }
