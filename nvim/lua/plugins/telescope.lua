@@ -36,6 +36,7 @@ return {
                 borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
                 dynamic_preview_title = true,
                 results_title = false,
+                treesitter = true,
             },
             pickers = {
                 buffers = {
