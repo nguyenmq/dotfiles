@@ -78,21 +78,27 @@ cmd_new_collection() {
     local base
     local label
     local create_sentinel
+    local create_file_sentinel
     local selected_entry
     local template_sentinel
     local selected_template
+    local basepath
     base="$1"
     label="$2"
     create_sentinel="Create new ${label,,}"
-    selected_entry=$( { echo "$create_sentinel"; list_collection "$base"; } | call_fzf_on_directories "$base") || exit 0
+    create_file_sentinel="Create new file here"
+    selected_entry=$( { echo "$create_sentinel"; echo "$create_file_sentinel"; list_collection "$base"; } | call_fzf_on_directories "$base") || exit 0
     template_sentinel="Skip template"
+    basepath="${base}/${selected_entry}"
 
     if [[ "$selected_entry" == "$create_sentinel" ]]; then
         create_collection_entry "$base" "$label"
+    elif [[ -d "$basepath" ]]; then
+        cmd_new_collection "$basepath" "$label"
     else
         local slug
         slug=$(prompt_name "File name")
-        local filepath="${base}/${selected_entry}/${slug}.md"
+        local filepath="${base}/${slug}.md"
         echo "$filepath"
         selected_template=$( { list_files "$TEMPLATES_DIR"; echo "$template_sentinel"; } | call_fzf_on_files "$TEMPLATES_DIR") || exit 0
 
@@ -100,7 +106,7 @@ cmd_new_collection() {
             cp "$TEMPLATES_DIR/$selected_template" "$filepath"
         fi
 
-        exec nvim --cmd "cd ${base}/${selected_entry}" "$filepath"
+        exec nvim --cmd "cd ${base}" "$filepath"
     fi
 }
 
