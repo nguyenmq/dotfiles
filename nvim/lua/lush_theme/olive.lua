@@ -48,7 +48,7 @@ local theme = lush(function(injected_functions)
     --
     -- See :h highlight-groups
     --
-    Normal          { fg = black_almost, bg = white }, -- Normal text
+    Normal          { fg = black_almost }, -- Normal text
     ColorColumn     { fg = Normal.fg, bg = gray_light }, -- Columns set with 'colorcolumn'
     Cursor          { bg = Normal.fg, fg = Normal.bg }, -- Character under the cursor
     Search          { fg = Normal.fg, bg = yellow_light }, -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
@@ -61,7 +61,7 @@ local theme = lush(function(injected_functions)
     CursorLine      { fg = Normal.fg, bg = yellow_pale }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
     CursorColumn    { CursorLine }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
     Directory       { fg = blue } , -- Directory names (and other special names in listings)
-    DiffAdd         { bg = green_light }, -- Diff mode: Added line |diff.txt|
+    DiffAdd         { bg = green.desaturate(30).lighten(85) }, -- Diff mode: Added line |diff.txt|
     DiffChange      { DiffAdd }, -- Diff mode: Changed line |diff.txt|
     DiffDelete      { fg = red, bg = red.desaturate(30).lighten(85) }, -- Diff mode: Deleted line |diff.txt|
     DiffText        { fg = Normal.fg, bg = DiffAdd.bg.desaturate(30).darken(10), gui = "bold" }, -- Diff mode: Changed text within a changed line |diff.txt|
@@ -274,10 +274,10 @@ local theme = lush(function(injected_functions)
     RenderMarkdownUnchecked    { fg = blue_light },
     RenderMarkdownChecked      { RenderMarkdownUnchecked },
     RenderMarkdownBullet       { fg = blue_dark },
-    RenderMarkdownCode         { bg = gray_lighter },
+    RenderMarkdownCode         { fg = lavender, bg = gray_lighter },
     RenderMarkdownCodeInline   { RenderMarkdownCode },
     RenderMarkdownDash         { fg = gray_darker },
-    RenderMarkdownH1Bg         { fg = green, bg = green_bright.lighten(90) },
+    RenderMarkdownH1Bg         { fg = green, bg = ui_accent.lighten(85) },
 }
 end)
 

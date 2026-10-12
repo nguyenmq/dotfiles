@@ -3,39 +3,39 @@
 [colors.variables]
 # base colors
 black = "#000000"
-black_almost = "#12181a"
-blue = "#116dd5"
+black_almost = "#1c1c1c"
+blue = "#3c6e8f"
 blue_dark = "#08366a"
 blue_light = "#7bc6e5"
-gray_dark = "#c7c7c7"
-gray_darker = "#767676"
-gray_light = "#eeeeee"
-gray_lighter = "#f8f8f8"
-green = "#008958"
+gray_dark = "#c6c3ba"
+gray_darker = "#7c7a74"
+gray_light = "#dfdbd1"
+gray_lighter = "#f8f4e9"
+green = "#437742"
 green_dark = "#0b421a"
 green_bright = "#2bb24c"
-green_light = "#dafbe1"
-lavender = "#875faf"
-magenta = "#f7436f"
-red = "#ff4646"
+green_light = "#d9e3d9"
+lavender = "#7a4e8f"
+magenta = "#d46d7a"
+red = "#9e2b3d"
 red_dark = "#b23131"
-white_almost = "#f9fafb"
+white_almost = "#fbf9f4"
 white = "#ffffff"
-yellow = "#f5a553"
+yellow = "#d4af37"
 yellow_light = "#e5dd80"
 yellow_pale = "#ffff87"
 # the primary color of status bar ui elements
-ui_primary = "#235b51"
+ui_primary = "#253122"
 # the accent color for contrasting with the primary color, usual to denote
 # selection of an item.
-ui_accent = "#559e83"
+ui_accent = "#437742"
 # when you need a brighter/darker ui accent color to contrast with the primary
-ui_accent_alt = "#1e382e"
+ui_accent_alt = "#501345"
 # the text color when it appears inside ui elements
 ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color
 ui_text_accent_alt = "#c7c7c7"
-firefox_main_color = "#cce7de"
+firefox_main_color = "#c1c494"
 
 # local variables:
 #   fullname

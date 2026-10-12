@@ -14,8 +14,8 @@
     font-family: "{{firefox_font}}";
     font-size: 12px;
     font-weight: 500;
-    --toolbox-background-color: {{ui_accent}};
-    --sidebar-border-color: {{ui_accent}};
+    --toolbox-background-color: {{firefox_main_color}};
+    --sidebar-border-color: {{firefox_main_color}};
 }
 
 ::selection {
@@ -28,7 +28,7 @@
 }
 
 #sidebar-splitter {
-    border: 0px !important;
+    border: 2px !important;
 }
 
 #sidebar-panel-header {
