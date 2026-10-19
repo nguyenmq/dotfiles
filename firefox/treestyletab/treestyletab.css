@@ -65,6 +65,7 @@ tab-item-substance {
     --ThreeDShadow: rgba(0, 0, 0, 0);
     --ThreeDHightlight: rgba(0, 0, 0, 0);
     --AppWorkspace: rgba(0, 0, 0, 0);
+    --tab-highlighter-size: 0px !important;
 }
 
 /* change the base box to layout position:absolute box, from the root container box to the tab item */
