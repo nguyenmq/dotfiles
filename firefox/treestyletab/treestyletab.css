@@ -104,3 +104,15 @@ tab-item tab-item-substance:hover {
     background: {{ui_accent}} !important;
     opacity: 1;
 }
+
+tab-item[data-group-id]:not([data-group-id="-1"]) {
+	--space-xsmall: 0.267rem;
+	--space-xxsmall: calc(0.5 * var(--space-xsmall));
+	--space-medium: calc(3 * var(--space-xsmall));
+	--tab-group-member-indent: var(--space-medium);
+	--tab-group-line-color: var(--tab-group-color);
+}
+
+.in-content-panel-contents-inner-box {
+    background-color: {{white_almost}};
+}
