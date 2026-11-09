@@ -1,1 +1,1 @@
- --color "current-bg:{{green}},current-fg:{{white}},gutter:{{ui_primary}},hl:{{green}},pointer:{{green}},info:{{yellow}}" --height 60% --layout reverse --cycle
+ --color "current-bg:{{green}},current-fg:{{white}},gutter:{{surface_one}},hl:{{green}},pointer:{{green}},info:{{yellow}}" --height 60% --layout reverse --cycle

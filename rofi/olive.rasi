@@ -1,12 +1,12 @@
 * {
     font:                       "{{rofi_font_family}} {{rofi_font_size}}";
-    background-color:           {{black_almost}};
-    text-color:                 {{gray_dark}};
-    selbg:                      {{ui_accent}};
-    actbg:                      {{ui_primary}};
+    background-color:           {{surface_black}};
+    text-color:                 {{surface_white}};
+    selbg:                      {{highlight_one}};
+    actbg:                      {{surface_one}};
     urgbg:                      {{red}};
-    winfg:                      {{white}};
-    highlight:                  bold {{white}};
+    winfg:                      {{surface_white}};
+    highlight:                  bold {{surface_white}};
 
     selected-normal-foreground: @winfg;
     normal-foreground:          @text-color;
@@ -46,21 +46,21 @@ mainbox {
 
 button {
     padding:          1em;
-    background-color: {{black_almost}};
-    text-color:       {{gray_light}};
+    background-color: @background-color;
+    text-color:       @text-color;
     width:            3em;
 }
 
 button selected {
-    background-color: {{ui_primary}};
-    text-color:       {{white}};
+    background-color: @selbg;
+    text-color:       @winfg;
 }
 
 inputbar {
     spacing:      {{i3_border_width}};
     children:     [entry, mode-switcher];
     border:       {{i3_border_width}}px;
-    border-color: {{black_almost}};
+    border-color: @background-color;
 }
 
 mode-switcher {
@@ -71,8 +71,8 @@ mode-switcher {
 }
 
 prompt {
-    background-color: {{ui_primary}};
-    text-color:       {{white}};
+    background-color: {{surface_one}};
+    text-color:       {{surface_white}};
     padding:          1em;
 }
 
@@ -80,7 +80,7 @@ listview {
     spacing:      0.5em;
     dynamic:      false;
     border:       0 {{i3_border_width}}px;
-    border-color: {{black_almost}};
+    border-color: @background-color;
 }
 
 element {
@@ -90,8 +90,8 @@ element {
 
 entry {
     expand:           true;
-    background-color: {{white}};
-    text-color:       {{black_almost}};
+    background-color: {{surface_white}};
+    text-color:       {{surface_black}};
     vertical-align:   1;
     padding:          1em;
     placeholder:      "···";

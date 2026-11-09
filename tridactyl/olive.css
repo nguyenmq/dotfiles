@@ -3,7 +3,7 @@
     --tridactyl-bg: {{white}};
     --tridactyl-url-fg: {{magenta}};
     --tridactyl-url-bg: {{white}};
-    --tridactyl-highlight-box-bg: {{ui_accent}};
+    --tridactyl-highlight-box-bg: {{highlight_two}};
     --tridactyl-highlight-box-fg: {{ui_text_accent}};
 
     /* Hint character tags */
@@ -20,7 +20,7 @@
 
 #command-line-holder {
     order: 1;
-    border: 2px solid {{ui_accent}};
+    border: 2px solid {{highlight_two}};
     color: var(--tridactyl-bg);
 }
 
@@ -116,18 +116,18 @@
     bottom: 0 !important;
     background: var(--tridactyl-bg) !important;
     border: unset !important;
-    border: 1px {{ui_accent}} solid !important;
+    border: 1px {{highlight_two}} solid !important;
     font-size: 8pt !important;
     padding: 0.8ex !important;
 }
 
 #completions .focused {
-    background: {{ui_accent}};
+    background: {{highlight_two}};
     color: {{ui_text_accent}};
 }
 
 #completions .focused .url {
-    background: {{ui_accent}};
+    background: {{highlight_two}};
     color: {{ui_text_accent}};
 }
 /* #Ocean-normal { */

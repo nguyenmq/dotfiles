@@ -26,9 +26,9 @@ local white = hsl("{{white}}")
 local yellow = hsl("{{yellow}}")
 local yellow_light = hsl("{{yellow_light}}")
 local yellow_pale = hsl("{{yellow_pale}}")
-local ui_primary = hsl("{{ui_primary}}")
-local ui_accent = hsl("{{ui_accent}}")
-local ui_accent_alt = hsl("{{ui_accent_alt}}")
+local surface_one = hsl("{{surface_one}}")
+local highlight_two = hsl("{{highlight_two}}")
+local highlight_one = hsl("{{highlight_one}}")
 local ui_text_accent = hsl("{{ui_text_accent}}")
 local ui_text_accent_alt = hsl("{{ui_text_accent_alt}}")
 
@@ -69,25 +69,25 @@ local theme = lush(function(injected_functions)
     -- TermCursor     { }, -- Cursor in a focused terminal
     -- TermCursorNC   { }, -- Cursor in an unfocused terminal
     ErrorMsg        { fg = white, bg = magenta }, -- Error messages on the command line
-    VertSplit       { fg = ui_primary, bg = ui_primary }, -- Column separating vertically split windows
+    VertSplit       { fg = surface_one, bg = surface_one }, -- Column separating vertically split windows
     Folded          { fg = blue, bg = white }, -- Line used for closed folds
-    FoldColumn      { fg = ui_text_accent, bg = ui_accent }, -- 'foldcolumn'
-    SignColumn      { fg = ui_primary, bg = gray_light }, -- Column where |signs| are displayed
-    LineNr          { fg = ui_primary, bg = gray_light }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
-    LineNrAbove     { fg = ui_primary, bg = gray_light }, -- Line number for when the 'relativenumber' option is set, above the cursor line
+    FoldColumn      { fg = ui_text_accent, bg = highlight_two }, -- 'foldcolumn'
+    SignColumn      { fg = surface_one, bg = gray_light }, -- Column where |signs| are displayed
+    LineNr          { fg = surface_one, bg = gray_light }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNrAbove     { fg = surface_one, bg = gray_light }, -- Line number for when the 'relativenumber' option is set, above the cursor line
     LineNrBelow     { LineNrAbove }, -- Line number for when the 'relativenumber' option is set, below the cursor line
     CursorLineNr    { LineNr }, -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
     -- CursorLineFold { }, -- Like FoldColumn when 'cursorline' is set for the cursor line
     CursorLineSign  { SignColumn }, -- Like SignColumn when 'cursorline' is set for the cursor line
     MatchParen      { fg = blue, bg = gray_dark }, -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
-    ModeMsg         { fg = ui_primary }, -- 'showmode' message (e.g., "-- INSERT -- ")
+    ModeMsg         { fg = surface_one }, -- 'showmode' message (e.g., "-- INSERT -- ")
     MsgArea         { Normal }, -- Area for messages and cmdline
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     MoreMsg         { fg = yellow }, -- |more-prompt|
     NonText         { fg = gray_dark }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
     NormalFloat     { Normal }, -- Normal text in floating windows.
-    FloatBorder     { fg = ui_primary, bg = NormalFloat.bg }, -- Border of floating windows.
-    FloatTitle      { Normal, fg = ui_primary }, -- Title of floating windows.
+    FloatBorder     { fg = surface_one, bg = NormalFloat.bg }, -- Border of floating windows.
+    FloatTitle      { Normal, fg = surface_one }, -- Title of floating windows.
     -- NormalNC       { }, -- normal text in non-current windows
     Pmenu           { fg = green, bg = gray_light }, -- Popup menu: Normal item.
     PmenuSel        { fg = white, bg = green }, -- Popup menu: Selected item.
@@ -104,11 +104,11 @@ local theme = lush(function(injected_functions)
     SpellCap        { fg = blue, gui = "underline" }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
     -- SpellLocal     { }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
     -- SpellRare      { }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
-    StatusLine      { fg = white, bg = ui_primary }, -- Status line of current window
-    StatusLineNC    { fg = gray_light, bg = ui_primary }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-    TabLine         { fg = white, bg = ui_primary }, -- Tab pages line, not active tab page label
+    StatusLine      { fg = white, bg = surface_one }, -- Status line of current window
+    StatusLineNC    { fg = gray_light, bg = surface_one }, -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+    TabLine         { fg = white, bg = surface_one }, -- Tab pages line, not active tab page label
     TabLineFill     { TabLine }, -- Tab pages line, where there are no labels
-    TabLineSel      { fg = white, bg = ui_accent }, -- Tab pages line, active tab page label
+    TabLineSel      { fg = white, bg = highlight_two }, -- Tab pages line, active tab page label
     Title          { fg = green, gui = "bold" }, -- Titles for output from ":set all", ":autocmd" etc.
     Visual          { bg = gray_light }, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
@@ -277,7 +277,7 @@ local theme = lush(function(injected_functions)
     RenderMarkdownCode         { fg = lavender, bg = gray_lighter },
     RenderMarkdownCodeInline   { RenderMarkdownCode },
     RenderMarkdownDash         { fg = gray_darker },
-    RenderMarkdownH1Bg         { fg = green, bg = ui_accent.lighten(85) },
+    RenderMarkdownH1Bg         { fg = green, bg = highlight_two.lighten(85) },
 }
 end)
 

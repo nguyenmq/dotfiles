@@ -20,7 +20,7 @@ tab-label {
 
 tab-item tab-item-substance[type="tab"] {
     color: {{black}};
-    background-color: {{white_almost}};
+    background-color: {{surface_white}};
     box-shadow: none;
 }
 
@@ -30,11 +30,11 @@ tab-item tab-item-substance[type="group"] {
 }
 
 tab-item tab-item-substance[type="group"] .label-content {
-    color: {{white_almost}};
+    color: {{surface_white}};
 }
 
 tab-item.active tab-item-substance {
-    background-color: {{ui_accent_alt}};
+    background-color: {{highlight_one}};
 }
 
 tab-item.active .label-content {
@@ -74,7 +74,7 @@ tab-item-substance {
 }
 
 :root.sidebar #background {
-    background: {{white_almost}};
+    background: {{surface_white}};
 }
 
 .newtab-button-box {
@@ -97,11 +97,11 @@ tab-item:not(.faviconized):not(.loading) tab-favicon {
 /* set the text color when hovering over a tab */
 tab-item tab-item-substance:hover .label-content,
 tab-item tab-item-substance:hover tab-twisty {
-    color: {{white_almost}} !important;
+    color: {{surface_white}} !important;
 }
 
 tab-item tab-item-substance:hover {
-    background: {{ui_accent}} !important;
+    background: {{highlight_two}} !important;
     opacity: 1;
 }
 
@@ -114,5 +114,5 @@ tab-item[data-group-id]:not([data-group-id="-1"]) {
 }
 
 .in-content-panel-contents-inner-box {
-    background-color: {{white_almost}};
+    background-color: {{surface_white}};
 }

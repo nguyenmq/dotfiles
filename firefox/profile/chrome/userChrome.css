@@ -14,8 +14,8 @@
     font-family: "{{firefox_font}}";
     font-size: 12px;
     font-weight: 500;
-    --toolbox-background-color: {{firefox_main_color}};
-    --sidebar-border-color: {{firefox_main_color}};
+    --toolbox-background-color: {{surface_two}};
+    --sidebar-border-color: {{surface_two}};
 }
 
 ::selection {

@@ -24,18 +24,24 @@ white = "#ffffff"
 yellow = "#d4af37"
 yellow_light = "#e5dd80"
 yellow_pale = "#ffff87"
-# the primary color of status bar ui elements
-ui_primary = "#253122"
-# the accent color for contrasting with the primary color, usual to denote
-# selection of an item.
-ui_accent = "#437742"
-# when you need a brighter/darker ui accent color to contrast with the primary
-ui_accent_alt = "#501345"
+
+# surface one: color for status bars and other ui elements
+# surface two: color for windows e.g. firefox window
+# surface white: background white color
+surface_one = "#253122"
+surface_two = "#c1c494"
+surface_white = "#fbf9f4"
+surface_black = "#1c1c1c"
+
+# highlight one: selected elements, button surfaces
+# highlight two: alternate selected elements
+highlight_one = "#501345"
+highlight_two = "#437742"
+
 # the text color when it appears inside ui elements
 ui_text_accent = "#fcfdfe"
 # when you need a brighter/darker text accent color
 ui_text_accent_alt = "#c7c7c7"
-firefox_main_color = "#c1c494"
 
 # local variables:
 #   fullname

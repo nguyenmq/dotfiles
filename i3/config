@@ -44,10 +44,10 @@ title_align center
 
 # Window colors
 # colorclass            hdr_bdr           bg                text      indic          btm_bdr
-client.focused          {{ui_accent_alt}} {{ui_accent_alt}} {{white}} {{ui_accent}}  {{ui_accent_alt}}
-client.focused_inactive {{ui_primary}}    {{ui_primary}}    {{black}} {{ui_primary}} {{ui_primary}}
-client.unfocused        {{ui_primary}}    {{ui_primary}}    {{white}} {{ui_primary}} {{ui_primary}}
-client.urgent           {{lavender}}      {{lavender}}      {{white}} {{ui_accent}}  {{ui_accent}}
+client.focused          {{highlight_one}} {{highlight_one}} {{white}} {{highlight_two}}  {{highlight_one}}
+client.focused_inactive {{surface_one}}    {{surface_one}}    {{black}} {{surface_one}} {{surface_one}}
+client.unfocused        {{surface_one}}    {{surface_one}}    {{white}} {{surface_one}} {{surface_one}}
+client.urgent           {{lavender}}      {{lavender}}      {{white}} {{highlight_two}}  {{highlight_two}}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
