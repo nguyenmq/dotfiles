@@ -1,0 +1,42 @@
+[colors.variables]
+# base colors
+black = "#000000"
+black_almost = "#12181a"
+blue = "#116dd5"
+blue_dark = "#08366a"
+blue_light = "#7bc6e5"
+gray_dark = "#c7c7c7"
+gray_darker = "#767676"
+gray_light = "#eeeeee"
+gray_lighter = "#f8f8f8"
+green = "#008958"
+green_dark = "#0b421a"
+green_bright = "#2bb24c"
+green_light = "#dafbe1"
+lavender = "#875faf"
+magenta = "#f7436f"
+red = "#ff4646"
+red_dark = "#b23131"
+white_almost = "#f9fafb"
+white = "#ffffff"
+yellow = "#f5a553"
+yellow_light = "#e5dd80"
+yellow_pale = "#ffff87"
+
+# surface one: color for status bars and other ui elements
+# surface two: color for windows e.g. firefox window
+# surface white: background white color
+surface_one = "#235b51"
+surface_two = "#cce7de"
+surface_white = "#ffffff"
+surface_black = "#000000"
+
+# highlight one: selected elements, button surfaces
+# highlight two: alternate selected elements
+highlight_one = "#559e83"
+highlight_two = "#1e382e"
+
+# the text color when it appears inside ui elements
+ui_text_accent = "#fcfdfe"
+# when you need a brighter/darker text accent color
+ui_text_accent_alt = "#c7c7c7"
